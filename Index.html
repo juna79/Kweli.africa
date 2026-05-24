@@ -900,14 +900,12 @@
       .mobile-menu.open { display: block; }
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
       .product-cards { grid-template-columns: 1fr; }
-      .flow-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
+      .flow-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
       .flow-grid::before { display: none; }
       .use-grid { grid-template-columns: 1fr 1fr; }
       .tech-layout { grid-template-columns: 1fr; }
-      .demo-layout { grid-template-columns: 1fr; }
+      .qrdemo-layout { grid-template-columns: 1fr; }
+      .adv-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
     }
 
@@ -922,6 +920,8 @@
       .flow-grid, .use-grid, .team-grid { grid-template-columns: 1fr; }
       .vc-qr { grid-template-columns: 1fr; }
       .contact-panel { padding: 36px 24px; }
+      .doc-meta-row { grid-template-columns: 1fr 1fr; }
+      .doc-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   
     /* ==============================
@@ -1026,6 +1026,140 @@
       font-size: 9.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
       color: rgba(176,141,87,0.7); border: 1px solid rgba(176,141,87,0.2);
       padding: 3px 8px; border-radius: 4px; background: rgba(176,141,87,0.04);
+    }
+
+
+    /* ==============================
+       DEMO — QR FIRST
+    ============================== */
+    #demo { background: var(--bg2); }
+
+    .qrdemo {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .qdoc { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.1); }
+    .qdoc-inner { background: #F8FAFC; color: #0f172a; display: flex; flex-direction: column; }
+    .qdoc-header {
+      background: #FFFFFF; border-bottom: 1px solid #E2E8F0;
+      padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .qdoc-issuer { display: flex; align-items: center; gap: 10px; }
+    .qdoc-issuer-mark { width: 30px; height: 30px; border-radius: 8px; background: #0A0E14; display: grid; place-items: center; flex-shrink: 0; }
+    .qdoc-issuer-mark svg { width: 17px; height: 17px; }
+    .qdoc-org { font-size: 11.5px; font-weight: 700; color: #0f172a; line-height: 1.2; }
+    .qdoc-accred { font-size: 9.5px; color: #94A3B8; margin-top: 1px; }
+    .qdoc-ref { font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; color: #64748b; background: #F1F5F9; border: 1px solid #E2E8F0; padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+    .qdoc-body { padding: 20px 20px 16px; flex: 1; }
+    .qdoc-doctype { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; color: #94A3B8; font-weight: 600; margin-bottom: 5px; }
+    .qdoc-title { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.02em; margin-bottom: 3px; line-height: 1.2; }
+    .qdoc-project { font-size: 12px; color: #64748b; margin-bottom: 18px; }
+    .qdoc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #E2E8F0; border-radius: 10px; overflow: hidden; }
+    .qdoc-field { background: #F8FAFC; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; }
+    .qdf-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: #94A3B8; font-weight: 600; }
+    .qdf-value { font-size: 12px; font-weight: 600; color: #1e293b; }
+    .qdoc-footer { background: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .qdoc-qr {
+      display: flex; align-items: center; gap: 12px;
+      cursor: pointer; padding: 10px 12px; border-radius: 10px;
+      border: 1px solid rgba(176,141,87,0.22); background: rgba(176,141,87,0.04);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .qdoc-qr:hover { border-color: rgba(176,141,87,0.4); background: rgba(176,141,87,0.07); }
+    .qdoc-qr-grid {
+      width: 56px; height: 56px; flex-shrink: 0; background: #0f172a; border-radius: 6px; padding: 6px;
+      display: grid; grid-template-columns: repeat(7,1fr); gap: 2px;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(176,141,87,0.18);
+    }
+    .qdoc-qr-grid i { background: #F6F8FA; border-radius: 1px; }
+    .qdoc-qr-grid span { background: transparent; }
+    .qdoc-qr-cta { display: flex; flex-direction: column; gap: 2px; }
+    .qdoc-qr-label { font-size: 11px; font-weight: 600; color: #1e293b; }
+    .qdoc-qr-sub { font-size: 10px; color: #94A3B8; }
+    .qdoc-verified-stamp { text-align: right; }
+    .qdoc-stamp-inner {
+      display: inline-block; border: 1.5px solid rgba(5,150,105,0.35); border-radius: 5px;
+      padding: 5px 10px; color: rgba(5,150,105,0.75);
+      font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      line-height: 1.4; transform: rotate(-2deg);
+    }
+    .qdoc-stamp-sub { font-size: 8.5px; color: #94A3B8; margin-top: 4px; font-family: var(--mono); text-align: right; }
+
+    /* Verification result */
+    .qresult { background: var(--bg); border: 1px solid var(--border2); border-radius: 18px; overflow: hidden; position: relative; }
+    .qresult::before {
+      content: ""; position: absolute; top: 0; left: 15%; right: 15%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(16,185,129,0.28), transparent);
+    }
+    .qresult-chrome {
+      display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+      border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02);
+    }
+    .qresult-dots { display: flex; gap: 4px; }
+    .qresult-dots span { width: 8px; height: 8px; border-radius: 50%; opacity: 0.5; }
+    .qresult-dots span:nth-child(1) { background: #ef4444; }
+    .qresult-dots span:nth-child(2) { background: #f59e0b; }
+    .qresult-dots span:nth-child(3) { background: #10b981; }
+    .qresult-url { font-family: var(--mono); font-size: 10.5px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 3px 10px; border-radius: 5px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .qresult-live { display: flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green2); flex-shrink: 0; }
+    .qlive-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green2); animation: live-pulse 1.5s infinite; }
+    .qresult-body { background: #F6F8FA; color: #0f172a; padding: 28px 24px; text-align: center; position: relative; overflow: hidden; }
+    .qresult-body::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #10b981, #34d399, #10b981); background-size: 200% 100%; animation: shimmer 2.5s linear infinite; }
+    .qresult-check-wrap { margin-bottom: 14px; }
+    .qresult-check { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto; background: rgba(16,185,129,0.1); border: 2px solid rgba(16,185,129,0.28); display: grid; place-items: center; }
+    .qresult-check svg { width: 26px; height: 26px; color: #10b981; }
+    .qresult-status { font-size: 22px; font-weight: 700; letter-spacing: -0.04em; margin-bottom: 4px; }
+    .qresult-issuer { font-size: 12px; color: #475569; margin-bottom: 2px; font-weight: 500; }
+    .qresult-time { font-size: 11px; color: #94A3B8; margin-bottom: 16px; }
+    .qresult-proofs { background: #EEF2F7; border-radius: 10px; padding: 12px; display: grid; gap: 8px; text-align: left; }
+    .qrp-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; }
+    .qrp-label { color: #64748b; flex-shrink: 0; }
+    .qrp-dot { width: 4px; height: 4px; border-radius: 50%; background: #10b981; flex-shrink: 0; }
+    .qrp-val { color: #0f172a; font-weight: 600; font-family: var(--mono); font-size: 10.5px; }
+    .qresult-footer { padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .qresult-note { font-size: 11px; color: var(--muted); }
+    .btn-sm { font-size: 12px !important; padding: 6px 12px !important; border-radius: 8px !important; }
+
+    /* Advanced section */
+    .advsec { margin-top: 12px; }
+    .advsec-toggle {
+      width: 100%; display: flex; align-items: center; gap: 10px; padding: 13px 18px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      color: var(--muted); font-family: inherit; font-size: 13px; font-weight: 400;
+      cursor: pointer; text-align: left; transition: all 0.2s; letter-spacing: 0.005em;
+    }
+    .advsec-toggle:hover { color: var(--soft); border-color: var(--border2); }
+    .advsec-chevron { margin-left: auto; flex-shrink: 0; transition: transform 0.2s; }
+    .advsec-toggle.open .advsec-chevron { transform: rotate(180deg); }
+    .advsec-body { display: none; border: 1px solid var(--border); border-top: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: var(--bg); padding: 24px 20px; }
+    .advsec-body.open { display: block; }
+    .advsec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .demo-input-wrap { margin-bottom: 12px; }
+    .demo-input-label { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-bottom: 7px; letter-spacing: 0.06em; text-transform: uppercase; display: block; }
+    .demo-input { width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border2); background: rgba(255,255,255,0.03); color: var(--text); font-family: var(--mono); font-size: 12.5px; outline: none; transition: border-color 0.2s; }
+    .demo-input:focus { border-color: rgba(255,255,255,0.25); }
+    .demo-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .result-panel { margin-top: 14px; padding: 14px 16px; border-radius: var(--radius-sm); border: 1px solid rgba(16,185,129,0.22); background: rgba(16,185,129,0.05); display: none; animation: result-in 0.3s ease; }
+    @keyframes result-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    .result-panel.bad { border-color: rgba(220,38,38,0.22); background: rgba(220,38,38,0.05); }
+    .result-panel.show { display: block; }
+    .result-panel b { font-size: 14px; font-weight: 600; }
+    .result-panel p { color: var(--soft); font-size: 13px; line-height: 1.6; margin-top: 6px; }
+    .advpipeline { display: grid; gap: 8px; }
+    .advp-step { display: flex; align-items: baseline; gap: 12px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+    .advp-num { font-family: var(--mono); font-size: 10.5px; color: var(--muted); flex-shrink: 0; letter-spacing: 0.05em; }
+    .advp-text { color: var(--soft); line-height: 1.5; }
+
+    @media (max-width: 860px) {
+      .qrdemo { grid-template-columns: 1fr; }
+      .advsec-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .qdoc-fields { grid-template-columns: 1fr; }
+      .qdoc-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
 
   </style>
@@ -1372,90 +1506,146 @@
     <section id="demo">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="eyebrow">Live demo</div>
-          <h2>Test the verification moment.</h2>
-          <p>Paste a document hash to see the verification layer in action. Use the sample hash, or try anything else to see the invalid state.</p>
+          <div class="eyebrow">Verification demo</div>
+          <h2>Scan. Verify. Trust.</h2>
+          <p>Every Kweli-registered document carries a QR code. Anyone scans it and instantly knows whether the record is authentic — no login, no technical knowledge required.</p>
         </div>
-        <div class="demo-layout">
-          <div class="demo-panel reveal">
-            <h3>Verify a document hash</h3>
-            <p>For this demo, the sample hash returns a verified proof. Paste any other string to test the invalid path.</p>
-            <div class="demo-input-label">Document hash</div>
-            <div class="demo-input-wrap">
-              <input id="hashInput" class="demo-input" value="sha256:5d9152a-demo-verified-record" spellcheck="false" autocomplete="off" />
-            </div>
-            <div class="demo-btns">
-              <button class="btn btn-primary" onclick="verifyHash()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 7L10.5 16.5L5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Verify hash
-              </button>
-              <button class="btn" onclick="document.getElementById('hashInput').value='sha256:unknown-record-xyz'; verifyHash();">Try invalid</button>
-            </div>
-            <div id="result" class="result-panel show">
-              <b>✓ VERIFIED</b>
-              <p>Issued by EAX Global Demo Registry. Blockchain proof and RFC3161 timestamp confirmed.</p>
+
+        <!-- Primary: QR-first verification moment -->
+        <div class="qrdemo reveal">
+
+          <!-- Left: Minimal document preview -->
+          <div class="qdoc">
+            <div class="qdoc-inner">
+              <div class="qdoc-header">
+                <div class="qdoc-issuer">
+                  <div class="qdoc-issuer-mark">
+                    <svg viewBox="0 0 20 20" fill="none"><path d="M16 5L8.5 13L5 9.5" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 10v4.5A2.5 2.5 0 0 1 14.5 17h-9A2.5 2.5 0 0 1 3 14.5v-9A2.5 2.5 0 0 1 5.5 3H11" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/></svg>
+                  </div>
+                  <div>
+                    <div class="qdoc-org">EAX Global Environmental Registry</div>
+                    <div class="qdoc-accred">Accredited Verification Body · ISO 14064</div>
+                  </div>
+                </div>
+                <div class="qdoc-ref">EAX-2026-00847</div>
+              </div>
+
+              <div class="qdoc-body">
+                <div class="qdoc-doctype">Environmental Asset Certificate</div>
+                <div class="qdoc-title">Soil Carbon Sequestration Report</div>
+                <div class="qdoc-project">Mara Basin Restoration Initiative · Kenya</div>
+
+                <div class="qdoc-fields">
+                  <div class="qdoc-field">
+                    <span class="qdf-label">Issued</span>
+                    <span class="qdf-value">29 May 2026</span>
+                  </div>
+                  <div class="qdoc-field">
+                    <span class="qdf-label">Sequestration</span>
+                    <span class="qdf-value">1.8 tCO₂e/ha/yr</span>
+                  </div>
+                  <div class="qdoc-field">
+                    <span class="qdf-label">Lab reference</span>
+                    <span class="qdf-value">KARI-LAB-2026-0391</span>
+                  </div>
+                  <div class="qdoc-field">
+                    <span class="qdf-label">Registry ID</span>
+                    <span class="qdf-value">KWL-SC-2026-Q2</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="qdoc-footer">
+                <div class="qdoc-qr" onclick="openModal()" title="Click to verify this document" role="button" tabindex="0">
+                  <!-- QR pattern -->
+                  <div class="qdoc-qr-grid" aria-label="Verification QR code">
+                    <i></i><i></i><i></i><span></span><i></i><i></i><i></i>
+                    <i></i><span></span><i></i><span></span><i></i><span></span><i></i>
+                    <i></i><span></span><i></i><span></span><i></i><span></span><i></i>
+                    <span></span><i></i><span></span><i></i><span></span><i></i><span></span>
+                    <i></i><i></i><i></i><span></span><i></i><i></i><i></i>
+                    <span></span><i></i><span></span><i></i><span></span><i></i><span></span>
+                    <i></i><span></span><i></i><span></span><i></i><span></span><i></i>
+                  </div>
+                  <div class="qdoc-qr-cta">
+                    <span class="qdoc-qr-label">Verify authenticity</span>
+                    <span class="qdoc-qr-sub">Scan or click &rsaquo;</span>
+                  </div>
+                </div>
+                <div class="qdoc-verified-stamp">
+                  <div class="qdoc-stamp-inner">Kweli<br>Verified</div>
+                  <div class="qdoc-stamp-sub">blockchain anchored</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Verification timeline -->
-          <div class="demo-panel reveal">
-            <h3>Verification timeline</h3>
-            <p>What happens when a verifier scans a Kweli-registered document.</p>
-            <div class="verify-timeline">
-              <div class="vt-line"></div>
-              <div class="vt-step">
-                <div class="vt-dot active">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <div class="vt-text">
-                  <b>QR scan or link opened</b>
-                  <span>Verifier opens the public verification URL from any device, anywhere in the world.</span>
-                  <span class="vt-meta">t=0ms</span>
+          <!-- Right: Clean verification result -->
+          <div class="qresult">
+            <div class="qresult-chrome">
+              <div class="qresult-dots"><span></span><span></span><span></span></div>
+              <div class="qresult-url">verify.kweli.io/r/KWL-2026-00847</div>
+              <div class="qresult-live"><span class="qlive-dot"></span>Verified</div>
+            </div>
+            <div class="qresult-body">
+              <div class="qresult-check-wrap">
+                <div class="qresult-check">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10.5 16.5L5 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
               </div>
-              <div class="vt-step">
-                <div class="vt-dot active">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="qresult-status">VERIFIED</div>
+              <div class="qresult-issuer">EAX Global Environmental Registry</div>
+              <div class="qresult-time">29 May 2026 · 12:00 UTC</div>
+              <div class="qresult-proofs">
+                <div class="qrp-row"><span class="qrp-label">Blockchain</span><span class="qrp-dot"></span><span class="qrp-val">Celo · 0x8f2a…91bc</span></div>
+                <div class="qrp-row"><span class="qrp-label">Timestamp</span><span class="qrp-dot"></span><span class="qrp-val">RFC 3161 · Complete</span></div>
+                <div class="qrp-row"><span class="qrp-label">Registry</span><span class="qrp-dot"></span><span class="qrp-val">KWL-2026-00847</span></div>
+              </div>
+            </div>
+            <div class="qresult-footer">
+              <span class="qresult-note">No login required · No private data exposed</span>
+              <button class="btn btn-sm" onclick="openModal()">Open &rsaquo;</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Secondary: Technical hash verification (collapsed) -->
+        <div class="advsec reveal">
+          <button class="advsec-toggle" id="advToggle" onclick="toggleAdv()" aria-expanded="false">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Advanced verification — for developers, auditors &amp; enterprise integrations
+            <svg class="advsec-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="advsec-body" id="advBody">
+            <div class="advsec-grid">
+              <div>
+                <div class="demo-input-label">Document hash (SHA-256)</div>
+                <div class="demo-input-wrap">
+                  <input id="hashInput" class="demo-input" value="sha256:5d9152a-demo-verified-record" spellcheck="false" autocomplete="off" />
                 </div>
-                <div class="vt-text">
-                  <b>Hash lookup in Kweli registry</b>
-                  <span>The document fingerprint is looked up against the on-chain registry. No private data transmitted.</span>
-                  <span class="vt-meta">t=80ms</span>
+                <div class="demo-btns">
+                  <button class="btn btn-primary" onclick="verifyHash()">Verify hash</button>
+                  <button class="btn" onclick="document.getElementById('hashInput').value='sha256:unknown-record-xyz'; verifyHash();">Try invalid</button>
+                </div>
+                <div id="result" class="result-panel show">
+                  <b>✓ VERIFIED</b>
+                  <p>Issued by EAX Global Demo Registry. Blockchain proof and RFC3161 timestamp confirmed.</p>
                 </div>
               </div>
-              <div class="vt-step">
-                <div class="vt-dot active">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7L10.5 16.5L5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <div class="vt-text">
-                  <b>Blockchain proof confirmed</b>
-                  <span>On-chain anchor verified. Celo block number, transaction hash and timestamp returned.</span>
-                  <span class="vt-meta">t=180ms</span>
-                </div>
-              </div>
-              <div class="vt-step">
-                <div class="vt-dot active">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="11" width="20" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div class="vt-text">
-                  <b>RFC3161 timestamp validated</b>
-                  <span>Institutional-grade timestamp layer confirms the exact moment of registration.</span>
-                  <span class="vt-meta">t=240ms</span>
-                </div>
-              </div>
-              <div class="vt-step">
-                <div class="vt-dot active" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.5);">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <div class="vt-text">
-                  <b>Result displayed</b>
-                  <span>VERIFIED or NOT VERIFIED returned. Average total latency under 300ms.</span>
-                  <span class="vt-meta">t=&lt;300ms · No login required</span>
+              <div>
+                <div class="demo-input-label">Verification pipeline</div>
+                <div class="advpipeline">
+                  <div class="advp-step"><span class="advp-num">01</span><span class="advp-text">QR scan or link opened — no auth required</span></div>
+                  <div class="advp-step"><span class="advp-num">02</span><span class="advp-text">Hash looked up against on-chain registry</span></div>
+                  <div class="advp-step"><span class="advp-num">03</span><span class="advp-text">Blockchain anchor + RFC3161 timestamp confirmed</span></div>
+                  <div class="advp-step"><span class="advp-num">04</span><span class="advp-text">VERIFIED / NOT VERIFIED returned in &lt;300ms</span></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -1589,6 +1779,14 @@
     document.querySelectorAll('.mobile-menu a').forEach(a =>
       a.addEventListener('click', () => document.querySelector('.mobile-menu').classList.remove('open'))
     );
+
+    // ===== ADVANCED TOGGLE =====
+    function toggleAdv() {
+      const toggle = document.getElementById('advToggle');
+      const body = document.getElementById('advBody');
+      toggle.classList.toggle('open');
+      body.classList.toggle('open');
+    }
 
     // ===== VERIFICATION MODAL =====
     function openModal() {
