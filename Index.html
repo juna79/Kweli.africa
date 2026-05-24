@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kweli — Verification Infrastructure by EAX Global</title>
-  <meta name="description" content="Kweli is the verification infrastructure layer developed by EAX Global. Privacy-first proof infrastructure for certificates, environmental assets, ESG claims and institutional records." />
+  <meta name="description" content="Kweli is the verification infrastructure layer developed by EAX Global. Universal verification infrastructure for certificates, lab reports, supply chain records, government documents, credentials, ESG claims and institutional records." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1162,6 +1162,346 @@
       .qdoc-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
 
+  
+
+    /* ==============================
+       INSTITUTIONAL TRUST REFINEMENT
+       Premium verified instrument styling
+    ============================== */
+    :root {
+      --bg:       #080A0D;
+      --bg2:      #0D1117;
+      --bg3:      #151B23;
+      --surface:  rgba(255,255,255,0.035);
+      --surface2: rgba(255,255,255,0.055);
+      --border:   rgba(255,255,255,0.075);
+      --border2:  rgba(255,255,255,0.12);
+      --text:     #F5F7FA;
+      --muted:    #98A4B3;
+      --soft:     #CBD4DF;
+      --gold:     #B4975A;
+      --gold2:    rgba(180,151,90,0.16);
+      --warm:     rgba(180,151,90,0.06);
+      --warm2:    rgba(255,214,153,0.03);
+      --green:    #10B981;
+      --green2:   #34D399;
+      --red:      #DC2626;
+      --mono:     "DM Mono", "Fira Code", monospace;
+      --radius:   20px;
+      --radius-sm:12px;
+    }
+
+    body::before {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(180,151,90,0.05), transparent 35%),
+        radial-gradient(circle at 88% 10%, rgba(255,255,255,0.025), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(180,151,90,0.035), transparent 40%);
+    }
+
+    .nav { background: rgba(8,10,13,0.88); }
+    #product, #usecases, #demo, #contact { background: #0D1117; }
+
+    .verify-card {
+      background: linear-gradient(180deg, rgba(20,24,31,0.96), rgba(11,15,20,0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      box-shadow:
+        0 40px 100px rgba(0,0,0,0.72),
+        0 0 0 1px rgba(255,255,255,0.03) inset,
+        0 1px 0 rgba(255,255,255,0.03) inset;
+    }
+
+    .hero::before {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    }
+
+    .qdoc {
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.50),
+        0 0 0 1px rgba(180,151,90,0.10);
+      background: #111827;
+    }
+
+    .qdoc-inner.doc-paper {
+      position: relative;
+      background: linear-gradient(180deg, #F7F3EA 0%, #F1EADB 100%);
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .doc-paper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 3px);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .doc-paper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(180,151,90,0.08), transparent 35%),
+        radial-gradient(circle at 80% 90%, rgba(0,0,0,0.035), transparent 40%);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .guilloche {
+      position: absolute;
+      inset: 0;
+      opacity: 0.09;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at center, rgba(180,151,90,0.65) 0.45px, transparent 0.55px),
+        radial-gradient(circle at center, rgba(30,41,59,0.45) 0.35px, transparent 0.5px);
+      background-size: 18px 18px, 9px 9px;
+      background-position: 0 0, 4px 4px;
+      z-index: 0;
+    }
+
+    .registry-border {
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(180,151,90,0.22);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .registry-border::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(180,151,90,0.12);
+    }
+
+    .qdoc-header,
+    .qdoc-body,
+    .qdoc-footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    .qdoc-header {
+      background: rgba(255,252,246,0.72);
+      border-bottom: 1px solid rgba(180,151,90,0.18);
+      padding: 20px 24px;
+    }
+
+    .qdoc-issuer-mark {
+      background: linear-gradient(180deg, #111827, #0A0E14);
+      border: 1px solid rgba(180,151,90,0.24);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+
+    .qdoc-org {
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #111827;
+    }
+
+    .qdoc-accred { color: #7A8493; }
+
+    .qdoc-ref {
+      background: rgba(255,255,255,0.48);
+      border: 1px solid rgba(180,151,90,0.22);
+      color: #52606F;
+      letter-spacing: 0.09em;
+    }
+
+    .qdoc-body { padding: 30px 30px 24px; }
+
+    .qdoc-doctype {
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      color: #7D8794;
+      font-weight: 800;
+    }
+
+    .qdoc-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      color: #111827;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+
+    .qdoc-project {
+      color: #647083;
+      font-size: 12.5px;
+      margin-bottom: 22px;
+    }
+
+    .qdoc-fields {
+      background: rgba(180,151,90,0.18);
+      border: 1px solid rgba(180,151,90,0.16);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+    }
+
+    .qdoc-field {
+      background: rgba(255,252,246,0.66);
+      padding: 12px 14px;
+    }
+
+    .qdf-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8B95A5;
+      font-weight: 700;
+    }
+
+    .qdf-value {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #17202B;
+      letter-spacing: -0.01em;
+    }
+
+    .qdoc-footer {
+      background: rgba(255,252,246,0.76);
+      border-top: 1px solid rgba(180,151,90,0.16);
+      padding: 18px 24px 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px 18px;
+      align-items: center;
+    }
+
+    .qdoc-qr {
+      background: linear-gradient(180deg, rgba(180,151,90,0.07), rgba(180,151,90,0.025));
+      border: 1px solid rgba(180,151,90,0.20);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.58);
+    }
+
+    .qdoc-qr:hover {
+      border-color: rgba(180,151,90,0.38);
+      background: linear-gradient(180deg, rgba(180,151,90,0.10), rgba(180,151,90,0.04));
+    }
+
+    .qdoc-qr-grid {
+      background: #111827;
+      box-shadow:
+        0 0 0 2px #F7F3EA,
+        0 0 0 3px rgba(180,151,90,0.28),
+        0 8px 18px rgba(0,0,0,0.10);
+    }
+
+    .qdoc-qr-label { color: #17202B; }
+    .qdoc-qr-sub { color: #7A8493; }
+
+    .qdoc-verified-stamp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+
+    .emboss-seal {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 28%, rgba(255,255,255,0.95), rgba(180,151,90,0.15) 58%, rgba(180,151,90,0.23));
+      border: 1px solid rgba(180,151,90,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.85),
+        inset 0 -7px 13px rgba(0,0,0,0.055),
+        0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .emboss-seal::before {
+      content: "VERIFIED";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: rgba(120,90,40,0.85);
+    }
+
+    .emboss-seal::after {
+      content: "KWELI";
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      color: rgba(120,90,40,0.48);
+    }
+
+    .qdoc-stamp-sub {
+      font-size: 8.5px;
+      color: rgba(15,23,42,0.45);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      text-align: center;
+    }
+
+    .doc-microline {
+      grid-column: 1 / -1;
+      font-size: 8.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,0.42);
+      font-weight: 700;
+      border-top: 1px solid rgba(180,151,90,0.14);
+      padding-top: 10px;
+    }
+
+    .qresult {
+      background: linear-gradient(180deg, #0E131A, #090C11);
+      border-color: rgba(255,255,255,0.10);
+    }
+
+    .qresult-body,
+    .vc-screen,
+    .vmodal-body {
+      background: linear-gradient(180deg, #F7F3EA, #F1EADB);
+    }
+
+    .qresult-proofs,
+    .proof-grid,
+    .vmodal-proof {
+      background: rgba(17,24,39,0.055);
+      border: 1px solid rgba(180,151,90,0.14);
+    }
+
+    .pcard, .use-cell {
+      background: #0D1117;
+    }
+
+    .pcard:hover, .use-cell:hover {
+      background: rgba(180,151,90,0.035);
+    }
+
+    @media (max-width: 580px) {
+      .qdoc-footer { grid-template-columns: 1fr; }
+      .qdoc-verified-stamp { align-items: flex-start; }
+    }
+
   </style>
 </head>
 <body>
@@ -1217,7 +1557,7 @@
             Verification infrastructure · EAX Global
           </div>
           <h1>Truth infrastructure<br><span class="line2">for the real world.</span></h1>
-          <p class="hero-desc">Kweli is a lightweight verification layer for certificates, environmental assets, lab reports and institutional claims. Privacy-first. Blockchain-anchored. Built for audit.</p>
+          <p class="hero-desc">Kweli is universal verification infrastructure for certificates, lab reports, supply chain records, ESG claims, pharmaceuticals, government records, export documentation, educational credentials, insurance records and institutional reports. Privacy-first. Blockchain-anchored. Built for audit.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#demo">Try the verification demo</a>
             <a class="btn" href="#how">How it works</a>
@@ -1266,7 +1606,7 @@
               </svg>
             </div>
             <div class="verified-label">VERIFIED</div>
-            <div class="verified-sub">Issued by EAX Global Demo Registry<br>29 May 2026 · 12:00 UTC</div>
+            <div class="verified-sub">Issued by EAX Global Demo Registry<br>24 May 2026 · 12:00 UTC</div>
             <div class="proof-grid">
               <div class="proof-row">
                 <span class="plabel">Blockchain proof</span>
@@ -1318,7 +1658,7 @@
         <div class="section-head reveal">
           <div class="eyebrow">The product</div>
           <h2>Kweli is the trust layer under EAX Global.</h2>
-          <p>EAX shows what verified environmental markets can become. Kweli is the verification infrastructure that makes the underlying records provably real.</p>
+          <p>EAX is one ecosystem built on top of Kweli. Kweli is the foundational verification layer that makes important records, claims and credentials provably real across sectors.</p>
         </div>
         <div class="product-cards reveal">
           <div class="pcard">
@@ -1516,41 +1856,43 @@
 
           <!-- Left: Minimal document preview -->
           <div class="qdoc">
-            <div class="qdoc-inner">
+            <div class="qdoc-inner doc-paper">
+              <div class="guilloche"></div>
+              <div class="registry-border"></div>
               <div class="qdoc-header">
                 <div class="qdoc-issuer">
                   <div class="qdoc-issuer-mark">
                     <svg viewBox="0 0 20 20" fill="none"><path d="M16 5L8.5 13L5 9.5" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 10v4.5A2.5 2.5 0 0 1 14.5 17h-9A2.5 2.5 0 0 1 3 14.5v-9A2.5 2.5 0 0 1 5.5 3H11" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/></svg>
                   </div>
                   <div>
-                    <div class="qdoc-org">EAX Global Environmental Registry</div>
-                    <div class="qdoc-accred">Accredited Verification Body · ISO 14064</div>
+                    <div class="qdoc-org">Kweli Institutional Registry</div>
+                    <div class="qdoc-accred">Universal Verification Authority · ISO-ready proof layer</div>
                   </div>
                 </div>
-                <div class="qdoc-ref">EAX-2026-00847</div>
+                <div class="qdoc-ref">KWL-2026-00847</div>
               </div>
 
               <div class="qdoc-body">
-                <div class="qdoc-doctype">Environmental Asset Certificate</div>
-                <div class="qdoc-title">Soil Carbon Sequestration Report</div>
-                <div class="qdoc-project">Mara Basin Restoration Initiative · Kenya</div>
+                <div class="qdoc-doctype">Verified Institutional Record</div>
+                <div class="qdoc-title">Export Compliance Certificate</div>
+                <div class="qdoc-project">Certificate of authenticity · public verification enabled</div>
 
                 <div class="qdoc-fields">
                   <div class="qdoc-field">
                     <span class="qdf-label">Issued</span>
-                    <span class="qdf-value">29 May 2026</span>
+                    <span class="qdf-value">24 May 2026</span>
                   </div>
                   <div class="qdoc-field">
-                    <span class="qdf-label">Sequestration</span>
-                    <span class="qdf-value">1.8 tCO₂e/ha/yr</span>
+                    <span class="qdf-label">Verification Class</span>
+                    <span class="qdf-value">Export / Lab / Registry</span>
                   </div>
                   <div class="qdoc-field">
-                    <span class="qdf-label">Lab reference</span>
-                    <span class="qdf-value">KARI-LAB-2026-0391</span>
+                    <span class="qdf-label">Source Reference</span>
+                    <span class="qdf-value">SRC-LAB-2026-0391</span>
                   </div>
                   <div class="qdoc-field">
                     <span class="qdf-label">Registry ID</span>
-                    <span class="qdf-value">KWL-SC-2026-Q2</span>
+                    <span class="qdf-value">KWL-AUTH-2026-Q2</span>
                   </div>
                 </div>
               </div>
@@ -1573,9 +1915,10 @@
                   </div>
                 </div>
                 <div class="qdoc-verified-stamp">
-                  <div class="qdoc-stamp-inner">Kweli<br>Verified</div>
-                  <div class="qdoc-stamp-sub">blockchain anchored</div>
+                  <div class="emboss-seal" aria-hidden="true"></div>
+                  <div class="qdoc-stamp-sub">registry anchored</div>
                 </div>
+                <div class="doc-microline">Registry Authority · RFC3161 Timestamped · SHA256 Anchored · Public Verification Enabled</div>
               </div>
             </div>
           </div>
@@ -1594,8 +1937,8 @@
                 </div>
               </div>
               <div class="qresult-status">VERIFIED</div>
-              <div class="qresult-issuer">EAX Global Environmental Registry</div>
-              <div class="qresult-time">29 May 2026 · 12:00 UTC</div>
+              <div class="qresult-issuer">Kweli Institutional Registry</div>
+              <div class="qresult-time">24 May 2026 · 12:00 UTC</div>
               <div class="qresult-proofs">
                 <div class="qrp-row"><span class="qrp-label">Blockchain</span><span class="qrp-dot"></span><span class="qrp-val">Celo · 0x8f2a…91bc</span></div>
                 <div class="qrp-row"><span class="qrp-label">Timestamp</span><span class="qrp-dot"></span><span class="qrp-val">RFC 3161 · Complete</span></div>
@@ -1712,7 +2055,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10.5 16.5L5 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="vmodal-verified">VERIFIED</div>
-        <div class="vmodal-sub">EAX Global Demo Registry<br>29 May 2026 · 12:00 UTC</div>
+        <div class="vmodal-sub">EAX Global Demo Registry<br>24 May 2026 · 12:00 UTC</div>
         <div class="vmodal-proof">
           <div class="vmodal-row">
             <span class="vml">Blockchain proof</span>
