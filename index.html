@@ -1637,6 +1637,176 @@
       }
     }
 
+
+    /* ==============================
+       GOLD AUTHORITY PASS
+       Makes the Kweli gold feel intentional, premium and readable
+    ============================== */
+    :root {
+      --kweli-gold: #D8B76A;
+      --kweli-gold-soft: #B4975A;
+      --kweli-gold-muted: rgba(216,183,106,0.78);
+      --kweli-gold-faint: rgba(216,183,106,0.14);
+      --kweli-gold-line: rgba(216,183,106,0.28);
+    }
+
+    h1 .line2 {
+      color: var(--kweli-gold);
+      -webkit-text-stroke: 0;
+      text-shadow: 0 0 34px rgba(216,183,106,0.13);
+    }
+
+    .nav-links a,
+    .mobile-menu a {
+      color: var(--kweli-gold-muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .mobile-menu a:hover,
+    .nav-links a.active {
+      color: #F3DFA3;
+    }
+
+    .brand-text b,
+    .footer-brand strong {
+      color: var(--kweli-gold);
+    }
+
+    .brand-mark,
+    .footer-brand .brand-mark {
+      border-color: var(--kweli-gold-line);
+      background: radial-gradient(circle at 50% 20%, rgba(216,183,106,0.12), rgba(255,255,255,0.035));
+      box-shadow: 0 0 24px rgba(216,183,106,0.08);
+    }
+
+    .brand-mark svg path {
+      stroke: var(--kweli-gold) !important;
+    }
+
+    .hero-eyebrow,
+    .eyebrow {
+      color: var(--kweli-gold-muted);
+      border-color: var(--kweli-gold-line);
+    }
+
+    .hero-eyebrow span,
+    .live-badge .live-dot,
+    .qlive-dot,
+    .proof-dot,
+    .vmdot,
+    .qrp-dot {
+      background: var(--kweli-gold);
+    }
+
+    .live-badge,
+    .qresult-live {
+      color: var(--kweli-gold);
+      border-color: rgba(216,183,106,0.24);
+      background: rgba(216,183,106,0.06);
+    }
+
+    .btn-primary {
+      background: linear-gradient(160deg, #D8B76A, #9A7332 58%, #4A3215);
+      border-color: rgba(255,222,156,0.55);
+      color: #0B0F14;
+      box-shadow:
+        0 14px 42px rgba(216,183,106,0.18),
+        0 1px 0 rgba(255,255,255,0.35) inset;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(160deg, #F0D891, #B88B3D 58%, #5B3B18);
+      color: #05070A;
+      box-shadow:
+        0 18px 52px rgba(216,183,106,0.26),
+        0 1px 0 rgba(255,255,255,0.42) inset;
+    }
+
+    .section-head h2 .gold-line {
+      color: var(--kweli-gold);
+      text-shadow: 0 0 36px rgba(216,183,106,0.11);
+    }
+
+    .flow-step-num {
+      color: var(--kweli-gold);
+      border-color: rgba(216,183,106,0.34);
+      background: radial-gradient(circle at 50% 22%, rgba(216,183,106,0.13), rgba(13,17,23,0.95));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 0 0 1px rgba(216,183,106,0.06);
+    }
+
+    .flow-step-content h3 {
+      color: var(--kweli-gold);
+      letter-spacing: -0.025em;
+    }
+
+    .flow-grid::before {
+      background: linear-gradient(90deg, transparent, rgba(216,183,106,0.11), rgba(216,183,106,0.35), rgba(216,183,106,0.11), transparent);
+    }
+
+    .pcard-num,
+    .tech-tag,
+    .advp-num,
+    .vmodal-reg span,
+    .qresult-url,
+    .vc-url {
+      color: var(--kweli-gold-muted);
+    }
+
+    .pcard-icon,
+    .use-cell-icon,
+    .tech-item-icon,
+    .vt-dot {
+      color: var(--kweli-gold);
+      border-color: rgba(216,183,106,0.18);
+      background: rgba(216,183,106,0.055);
+    }
+
+    .pcard:hover,
+    .use-cell:hover,
+    .tech-item:hover {
+      background: rgba(216,183,106,0.045);
+      border-color: rgba(216,183,106,0.13);
+    }
+
+    .qdoc-title,
+    .verified-label,
+    .qresult-status,
+    .vmodal-verified {
+      color: #15110A;
+    }
+
+    .check-ring,
+    .qresult-check,
+    .vmodal-check {
+      background: rgba(216,183,106,0.13);
+      border-color: rgba(216,183,106,0.34);
+    }
+
+    .check-ring svg path,
+    .qresult-check svg path,
+    .vmodal-check svg path {
+      stroke: #B8862C !important;
+    }
+
+    .qr-trust-tag.gold,
+    .vmodal-badge {
+      color: var(--kweli-gold);
+      border-color: rgba(216,183,106,0.30);
+      background: rgba(216,183,106,0.06);
+    }
+
+    .contact-panel::before,
+    .verify-card::before,
+    .person-card::before,
+    .qresult::before,
+    .vmodal::before {
+      background: linear-gradient(90deg, transparent, rgba(216,183,106,0.55), transparent);
+    }
+
   </style>
 </head>
 <body>
@@ -1787,7 +1957,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div class="eyebrow">The product</div>
-          <h2>Kweli means truth.<br>Now truth has infrastructure.</h2>
+          <h2><span class="gold-line">Kweli means truth.</span><br>Now truth has infrastructure.</h2>
           <p>Kweli is the foundational verification layer behind EAX Global — built to make records, credentials, institutional claims and digital assets provably authentic across sectors.</p>
         </div>
         <div class="product-cards reveal">
