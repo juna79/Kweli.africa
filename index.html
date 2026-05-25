@@ -2857,6 +2857,469 @@ body.kweli-splash-active {
   .kweli-africa-map { width: min(32vw, 535px) !important; max-width: 535px !important; }
 }
 
+
+/* ============================================================
+   KWELI — PREMIUM REFINEMENT PASS
+   Sharper · Calmer · More institutional · More cinematic
+   Apple + Stripe + Bloomberg + luxury infrastructure software
+   Touches: nav, hero typography, card, QR, transitions, glow
+   Does NOT change: structure, functionality, responsiveness
+============================================================ */
+
+/* ── Design token overrides ── */
+:root {
+  --bg:       #060809;
+  --bg2:      #0C1016;
+  --surface:  rgba(255,255,255,0.028);
+  --surface2: rgba(255,255,255,0.048);
+  --border:   rgba(255,255,255,0.065);
+  --border2:  rgba(255,255,255,0.10);
+  --text:     #F4F6F9;
+  --soft:     #C8D1DC;
+  --muted:    #8A96A8;
+  --gold:     #C9A84C;
+  --gold2:    rgba(201,168,76,0.15);
+  --kweli-gold: #C9A84C;
+  --kweli-gold-soft: #A8883B;
+  --kweli-gold-muted: rgba(201,168,76,0.72);
+  --kweli-gold-faint: rgba(201,168,76,0.12);
+  --kweli-gold-line:  rgba(201,168,76,0.22);
+}
+
+/* ── Atmosphere: quieter, more singular ── */
+body::before {
+  background:
+    radial-gradient(ellipse 55% 40% at 8% -8%, rgba(201,168,76,0.045), transparent 60%),
+    radial-gradient(ellipse 40% 30% at 92% 5%,  rgba(255,255,255,0.018), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 110%, rgba(201,168,76,0.03), transparent 60%);
+}
+
+/* ── Navigation: razor-thin, more refined ── */
+.nav {
+  background: rgba(6,8,9,0.90);
+  border-bottom-color: rgba(255,255,255,0.055);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+}
+
+.nav-inner { height: 68px; }
+
+.brand-text b {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--kweli-gold);
+}
+
+.brand-text span {
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--kweli-gold-muted);
+  opacity: 0.8;
+}
+
+.nav-links { gap: 36px; }
+.nav-links a {
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  color: rgba(180,160,110,0.72) !important;
+  transition: color 0.18s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
+  color: rgba(245,230,180,0.9) !important;
+}
+
+/* Primary CTA — restrained gold, no gradient noise */
+.btn-primary {
+  background: linear-gradient(170deg, #C9A84C 0%, #9A7B2E 55%, #3E2E10 100%);
+  border-color: rgba(220,185,110,0.48);
+  color: #060809;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 8px 28px rgba(201,168,76,0.15),
+    0 1px 0 rgba(255,240,190,0.32) inset;
+  transition: background 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(170deg, #E0C070 0%, #B08C3A 55%, #4A3615 100%);
+  border-color: rgba(240,210,130,0.60);
+  color: #030405;
+  box-shadow:
+    0 12px 38px rgba(201,168,76,0.22),
+    0 1px 0 rgba(255,245,200,0.40) inset;
+}
+
+/* Secondary CTA */
+.btn:not(.btn-primary) {
+  background: rgba(255,255,255,0.025);
+  border-color: rgba(255,255,255,0.085);
+  color: var(--soft);
+  transition: all 0.18s ease;
+}
+.btn:not(.btn-primary):hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.13);
+  color: var(--text);
+}
+
+/* ── Hero section: more breath, less density ── */
+.hero {
+  padding: 112px 0 96px;
+}
+
+/* Grid pattern: even quieter */
+.hero::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.009) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.009) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 65% 65% at 50% 40%, black 20%, transparent 100%);
+}
+
+.hero-grid { gap: 64px; align-items: center; }
+
+/* Eyebrow: thinner, quieter presence */
+.hero-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--kweli-gold-muted);
+  border-color: var(--kweli-gold-line);
+  background: rgba(201,168,76,0.04);
+  margin-bottom: 28px;
+  padding: 5px 14px 5px 11px;
+}
+
+/* H1: larger, more dominant, more cinematic */
+h1 {
+  font-size: clamp(46px, 5.8vw, 82px);
+  line-height: 0.97;
+  letter-spacing: -0.062em;
+  font-weight: 500;
+  margin-bottom: 26px;
+  color: #EEF1F6;
+}
+
+h1 .line2 {
+  color: var(--kweli-gold);
+  -webkit-text-stroke: 0;
+  font-weight: 300;
+  text-shadow: 0 0 48px rgba(201,168,76,0.10);
+}
+
+/* Hero description: slightly looser, more spacious */
+.hero-desc {
+  font-size: 16px;
+  line-height: 1.80;
+  color: var(--soft);
+  max-width: 510px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  opacity: 0.88;
+  letter-spacing: 0.003em;
+}
+
+/* Hero actions: more separation, anchored */
+.hero-actions {
+  gap: 10px;
+  margin-bottom: 44px;
+}
+
+/* Trust chips: refined opacity, subtle */
+.chip {
+  font-size: 11px;
+  color: var(--muted);
+  border-color: rgba(255,255,255,0.055);
+  background: rgba(255,255,255,0.022);
+  padding: 5px 12px;
+  letter-spacing: 0.015em;
+}
+
+/* ── Verification card: institutional instrument ── */
+.verify-card {
+  background: linear-gradient(175deg, #131920 0%, #0A0E14 100%);
+  border: 1px solid rgba(255,255,255,0.072);
+  border-radius: 28px;
+  box-shadow:
+    0 48px 120px rgba(0,0,0,0.68),
+    0 0 0 1px rgba(255,255,255,0.025) inset,
+    0 1px 0 rgba(255,255,255,0.06) inset;
+  /* Floating animation: slower, more dignified */
+  animation: card-float 8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Top gold accent line: more authority */
+.verify-card::before {
+  top: -1px; left: 18%; right: 18%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.52), transparent);
+}
+
+/* Card header: cleaner, quieter chrome */
+.vc-header {
+  padding: 14px 18px;
+  border-bottom-color: rgba(255,255,255,0.055);
+  background: rgba(255,255,255,0.015);
+}
+
+.vc-dots { gap: 6px; }
+.vc-dot { width: 8px; height: 8px; }
+.vc-dot:nth-child(1) { background: #e05252; opacity: 0.5; }
+.vc-dot:nth-child(2) { background: #e0a050; opacity: 0.5; }
+.vc-dot:nth-child(3) { background: #50b87a; opacity: 0.5; }
+
+.vc-url {
+  font-size: 10.5px;
+  color: var(--kweli-gold-muted);
+  background: rgba(201,168,76,0.04);
+  border-color: var(--kweli-gold-line);
+  letter-spacing: 0.02em;
+}
+
+/* Live badge */
+.live-badge {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--kweli-gold);
+  border-color: rgba(201,168,76,0.24);
+  background: rgba(201,168,76,0.06);
+  padding: 4px 11px;
+}
+
+/* Verification screen: warm paper, institutional */
+.vc-screen {
+  margin: 14px 14px 0;
+  border-radius: 16px;
+  padding: 26px 20px 22px;
+  background: linear-gradient(175deg, #F8F4EC, #F2EAD8);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.04),
+    0 0 0 1px rgba(201,168,76,0.10);
+}
+
+/* Animated top bar: gold not green */
+.vc-screen::before {
+  height: 2px;
+  background: linear-gradient(90deg, #9A7B2E, #D4B060, #9A7B2E);
+  background-size: 200% 100%;
+}
+
+/* Check ring: quieter */
+.check-ring {
+  width: 64px; height: 64px;
+  background: rgba(201,168,76,0.09);
+  border-color: rgba(201,168,76,0.28);
+  margin-bottom: 12px;
+}
+.check-ring::before {
+  border-color: rgba(201,168,76,0.10);
+}
+.check-ring svg { width: 28px; height: 28px; }
+.check-ring svg path { stroke: #A07828 !important; }
+
+.verified-label {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #12100A;
+  margin-bottom: 3px;
+}
+.verified-sub {
+  font-size: 11.5px;
+  color: #6B7280;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* Proof grid: institutional data rows */
+.proof-grid {
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 10px;
+  padding: 12px 13px;
+  gap: 8px;
+}
+.proof-row { font-size: 11.5px; }
+.proof-row .plabel { color: #7A828E; font-size: 11px; }
+.proof-row .pval { font-size: 10.5px; max-width: 150px; color: #111; }
+.proof-dot {
+  width: 5px; height: 5px;
+  background: var(--kweli-gold);
+  opacity: 0.85;
+}
+
+/* QR strip: premium instrument panel */
+.vc-qr {
+  margin: 12px 14px 14px;
+  padding: 16px 14px;
+  border: 1px solid rgba(201,168,76,0.16);
+  border-top-color: rgba(201,168,76,0.28);
+  border-radius: 14px;
+  background: rgba(201,168,76,0.03);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  gap: 16px;
+  grid-template-columns: 100px 1fr;
+}
+.vc-qr:hover {
+  background: rgba(201,168,76,0.055);
+  border-color: rgba(201,168,76,0.28);
+  border-top-color: rgba(201,168,76,0.42);
+}
+
+/* QR code: cleaner surround */
+.qr-grid {
+  width: 100px; height: 100px;
+  padding: 9px;
+  box-shadow:
+    0 3px 12px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(0,0,0,0.06),
+    0 0 0 3px #FFFFFF,
+    0 0 0 4px rgba(201,168,76,0.22);
+}
+
+.qr-text h4 {
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  color: var(--soft);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.qr-text p { font-size: 11.5px; color: var(--muted); line-height: 1.55; margin-bottom: 9px; }
+
+.qr-trust-tag {
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-color: rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.025);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.qr-trust-tag.gold {
+  color: var(--kweli-gold-muted);
+  border-color: var(--kweli-gold-line);
+  background: rgba(201,168,76,0.05);
+}
+
+/* ── Section transitions: smoother, more cinematic ── */
+.section-divider {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.045), transparent);
+}
+
+/* Reveal animation: slightly longer, more graceful */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.80s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.80s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Section heads: tighter, more editorial ── */
+.section-head h2 {
+  font-size: clamp(30px, 4.2vw, 50px);
+  letter-spacing: -0.06em;
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+/* ── Product + use case cells: quieter hover ── */
+.pcard, .use-cell {
+  background: var(--bg2);
+  transition: background 0.22s ease;
+}
+.pcard:hover, .use-cell:hover {
+  background: rgba(201,168,76,0.03);
+}
+
+/* ── Modal: crisper ── */
+.vmodal {
+  border-radius: 26px;
+  border-color: rgba(255,255,255,0.10);
+}
+.vmodal-body {
+  background: linear-gradient(175deg, #F8F4EC, #F2EAD8);
+}
+.vmodal-body::before {
+  background: linear-gradient(90deg, #9A7B2E, #D4B060, #9A7B2E);
+  background-size: 200% 100%;
+  height: 2px;
+}
+.vmodal-check { background: rgba(201,168,76,0.10); border-color: rgba(201,168,76,0.30); }
+.vmodal-check svg path { stroke: #A07828 !important; }
+.vmodal-verified { color: #12100A; }
+
+/* ── Result screens: warm paper ── */
+.qresult-body, .vc-screen, .vmodal-body {
+  background: linear-gradient(175deg, #F8F4EC, #F2EAD8);
+}
+.qresult-proofs, .proof-grid, .vmodal-proof {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(201,168,76,0.12);
+}
+
+/* ── Remove live-badge green: use gold system ── */
+.live-badge .live-dot {
+  background: var(--kweli-gold);
+  box-shadow: none;
+}
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
+  50%       { box-shadow: 0 0 0 4px rgba(201,168,76,0); }
+}
+
+/* ── Gold accent line consistency on cards ── */
+.contact-panel::before,
+.verify-card::before,
+.person-card::before,
+.tech-panel::before,
+.qresult::before,
+.vmodal::before {
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.48), transparent);
+}
+
+/* ── Flow step numbers ── */
+.flow-step-num {
+  color: var(--kweli-gold);
+  border-color: rgba(201,168,76,0.28);
+  background: radial-gradient(circle at 50% 20%, rgba(201,168,76,0.10), rgba(12,16,22,0.95));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+}
+.flow-step-content h3 { color: var(--kweli-gold); }
+.flow-grid::before {
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.08), rgba(201,168,76,0.28), rgba(201,168,76,0.08), transparent);
+}
+
+/* ── Hero eyebrow pulse dot: gold ── */
+.hero-eyebrow span { background: var(--kweli-gold); }
+
+/* ── Pcard icons, use cell icons: gold tint ── */
+.pcard-icon, .use-cell-icon, .tech-item-icon, .vt-dot {
+  color: var(--kweli-gold);
+  border-color: rgba(201,168,76,0.15);
+  background: rgba(201,168,76,0.045);
+}
+
+/* ── Contact panel: top line gold ── */
+.contact-panel::before {
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.48), transparent);
+}
+
+/* Mobile: keep breathing room */
+@media (max-width: 620px) {
+  .hero { padding: 72px 0 60px; }
+  h1 { font-size: 44px; letter-spacing: -0.055em; }
+  .hero-desc { font-size: 15.5px; margin-bottom: 36px; }
+  .hero-actions { margin-bottom: 36px; }
+}
+
 </style>
 </head>
 <body>
@@ -3078,10 +3541,10 @@ body.kweli-splash-active {
         <div>
           <div class="hero-eyebrow">
             <span></span>
-            Verification infrastructure · EAX Global
+            Verification Infrastructure · EAX Global
           </div>
           <h1>Truth infrastructure<br><span class="line2">for the real world.</span></h1>
-          <p class="hero-desc">Kweli is universal verification infrastructure for certificates, lab reports, supply chain records, ESG claims, pharmaceuticals, government records, export documentation, educational credentials, insurance records and institutional reports. Privacy-first. Blockchain-anchored. Built for audit.</p>
+          <p class="hero-desc">Kweli is verification infrastructure for the institutions that matter — records, credentials, claims and assets made provably authentic. Privacy-first. Blockchain-anchored. Built for audit.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#demo">Try the verification demo</a>
             <a class="btn" href="#how">How it works</a>
@@ -3162,7 +3625,7 @@ body.kweli-splash-active {
             </div>
             <div class="qr-text">
               <h4>Public Verification Layer</h4>
-              <p>No login. No wallet. No private data exposed.</p>
+              <p>Anyone can verify. No login. No wallet. No exposure.</p>
               <div class="qr-trust-tags">
                 <span class="qr-trust-tag gold">Blockchain Anchored</span>
                 <span class="qr-trust-tag">Instant</span>
