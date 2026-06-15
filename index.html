@@ -4689,7 +4689,7 @@ h1 .line2 {
 
               <article class="public-card fail-card record-card-wrap">
                 <div class="workflow-num red">7</div>
-                <h3>Verified or failed</h3>
+                <h3>Verification result</h3>
                 <p>If the file matches, the record verifies. If anything has changed, the check fails immediately.</p>
                 <div class="failed-record-card">
                   <div class="record-status fail"><span>×</span><b>Verification Failed</b></div>
@@ -4698,6 +4698,20 @@ h1 .line2 {
                   <div class="record-detail"><small>Status</small><strong>Document altered</strong></div>
                 </div>
               </article>
+
+              <article class="public-card fail-card record-card-wrap">
+                <div class="workflow-num red">8</div>
+                <h3>Document Not Found</h3>
+                <p>The uploaded document has no matching record on the Kweli network, so authenticity cannot be verified.</p>
+                <div class="failed-record-card">
+                  <div class="record-status fail"><span>!</span><b>Document Not Found</b></div>
+                  <div class="record-detail"><small>Status</small><strong>Document Not Found</strong></div>
+                  <div class="record-detail"><small>Uploaded fingerprint</small><strong>sha256: 84ac77b...40ef</strong></div>
+                  <div class="record-detail"><small>Result</small><strong>No matching record found on Kweli</strong></div>
+                  <div class="record-detail"><small>Meaning</small><strong>No record exists</strong></div>
+                </div>
+              </article>
+
             </div>
           </div>
 
