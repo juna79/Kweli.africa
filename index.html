@@ -578,6 +578,34 @@
     .use-cell b { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
     .use-cell span { font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 300; }
 
+    /* Who Uses Kweli — expandable industry cards (scoped to #industries only) */
+    #industries .use-cell { position: relative; cursor: pointer; -webkit-user-select: none; user-select: none; }
+    #industries .use-cell:focus-visible { outline: 1px solid var(--border2); outline-offset: -1px; }
+    #industries .use-cell .use-chevron {
+      position: absolute; top: 26px; right: 22px;
+      width: 16px; height: 16px; color: var(--muted); opacity: 0.65;
+      transition: transform 0.3s ease, opacity 0.2s ease; pointer-events: none;
+    }
+    #industries .use-cell:hover .use-chevron { opacity: 1; }
+    #industries .use-cell.open .use-chevron { transform: rotate(180deg); }
+    #industries .use-cell .use-detail {
+      max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
+    }
+    #industries .use-cell.open .use-detail { max-height: 420px; opacity: 1; margin-top: 14px; }
+    #industries .use-cell .use-detail ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+    #industries .use-cell .use-detail li {
+      position: relative; padding-left: 14px;
+      font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 300;
+    }
+    #industries .use-cell .use-detail li::before {
+      content: ""; position: absolute; left: 0; top: 8px;
+      width: 4px; height: 4px; border-radius: 50%; background: var(--soft); opacity: 0.55;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #industries .use-cell .use-detail, #industries .use-cell .use-chevron { transition: none; }
+    }
+
     /* ==============================
        TECH SECTION
     ============================== */
@@ -4925,37 +4953,53 @@ h1 .line2 {
           <p>Designed for organisations where trust, accountability and verification matter.</p>
         </div>
         <div class="use-grid reveal">
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 22c5-2 8-6 8-12V5l-8 3-8-3v5c0 6 3 10 8 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Agriculture</b>
+            <div class="use-detail"><ul><li>Farmer registrations</li><li>Organic certifications</li><li>Inspection reports</li><li>Collection records</li><li>Supplier documentation</li><li>Export certificates</li><li>Farm audits</li><li>Sustainability records</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Insurance</b>
+            <div class="use-detail"><ul><li>Claims documentation</li><li>Claims assessments</li><li>Approval workflows</li><li>Fraud investigations</li><li>Medical reports</li><li>Payment authorisations</li><li>Loss adjuster reports</li><li>Audit records</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Professional services</b>
+            <div class="use-detail"><ul><li>Audit reports</li><li>Legal opinions</li><li>Client deliverables</li><li>Advisory reports</li><li>Due diligence reports</li><li>Compliance reviews</li><li>Transaction documentation</li><li>Expert certifications</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M9.5 3a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM21 21l-6.4-6.4M9.5 6.5v6M6.5 9.5h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Research</b>
+            <div class="use-detail"><ul><li>Research reports</li><li>Field studies</li><li>Survey results</li><li>Published findings</li><li>Impact assessments</li><li>Monitoring reports</li><li>Scientific records</li><li>Data verification</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2a4 4 0 0 1 4 4c0 3-4 8-4 8s-4-5-4-8a4 4 0 0 1 4-4zM6 14c-1.5 2-2 6-2 6s4-.5 6-2M18 14c1.5 2 2 6 2 6s-4-.5-6-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Sustainability</b>
+            <div class="use-detail"><ul><li>ESG reports</li><li>Carbon project documentation</li><li>Impact assessments</li><li>Verification reports</li><li>Monitoring records</li><li>Sustainability disclosures</li><li>Environmental audits</li><li>Project certifications</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M2 12h20M2 12a10 10 0 0 1 20 0M2 12a10 10 0 0 0 20 0M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Export &amp; trade</b>
+            <div class="use-detail"><ul><li>Certificates of origin</li><li>Export permits</li><li>Inspection certificates</li><li>Shipping documentation</li><li>Customs records</li><li>Quality certificates</li><li>Supplier declarations</li><li>Trade compliance records</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Education</b>
+            <div class="use-detail"><ul><li>Degrees</li><li>Academic transcripts</li><li>Professional qualifications</li><li>Training certificates</li><li>Examination results</li><li>Accreditation records</li><li>CPD certifications</li><li>Student records</li></ul></div>
           </div>
-          <div class="use-cell">
+          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
             <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <b>Compliance</b>
+            <div class="use-detail"><ul><li>Internal audits</li><li>Regulatory filings</li><li>Compliance reports</li><li>Inspection records</li><li>Risk assessments</li><li>Control attestations</li><li>Monitoring reports</li><li>Certification records</li></ul></div>
           </div>
         </div>
       </div>
@@ -5247,6 +5291,31 @@ h1 .line2 {
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach(el => revealObserver.observe(el));
+
+    // ===== WHO USES KWELI: EXPANDABLE INDUSTRY CARDS =====
+    (function () {
+      const cards = document.querySelectorAll('#industries .use-cell');
+      function toggle(card) {
+        const willOpen = !card.classList.contains('open');
+        cards.forEach(c => {
+          c.classList.remove('open');
+          c.setAttribute('aria-expanded', 'false');
+        });
+        if (willOpen) {
+          card.classList.add('open');
+          card.setAttribute('aria-expanded', 'true');
+        }
+      }
+      cards.forEach(card => {
+        card.addEventListener('click', () => toggle(card));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+            e.preventDefault();
+            toggle(card);
+          }
+        });
+      });
+    })();
 
     // ===== NAV ACTIVE LINK =====
     const sections = document.querySelectorAll('section[id], header[id]');
