@@ -4813,45 +4813,6 @@ h1 .line2 {
 
     <div class="section-divider"></div>
 
-    <!-- VERIFICATION RESULTS -->
-    <section id="results">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">The outcome</div>
-          <h2>Every verification has one clear result.</h2>
-          <p>Every document submitted to Kweli will return one of three outcomes.</p>
-        </div>
-        <div class="product-cards reveal">
-          <div class="pcard result-verified">
-            <div class="result-accent">RESULT 01</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Verified</h3>
-            <p>The document is registered on Kweli and matches the original record.</p>
-          </div>
-          <div class="pcard result-failed">
-            <div class="result-accent">RESULT 02</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Verification failed</h3>
-            <p>The document exists on Kweli but has been altered since registration.</p>
-          </div>
-          <div class="pcard result-notfound">
-            <div class="result-accent">RESULT 03</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Document not found</h3>
-            <p>No matching record exists on the Kweli network.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
     <!-- USE CASES -->
     <section id="usecases">
       <div class="wrap">
@@ -5024,7 +4985,7 @@ h1 .line2 {
             <div class="tech-item">
               <div class="tech-item-icon">⛓</div>
               <div>
-                <b>Celo blockchain anchoring</b>
+                <b>Base blockchain anchoring</b>
                 <span>Low-cost, high-throughput proof infrastructure suitable for high-volume certificate registration at institutional scale.</span>
               </div>
             </div>
@@ -5104,21 +5065,6 @@ h1 .line2 {
             <div class="person-role">Business Development</div>
             <p>Paris brings experience from agriculture, operations and business development. Having worked closely with producers, farms and commercial organisations, he has seen first-hand how missing records, weak accountability and fragmented processes create risk. He works with organisations to identify practical applications for Kweli.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- PILOT BANNER -->
-    <section id="pilot">
-      <div class="wrap">
-        <div class="pilot-banner reveal">
-          <div>
-            <div class="eyebrow">Pilot programme</div>
-            <p>Currently onboarding pilot organisations across agriculture, insurance, sustainability reporting and professional services.</p>
-          </div>
-          <a class="btn btn-primary" href="#contact">Request demo</a>
         </div>
       </div>
     </section>
@@ -5205,7 +5151,7 @@ h1 .line2 {
           <div class="vmodal-row">
             <span class="vml">Blockchain proof</span>
             <div class="vmdot"></div>
-            <span class="vmv">Celo · 0x8f2a...91bc</span>
+            <span class="vmv">Base · 0x8f2a...91bc</span>
           </div>
           <div class="vmodal-row">
             <span class="vml">Timestamp</span>
@@ -5257,7 +5203,7 @@ h1 .line2 {
       const ok = input.includes('5d9152a') || input.toLowerCase().includes('verified');
       result.className = 'result-panel show' + (ok ? '' : ' bad');
       if (ok) {
-        result.innerHTML = '<b style="color:#34d399">✓ VERIFIED</b><p>Issued by EAX Global Demo Registry. Blockchain proof anchored on Celo · Block 19,247,884. RFC3161 timestamp confirmed.</p>';
+        result.innerHTML = '<b style="color:#34d399">✓ VERIFIED</b><p>Issued by EAX Global Demo Registry. Blockchain proof anchored on Base · Block 19,247,884. RFC3161 timestamp confirmed.</p>';
       } else {
         result.innerHTML = '<b style="color:#f87171">✕ NOT VERIFIED</b><p>This hash could not be found in the Kweli registry. The record may not have been registered, or the document may have been altered since registration.</p>';
       }
