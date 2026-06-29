@@ -691,12 +691,26 @@
       background: var(--gold);
     }
     #usecases .uc-row.is-launching:hover { background: rgba(201,168,76,0.16); }
+    /* Claims is the live product — give it more height and presence than the roadmap */
+    #usecases .uc-row.is-launching .uc-cell { padding-top: 30px; padding-bottom: 30px; }
     #usecases .uc-row.is-launching .uc-ico {
+      width: 38px; height: 38px;
       border-color: var(--kweli-gold-line, rgba(201,168,76,0.22));
       background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
       color: var(--gold);
       opacity: 1;
     }
+    #usecases .uc-row.is-launching .uc-ico svg { width: 19px; height: 19px; }
+    #usecases .uc-row.is-launching .uc-name {
+      font-size: 17.5px;
+      letter-spacing: -0.03em;
+      color: #fbf6ec;
+    }
+    #usecases .uc-row.is-launching .uc-customer { color: var(--text); }
+    #usecases .uc-row.is-launching .uc-outcome { color: var(--soft); }
+    /* Roadmap rows: present and credible, but visibly the future platform */
+    #usecases .uc-row.is-roadmap .uc-ico { opacity: 0.55; }
+    #usecases .uc-row.is-roadmap .uc-name { color: var(--soft); font-weight: 500; }
     /* Launching badge */
     #usecases .uc-badge-launch {
       display: inline-flex; align-items: center; gap: 6px;
@@ -716,17 +730,6 @@
     @keyframes uc-pulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.45); }
       50% { box-shadow: 0 0 0 4px rgba(201,168,76,0); }
-    }
-    /* Roadmap (coming next) badge */
-    #usecases .uc-badge-next {
-      display: inline-flex; align-items: center;
-      font-size: 10px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--muted);
-      padding: 3px 9px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.025);
-      white-space: nowrap;
     }
     /* Supporting statement */
     #usecases .uc-note {
@@ -769,6 +772,7 @@
       }
       #usecases .uc-row.is-launching::before { display: none; }
       #usecases .uc-cell { padding: 0; }
+      #usecases .uc-row.is-launching .uc-cell { padding-top: 0; padding-bottom: 0; }
       #usecases .uc-cell + .uc-cell { margin-top: 12px; }
       #usecases .uc-mlabel {
         display: block;
@@ -5022,14 +5026,14 @@ h1 .line2 {
     <section id="usecases">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="eyebrow">Use cases</div>
-          <h2>One Trust Infrastructure. Multiple Industry Solutions.</h2>
-          <p>One core verification infrastructure, applied across industries. We are launching with a single focused vertical, with a clear roadmap for expansion.</p>
+          <div class="eyebrow">Verification infrastructure</div>
+          <h2>One Platform. Industry-Specific Solutions.</h2>
+          <p>Built once, then shaped to the records each industry depends on.</p>
         </div>
         <div class="uc-roadmap reveal">
           <div class="uc-head">
             <div>Solution</div>
-            <div>Primary customer</div>
+            <div>Built for</div>
             <div>Business outcome</div>
           </div>
 
@@ -5045,11 +5049,11 @@ h1 .line2 {
                 </span>
               </span>
             </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Insurers</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Reduce claims fraud and claims leakage</div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Insurers</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Reduce claims fraud and leakage</div>
           </div>
 
-          <div class="uc-row">
+          <div class="uc-row is-roadmap">
             <div class="uc-cell uc-solution">
               <span class="uc-ico">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -5057,15 +5061,14 @@ h1 .line2 {
               <span>
                 <span class="uc-name-row">
                   <span class="uc-name">Kweli Labs</span>
-                  <span class="uc-badge-next">Coming next</span>
                 </span>
               </span>
             </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Laboratories</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Issue independently verifiable laboratory reports</div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Laboratories</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Strengthen confidence in every report issued</div>
           </div>
 
-          <div class="uc-row">
+          <div class="uc-row is-roadmap">
             <div class="uc-cell uc-solution">
               <span class="uc-ico">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M2 12h20M2 12a10 10 0 0 1 20 0M2 12a10 10 0 0 0 20 0M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -5073,15 +5076,14 @@ h1 .line2 {
               <span>
                 <span class="uc-name-row">
                   <span class="uc-name">Kweli Trade</span>
-                  <span class="uc-badge-next">Coming next</span>
                 </span>
               </span>
             </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Exporters</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Strengthen trust in export documentation</div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Exporters</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Build trust in export documentation</div>
           </div>
 
-          <div class="uc-row">
+          <div class="uc-row is-roadmap">
             <div class="uc-cell uc-solution">
               <span class="uc-ico">
                 <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h20M6 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -5089,15 +5091,14 @@ h1 .line2 {
               <span>
                 <span class="uc-name-row">
                   <span class="uc-name">Kweli Banking</span>
-                  <span class="uc-badge-next">Coming next</span>
                 </span>
               </span>
             </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Banks</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Protect high-value financial records</div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Banks</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Reduce document fraud in financial records</div>
           </div>
 
-          <div class="uc-row">
+          <div class="uc-row is-roadmap">
             <div class="uc-cell uc-solution">
               <span class="uc-ico">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -5105,15 +5106,14 @@ h1 .line2 {
               <span>
                 <span class="uc-name-row">
                   <span class="uc-name">Kweli Credentials</span>
-                  <span class="uc-badge-next">Coming next</span>
                 </span>
               </span>
             </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Universities</div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Universities</div>
             <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Eliminate qualification fraud</div>
           </div>
 
-          <div class="uc-row">
+          <div class="uc-row is-roadmap">
             <div class="uc-cell uc-solution">
               <span class="uc-ico">
                 <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4M6 16v-2h12v2M12 12v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -5121,16 +5121,15 @@ h1 .line2 {
               <span>
                 <span class="uc-name-row">
                   <span class="uc-name">Kweli Governance</span>
-                  <span class="uc-badge-next">Coming next</span>
                 </span>
               </span>
             </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Enterprises</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Protect sensitive corporate records</div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Enterprises</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Protect corporate records and governance</div>
           </div>
         </div>
 
-        <p class="uc-note reveal">Every solution is built on the same Kweli verification infrastructure. We are initially launching with <b>Kweli Claims</b> before expanding into additional industries.</p>
+        <p class="uc-note reveal">We are launching with insurance, then extending the same platform to new industries over time.</p>
       </div>
     </section>
 
