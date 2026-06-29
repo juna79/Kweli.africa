@@ -607,6 +607,183 @@
     }
 
     /* ==============================
+       USE CASES — PLATFORM ROADMAP
+       (scoped to #usecases only)
+    ============================== */
+    #usecases .uc-roadmap {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+    /* Column header row */
+    #usecases .uc-head {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1.55fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.018);
+    }
+    #usecases .uc-head > div {
+      padding: 16px 24px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    /* Each solution row */
+    #usecases .uc-row {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1.55fr;
+      gap: 0;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+    #usecases .uc-row:first-of-type { border-top: 0; }
+    #usecases .uc-row:hover { background: rgba(255,255,255,0.022); }
+    #usecases .uc-cell {
+      padding: 22px 24px;
+      min-width: 0;
+    }
+    /* Solution cell */
+    #usecases .uc-solution {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+    #usecases .uc-ico {
+      width: 34px; height: 34px; flex-shrink: 0;
+      border-radius: 9px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border2);
+      display: grid; place-items: center;
+      color: var(--soft);
+      opacity: 0.85;
+    }
+    #usecases .uc-ico svg { width: 17px; height: 17px; }
+    #usecases .uc-name {
+      display: block;
+      font-size: 15px; font-weight: 600; letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    #usecases .uc-name-row {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    #usecases .uc-customer {
+      font-size: 13.5px; color: var(--soft); font-weight: 300;
+    }
+    #usecases .uc-outcome {
+      font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.55;
+    }
+    /* Launching row accent */
+    #usecases .uc-row.is-launching {
+      background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
+      position: relative;
+    }
+    #usecases .uc-row.is-launching::before {
+      content: "";
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--gold);
+    }
+    #usecases .uc-row.is-launching:hover { background: rgba(201,168,76,0.16); }
+    #usecases .uc-row.is-launching .uc-ico {
+      border-color: var(--kweli-gold-line, rgba(201,168,76,0.22));
+      background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
+      color: var(--gold);
+      opacity: 1;
+    }
+    /* Launching badge */
+    #usecases .uc-badge-launch {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--gold);
+      padding: 3px 9px;
+      border: 1px solid var(--kweli-gold-line, rgba(201,168,76,0.22));
+      border-radius: 999px;
+      background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
+      white-space: nowrap;
+    }
+    #usecases .uc-badge-launch .uc-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold);
+      animation: uc-pulse 1.8s infinite;
+    }
+    @keyframes uc-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.45); }
+      50% { box-shadow: 0 0 0 4px rgba(201,168,76,0); }
+    }
+    /* Roadmap (coming next) badge */
+    #usecases .uc-badge-next {
+      display: inline-flex; align-items: center;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--muted);
+      padding: 3px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.025);
+      white-space: nowrap;
+    }
+    /* Supporting statement */
+    #usecases .uc-note {
+      margin: 26px auto 0;
+      max-width: 720px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--soft);
+      font-weight: 300;
+    }
+    #usecases .uc-note b {
+      color: var(--text);
+      font-weight: 600;
+    }
+    /* Mobile labels are hidden on desktop */
+    #usecases .uc-mlabel { display: none; }
+
+    @media (max-width: 760px) {
+      /* Switch from table to stacked cards */
+      #usecases .uc-roadmap {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        display: grid;
+        gap: 12px;
+      }
+      #usecases .uc-head { display: none; }
+      #usecases .uc-row {
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--bg2);
+        padding: 18px 18px 16px;
+      }
+      #usecases .uc-row:first-of-type { border-top: 1px solid var(--border); }
+      #usecases .uc-row.is-launching {
+        border-color: var(--kweli-gold-line, rgba(201,168,76,0.22));
+        background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
+      }
+      #usecases .uc-row.is-launching::before { display: none; }
+      #usecases .uc-cell { padding: 0; }
+      #usecases .uc-cell + .uc-cell { margin-top: 12px; }
+      #usecases .uc-mlabel {
+        display: block;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 5px;
+      }
+      #usecases .uc-customer, #usecases .uc-outcome { font-size: 14px; }
+    }
+
+    /* ==============================
        TECH SECTION
     ============================== */
     .tech-layout {
@@ -4846,51 +5023,114 @@ h1 .line2 {
       <div class="wrap">
         <div class="section-head reveal">
           <div class="eyebrow">Use cases</div>
-          <h2>One infrastructure layer. Many trust points.</h2>
-          <p>Designed for any organisation that needs to independently verify important records.</p>
+          <h2>One Trust Infrastructure. Multiple Industry Solutions.</h2>
+          <p>One core verification infrastructure, applied across industries. We are launching with a single focused vertical, with a clear roadmap for expansion.</p>
         </div>
-        <div class="use-grid reveal">
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Laboratory reports</b>
-            <span>Test results and analyses with tamper-evident proof of authenticity.</span>
+        <div class="uc-roadmap reveal">
+          <div class="uc-head">
+            <div>Solution</div>
+            <div>Primary customer</div>
+            <div>Business outcome</div>
           </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v6h6M8.5 16l2 2 4.5-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Audit reports</b>
-            <span>Independent evidence that an audit record has not been altered.</span>
+
+          <div class="uc-row is-launching">
+            <div class="uc-cell uc-solution">
+              <span class="uc-ico">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="uc-name-row">
+                  <span class="uc-name">Kweli Claims</span>
+                  <span class="uc-badge-launch"><span class="uc-dot"></span>Launching</span>
+                </span>
+              </span>
+            </div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Insurers</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Reduce claims fraud and claims leakage</div>
           </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h20M6 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Banking &amp; Financial Services</b>
-            <span>Verify loan documentation, customer records, approvals, regulatory reporting and other high-value financial records.</span>
+
+          <div class="uc-row">
+            <div class="uc-cell uc-solution">
+              <span class="uc-ico">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="uc-name-row">
+                  <span class="uc-name">Kweli Labs</span>
+                  <span class="uc-badge-next">Coming next</span>
+                </span>
+              </span>
+            </div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Laboratories</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Issue independently verifiable laboratory reports</div>
           </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Insurance claims</b>
-            <span>Supporting documents protected against post-issuance changes.</span>
+
+          <div class="uc-row">
+            <div class="uc-cell uc-solution">
+              <span class="uc-ico">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M2 12h20M2 12a10 10 0 0 1 20 0M2 12a10 10 0 0 0 20 0M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="uc-name-row">
+                  <span class="uc-name">Kweli Trade</span>
+                  <span class="uc-badge-next">Coming next</span>
+                </span>
+              </span>
+            </div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Exporters</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Strengthen trust in export documentation</div>
           </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
-            <b>Sustainability reports</b>
-            <span>Impact and ESG disclosures backed by independent proof.</span>
+
+          <div class="uc-row">
+            <div class="uc-cell uc-solution">
+              <span class="uc-ico">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h20M6 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="uc-name-row">
+                  <span class="uc-name">Kweli Banking</span>
+                  <span class="uc-badge-next">Coming next</span>
+                </span>
+              </span>
+            </div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Banks</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Protect high-value financial records</div>
           </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <b>Export documentation</b>
-            <span>Records required by buyers, regulators and customs across borders.</span>
+
+          <div class="uc-row">
+            <div class="uc-cell uc-solution">
+              <span class="uc-ico">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="uc-name-row">
+                  <span class="uc-name">Kweli Credentials</span>
+                  <span class="uc-badge-next">Coming next</span>
+                </span>
+              </span>
+            </div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Universities</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Eliminate qualification fraud</div>
           </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Legal documents</b>
-            <span>Agreements and filings with a clear, verifiable record of origin.</span>
-          </div>
-          <div class="use-cell">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4M6 16v-2h12v2M12 12v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Corporate Governance</b>
-            <span>Ensure board minutes, shareholder resolutions, committee decisions and sensitive company records remain authentic, auditable and independently verifiable over time.</span>
+
+          <div class="uc-row">
+            <div class="uc-cell uc-solution">
+              <span class="uc-ico">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4M6 16v-2h12v2M12 12v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="uc-name-row">
+                  <span class="uc-name">Kweli Governance</span>
+                  <span class="uc-badge-next">Coming next</span>
+                </span>
+              </span>
+            </div>
+            <div class="uc-cell uc-customer"><span class="uc-mlabel">Primary customer</span>Enterprises</div>
+            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Protect sensitive corporate records</div>
           </div>
         </div>
+
+        <p class="uc-note reveal">Every solution is built on the same Kweli verification infrastructure. We are initially launching with <b>Kweli Claims</b> before expanding into additional industries.</p>
       </div>
     </section>
 
