@@ -54,6 +54,29 @@
     }
 
     a { color: inherit; text-decoration: none; }
+
+    .skip-link {
+      position: absolute; top: -60px; left: 16px; z-index: 1000;
+      background: #0B0F14; color: #fff;
+      padding: 12px 20px; border-radius: 10px;
+      border: 1px solid var(--border2);
+      font-size: 14px; font-weight: 600;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* Keyboard focus — visible everywhere, silent for mouse users */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
     .wrap { width: min(1200px, calc(100% - 48px)); margin: 0 auto; position: relative; z-index: 1; }
 
     /* ==============================
@@ -213,249 +236,58 @@
     /* ==============================
        VERIFICATION CARD (HERO RIGHT)
     ============================== */
-    .verify-card {
-      background: #0B0F14;
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 24px;
-      overflow: hidden;
-      position: relative;
-      box-shadow:
-        0 40px 100px rgba(0,0,0,0.7),
-        0 0 0 1px rgba(255,255,255,0.04) inset;
-      animation: card-float 6s ease-in-out infinite;
-    }
     @keyframes card-float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
 
     /* top glow */
-    .verify-card::before {
-      content: "";
-      position: absolute;
-      top: -1px; left: 20%; right: 20%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(176,141,87,0.45), transparent);
-    }
-
-    .vc-header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-    }
-    .vc-header-left {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .vc-dots {
-      display: flex; gap: 5px;
-    }
-    .vc-dot {
-      width: 9px; height: 9px; border-radius: 50%;
-    }
-    .vc-dot:nth-child(1) { background: #ef4444; opacity: 0.6; }
-    .vc-dot:nth-child(2) { background: #f59e0b; opacity: 0.6; }
-    .vc-dot:nth-child(3) { background: #10b981; opacity: 0.6; }
-    .vc-url {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      background: rgba(255,255,255,0.04);
-      padding: 3px 10px;
-      border-radius: 5px;
-      border: 1px solid var(--border);
-    }
-
-    .live-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--green2);
-      padding: 4px 10px;
-      border: 1px solid rgba(16,185,129,0.25);
-      border-radius: 999px;
-      background: rgba(16,185,129,0.06);
-    }
-    .live-badge .live-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--green2);
-      animation: live-pulse 1.5s infinite;
-    }
     @keyframes live-pulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
       50% { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
     }
 
     /* White screen area */
-    .vc-screen {
-      margin: 16px;
-      background: #F6F8FA;
-      border-radius: 14px;
-      padding: 28px 22px;
-      text-align: center;
-      color: #0f172a;
-      position: relative;
-      overflow: hidden;
-    }
-    .vc-screen::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #10b981, #34d399, #10b981);
-      background-size: 200% 100%;
-      animation: shimmer 2.5s linear infinite;
-    }
     @keyframes shimmer {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
 
-    .check-ring {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: rgba(16,185,129,0.1);
-      border: 2px solid rgba(16,185,129,0.3);
-      display: grid; place-items: center;
-      margin: 0 auto 14px;
-      position: relative;
-    }
-    .check-ring::before {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 1px solid rgba(16,185,129,0.15);
-    }
-    .check-ring svg { width: 32px; height: 32px; color: #10b981; }
-
-    .verified-label {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: #0f172a;
-      margin-bottom: 4px;
-    }
-    .verified-sub {
-      font-size: 12.5px;
-      color: #64748b;
-      margin-bottom: 18px;
-      line-height: 1.5;
-    }
-
-    .proof-grid {
-      background: #EEF2F7;
-      border-radius: 10px;
-      padding: 14px;
-      display: grid;
-      gap: 9px;
-      text-align: left;
-    }
-    .proof-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      font-size: 12px;
-    }
-    .proof-row .plabel { color: #64748b; font-weight: 400; flex-shrink: 0; }
-    .proof-row .pval {
-      color: #0f172a; font-weight: 600;
-      font-family: var(--mono);
-      font-size: 11px;
-      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-      max-width: 160px;
-    }
-    .proof-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #10b981; flex-shrink: 0;
-    }
-
-    .vc-qr {
-      display: grid;
-      grid-template-columns: 108px 1fr;
-      gap: 18px;
-      margin: 0 16px 16px;
-      align-items: center;
-      padding: 18px 16px;
-      border: 1px solid rgba(255,255,255,0.09);
-      border-top: 1px solid rgba(176,141,87,0.2);
-      border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.018);
-      position: relative;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .vc-qr:hover {
-      background: rgba(255,255,255,0.03);
-      border-top-color: rgba(176,141,87,0.35);
-    }
-    .qr-grid {
-      width: 108px; height: 108px;
-      border-radius: 8px;
-      background: #FFFFFF;
-      padding: 10px;
-      display: grid;
-      grid-template-columns: repeat(7,1fr);
-      gap: 3px;
-      box-shadow:
-        0 4px 16px rgba(0,0,0,0.2),
-        0 0 0 1px rgba(0,0,0,0.08),
-        0 0 0 3px rgba(255,255,255,1),
-        0 0 0 4px rgba(176,141,87,0.25);
-    }
-    .qr-grid i {
-      background: #0f172a;
-      border-radius: 1px;
-    }
-    .qr-grid span { background: transparent; }
-
-    .qr-text h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.01em; margin-bottom: 5px; color: var(--soft); text-transform: uppercase; font-size: 10.5px; }
-    .qr-text p { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
-    .qr-trust-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .qr-trust-tag {
-      font-size: 9px; font-weight: 500;
-      letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 2px 7px; border-radius: 3px;
-      background: var(--surface);
-    }
-    .qr-trust-tag.gold {
-      color: rgba(176,141,87,0.75);
-      border-color: rgba(176,141,87,0.2);
-      background: rgba(176,141,87,0.04);
-    }
-
     /* ==============================
        SECTIONS COMMON
     ============================== */
-    section { padding: 88px 0; position: relative; }
+    section { padding: 148px 0; position: relative; }
 
     .eyebrow {
-      font-size: 10.5px; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
 
     .section-head {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 52px;
+      max-width: 680px;
+      margin: 0 auto 72px;
     }
     .section-head h2 {
-      font-size: clamp(32px, 4.5vw, 52px);
+      font-size: clamp(34px, 5vw, 60px);
       font-weight: 600;
       letter-spacing: -0.055em;
-      line-height: 1.05;
-      margin-bottom: 16px;
+      line-height: 1.04;
+      margin-bottom: 22px;
       color: #f0f4ff;
     }
     .section-head p {
-      font-size: 17px;
+      font-size: 18px;
       color: var(--soft);
-      line-height: 1.7;
+      line-height: 1.75;
       font-weight: 300;
+    }
+
+    @media (max-width: 760px) {
+      section { padding: 96px 0; }
+      .section-head { margin-bottom: 52px; }
     }
 
     /* Divider line */
@@ -470,565 +302,56 @@
        PRODUCT CARDS
     ============================== */
     #product { background: var(--bg2); }
-    .product-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .pcard {
-      background: var(--bg2);
-      padding: 34px 28px;
-      transition: background 0.2s;
-      position: relative;
-    }
-    .pcard:hover { background: rgba(255,255,255,0.04); }
-    .pcard-num {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      margin-bottom: 20px;
-    }
-    .pcard-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      display: grid; place-items: center;
-      margin-bottom: 18px;
-      color: var(--soft);
-    }
-    .pcard h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 10px; }
-    .pcard p { color: var(--soft); font-size: 14.5px; line-height: 1.65; font-weight: 300; }
 
     /* ==============================
        HOW IT WORKS — FLOW
     ============================== */
-    .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0;
-      position: relative;
-    }
-    .flow-grid::before {
-      content: "";
-      position: absolute;
-      top: 28px; left: 10%; right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), rgba(176,141,87,0.12), rgba(255,255,255,0.08), transparent);
-      z-index: 0;
-    }
-    .flow-step {
-      padding: 0 16px 0 16px;
-      position: relative;
-      z-index: 1;
-    }
-    .flow-step-num {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: var(--bg2);
-      border: 1px solid var(--border2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--mono);
-      font-size: 13px; font-weight: 500;
-      color: var(--soft);
-      margin: 0 auto 20px;
-      position: relative;
-      transition: all 0.3s;
-    }
-    .flow-step:hover .flow-step-num {
-      border-color: rgba(255,255,255,0.30);
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 0 20px rgba(255,255,255,0.10);
-    }
-    .flow-step-content { text-align: center; }
-    .flow-step-content h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .flow-step-content p { font-size: 13.5px; color: var(--soft); line-height: 1.6; font-weight: 300; }
 
     /* ==============================
        USE CASES GRID
     ============================== */
-    #usecases { background: var(--bg2); }
-    .use-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .use-cell {
-      background: var(--bg2);
-      padding: 26px 24px;
-      transition: background 0.2s;
-      cursor: default;
-    }
-    .use-cell:hover { background: rgba(255,255,255,0.035); }
-    .use-cell-icon {
-      width: 32px; height: 32px;
-      margin-bottom: 14px;
-      color: var(--soft);
-      opacity: 0.7;
-    }
-    .use-cell b { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
-    .use-cell span { font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 300; }
 
     /* Who Uses Kweli — expandable industry cards (scoped to #industries only) */
-    #industries .use-cell { position: relative; cursor: pointer; -webkit-user-select: none; user-select: none; }
-    #industries .use-cell:focus-visible { outline: 1px solid var(--border2); outline-offset: -1px; }
-    #industries .use-cell .use-chevron {
-      position: absolute; top: 26px; right: 22px;
-      width: 16px; height: 16px; color: var(--muted); opacity: 0.65;
-      transition: transform 0.3s ease, opacity 0.2s ease; pointer-events: none;
-    }
-    #industries .use-cell:hover .use-chevron { opacity: 1; }
-    #industries .use-cell.open .use-chevron { transform: rotate(180deg); }
-    #industries .use-cell .use-detail {
-      max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
-      transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
-    }
-    #industries .use-cell.open .use-detail { max-height: 420px; opacity: 1; margin-top: 14px; }
-    #industries .use-cell .use-detail ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
-    #industries .use-cell .use-detail li {
-      position: relative; padding-left: 14px;
-      font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 300;
-    }
-    #industries .use-cell .use-detail li::before {
-      content: ""; position: absolute; left: 0; top: 8px;
-      width: 4px; height: 4px; border-radius: 50%; background: var(--soft); opacity: 0.55;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      #industries .use-cell .use-detail, #industries .use-cell .use-chevron { transition: none; }
-    }
 
     /* ==============================
        USE CASES — PLATFORM ROADMAP
        (scoped to #usecases only)
     ============================== */
-    #usecases .uc-roadmap {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--bg2);
-    }
     /* Column header row */
-    #usecases .uc-head {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr 1.55fr;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.018);
-    }
-    #usecases .uc-head > div {
-      padding: 16px 24px;
-      font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
     /* Each solution row */
-    #usecases .uc-row {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr 1.55fr;
-      gap: 0;
-      align-items: center;
-      border-top: 1px solid var(--border);
-      transition: background 0.2s ease;
-    }
-    #usecases .uc-row:first-of-type { border-top: 0; }
-    #usecases .uc-row:hover { background: rgba(255,255,255,0.022); }
-    #usecases .uc-cell {
-      padding: 22px 24px;
-      min-width: 0;
-    }
     /* Solution cell */
-    #usecases .uc-solution {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-    #usecases .uc-ico {
-      width: 34px; height: 34px; flex-shrink: 0;
-      border-radius: 9px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border2);
-      display: grid; place-items: center;
-      color: var(--soft);
-      opacity: 0.85;
-    }
-    #usecases .uc-ico svg { width: 17px; height: 17px; }
-    #usecases .uc-name {
-      display: block;
-      font-size: 15px; font-weight: 600; letter-spacing: -0.02em;
-      color: var(--text);
-      line-height: 1.25;
-    }
-    #usecases .uc-name-row {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-    }
-    #usecases .uc-customer {
-      font-size: 13.5px; color: var(--soft); font-weight: 300;
-    }
-    #usecases .uc-outcome {
-      font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.55;
-    }
     /* Launching row accent */
-    #usecases .uc-row.is-launching {
-      background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
-      position: relative;
-    }
-    #usecases .uc-row.is-launching::before {
-      content: "";
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: var(--gold);
-    }
-    #usecases .uc-row.is-launching:hover { background: rgba(201,168,76,0.16); }
     /* Claims is the live product — give it more height and presence than the roadmap */
-    #usecases .uc-row.is-launching .uc-cell { padding-top: 30px; padding-bottom: 30px; }
-    #usecases .uc-row.is-launching .uc-ico {
-      width: 38px; height: 38px;
-      border-color: var(--kweli-gold-line, rgba(201,168,76,0.22));
-      background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
-      color: var(--gold);
-      opacity: 1;
-    }
-    #usecases .uc-row.is-launching .uc-ico svg { width: 19px; height: 19px; }
-    #usecases .uc-row.is-launching .uc-name {
-      font-size: 17.5px;
-      letter-spacing: -0.03em;
-      color: #fbf6ec;
-    }
-    #usecases .uc-row.is-launching .uc-customer { color: var(--text); }
-    #usecases .uc-row.is-launching .uc-outcome { color: var(--soft); }
     /* Roadmap rows: present and credible, but visibly the future platform */
-    #usecases .uc-row.is-roadmap .uc-ico { opacity: 0.55; }
-    #usecases .uc-row.is-roadmap .uc-name { color: var(--soft); font-weight: 500; }
     /* Launching badge */
-    #usecases .uc-badge-launch {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
-      color: var(--gold);
-      padding: 3px 9px;
-      border: 1px solid var(--kweli-gold-line, rgba(201,168,76,0.22));
-      border-radius: 999px;
-      background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
-      white-space: nowrap;
-    }
-    #usecases .uc-badge-launch .uc-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--gold);
-      animation: uc-pulse 1.8s infinite;
-    }
     @keyframes uc-pulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.45); }
       50% { box-shadow: 0 0 0 4px rgba(201,168,76,0); }
     }
     /* Supporting statement */
-    #usecases .uc-note {
-      margin: 26px auto 0;
-      max-width: 720px;
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--soft);
-      font-weight: 300;
-    }
-    #usecases .uc-note b {
-      color: var(--text);
-      font-weight: 600;
-    }
     /* Mobile labels are hidden on desktop */
-    #usecases .uc-mlabel { display: none; }
 
     @media (max-width: 760px) {
       /* Switch from table to stacked cards */
-      #usecases .uc-roadmap {
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        display: grid;
-        gap: 12px;
-      }
-      #usecases .uc-head { display: none; }
-      #usecases .uc-row {
-        display: block;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        background: var(--bg2);
-        padding: 18px 18px 16px;
-      }
-      #usecases .uc-row:first-of-type { border-top: 1px solid var(--border); }
-      #usecases .uc-row.is-launching {
-        border-color: var(--kweli-gold-line, rgba(201,168,76,0.22));
-        background: var(--kweli-gold-faint, rgba(201,168,76,0.12));
-      }
-      #usecases .uc-row.is-launching::before { display: none; }
-      #usecases .uc-cell { padding: 0; }
-      #usecases .uc-row.is-launching .uc-cell { padding-top: 0; padding-bottom: 0; }
-      #usecases .uc-cell + .uc-cell { margin-top: 12px; }
-      #usecases .uc-mlabel {
-        display: block;
-        font-family: var(--mono);
-        font-size: 9.5px;
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 5px;
-      }
-      #usecases .uc-customer, #usecases .uc-outcome { font-size: 14px; }
     }
 
     /* ==============================
        TECH SECTION
     ============================== */
-    .tech-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 32px;
-      align-items: start;
-    }
-    .tech-panel {
-      background: linear-gradient(150deg, rgba(255,255,255,0.03), rgba(11,17,32,0.8));
-      border: 1px solid var(--border2);
-      border-radius: 24px;
-      padding: 40px 36px;
-      position: relative;
-      overflow: hidden;
-    }
-    .tech-panel::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.24), transparent);
-    }
-    .tech-panel h2 {
-      font-size: clamp(30px, 3.5vw, 44px);
-      font-weight: 600;
-      letter-spacing: -0.055em;
-      line-height: 1.08;
-      margin-bottom: 18px;
-      color: #f0f4ff;
-    }
-    .tech-panel p { color: var(--soft); line-height: 1.75; font-size: 15.5px; margin-bottom: 14px; font-weight: 300; }
-
-    .tech-tag {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--soft);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      padding: 4px 10px;
-      border-radius: 5px;
-      margin-top: 6px;
-    }
-
-    .tech-list {
-      display: grid;
-      gap: 12px;
-    }
-    .tech-item {
-      display: flex; gap: 16px;
-      padding: 20px;
-      border-radius: var(--radius-sm);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-    .tech-item:hover {
-      border-color: var(--border2);
-      background: var(--surface2);
-    }
-    .tech-item-icon {
-      width: 40px; height: 40px; flex-shrink: 0;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      display: grid; place-items: center;
-      font-family: var(--mono);
-      font-size: 11px; font-weight: 500;
-      color: var(--soft);
-    }
-    .tech-item b { display: block; font-size: 14px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
-    .tech-item span { font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 300; }
 
     /* ==============================
        DEMO SECTION
     ============================== */
-    #demo { background: var(--bg2); }
-
-    .demo-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-    .demo-panel {
-      background: var(--bg);
-      border: 1px solid var(--border2);
-      border-radius: 24px;
-      padding: 32px;
-      position: relative;
-    }
-    .demo-panel h3 {
-      font-size: 22px; font-weight: 600; letter-spacing: -0.04em;
-      margin-bottom: 10px;
-    }
-    .demo-panel > p {
-      color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 22px;
-    }
-
-    .demo-input-wrap { position: relative; margin-bottom: 14px; }
-    .demo-input-label {
-      font-family: var(--mono); font-size: 11px; color: var(--muted);
-      margin-bottom: 7px; letter-spacing: 0.06em; text-transform: uppercase;
-    }
-    .demo-input {
-      width: 100%;
-      padding: 13px 16px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border2);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      font-family: var(--mono); font-size: 13px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .demo-input:focus { border-color: rgba(255,255,255,0.30); }
-    .demo-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-
-    .result-panel {
-      margin-top: 20px;
-      padding: 18px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(16,185,129,0.22);
-      background: rgba(16,185,129,0.05);
-      display: none;
-      animation: result-in 0.3s ease;
-    }
     @keyframes result-in {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .result-panel.bad {
-      border-color: rgba(239,68,68,0.25);
-      background: rgba(239,68,68,0.06);
-    }
-    .result-panel.show { display: block; }
-    .result-panel b { font-size: 15px; letter-spacing: -0.02em; }
-    .result-panel p { color: var(--soft); line-height: 1.6; margin-top: 7px; font-size: 14px; }
 
     /* verification timeline (right panel) */
-    .verify-timeline {
-      display: grid; gap: 0;
-      position: relative;
-    }
-    .vt-line {
-      position: absolute;
-      left: 19px; top: 24px; bottom: 0;
-      width: 1px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.24), transparent);
-    }
-    .vt-step {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 0 0 22px 0;
-      position: relative;
-    }
-    .vt-dot {
-      width: 38px; height: 38px; flex-shrink: 0;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.18);
-      display: grid; place-items: center;
-      margin-top: 2px;
-      color: var(--soft);
-      position: relative; z-index: 1;
-    }
-    .vt-dot.active {
-      background: rgba(16,185,129,0.1);
-      border-color: rgba(16,185,129,0.4);
-      color: var(--green2);
-    }
-    .vt-text b { font-size: 14px; font-weight: 600; display: block; margin-bottom: 3px; letter-spacing: -0.01em; }
-    .vt-text span { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
-    .vt-meta {
-      font-family: var(--mono); font-size: 10.5px; color: var(--muted);
-      margin-top: 6px; display: block;
-    }
 
     /* ==============================
        TEAM SECTION
     ============================== */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 440px));
-      gap: 20px;
-      justify-content: center;
-    }
-    .person-card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid var(--border2);
-      border-radius: 24px;
-      padding: 36px 32px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .person-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-      border-color: rgba(255,255,255,0.10);
-    }
-    .person-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 20%; right: 20%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.24), transparent);
-    }
-
-    .person-avatar-wrap {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 22px;
-    }
-    .person-avatar {
-      width: 110px; height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border2);
-      display: block;
-    }
-    .person-avatar-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-    .person-avatar-ring::before {
-      content: "";
-      position: absolute;
-      top: -2px; left: 50%;
-      transform: translateX(-50%);
-      width: 5px; height: 5px;
-      background: var(--soft);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--soft);
-    }
-
-    .person-card h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.04em; margin-bottom: 5px; }
-    .person-role { color: var(--soft); font-size: 13px; font-weight: 500; margin-bottom: 14px; letter-spacing: -0.01em; }
-    .person-card p { color: var(--soft); line-height: 1.7; font-size: 14.5px; font-weight: 300; }
 
     /* ==============================
        CONTACT
@@ -1108,14 +431,6 @@
       .menu-btn { display: inline-flex; }
       .mobile-menu.open { display: block; }
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-      .product-cards { grid-template-columns: 1fr; }
-      .flow-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-      .flow-grid::before { display: none; }
-      .use-grid { grid-template-columns: 1fr 1fr; }
-      .tech-layout { grid-template-columns: 1fr; }
-      .qrdemo-layout { grid-template-columns: 1fr; }
-      .adv-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
     }
 
     @media (max-width: 620px) {
@@ -1126,250 +441,22 @@
       .hero { padding: 64px 0 56px; }
       .hero-actions { flex-direction: column; }
       .hero-actions .btn { width: 100%; justify-content: center; }
-      .flow-grid, .use-grid, .team-grid { grid-template-columns: 1fr; }
-      .vc-qr { grid-template-columns: 1fr; }
       .contact-panel { padding: 36px 24px; }
-      .doc-meta-row { grid-template-columns: 1fr 1fr; }
-      .doc-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   
     /* ==============================
        VERIFICATION MODAL
     ============================== */
-    .vmodal-overlay {
-      position: fixed; inset: 0; z-index: 200;
-      background: rgba(5,7,10,0.82);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
-      padding: 20px;
-    }
-    .vmodal-overlay.open { opacity: 1; pointer-events: all; }
-    .vmodal {
-      background: #0A0E14;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      width: 100%; max-width: 420px;
-      overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04) inset;
-      transform: translateY(12px) scale(0.98);
-      transition: transform 0.25s ease;
-      position: relative;
-    }
-    .vmodal-overlay.open .vmodal { transform: translateY(0) scale(1); }
-    .vmodal::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 15%; right: 15%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(16,185,129,0.45), transparent);
-    }
-    .vmodal-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.02);
-    }
-    .vmodal-title {
-      font-family: var(--mono); font-size: 11px; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-    }
-    .vmodal-close {
-      width: 28px; height: 28px; border-radius: 8px;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted); cursor: pointer;
-      display: grid; place-items: center; font-size: 16px; line-height: 1;
-      transition: all 0.15s;
-    }
-    .vmodal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
-    .vmodal-body {
-      background: #F6F8FA; color: #0f172a; padding: 28px 24px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .vmodal-body::before {
-      content: ""; position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #10b981, #34d399, #10b981);
-      background-size: 200% 100%;
-      animation: shimmer 2.5s linear infinite;
-    }
-    .vmodal-check {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(16,185,129,0.1); border: 2px solid rgba(16,185,129,0.28);
-      display: grid; place-items: center; margin: 0 auto 12px; position: relative;
-    }
-    .vmodal-check::before {
-      content: ""; position: absolute; inset: -4px; border-radius: 50%;
-      border: 1px solid rgba(16,185,129,0.12);
-    }
-    .vmodal-check svg { width: 28px; height: 28px; color: #10b981; }
-    .vmodal-verified { font-size: 22px; font-weight: 700; letter-spacing: -0.04em; margin-bottom: 3px; }
-    .vmodal-sub { font-size: 12px; color: #64748b; margin-bottom: 16px; line-height: 1.5; }
-    .vmodal-proof {
-      background: #EEF2F7; border-radius: 10px; padding: 12px;
-      display: grid; gap: 8px; text-align: left;
-    }
-    .vmodal-row {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 10px; font-size: 11.5px;
-    }
-    .vmodal-row .vml { color: #64748b; flex-shrink: 0; }
-    .vmodal-row .vmv {
-      color: #0f172a; font-weight: 600;
-      font-family: var(--mono); font-size: 10.5px;
-      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    }
-    .vmdot { width: 5px; height: 5px; border-radius: 50%; background: #10b981; flex-shrink: 0; }
-    .vmodal-footer {
-      padding: 14px 20px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .vmodal-reg {
-      font-family: var(--mono); font-size: 10px; color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-    .vmodal-reg span { color: rgba(176,141,87,0.75); }
-    .vmodal-badge {
-      font-size: 9.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-      color: rgba(176,141,87,0.7); border: 1px solid rgba(176,141,87,0.2);
-      padding: 3px 8px; border-radius: 4px; background: rgba(176,141,87,0.04);
-    }
 
 
     /* ==============================
        DEMO — QR FIRST
     ============================== */
-    #demo { background: var(--bg2); }
-
-    .qrdemo {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: start;
-      margin-bottom: 16px;
-    }
-    .qdoc { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.1); }
-    .qdoc-inner { background: #F8FAFC; color: #0f172a; display: flex; flex-direction: column; }
-    .qdoc-header {
-      background: #FFFFFF; border-bottom: 1px solid #E2E8F0;
-      padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    }
-    .qdoc-issuer { display: flex; align-items: center; gap: 10px; }
-    .qdoc-issuer-mark { width: 30px; height: 30px; border-radius: 8px; background: #0A0E14; display: grid; place-items: center; flex-shrink: 0; }
-    .qdoc-issuer-mark svg { width: 17px; height: 17px; }
-    .qdoc-org { font-size: 11.5px; font-weight: 700; color: #0f172a; line-height: 1.2; }
-    .qdoc-accred { font-size: 9.5px; color: #94A3B8; margin-top: 1px; }
-    .qdoc-ref { font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; color: #64748b; background: #F1F5F9; border: 1px solid #E2E8F0; padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
-    .qdoc-body { padding: 20px 20px 16px; flex: 1; }
-    .qdoc-doctype { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; color: #94A3B8; font-weight: 600; margin-bottom: 5px; }
-    .qdoc-title { font-size: 16px; font-weight: 700; color: #0f172a; letter-spacing: -0.02em; margin-bottom: 3px; line-height: 1.2; }
-    .qdoc-project { font-size: 12px; color: #64748b; margin-bottom: 18px; }
-    .qdoc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #E2E8F0; border-radius: 10px; overflow: hidden; }
-    .qdoc-field { background: #F8FAFC; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; }
-    .qdf-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: #94A3B8; font-weight: 600; }
-    .qdf-value { font-size: 12px; font-weight: 600; color: #1e293b; }
-    .qdoc-footer { background: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
-    .qdoc-qr {
-      display: flex; align-items: center; gap: 12px;
-      cursor: pointer; padding: 10px 12px; border-radius: 10px;
-      border: 1px solid rgba(176,141,87,0.22); background: rgba(176,141,87,0.04);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .qdoc-qr:hover { border-color: rgba(176,141,87,0.4); background: rgba(176,141,87,0.07); }
-    .qdoc-qr-grid {
-      width: 56px; height: 56px; flex-shrink: 0; background: #0f172a; border-radius: 6px; padding: 6px;
-      display: grid; grid-template-columns: repeat(7,1fr); gap: 2px;
-      box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(176,141,87,0.18);
-    }
-    .qdoc-qr-grid i { background: #F6F8FA; border-radius: 1px; }
-    .qdoc-qr-grid span { background: transparent; }
-    .qdoc-qr-cta { display: flex; flex-direction: column; gap: 2px; }
-    .qdoc-qr-label { font-size: 11px; font-weight: 600; color: #1e293b; }
-    .qdoc-qr-sub { font-size: 10px; color: #94A3B8; }
-    .qdoc-verified-stamp { text-align: right; }
-    .qdoc-stamp-inner {
-      display: inline-block; border: 1.5px solid rgba(5,150,105,0.35); border-radius: 5px;
-      padding: 5px 10px; color: rgba(5,150,105,0.75);
-      font-size: 9.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-      line-height: 1.4; transform: rotate(-2deg);
-    }
-    .qdoc-stamp-sub { font-size: 8.5px; color: #94A3B8; margin-top: 4px; font-family: var(--mono); text-align: right; }
 
     /* Verification result */
-    .qresult { background: var(--bg); border: 1px solid var(--border2); border-radius: 18px; overflow: hidden; position: relative; }
-    .qresult::before {
-      content: ""; position: absolute; top: 0; left: 15%; right: 15%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(16,185,129,0.28), transparent);
-    }
-    .qresult-chrome {
-      display: flex; align-items: center; gap: 10px; padding: 12px 16px;
-      border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02);
-    }
-    .qresult-dots { display: flex; gap: 4px; }
-    .qresult-dots span { width: 8px; height: 8px; border-radius: 50%; opacity: 0.5; }
-    .qresult-dots span:nth-child(1) { background: #ef4444; }
-    .qresult-dots span:nth-child(2) { background: #f59e0b; }
-    .qresult-dots span:nth-child(3) { background: #10b981; }
-    .qresult-url { font-family: var(--mono); font-size: 10.5px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 3px 10px; border-radius: 5px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .qresult-live { display: flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green2); flex-shrink: 0; }
-    .qlive-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green2); animation: live-pulse 1.5s infinite; }
-    .qresult-body { background: #F6F8FA; color: #0f172a; padding: 28px 24px; text-align: center; position: relative; overflow: hidden; }
-    .qresult-body::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #10b981, #34d399, #10b981); background-size: 200% 100%; animation: shimmer 2.5s linear infinite; }
-    .qresult-check-wrap { margin-bottom: 14px; }
-    .qresult-check { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto; background: rgba(16,185,129,0.1); border: 2px solid rgba(16,185,129,0.28); display: grid; place-items: center; }
-    .qresult-check svg { width: 26px; height: 26px; color: #10b981; }
-    .qresult-status { font-size: 22px; font-weight: 700; letter-spacing: -0.04em; margin-bottom: 4px; }
-    .qresult-issuer { font-size: 12px; color: #475569; margin-bottom: 2px; font-weight: 500; }
-    .qresult-time { font-size: 11px; color: #94A3B8; margin-bottom: 16px; }
-    .qresult-proofs { background: #EEF2F7; border-radius: 10px; padding: 12px; display: grid; gap: 8px; text-align: left; }
-    .qrp-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; }
-    .qrp-label { color: #64748b; flex-shrink: 0; }
-    .qrp-dot { width: 4px; height: 4px; border-radius: 50%; background: #10b981; flex-shrink: 0; }
-    .qrp-val { color: #0f172a; font-weight: 600; font-family: var(--mono); font-size: 10.5px; }
-    .qresult-footer { padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
-    .qresult-note { font-size: 11px; color: var(--muted); }
-    .btn-sm { font-size: 12px !important; padding: 6px 12px !important; border-radius: 8px !important; }
 
     /* Advanced section */
-    .advsec { margin-top: 12px; }
-    .advsec-toggle {
-      width: 100%; display: flex; align-items: center; gap: 10px; padding: 13px 18px;
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
-      color: var(--muted); font-family: inherit; font-size: 13px; font-weight: 400;
-      cursor: pointer; text-align: left; transition: all 0.2s; letter-spacing: 0.005em;
-    }
-    .advsec-toggle:hover { color: var(--soft); border-color: var(--border2); }
-    .advsec-chevron { margin-left: auto; flex-shrink: 0; transition: transform 0.2s; }
-    .advsec-toggle.open .advsec-chevron { transform: rotate(180deg); }
-    .advsec-body { display: none; border: 1px solid var(--border); border-top: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: var(--bg); padding: 24px 20px; }
-    .advsec-body.open { display: block; }
-    .advsec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .demo-input-wrap { margin-bottom: 12px; }
-    .demo-input-label { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-bottom: 7px; letter-spacing: 0.06em; text-transform: uppercase; display: block; }
-    .demo-input { width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border2); background: rgba(255,255,255,0.03); color: var(--text); font-family: var(--mono); font-size: 12.5px; outline: none; transition: border-color 0.2s; }
-    .demo-input:focus { border-color: rgba(255,255,255,0.25); }
-    .demo-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-    .result-panel { margin-top: 14px; padding: 14px 16px; border-radius: var(--radius-sm); border: 1px solid rgba(16,185,129,0.22); background: rgba(16,185,129,0.05); display: none; animation: result-in 0.3s ease; }
     @keyframes result-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-    .result-panel.bad { border-color: rgba(220,38,38,0.22); background: rgba(220,38,38,0.05); }
-    .result-panel.show { display: block; }
-    .result-panel b { font-size: 14px; font-weight: 600; }
-    .result-panel p { color: var(--soft); font-size: 13px; line-height: 1.6; margin-top: 6px; }
-    .advpipeline { display: grid; gap: 8px; }
-    .advp-step { display: flex; align-items: baseline; gap: 12px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
-    .advp-num { font-family: var(--mono); font-size: 10.5px; color: var(--muted); flex-shrink: 0; letter-spacing: 0.05em; }
-    .advp-text { color: var(--soft); line-height: 1.5; }
-
-    @media (max-width: 860px) {
-      .qrdemo { grid-template-columns: 1fr; }
-      .advsec-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 580px) {
-      .qdoc-fields { grid-template-columns: 1fr; }
-      .qdoc-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
-    }
 
   
 
@@ -1408,307 +495,12 @@
     }
 
     .nav { background: rgba(8,10,13,0.88); }
-    #product, #usecases, #demo, #contact { background: #0D1117; }
-
-    .verify-card {
-      background: linear-gradient(180deg, rgba(20,24,31,0.96), rgba(11,15,20,0.98));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 26px;
-      box-shadow:
-        0 40px 100px rgba(0,0,0,0.72),
-        0 0 0 1px rgba(255,255,255,0.03) inset,
-        0 1px 0 rgba(255,255,255,0.03) inset;
-    }
+    #product, #contact { background: #0D1117; }
 
     .hero::before {
       background-image:
         linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
-    }
-
-    .qdoc {
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.50),
-        0 0 0 1px rgba(180,151,90,0.10);
-      background: #111827;
-    }
-
-    .qdoc-inner.doc-paper {
-      position: relative;
-      background: linear-gradient(180deg, #F7F3EA 0%, #F1EADB 100%);
-      color: #0f172a;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      min-height: 100%;
-    }
-
-    .doc-paper::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 3px);
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .doc-paper::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(180,151,90,0.08), transparent 35%),
-        radial-gradient(circle at 80% 90%, rgba(0,0,0,0.035), transparent 40%);
-      mix-blend-mode: multiply;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .guilloche {
-      position: absolute;
-      inset: 0;
-      opacity: 0.09;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle at center, rgba(180,151,90,0.65) 0.45px, transparent 0.55px),
-        radial-gradient(circle at center, rgba(30,41,59,0.45) 0.35px, transparent 0.5px);
-      background-size: 18px 18px, 9px 9px;
-      background-position: 0 0, 4px 4px;
-      z-index: 0;
-    }
-
-    .registry-border {
-      position: absolute;
-      inset: 14px;
-      border: 1px solid rgba(180,151,90,0.22);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .registry-border::before {
-      content: "";
-      position: absolute;
-      inset: 6px;
-      border: 1px solid rgba(180,151,90,0.12);
-    }
-
-    .qdoc-header,
-    .qdoc-body,
-    .qdoc-footer {
-      position: relative;
-      z-index: 2;
-    }
-
-    .qdoc-header {
-      background: rgba(255,252,246,0.72);
-      border-bottom: 1px solid rgba(180,151,90,0.18);
-      padding: 20px 24px;
-    }
-
-    .qdoc-issuer-mark {
-      background: linear-gradient(180deg, #111827, #0A0E14);
-      border: 1px solid rgba(180,151,90,0.24);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-    }
-
-    .qdoc-org {
-      font-size: 11.5px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #111827;
-    }
-
-    .qdoc-accred { color: #7A8493; }
-
-    .qdoc-ref {
-      background: rgba(255,255,255,0.48);
-      border: 1px solid rgba(180,151,90,0.22);
-      color: #52606F;
-      letter-spacing: 0.09em;
-    }
-
-    .qdoc-body { padding: 30px 30px 24px; }
-
-    .qdoc-doctype {
-      font-size: 9.5px;
-      letter-spacing: 0.16em;
-      color: #7D8794;
-      font-weight: 800;
-    }
-
-    .qdoc-title {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.045em;
-      color: #111827;
-      line-height: 1.08;
-      margin-bottom: 8px;
-    }
-
-    .qdoc-project {
-      color: #647083;
-      font-size: 12.5px;
-      margin-bottom: 22px;
-    }
-
-    .qdoc-fields {
-      background: rgba(180,151,90,0.18);
-      border: 1px solid rgba(180,151,90,0.16);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
-    }
-
-    .qdoc-field {
-      background: rgba(255,252,246,0.66);
-      padding: 12px 14px;
-    }
-
-    .qdf-label {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #8B95A5;
-      font-weight: 700;
-    }
-
-    .qdf-value {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #17202B;
-      letter-spacing: -0.01em;
-    }
-
-    .qdoc-footer {
-      background: rgba(255,252,246,0.76);
-      border-top: 1px solid rgba(180,151,90,0.16);
-      padding: 18px 24px 22px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px 18px;
-      align-items: center;
-    }
-
-    .qdoc-qr {
-      background: linear-gradient(180deg, rgba(180,151,90,0.07), rgba(180,151,90,0.025));
-      border: 1px solid rgba(180,151,90,0.20);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.58);
-    }
-
-    .qdoc-qr:hover {
-      border-color: rgba(180,151,90,0.38);
-      background: linear-gradient(180deg, rgba(180,151,90,0.10), rgba(180,151,90,0.04));
-    }
-
-    .qdoc-qr-grid {
-      background: #111827;
-      box-shadow:
-        0 0 0 2px #F7F3EA,
-        0 0 0 3px rgba(180,151,90,0.28),
-        0 8px 18px rgba(0,0,0,0.10);
-    }
-
-    .qdoc-qr-label { color: #17202B; }
-    .qdoc-qr-sub { color: #7A8493; }
-
-    .qdoc-verified-stamp {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      text-align: center;
-    }
-
-    .emboss-seal {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-      position: relative;
-      background:
-        radial-gradient(circle at 30% 28%, rgba(255,255,255,0.95), rgba(180,151,90,0.15) 58%, rgba(180,151,90,0.23));
-      border: 1px solid rgba(180,151,90,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.85),
-        inset 0 -7px 13px rgba(0,0,0,0.055),
-        0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .emboss-seal::before {
-      content: "VERIFIED";
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      color: rgba(120,90,40,0.85);
-    }
-
-    .emboss-seal::after {
-      content: "KWELI";
-      position: absolute;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      font-family: var(--mono);
-      font-size: 8px;
-      letter-spacing: 0.16em;
-      color: rgba(120,90,40,0.48);
-    }
-
-    .qdoc-stamp-sub {
-      font-size: 8.5px;
-      color: rgba(15,23,42,0.45);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-family: var(--mono);
-      text-align: center;
-    }
-
-    .doc-microline {
-      grid-column: 1 / -1;
-      font-size: 8.5px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(15,23,42,0.42);
-      font-weight: 700;
-      border-top: 1px solid rgba(180,151,90,0.14);
-      padding-top: 10px;
-    }
-
-    .qresult {
-      background: linear-gradient(180deg, #0E131A, #090C11);
-      border-color: rgba(255,255,255,0.10);
-    }
-
-    .qresult-body,
-    .vc-screen,
-    .vmodal-body {
-      background: linear-gradient(180deg, #F7F3EA, #F1EADB);
-    }
-
-    .qresult-proofs,
-    .proof-grid,
-    .vmodal-proof {
-      background: rgba(17,24,39,0.055);
-      border: 1px solid rgba(180,151,90,0.14);
-    }
-
-    .pcard, .use-cell {
-      background: #0D1117;
-    }
-
-    .pcard:hover, .use-cell:hover {
-      background: rgba(180,151,90,0.035);
-    }
-
-    @media (max-width: 580px) {
-      .qdoc-footer { grid-template-columns: 1fr; }
-      .qdoc-verified-stamp { align-items: flex-start; }
     }
 
   
@@ -1800,39 +592,8 @@
       color: #C9D1DC;
     }
 
-    .hero-eyebrow span,
-    .live-badge .live-dot,
-    .proof-dot,
-    .vmdot,
-    .qlive-dot,
-    .qrp-dot {
+    .hero-eyebrow span {
       background: #D6A84D;
-    }
-
-    .live-badge {
-      color: #F0C96A;
-      border-color: rgba(214,168,77,0.30);
-      background: rgba(214,168,77,0.07);
-    }
-
-    .vc-screen::before,
-    .vmodal-body::before,
-    .qresult-body::before {
-      background: linear-gradient(90deg, #B8862D, #F0C96A, #B8862D);
-      background-size: 200% 100%;
-    }
-
-    .check-ring svg,
-    .vmodal-check svg,
-    .qresult-check svg {
-      color: #B8862D;
-    }
-
-    .check-ring,
-    .vmodal-check,
-    .qresult-check {
-      background: rgba(214,168,77,0.10);
-      border-color: rgba(214,168,77,0.30);
     }
 
     @media (max-width: 620px) {
@@ -1872,8 +633,7 @@
     }
 
     .nav-links a:hover,
-    .mobile-menu a:hover,
-    .nav-links a.active {
+    .mobile-menu a:hover {
       color: #F3DFA3;
     }
 
@@ -1899,20 +659,8 @@
       border-color: var(--kweli-gold-line);
     }
 
-    .hero-eyebrow span,
-    .live-badge .live-dot,
-    .qlive-dot,
-    .proof-dot,
-    .vmdot,
-    .qrp-dot {
+    .hero-eyebrow span {
       background: var(--kweli-gold);
-    }
-
-    .live-badge,
-    .qresult-live {
-      color: var(--kweli-gold);
-      border-color: rgba(216,183,106,0.24);
-      background: rgba(216,183,106,0.06);
     }
 
     .btn-primary {
@@ -1933,86 +681,7 @@
         0 1px 0 rgba(255,255,255,0.42) inset;
     }
 
-    .section-head h2 .gold-line {
-      color: var(--kweli-gold);
-      text-shadow: 0 0 36px rgba(216,183,106,0.11);
-    }
-
-    .flow-step-num {
-      color: var(--kweli-gold);
-      border-color: rgba(216,183,106,0.34);
-      background: radial-gradient(circle at 50% 22%, rgba(216,183,106,0.13), rgba(13,17,23,0.95));
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 0 0 1px rgba(216,183,106,0.06);
-    }
-
-    .flow-step-content h3 {
-      color: var(--kweli-gold);
-      letter-spacing: -0.025em;
-    }
-
-    .flow-grid::before {
-      background: linear-gradient(90deg, transparent, rgba(216,183,106,0.11), rgba(216,183,106,0.35), rgba(216,183,106,0.11), transparent);
-    }
-
-    .pcard-num,
-    .tech-tag,
-    .advp-num,
-    .vmodal-reg span,
-    .qresult-url,
-    .vc-url {
-      color: var(--kweli-gold-muted);
-    }
-
-    .pcard-icon,
-    .use-cell-icon,
-    .tech-item-icon,
-    .vt-dot {
-      color: var(--kweli-gold);
-      border-color: rgba(216,183,106,0.18);
-      background: rgba(216,183,106,0.055);
-    }
-
-    .pcard:hover,
-    .use-cell:hover,
-    .tech-item:hover {
-      background: rgba(216,183,106,0.045);
-      border-color: rgba(216,183,106,0.13);
-    }
-
-    .qdoc-title,
-    .verified-label,
-    .qresult-status,
-    .vmodal-verified {
-      color: #15110A;
-    }
-
-    .check-ring,
-    .qresult-check,
-    .vmodal-check {
-      background: rgba(216,183,106,0.13);
-      border-color: rgba(216,183,106,0.34);
-    }
-
-    .check-ring svg path,
-    .qresult-check svg path,
-    .vmodal-check svg path {
-      stroke: #B8862C !important;
-    }
-
-    .qr-trust-tag.gold,
-    .vmodal-badge {
-      color: var(--kweli-gold);
-      border-color: rgba(216,183,106,0.30);
-      background: rgba(216,183,106,0.06);
-    }
-
-    .contact-panel::before,
-    .verify-card::before,
-    .person-card::before,
-    .qresult::before,
-    .vmodal::before {
+    .contact-panel::before {
       background: linear-gradient(90deg, transparent, rgba(216,183,106,0.55), transparent);
     }
 
@@ -2028,7 +697,6 @@
 
     .nav-links a:hover,
     .nav-links a:focus,
-    .nav-links a.active,
     .mobile-menu a:hover,
     .mobile-menu a:focus {
       color: #F2C76E !important;
@@ -2173,22 +841,6 @@ body.kweli-splash-active {
   color: rgba(255,255,255,0.94);
   text-wrap: balance;
   margin: 0 0 28px;
-}
-
-.kweli-gate-heading .gold {
-  color: #D7A94A;
-  font-weight: 400;
-  text-shadow: 0 0 30px rgba(215,169,74,0.28);
-}
-
-.kweli-gate-heading .definition {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.09em;
-  line-height: 1.04;
-  color: #DAB158;
-  letter-spacing: -0.045em;
-  margin-top: 8px;
 }
 
 .kweli-gate-body {
@@ -2676,22 +1328,6 @@ body.kweli-splash-active {
   margin-bottom: 24px;
 }
 
-.kweli-gate-heading .gold {
-  color: var(--gold);
-  font-weight: 500;
-  text-shadow: 0 0 24px rgba(180,151,90,0.18);
-}
-
-.kweli-gate-heading .definition {
-  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
-  color: var(--gold);
-  font-weight: 500;
-  font-size: 1.03em;
-  line-height: 1.08;
-  letter-spacing: -0.06em;
-  text-shadow: 0 0 24px rgba(180,151,90,0.16);
-}
-
 .kweli-gate-body {
   color: var(--soft);
   opacity: 0.84;
@@ -2940,13 +1576,6 @@ body.kweli-splash-active {
     color: var(--text) !important;
   }
 
-  .kweli-gate-heading .definition {
-    font-family: Georgia, "Times New Roman", serif !important;
-    font-size: 1.08em !important;
-    line-height: 1.02 !important;
-    color: var(--gold) !important;
-  }
-
   .kweli-gate-body {
     width: min(42vw, 590px) !important;
     max-width: 590px !important;
@@ -3136,8 +1765,7 @@ body::before {
   transition: color 0.18s ease;
 }
 .nav-links a:hover,
-.nav-links a:focus,
-.nav-links a.active {
+.nav-links a:focus {
   color: rgba(245,230,180,0.9) !important;
 }
 
@@ -3248,17 +1876,6 @@ h1 .line2 {
 }
 
 /* ── Verification card: institutional instrument ── */
-.verify-card {
-  background: linear-gradient(175deg, #131920 0%, #0A0E14 100%);
-  border: 1px solid rgba(255,255,255,0.072);
-  border-radius: 28px;
-  box-shadow:
-    0 48px 120px rgba(0,0,0,0.68),
-    0 0 0 1px rgba(255,255,255,0.025) inset,
-    0 1px 0 rgba(255,255,255,0.06) inset;
-  /* Floating animation: slower, more dignified */
-  animation: card-float 8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
 
 @keyframes card-float {
   0%, 100% { transform: translateY(0px); }
@@ -3266,157 +1883,22 @@ h1 .line2 {
 }
 
 /* Top gold accent line: more authority */
-.verify-card::before {
-  top: -1px; left: 18%; right: 18%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.52), transparent);
-}
 
 /* Card header: cleaner, quieter chrome */
-.vc-header {
-  padding: 14px 18px;
-  border-bottom-color: rgba(255,255,255,0.055);
-  background: rgba(255,255,255,0.015);
-}
-
-.vc-dots { gap: 6px; }
-.vc-dot { width: 8px; height: 8px; }
-.vc-dot:nth-child(1) { background: #e05252; opacity: 0.5; }
-.vc-dot:nth-child(2) { background: #e0a050; opacity: 0.5; }
-.vc-dot:nth-child(3) { background: #50b87a; opacity: 0.5; }
-
-.vc-url {
-  font-size: 10.5px;
-  color: var(--kweli-gold-muted);
-  background: rgba(201,168,76,0.04);
-  border-color: var(--kweli-gold-line);
-  letter-spacing: 0.02em;
-}
 
 /* Live badge */
-.live-badge {
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--kweli-gold);
-  border-color: rgba(201,168,76,0.24);
-  background: rgba(201,168,76,0.06);
-  padding: 4px 11px;
-}
 
 /* Verification screen: warm paper, institutional */
-.vc-screen {
-  margin: 14px 14px 0;
-  border-radius: 16px;
-  padding: 26px 20px 22px;
-  background: linear-gradient(175deg, #F8F4EC, #F2EAD8);
-  box-shadow:
-    0 2px 8px rgba(0,0,0,0.04),
-    0 0 0 1px rgba(201,168,76,0.10);
-}
 
 /* Animated top bar: gold not green */
-.vc-screen::before {
-  height: 2px;
-  background: linear-gradient(90deg, #9A7B2E, #D4B060, #9A7B2E);
-  background-size: 200% 100%;
-}
 
 /* Check ring: quieter */
-.check-ring {
-  width: 64px; height: 64px;
-  background: rgba(201,168,76,0.09);
-  border-color: rgba(201,168,76,0.28);
-  margin-bottom: 12px;
-}
-.check-ring::before {
-  border-color: rgba(201,168,76,0.10);
-}
-.check-ring svg { width: 28px; height: 28px; }
-.check-ring svg path { stroke: #A07828 !important; }
-
-.verified-label {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #12100A;
-  margin-bottom: 3px;
-}
-.verified-sub {
-  font-size: 11.5px;
-  color: #6B7280;
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
 
 /* Proof grid: institutional data rows */
-.proof-grid {
-  background: rgba(0,0,0,0.04);
-  border: 1px solid rgba(201,168,76,0.12);
-  border-radius: 10px;
-  padding: 12px 13px;
-  gap: 8px;
-}
-.proof-row { font-size: 11.5px; }
-.proof-row .plabel { color: #7A828E; font-size: 11px; }
-.proof-row .pval { font-size: 10.5px; max-width: 150px; color: #111; }
-.proof-dot {
-  width: 5px; height: 5px;
-  background: var(--kweli-gold);
-  opacity: 0.85;
-}
 
 /* QR strip: premium instrument panel */
-.vc-qr {
-  margin: 12px 14px 14px;
-  padding: 16px 14px;
-  border: 1px solid rgba(201,168,76,0.16);
-  border-top-color: rgba(201,168,76,0.28);
-  border-radius: 14px;
-  background: rgba(201,168,76,0.03);
-  transition: background 0.2s ease, border-color 0.2s ease;
-  gap: 16px;
-  grid-template-columns: 100px 1fr;
-}
-.vc-qr:hover {
-  background: rgba(201,168,76,0.055);
-  border-color: rgba(201,168,76,0.28);
-  border-top-color: rgba(201,168,76,0.42);
-}
 
 /* QR code: cleaner surround */
-.qr-grid {
-  width: 100px; height: 100px;
-  padding: 9px;
-  box-shadow:
-    0 3px 12px rgba(0,0,0,0.15),
-    0 0 0 1px rgba(0,0,0,0.06),
-    0 0 0 3px #FFFFFF,
-    0 0 0 4px rgba(201,168,76,0.22);
-}
-
-.qr-text h4 {
-  font-size: 10px;
-  letter-spacing: 0.10em;
-  color: var(--soft);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.qr-text p { font-size: 11.5px; color: var(--muted); line-height: 1.55; margin-bottom: 9px; }
-
-.qr-trust-tag {
-  font-size: 8.5px;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  border-color: rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.025);
-  padding: 2px 8px;
-  border-radius: 3px;
-}
-.qr-trust-tag.gold {
-  color: var(--kweli-gold-muted);
-  border-color: var(--kweli-gold-line);
-  background: rgba(201,168,76,0.05);
-}
 
 /* ── Section transitions: smoother, more cinematic ── */
 .section-divider {
@@ -3440,81 +1922,28 @@ h1 .line2 {
 }
 
 /* ── Product + use case cells: quieter hover ── */
-.pcard, .use-cell {
-  background: var(--bg2);
-  transition: background 0.22s ease;
-}
-.pcard:hover, .use-cell:hover {
-  background: rgba(201,168,76,0.03);
-}
 
 /* ── Modal: crisper ── */
-.vmodal {
-  border-radius: 26px;
-  border-color: rgba(255,255,255,0.10);
-}
-.vmodal-body {
-  background: linear-gradient(175deg, #F8F4EC, #F2EAD8);
-}
-.vmodal-body::before {
-  background: linear-gradient(90deg, #9A7B2E, #D4B060, #9A7B2E);
-  background-size: 200% 100%;
-  height: 2px;
-}
-.vmodal-check { background: rgba(201,168,76,0.10); border-color: rgba(201,168,76,0.30); }
-.vmodal-check svg path { stroke: #A07828 !important; }
-.vmodal-verified { color: #12100A; }
 
 /* ── Result screens: warm paper ── */
-.qresult-body, .vc-screen, .vmodal-body {
-  background: linear-gradient(175deg, #F8F4EC, #F2EAD8);
-}
-.qresult-proofs, .proof-grid, .vmodal-proof {
-  background: rgba(0,0,0,0.04);
-  border-color: rgba(201,168,76,0.12);
-}
 
 /* ── Remove live-badge green: use gold system ── */
-.live-badge .live-dot {
-  background: var(--kweli-gold);
-  box-shadow: none;
-}
 @keyframes live-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
   50%       { box-shadow: 0 0 0 4px rgba(201,168,76,0); }
 }
 
 /* ── Gold accent line consistency on cards ── */
-.contact-panel::before,
-.verify-card::before,
-.person-card::before,
-.tech-panel::before,
-.qresult::before,
-.vmodal::before {
+.contact-panel::before {
   background: linear-gradient(90deg, transparent, rgba(201,168,76,0.48), transparent);
 }
 
 /* ── Flow step numbers ── */
-.flow-step-num {
-  color: var(--kweli-gold);
-  border-color: rgba(201,168,76,0.28);
-  background: radial-gradient(circle at 50% 20%, rgba(201,168,76,0.10), rgba(12,16,22,0.95));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
-}
-.flow-step-content h3 { color: var(--kweli-gold); }
-.flow-grid::before {
-  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.08), rgba(201,168,76,0.28), rgba(201,168,76,0.08), transparent);
-}
 
 /* ── Hero eyebrow pulse dot: gold ── */
 .hero-eyebrow span { background: var(--kweli-gold); }
 
 /* ── Pcard icons, use cell icons: gold tint ── */
-.pcard-icon, .use-cell-icon, .tech-item-icon, .vt-dot {
-  color: var(--kweli-gold);
-  border-color: rgba(201,168,76,0.15);
-  background: rgba(201,168,76,0.045);
-}
 
 /* ── Contact panel: top line gold ── */
 .contact-panel::before {
@@ -3595,8 +2024,6 @@ h1 .line2 {
       margin-bottom: 10px;
       box-shadow: 0 0 0 4px rgba(180,151,90,0.10);
     }
-    .workflow-num.green { background: linear-gradient(180deg, #34D399, #10B981); color: #06231a; box-shadow: 0 0 0 4px rgba(16,185,129,0.10); }
-    .workflow-num.red { background: linear-gradient(180deg, #F87171, #DC2626); color: #fff; box-shadow: 0 0 0 4px rgba(220,38,38,0.10); }
     .workflow-card h3, .public-card h3 {
       font-size: 14px;
       line-height: 1.25;
@@ -3622,36 +2049,14 @@ h1 .line2 {
       overflow: hidden;
       position: relative;
     }
-    .dashboard-mini { display: grid; grid-template-columns: 28px 1fr; gap: 9px; }
-    .mini-sidebar { background: #111827; border-radius: 8px; }
-    .mini-content { display: grid; gap: 7px; align-content: center; }
-    .mini-content span, .report-mini span { height: 8px; border-radius: 99px; background: rgba(15,23,42,0.14); display: block; }
     .upload-mini { display: grid; place-items: center; text-align: center; gap: 5px; }
     .upload-cloud { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px dashed rgba(15,23,42,0.32); color: #111827; font-size: 22px; }
     .upload-mini strong { font-size: 11px; }
     .upload-mini em { color: #059669; font-style: normal; font-size: 11px; font-weight: 700; }
-    .action-mini { display: grid; align-content: center; gap: 12px; }
-    .action-mini span { font-size: 11px; font-weight: 700; color: #64748b; }
-    .action-mini button { border: 0; border-radius: 9px; background: #111827; color: #F7F3EA; padding: 10px 12px; font-weight: 700; }
     .kweli-mini, .checklist-mini, .assets-mini { display: grid; gap: 8px; align-content: center; }
     .kweli-mini strong { font-size: 14px; letter-spacing: 0.02em; }
     .kweli-mini span, .checklist-mini span, .assets-mini span { font-size: 11px; color: #334155; background: rgba(255,255,255,0.52); border: 1px solid rgba(180,151,90,0.16); border-radius: 7px; padding: 5px 7px; }
     .checklist-mini span { color: #047857; font-weight: 700; }
-    .verified-mini { text-align: center; display: grid; place-items: center; align-content: center; gap: 6px; }
-    .checkmark { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #10B981; color: white; font-weight: 900; font-size: 24px; }
-    .verified-mini strong { color: #047857; }
-    .verified-mini small { font-family: var(--mono); font-size: 9px; color: #64748b; }
-    .report-mini { display: grid; gap: 8px; align-content: start; }
-    .report-mini strong { font-size: 12px; margin-bottom: 2px; }
-    .tiny-qr {
-      width: 32px; height: 32px; border-radius: 4px; margin-left: auto;
-      background:
-        linear-gradient(90deg, #111827 50%, transparent 50%),
-        linear-gradient(#111827 50%, transparent 50%);
-      background-size: 8px 8px;
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 1px rgba(15,23,42,0.16);
-    }
     .workflow-public {
       margin-top: 20px;
       border: 1px solid rgba(16,185,129,0.16);
@@ -3667,7 +2072,6 @@ h1 .line2 {
       margin-bottom: 16px;
     }
     .workflow-public-grid { display: grid; grid-template-columns: 1fr 1.15fr 1.15fr; gap: 14px; }
-    .workflow-public-grid.refined-public-grid { grid-template-columns: 1fr 1.15fr 1.05fr; align-items: stretch; }
     .public-card { min-height: 240px; }
     .public-card:not(:last-child)::after {
       content: "→";
@@ -3676,19 +2080,6 @@ h1 .line2 {
       color: rgba(16,185,129,0.65);
       font-size: 20px;
       z-index: 2;
-    }
-    .scan-visual { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 10px; }
-    .doc-thumb, .phone-thumb {
-      width: 72px; height: 98px; border-radius: 10px;
-      background: #F7F3EA; border: 1px solid rgba(180,151,90,0.24); padding: 10px; display: grid; align-content: end;
-    }
-    .phone-thumb { width: 58px; border: 4px solid #111827; background: #fff; }
-    .tiny-record-icon {
-      width: 34px; height: 34px; border-radius: 8px; margin-left: auto;
-      display: grid; place-items: center;
-      font-family: var(--mono); font-size: 10px; font-weight: 800;
-      color: #111827; background: rgba(180,151,90,0.14);
-      border: 1px solid rgba(180,151,90,0.34);
     }
     .verify-upload-visual { display: grid; grid-template-columns: 1fr 92px; gap: 10px; align-items: stretch; margin-top: 16px; }
     .received-file, .upload-target {
@@ -3718,56 +2109,14 @@ h1 .line2 {
     .record-detail small { color: #64748b; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
     .record-detail strong { font-family: var(--mono); font-size: 10.5px; color: #111827; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 190px; }
     .record-detail.hash strong { max-width: 210px; }
-    .verification-result {
-      border-radius: 14px;
-      padding: 20px 16px;
-      background: #F7F3EA;
-      border: 1px solid rgba(16,185,129,0.20);
-      color: #111827;
-      text-align: center;
-    }
-    .verification-result.fail { border-color: rgba(220,38,38,0.24); background: #fff5f5; }
-    .shield {
-      width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 8px;
-      background: rgba(16,185,129,0.10); color: #059669; font-size: 28px; font-weight: 900; border: 1px solid rgba(16,185,129,0.24);
-    }
-    .fail .shield { background: rgba(220,38,38,0.08); color: #DC2626; border-color: rgba(220,38,38,0.22); }
-    .verification-result strong { display: block; font-size: 15px; margin-bottom: 4px; }
-    .verification-result small { color: #64748b; font-size: 11px; }
-    .workflow-benefits {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1px;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.06);
-    }
-    .workflow-benefits div { background: rgba(8,10,13,0.78); padding: 16px; }
-    .workflow-benefits b { display: block; color: var(--text); font-size: 13px; margin-bottom: 5px; }
-    .workflow-benefits span { display: block; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
-    .workflow-note {
-      margin: 16px auto 0;
-      max-width: 760px;
-      text-align: center;
-      border-radius: 12px;
-      border: 1px solid rgba(180,151,90,0.24);
-      background: rgba(180,151,90,0.08);
-      color: var(--soft);
-      padding: 11px 16px;
-      font-size: 12.5px;
-    }
-    .workflow-note strong { color: rgba(180,151,90,0.95); }
     @media (max-width: 1180px) {
       .workflow-steps { grid-template-columns: repeat(4, 1fr); }
       .workflow-card:nth-child(4)::after { display: none; }
-      .workflow-benefits { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 760px) {
       .workflow-board { padding: 16px; }
       .workflow-topline { align-items: flex-start; flex-direction: column; }
-      .workflow-steps, .workflow-public-grid, .workflow-benefits { grid-template-columns: 1fr; }
+      .workflow-steps, .workflow-public-grid { grid-template-columns: 1fr; }
       .workflow-card, .public-card { min-height: auto; }
       .workflow-card::after, .public-card::after { display: none !important; }
     }
@@ -3777,267 +2126,6 @@ h1 .line2 {
    HERO OPTION 3 — ECOSYSTEM MAP
    Right-side hero visual only
 ============================== */
-.ecosystem-hero {
-  position: relative;
-  min-height: 620px;
-  width: 100%;
-  isolation: isolate;
-  border-radius: 32px;
-}
-.ecosystem-hero::before {
-  content: "";
-  position: absolute;
-  inset: 6% 2%;
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(201,168,76,0.18), transparent 18%),
-    radial-gradient(circle at 50% 50%, rgba(201,168,76,0.08), transparent 34%),
-    radial-gradient(circle at 50% 50%, rgba(16,185,129,0.055), transparent 52%);
-  filter: blur(2px);
-  opacity: 0.95;
-  z-index: -2;
-}
-.ecosystem-hero::after {
-  content: "";
-  position: absolute;
-  inset: 4% 0;
-  border-radius: 34px;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 72%);
-  opacity: 0.5;
-  z-index: -3;
-}
-.ecosystem-orbit {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 184px;
-  height: 184px;
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle, rgba(201,168,76,0.13), rgba(201,168,76,0.035) 55%, transparent 70%);
-  border: 1px solid rgba(201,168,76,0.34);
-  box-shadow:
-    0 0 70px rgba(201,168,76,0.24),
-    inset 0 0 30px rgba(201,168,76,0.07);
-}
-.ecosystem-orbit::before,
-.ecosystem-orbit::after {
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-  border: 1px solid rgba(201,168,76,0.12);
-}
-.ecosystem-orbit::before { inset: -16px; }
-.ecosystem-orbit::after { inset: 22px; }
-.ecosystem-core {
-  width: 136px;
-  height: 136px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background: linear-gradient(180deg, rgba(14,17,22,0.98), rgba(5,7,10,0.98));
-  border: 1px solid rgba(201,168,76,0.42);
-  box-shadow:
-    0 12px 42px rgba(0,0,0,0.42),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-  color: #F7F0DD;
-  position: relative;
-  z-index: 3;
-}
-.ecosystem-core b {
-  display: block;
-  font-size: 24px;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-.ecosystem-core b::first-letter { color: var(--kweli-gold, #C9A84C); }
-.ecosystem-core span {
-  display: block;
-  font-family: var(--mono, monospace);
-  font-size: 10px;
-  text-transform: uppercase;
-  line-height: 1.35;
-  letter-spacing: 0.08em;
-  color: rgba(201,168,76,0.82);
-}
-.ecosystem-line {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 230px;
-  height: 1px;
-  transform-origin: left center;
-  border-top: 2px dotted rgba(201,168,76,0.45);
-  opacity: 0.8;
-  z-index: 0;
-}
-.ecosystem-line.l1 { transform: rotate(-125deg); width: 210px; }
-.ecosystem-line.l2 { transform: rotate(-52deg); width: 230px; }
-.ecosystem-line.l3 { transform: rotate(0deg); width: 225px; }
-.ecosystem-line.l4 { transform: rotate(52deg); width: 230px; }
-.ecosystem-line.l5 { transform: rotate(125deg); width: 210px; }
-.ecosystem-line.l6 { transform: rotate(180deg); width: 225px; }
-.ecosystem-node {
-  position: absolute;
-  width: 250px;
-  min-height: 164px;
-  padding: 18px 18px 16px;
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)),
-    rgba(8,10,13,0.86);
-  border: 1px solid rgba(201,168,76,0.18);
-  box-shadow:
-    0 18px 48px rgba(0,0,0,0.30),
-    inset 0 1px 0 rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 2;
-  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-}
-.ecosystem-node:hover {
-  transform: translateY(-3px);
-  border-color: rgba(201,168,76,0.34);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)),
-    rgba(8,10,13,0.90);
-}
-.ecosystem-node.n1 { left: 7%; top: 1%; }
-.ecosystem-node.n2 { right: 3%; top: 1%; }
-.ecosystem-node.n3 { right: 0%; top: 34%; }
-.ecosystem-node.n4 { right: 5%; bottom: 3%; }
-.ecosystem-node.n5 { left: 3%; bottom: 3%; }
-.ecosystem-node.n6 { left: 0%; top: 34%; }
-.ecosystem-icon {
-  color: var(--kweli-gold, #C9A84C);
-  width: 32px;
-  height: 32px;
-  margin-bottom: 10px;
-  display: grid;
-  place-items: center;
-}
-.ecosystem-node h3 {
-  font-size: 15.5px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #F4F6FA;
-  margin: 0 0 5px;
-}
-.ecosystem-node p {
-  color: rgba(203,213,225,0.82);
-  font-size: 12.5px;
-  line-height: 1.45;
-  margin: 0 0 13px;
-  max-width: 200px;
-}
-.ecosystem-doc {
-  position: relative;
-  width: 108px;
-  height: 58px;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #F8F4EC, #EEE5D4);
-  border: 1px solid rgba(201,168,76,0.14);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-  padding: 13px 12px;
-}
-.ecosystem-doc i {
-  display: block;
-  height: 5px;
-  border-radius: 999px;
-  background: rgba(16,24,40,0.16);
-  margin-bottom: 6px;
-}
-.ecosystem-doc i:nth-child(1) { width: 70%; }
-.ecosystem-doc i:nth-child(2) { width: 88%; }
-.ecosystem-doc i:nth-child(3) { width: 54%; }
-.ecosystem-check {
-  position: absolute;
-  right: -13px;
-  bottom: -11px;
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(180deg, #D8BA64, #9A7B2E);
-  color: #fff;
-  font-weight: 800;
-  font-size: 15px;
-  box-shadow: 0 8px 22px rgba(201,168,76,0.25);
-}
-.ecosystem-caption {
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(201,168,76,0.18);
-  background: rgba(201,168,76,0.045);
-  color: rgba(201,168,76,0.88);
-  font-family: var(--mono, monospace);
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-.ecosystem-caption span {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--kweli-gold, #C9A84C);
-  box-shadow: 0 0 16px rgba(201,168,76,0.55);
-}
-@media (max-width: 1100px) {
-  .ecosystem-hero { min-height: 720px; }
-  .ecosystem-node { width: 46%; }
-  .ecosystem-node.n1 { left: 0; top: 0; }
-  .ecosystem-node.n2 { right: 0; top: 0; }
-  .ecosystem-node.n6 { left: 0; top: 240px; }
-  .ecosystem-node.n3 { right: 0; top: 240px; }
-  .ecosystem-node.n5 { left: 0; bottom: 20px; }
-  .ecosystem-node.n4 { right: 0; bottom: 20px; }
-  .ecosystem-orbit { width: 132px; height: 132px; }
-  .ecosystem-core { width: 104px; height: 104px; }
-  .ecosystem-core b { font-size: 19px; }
-  .ecosystem-core span { font-size: 8.5px; }
-  .ecosystem-line { display: none; }
-}
-@media (max-width: 620px) {
-  .ecosystem-hero { min-height: auto; display: grid; gap: 12px; }
-  .ecosystem-hero::before,
-  .ecosystem-hero::after,
-  .ecosystem-line,
-  .ecosystem-orbit,
-  .ecosystem-caption { display: none; }
-  .ecosystem-node,
-  .ecosystem-node.n1,
-  .ecosystem-node.n2,
-  .ecosystem-node.n3,
-  .ecosystem-node.n4,
-  .ecosystem-node.n5,
-  .ecosystem-node.n6 {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    width: 100%;
-    min-height: 0;
-  }
-}
 
   
 
@@ -4046,180 +2134,6 @@ h1 .line2 {
    Keeps the existing site intact. Only restyles the right-side
    hero visual so it behaves like the approved Option 3 mockup.
 ========================================================= */
-.hero .ecosystem-hero {
-  position: relative !important;
-  width: min(100%, 760px) !important;
-  min-height: 620px !important;
-  margin: 0 0 0 auto !important;
-  padding: 10px !important;
-  display: grid !important;
-  grid-template-columns: minmax(190px, 1fr) 176px minmax(190px, 1fr) !important;
-  grid-template-rows: repeat(3, minmax(154px, 1fr)) !important;
-  gap: 16px !important;
-  align-items: center !important;
-  justify-items: stretch !important;
-  overflow: visible !important;
-  border-radius: 34px !important;
-  isolation: isolate !important;
-}
-
-.hero .ecosystem-hero::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 6% 8% !important;
-  border-radius: 34px !important;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(201,168,76,0.22), transparent 18%),
-    radial-gradient(circle at 50% 50%, rgba(201,168,76,0.10), transparent 38%),
-    radial-gradient(circle at 50% 50%, rgba(16,185,129,0.045), transparent 62%) !important;
-  filter: blur(2px) !important;
-  opacity: 0.95 !important;
-  z-index: -2 !important;
-}
-
-.hero .ecosystem-hero::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  border-radius: 34px !important;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px) !important;
-  background-size: 54px 54px !important;
-  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 72%) !important;
-  opacity: 0.45 !important;
-  z-index: -3 !important;
-}
-
-.hero .ecosystem-line { display: none !important; }
-
-.hero .ecosystem-orbit {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
-  position: relative !important;
-  left: auto !important;
-  top: auto !important;
-  transform: none !important;
-  width: 176px !important;
-  height: 176px !important;
-  justify-self: center !important;
-  align-self: center !important;
-  z-index: 4 !important;
-}
-
-.hero .ecosystem-core {
-  width: 132px !important;
-  height: 132px !important;
-}
-
-.hero .ecosystem-core b { font-size: 22px !important; }
-.hero .ecosystem-core span { font-size: 9.5px !important; }
-
-.hero .ecosystem-node {
-  position: relative !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  bottom: auto !important;
-  width: auto !important;
-  min-height: 148px !important;
-  padding: 16px !important;
-  border-radius: 18px !important;
-  z-index: 3 !important;
-  overflow: visible !important;
-}
-
-.hero .ecosystem-node.n1 { grid-column: 1 !important; grid-row: 1 !important; }
-.hero .ecosystem-node.n2 { grid-column: 3 !important; grid-row: 1 !important; }
-.hero .ecosystem-node.n6 { grid-column: 1 !important; grid-row: 2 !important; }
-.hero .ecosystem-node.n3 { grid-column: 3 !important; grid-row: 2 !important; }
-.hero .ecosystem-node.n5 { grid-column: 1 !important; grid-row: 3 !important; }
-.hero .ecosystem-node.n4 { grid-column: 3 !important; grid-row: 3 !important; }
-
-.hero .ecosystem-node h3 {
-  font-size: 14.5px !important;
-  line-height: 1.15 !important;
-  margin-bottom: 6px !important;
-}
-
-.hero .ecosystem-node p {
-  font-size: 11.5px !important;
-  line-height: 1.38 !important;
-  margin-bottom: 10px !important;
-  max-width: 100% !important;
-}
-
-.hero .ecosystem-icon {
-  width: 26px !important;
-  height: 26px !important;
-  margin-bottom: 8px !important;
-}
-
-.hero .ecosystem-doc {
-  width: 96px !important;
-  height: 52px !important;
-  padding: 11px 10px !important;
-}
-
-.hero .ecosystem-check {
-  width: 29px !important;
-  height: 29px !important;
-  right: -10px !important;
-  bottom: -10px !important;
-  font-size: 14px !important;
-}
-
-.hero .ecosystem-caption {
-  grid-column: 2 !important;
-  grid-row: 3 !important;
-  align-self: end !important;
-  justify-self: center !important;
-  position: relative !important;
-  left: auto !important;
-  bottom: auto !important;
-  transform: none !important;
-  width: max-content !important;
-  max-width: 240px !important;
-  white-space: normal !important;
-  text-align: center !important;
-  z-index: 5 !important;
-  margin-top: 8px !important;
-}
-
-@media (max-width: 1120px) {
-  .hero .ecosystem-hero {
-    width: 100% !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: auto !important;
-    min-height: auto !important;
-  }
-  .hero .ecosystem-orbit {
-    grid-column: 1 / -1 !important;
-    grid-row: auto !important;
-    order: -1 !important;
-    margin: 10px auto 18px !important;
-  }
-  .hero .ecosystem-node.n1,
-  .hero .ecosystem-node.n2,
-  .hero .ecosystem-node.n3,
-  .hero .ecosystem-node.n4,
-  .hero .ecosystem-node.n5,
-  .hero .ecosystem-node.n6 {
-    grid-column: auto !important;
-    grid-row: auto !important;
-  }
-  .hero .ecosystem-caption {
-    grid-column: 1 / -1 !important;
-    grid-row: auto !important;
-  }
-}
-
-@media (max-width: 620px) {
-  .hero .ecosystem-hero { grid-template-columns: 1fr !important; padding: 0 !important; }
-  .hero .ecosystem-orbit { width: 148px !important; height: 148px !important; }
-  .hero .ecosystem-core { width: 112px !important; height: 112px !important; }
-  .hero .ecosystem-node { min-height: auto !important; }
-}
 
 /* Actual Kweli logo inside hero ecosystem */
 .hero .kweli-logo-core {
@@ -4265,6 +2179,9 @@ h1 .line2 {
       gap: 18px !important;
       margin-bottom: 28px;
     }
+    .three-step-flow { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .three-step-flow .simplified-card:nth-child(3)::after { display: none !important; }
+
     .simplified-flow::before { display: none !important; }
     .simplified-card {
       min-height: 0 !important;
@@ -4492,39 +2409,87 @@ h1 .line2 {
     /* ==============================
        NEW CONTENT SECTIONS (scoped)
     ============================== */
-    #problem .product-cards,
-    #deployment .product-cards { grid-template-columns: repeat(4, 1fr); }
-    .result-accent { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; margin-bottom: 18px; }
-    .result-verified .result-accent { color: var(--green2); }
-    .result-failed .result-accent { color: var(--red); }
-    .result-notfound .result-accent { color: var(--muted); }
-    .result-verified .pcard-icon { color: var(--green2); border-color: rgba(52,211,153,0.28); background: rgba(52,211,153,0.07); }
-    .result-failed .pcard-icon { color: var(--red); border-color: rgba(220,38,38,0.30); background: rgba(220,38,38,0.07); }
-    .person-silhouette { background: #0F1622; }
-    #team .team-grid { grid-template-columns: repeat(3, minmax(0, 340px)); }
-    .pilot-banner {
-      border: 1px solid var(--border2);
-      border-radius: 24px;
-      background: linear-gradient(150deg, rgba(255,255,255,0.035), rgba(11,17,32,0.8));
-      padding: 36px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 28px; flex-wrap: wrap;
+
+    /* Section 2 — editorial record-type composition */
+    .record-flow {
+      text-align: center;
+      font-size: clamp(24px, 3.4vw, 34px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.5;
+      color: var(--soft);
+      max-width: 880px;
+      margin: 0 auto;
     }
-    .pilot-banner .eyebrow { margin-bottom: 12px; }
-    .pilot-banner p { color: var(--soft); font-size: 15px; font-weight: 300; line-height: 1.6; max-width: 640px; }
-    @media (max-width: 1000px) {
-      #problem .product-cards,
-      #deployment .product-cards { grid-template-columns: 1fr 1fr; }
-      #team .team-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
-      .pilot-banner { flex-direction: column; align-items: flex-start; }
+    .record-flow-punch {
+      text-align: center;
+      font-size: clamp(20px, 2.4vw, 25px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.5;
+      color: #f0f4ff;
+      max-width: 700px;
+      margin: 48px auto 0;
     }
+
+    /* Section 6 — record type list (quiet, no borders-as-boxes) */
+    .record-list {
+      max-width: 860px; margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .record-row {
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 32px; align-items: baseline;
+      padding: 30px 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .record-row b { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #f0f4ff; }
+    .record-row span { font-size: 15px; color: var(--soft); font-weight: 300; line-height: 1.7; }
+    @media (max-width: 700px) {
+      .record-row { grid-template-columns: 1fr !important; gap: 8px; padding: 24px 4px; }
+    }
+
+    .faq-list { border-top: 1px solid var(--border); }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 20px 4px;
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 15.5px; font-weight: 500; letter-spacing: -0.01em;
+      color: var(--text); text-align: left;
+    }
+    .faq-q:hover { color: #fff; }
+    .faq-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--muted); transition: transform 0.3s ease; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease, margin-bottom 0.35s ease;
+    }
+    .faq-item.open .faq-a { max-height: 260px; opacity: 1; margin-bottom: 20px; }
+    .faq-a p { font-size: 14.5px; color: var(--soft); line-height: 1.7; font-weight: 300; padding: 0 4px; max-width: 700px; }
+    @media (prefers-reduced-motion: reduce) {
+      .faq-a, .faq-chevron { transition: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    #tech { padding: 90px 0; }
     @media (max-width: 620px) {
-      #problem .product-cards,
-      #deployment .product-cards { grid-template-columns: 1fr; }
+      .faq-q { font-size: 14.5px; }
     }
   </style>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- KWELI CINEMATIC LANDING GATE -->
   <div class="kweli-gate" id="kweliGate" aria-label="Kweli landing page">
@@ -4574,7 +2539,7 @@ h1 .line2 {
           <div class="kweli-earth-glow"></div>
 
           <div class="kweli-africa-map">
-            <svg class="kweli-africa-svg" viewBox="-45 -35 810 805" role="img">
+            <svg class="kweli-africa-svg" viewBox="-45 -35 810 805" aria-hidden="true">
               <defs>
                 <clipPath id="kweliAfricaClip">
                   <path d="M485.2 81.9L488.1 101.8L515.0 148.5L513.9 157.4L527.9 174.8L528.7 195.0L538.4 202.5L548.1 229.9L549.5 226.1L560.7 234.2L578.8 254.1L579.2 258.6L572.0 262.9L577.3 262.0L589.3 273.5L642.1 258.6L646.2 260.0L644.0 273.0L647.3 272.8L642.9 274.0L618.1 327.9L580.7 362.6L561.7 387.3L557.1 387.1L543.8 412.4L540.2 425.1L546.8 434.0L544.3 445.8L548.1 461.8L556.0 467.9L553.9 488.6L557.7 506.1L549.4 521.0L505.1 550.6L512.9 573.9L512.5 591.8L487.0 608.9L491.0 610.0L486.1 632.8L466.0 658.1L440.6 679.1L378.2 690.3L367.6 685.9L362.9 672.2L367.0 669.5L365.9 661.7L341.3 621.3L334.6 577.3L311.7 535.2L311.2 515.4L329.2 470.8L321.8 453.1L325.2 446.7L315.7 425.9L319.1 424.7L285.5 375.4L289.1 375.8L291.0 365.9L292.2 368.8L296.4 367.6L290.6 364.5L293.6 365.1L290.9 358.4L296.3 340.8L294.2 331.4L289.8 332.9L281.5 323.7L281.9 327.4L262.4 329.4L255.6 317.8L258.7 317.4L240.6 310.2L244.1 308.1L194.0 325.5L177.7 320.7L146.3 328.9L133.0 321.7L102.0 296.2L97.1 278.8L80.4 264.7L85.2 258.6L76.6 260.9L73.3 257.6L76.1 255.3L69.7 254.7L74.4 252.8L69.8 253.2L70.2 245.0L73.2 246.9L79.8 244.5L71.9 245.9L63.2 233.2L71.3 224.3L75.9 205.4L71.6 190.3L74.6 182.5L68.5 173.9L66.9 176.9L67.9 168.0L85.5 141.4L89.2 127.4L102.4 111.2L125.2 98.7L133.1 68.8L154.1 55.2L165.4 37.7L172.1 44.2L195.2 45.5L220.9 32.4L294.3 24.5L300.1 30.3L305.9 29.2L300.4 35.7L306.3 44.2L296.6 53.7L298.3 57.3L315.9 66.1L340.6 70.3L345.1 79.4L372.6 89.8L381.7 84.5L382.0 72.2L395.6 65.2L425.2 78.2L458.0 84.7L474.6 77.5L485.2 81.9Z"/>
@@ -4686,7 +2651,7 @@ h1 .line2 {
           <div class="kweli-flow-text">
             <div class="kweli-flow-num">04</div>
             <div class="kweli-flow-label">Verify</div>
-            <div class="kweli-flow-copy">Scan to verify integrity and authenticity</div>
+            <div class="kweli-flow-copy">Upload to verify integrity and authenticity</div>
           </div>
         </div>
       </section>
@@ -4715,27 +2680,25 @@ h1 .line2 {
         <nav class="nav-links">
           <a href="#product">Product</a>
           <a href="#how">How it works</a>
-          <a href="#usecases">Use cases</a>
-          <a href="#tech">Technology</a>
-          <a href="#team">Team</a>
+          <a href="#value">Where it's used</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <div class="nav-actions">
           <a class="btn btn-primary" href="#contact">Request pilot</a>
         </div>
-        <button class="btn menu-btn" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">Menu</button>
+        <button class="btn menu-btn" id="menuToggle" onclick="const m=document.querySelector('.mobile-menu');const open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
       </div>
-      <div class="mobile-menu">
+      <div class="mobile-menu" id="mobileMenu">
         <a href="#product">Product</a>
         <a href="#how">How it works</a>
-        <a href="#usecases">Use cases</a>
-        <a href="#tech">Technology</a>
-        <a href="#team">Team</a>
+        <a href="#value">Where it's used</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Request pilot</a>
       </div>
     </div>
   </nav>
 
-  <main>
+  <main id="main-content">
     <!-- HERO -->
     <header class="hero">
       <div class="wrap hero-grid">
@@ -4752,19 +2715,19 @@ h1 .line2 {
           </div>
           <div class="trust-chips">
             <span class="chip">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#94A3B8" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="#94A3B8" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Client-side hashing
             </span>
             <span class="chip">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="#94A3B8" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 1 1 4 0V5" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><rect x="2" y="5" width="8" height="6" rx="1.5" stroke="#94A3B8" stroke-width="1.2"/><path d="M4 5V3.5a2 2 0 1 1 4 0V5" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/></svg>
               Privacy-first
             </span>
             <span class="chip">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1.5l1.2 2.4 2.7.4-2 1.9.5 2.7L6 7.6l-2.4 1.3.5-2.7-2-1.9 2.7-.4z" stroke="#94A3B8" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.5l1.2 2.4 2.7.4-2 1.9.5 2.7L6 7.6l-2.4 1.3.5-2.7-2-1.9 2.7-.4z" stroke="#94A3B8" stroke-width="1.2" stroke-linejoin="round"/></svg>
               RFC3161 timestamping
             </span>
             <span class="chip">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l2.5 2.5L10 3.5" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6l2.5 2.5L10 3.5" stroke="#94A3B8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Blockchain anchored
             </span>
           </div>
@@ -4795,88 +2758,46 @@ h1 .line2 {
 
     <div class="section-divider"></div>
 
-    <!-- TRUST BREAKDOWNS -->
+    <!-- THE PROBLEM -->
     <section id="problem">
-      <div class="wrap">
+      <div class="wrap" style="max-width:920px;">
         <div class="section-head reveal">
           <div class="eyebrow">The problem</div>
-          <h2>Trust breakdowns cost money.</h2>
-          <p>Most organisations already have systems for storing information. The challenge is proving that information has not been altered.</p>
+          <h2>Documents still run the world.</h2>
+          <p>Nearly every important business decision depends on a record.</p>
         </div>
-        <div class="product-cards reveal">
-          <div class="pcard">
-            <div class="pcard-num">01</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Invoice fraud</h3>
-            <p>Payment instructions are changed or redirected, resulting in funds being sent to the wrong recipient.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">02</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2zM10 18l2-2 2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Fake certificates</h3>
-            <p>Certificates and credentials are difficult to independently verify.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">03</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v6h6M8.5 16.5l2 2 4.5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Altered reports</h3>
-            <p>Reports can be modified after issuance without obvious signs of tampering.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">04</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M12 11v6M9 14h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Missing audit trails</h3>
-            <p>Organisations often struggle to prove exactly what was approved, when and by whom.</p>
-          </div>
-        </div>
-        <p class="reveal" style="text-align:center;color:var(--soft);font-size:15px;font-weight:300;margin:32px auto 0;max-width:640px;">Kweli creates an independent verification layer for critical records and documents.</p>
+        <p class="record-flow reveal">Insurance claims. Laboratory reports. Audit reports. Compliance documents. Board approvals. Export certificates. University credentials. Financial statements. Purchase orders. Invoices.</p>
+        <p class="reveal record-flow-punch">Yet most organisations still cannot independently verify whether these records are genuine.</p>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- PRODUCT -->
-    <section id="product">
-      <div class="wrap">
+    <!-- WHY NOW -->
+    <section id="why-now">
+      <div class="wrap" style="max-width:760px;">
         <div class="section-head reveal">
-          <div class="eyebrow">The product</div>
-          <h2><span class="gold-line">Kweli means truth.</span><br>Now truth has infrastructure.</h2>
-          <p>Kweli is the foundational verification layer behind EAX Global — built to make records, credentials, institutional claims and digital assets provably authentic across sectors.</p>
+          <div class="eyebrow">Why now</div>
+          <h2>The assumptions changed. The processes didn't.</h2>
         </div>
-        <div class="product-cards reveal">
-          <div class="pcard">
-            <div class="pcard-num">01</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 21v-8H7v8M7 3v5h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>For issuers</h3>
-            <p>Labs, programmes and institutions register cryptographic proof of a document without exposing the document itself. Your data stays yours.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">02</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
-            <h3>For verifiers</h3>
-            <p>Regulators, buyers and auditors can open a verification link, re-upload the received file and confirm whether it matches the original verified record — no account required, no technical knowledge needed.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">03</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>For markets</h3>
-            <p>Verified records become the foundation for trusted environmental assets, cleaner ESG reporting and higher institutional confidence across entire value chains.</p>
-          </div>
+        <div class="reveal" style="color:var(--soft);font-size:18px;line-height:1.85;font-weight:300;">
+          <p style="margin-bottom:28px;">For decades, documents were trusted because they were difficult to fake. Today, anyone can:</p>
         </div>
+        <p class="record-flow reveal" style="font-size:clamp(22px,3vw,30px);margin-bottom:28px;">Edit PDFs. Replace pages. Clone templates. Generate convincing documents with AI.</p>
+        <div class="reveal" style="color:var(--soft);font-size:18px;line-height:1.85;font-weight:300;">
+          <p style="margin-bottom:0;">Business processes haven't changed. The assumptions behind them have.</p>
+        </div>
+        <p class="reveal" style="text-align:center;font-size:clamp(22px,2.8vw,28px);font-weight:600;letter-spacing:-0.03em;color:#f0f4ff;margin-top:44px;">Verification has quietly become <span style="color:var(--gold);">infrastructure.</span></p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- MEET KWELI -->
+    <section id="product">
+      <div class="wrap" style="max-width:840px;">
+        <div class="eyebrow reveal" style="text-align:center;">Meet Kweli</div>
+        <h2 class="reveal" style="text-align:center;font-size:clamp(32px,5.2vw,58px);font-weight:600;letter-spacing:-0.045em;line-height:1.15;color:#f0f4ff;">Kweli is verification infrastructure for documents and institutional records.</h2>
       </div>
     </section>
 
@@ -4888,20 +2809,20 @@ h1 .line2 {
         <div class="section-head reveal">
           <div class="eyebrow">How it works</div>
           <h2>From record to proof.</h2>
-          <p>Kweli turns institutional documents into tamper-evident records that can be checked independently, without changing the original file.</p>
+          <p>A document becomes a tamper-evident record that anyone can check independently — without changing your workflow.</p>
         </div>
 
         <div class="workflow-board reveal" aria-label="Kweli document verification workflow">
           <div class="workflow-topline">
             <span>Organisation workflow</span>
-            <small>Upload → Fingerprint → Anchor → Verify anytime</small>
+            <small>Issue → Fingerprint → Anchor</small>
           </div>
 
-          <div class="workflow-steps primary-flow simplified-flow">
+          <div class="workflow-steps primary-flow simplified-flow three-step-flow">
             <article class="workflow-card simplified-card">
               <div class="workflow-num">1</div>
-              <h3>Upload record</h3>
-              <p>The issuer uploads the final PDF, certificate or audit report from its existing system.</p>
+              <h3>Issue document</h3>
+              <p>From your existing system. No new software required.</p>
               <div class="mini-screen upload-mini wide-mini">
                 <div class="upload-cloud">↑</div>
                 <strong>Final_Report.pdf</strong>
@@ -4911,45 +2832,33 @@ h1 .line2 {
 
             <article class="workflow-card simplified-card">
               <div class="workflow-num">2</div>
-              <h3>Verify with Kweli</h3>
-              <p>The operator reviews the record details and sends the document to Kweli for verification.</p>
-              <div class="mini-screen action-mini wide-mini">
-                <span>Record Details</span>
-                <button>Verify with Kweli</button>
+              <h3>Generate fingerprint</h3>
+              <p>A unique fingerprint, generated instantly. The file itself is never stored.</p>
+              <div class="mini-screen checklist-mini wide-mini">
+                <span>✓ Generate fingerprint</span>
+                <span>✓ Create record ID</span>
               </div>
             </article>
 
             <article class="workflow-card simplified-card">
               <div class="workflow-num">3</div>
-              <h3>Fingerprint & anchor</h3>
-              <p>Kweli fingerprints the full document, creates a record ID and anchors the proof securely.</p>
-              <div class="mini-screen checklist-mini wide-mini">
-                <span>✓ Generate fingerprint</span>
-                <span>✓ Create record ID</span>
-                <span>✓ Anchor proof</span>
-              </div>
-            </article>
-
-            <article class="workflow-card simplified-card">
-              <div class="workflow-num">4</div>
-              <h3>Verification complete</h3>
-              <p>The issuer receives a verification link, certificate and record ID without changing the original file.</p>
+              <h3>Anchor verification record</h3>
+              <p>Anchored on the blockchain. Permanent, independent, tamper-evident.</p>
               <div class="mini-screen assets-mini wide-mini">
                 <span>Verification Link</span>
-                <span>Certificate PDF</span>
                 <span>Record ID</span>
               </div>
             </article>
           </div>
 
           <div class="workflow-public simplified-public">
-            <div class="workflow-public-title">Independent verification</div>
-            <p class="workflow-public-subtitle">A buyer, auditor, regulator or partner can re-upload the received document and check it against the original anchored proof.</p>
-            <div class="workflow-public-grid simplified-public-grid">
+            <div class="workflow-public-title">Recipient uploads document</div>
+            <p class="workflow-public-subtitle">Anyone who receives it can check it in seconds. No account required.</p>
+            <div class="workflow-public-grid simplified-public-grid three-outcome-grid">
               <article class="public-card verify-upload-card">
-                <div class="workflow-num green">5</div>
-                <h3>Upload received document</h3>
-                <p>The verifier uploads the exact document they received to check authenticity.</p>
+                <div class="workflow-num">4</div>
+                <h3>Upload to verify</h3>
+                <p>Upload the document you received. Kweli compares it with the registered fingerprint.</p>
                 <div class="verify-upload-visual compact-verify-visual">
                   <div class="received-file">
                     <strong>Received Report</strong>
@@ -4964,57 +2873,33 @@ h1 .line2 {
               </article>
 
               <article class="public-card success-card record-card-wrap">
-                <div class="workflow-num green">6</div>
-                <h3>Fingerprint compared</h3>
-                <p>Kweli recalculates the fingerprint and compares it with the original verified record.</p>
+                <h3>Verified</h3>
+                <p>The document matches the original registered record exactly.</p>
                 <div class="verified-record-card">
                   <div class="record-status"><span>✓</span><b>Verified</b></div>
-                  <div class="record-detail"><small>Issuer</small><strong>Acacia Export Labs</strong></div>
-                  <div class="record-detail"><small>Document</small><strong>Export Analysis Report</strong></div>
-                  <div class="record-detail"><small>Date uploaded</small><strong>24 May 2026</strong></div>
                   <div class="record-detail"><small>Record ID</small><strong>KWL-2026-000256</strong></div>
                   <div class="record-detail hash"><small>Document hash</small><strong>sha256: 5d9152a...91bc</strong></div>
                 </div>
               </article>
 
               <article class="public-card fail-card record-card-wrap">
-                <div class="workflow-num red">7</div>
-                <h3>Verification result</h3>
-                <p>If the file matches, the record verifies. If anything has changed, the check fails immediately.</p>
+                <h3>Verification Failed</h3>
+                <p>The document has changed since it was registered — even one character is enough.</p>
                 <div class="failed-record-card">
                   <div class="record-status fail"><span>×</span><b>Verification Failed</b></div>
-                  <div class="record-detail"><small>Original hash</small><strong>sha256: 5d9152a...91bc</strong></div>
-                  <div class="record-detail"><small>Uploaded hash</small><strong>sha256: 84ac77b...40ef</strong></div>
                   <div class="record-detail"><small>Status</small><strong>Document altered</strong></div>
                 </div>
               </article>
 
               <article class="public-card fail-card record-card-wrap">
-                <div class="workflow-num red">8</div>
                 <h3>Document Not Found</h3>
-                <p>The uploaded document has no matching record on the Kweli network, so authenticity cannot be verified.</p>
+                <p>No registered record exists for this document — it was never anchored with Kweli.</p>
                 <div class="failed-record-card">
                   <div class="record-status fail"><span>!</span><b>Document Not Found</b></div>
-                  <div class="record-detail"><small>Status</small><strong>Document Not Found</strong></div>
-                  <div class="record-detail"><small>Uploaded fingerprint</small><strong>sha256: 84ac77b...40ef</strong></div>
-                  <div class="record-detail"><small>Result</small><strong>No matching record found on Kweli</strong></div>
-                  <div class="record-detail"><small>Meaning</small><strong>No record exists</strong></div>
+                  <div class="record-detail"><small>Result</small><strong>No matching record</strong></div>
                 </div>
               </article>
-
             </div>
-          </div>
-
-          <div class="workflow-benefits">
-            <div><b>Tamper-proof</b><span>Any change after verification causes the check to fail.</span></div>
-            <div><b>Trusted & transparent</b><span>Anyone can verify authenticity without needing a login.</span></div>
-            <div><b>Always accessible</b><span>Verification works 24/7 from anywhere in the world.</span></div>
-            <div><b>Audit ready</b><span>Every record has a clear verification trail.</span></div>
-            <div><b>Built for scale</b><span>Reusable across future reports, certificates and clients.</span></div>
-          </div>
-
-          <div class="workflow-note">
-            <strong>Important:</strong> Verification assets are kept separate from the verified PDF, so the original file hash remains unchanged.
           </div>
         </div>
       </div>
@@ -5022,223 +2907,93 @@ h1 .line2 {
 
     <div class="section-divider"></div>
 
-    <!-- USE CASES -->
-    <section id="usecases">
+    <!-- WHERE VERIFICATION CREATES VALUE -->
+    <section id="value">
       <div class="wrap">
         <div class="section-head reveal">
-          <div class="eyebrow">Verification infrastructure</div>
-          <h2>One Platform. Industry-Specific Solutions.</h2>
-          <p>Built once, then shaped to the records each industry depends on.</p>
+          <div class="eyebrow">Where verification creates value</div>
+          <h2>One verification layer. Every kind of record.</h2>
+          <p>The same layer applies to any record someone else must trust.</p>
         </div>
-        <div class="uc-roadmap reveal">
-          <div class="uc-head">
-            <div>Solution</div>
-            <div>Built for</div>
-            <div>Business outcome</div>
+        <div class="record-list reveal">
+          <div class="record-row">
+            <b>Claims</b>
+            <span>Insurance and warranty claims, assessments and loss adjuster reports. Independent proof reduces fraud and speeds up assessment.</span>
           </div>
-
-          <div class="uc-row is-launching">
-            <div class="uc-cell uc-solution">
-              <span class="uc-ico">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span>
-                <span class="uc-name-row">
-                  <span class="uc-name">Kweli Claims</span>
-                  <span class="uc-badge-launch"><span class="uc-dot"></span>Launching</span>
-                </span>
-              </span>
-            </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Insurers</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Reduce claims fraud and leakage</div>
+          <div class="record-row">
+            <b>Certificates</b>
+            <span>Certificates of origin, quality certificates and inspection certificates. Gives buyers, banks and customs independent confidence.</span>
           </div>
-
-          <div class="uc-row is-roadmap">
-            <div class="uc-cell uc-solution">
-              <span class="uc-ico">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span>
-                <span class="uc-name-row">
-                  <span class="uc-name">Kweli Labs</span>
-                </span>
-              </span>
-            </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Laboratories</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Strengthen confidence in every report issued</div>
+          <div class="record-row">
+            <b>Audit reports</b>
+            <span>Audit opinions and the evidence that supports them. Strengthens confidence in the record behind every opinion issued.</span>
           </div>
-
-          <div class="uc-row is-roadmap">
-            <div class="uc-cell uc-solution">
-              <span class="uc-ico">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M2 12h20M2 12a10 10 0 0 1 20 0M2 12a10 10 0 0 0 20 0M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span>
-                <span class="uc-name-row">
-                  <span class="uc-name">Kweli Trade</span>
-                </span>
-              </span>
-            </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Exporters</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Build trust in export documentation</div>
+          <div class="record-row">
+            <b>Compliance records</b>
+            <span>Regulatory filings, inspection records and certification submissions. Independent proof that submitted evidence hasn't changed.</span>
           </div>
-
-          <div class="uc-row is-roadmap">
-            <div class="uc-cell uc-solution">
-              <span class="uc-ico">
-                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 10h20M6 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span>
-                <span class="uc-name-row">
-                  <span class="uc-name">Kweli Banking</span>
-                </span>
-              </span>
-            </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Banks</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Reduce document fraud in financial records</div>
-          </div>
-
-          <div class="uc-row is-roadmap">
-            <div class="uc-cell uc-solution">
-              <span class="uc-ico">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span>
-                <span class="uc-name-row">
-                  <span class="uc-name">Kweli Credentials</span>
-                </span>
-              </span>
-            </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Universities</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Eliminate qualification fraud</div>
-          </div>
-
-          <div class="uc-row is-roadmap">
-            <div class="uc-cell uc-solution">
-              <span class="uc-ico">
-                <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="16" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4M6 16v-2h12v2M12 12v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span>
-                <span class="uc-name-row">
-                  <span class="uc-name">Kweli Governance</span>
-                </span>
-              </span>
-            </div>
-            <div class="uc-cell uc-customer"><span class="uc-mlabel">Built for</span>Enterprises</div>
-            <div class="uc-cell uc-outcome"><span class="uc-mlabel">Business outcome</span>Protect corporate records and governance</div>
-          </div>
-        </div>
-
-        <p class="uc-note reveal">We are launching with insurance, then extending the same platform to new industries over time.</p>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- DEPLOYMENT -->
-    <section id="deployment">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Deployment</div>
-          <h2>How organisations use Kweli.</h2>
-          <p>Flexible deployment options designed to fit existing workflows.</p>
-        </div>
-        <div class="product-cards reveal">
-          <div class="pcard">
-            <div class="pcard-num">01</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 21h8M12 18v3M12 13l3-3-3-3M9 10h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Verification portal</h3>
-            <p>Upload documents and verify authenticity through the Kweli interface.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">02</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 9l-3 3 3 3m8-6l3 3-3 3M13 7l-2 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>API integration</h3>
-            <p>Integrate verification directly into existing systems and workflows.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">03</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3z" stroke="currentColor" stroke-width="1.8"/><path d="M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.8"/></svg>
-            </div>
-            <h3>Bulk verification</h3>
-            <p>Register and verify large volumes of records at scale.</p>
-          </div>
-          <div class="pcard">
-            <div class="pcard-num">04</div>
-            <div class="pcard-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Private deployments</h3>
-            <p>Dedicated environments for organisations with specific security, governance or compliance requirements.</p>
-          </div>
-        </div>
-        <p class="reveal" style="text-align:center;color:var(--soft);font-size:15px;font-weight:300;margin:32px auto 0;max-width:680px;">Kweli can operate as a standalone verification portal or integrate directly into existing enterprise systems.</p>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- WHO USES KWELI -->
-    <section id="industries">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Who uses Kweli</div>
-          <h2>Built for organisations where trust matters.</h2>
-          <p>Designed for organisations where trust, accountability and verification matter.</p>
-        </div>
-        <div class="use-grid reveal">
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 22c5-2 8-6 8-12V5l-8 3-8-3v5c0 6 3 10 8 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Agriculture</b>
-            <div class="use-detail"><ul><li>Farmer registrations</li><li>Organic certifications</li><li>Inspection reports</li><li>Collection records</li><li>Supplier documentation</li><li>Export certificates</li><li>Farm audits</li><li>Sustainability records</li></ul></div>
-          </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Insurance</b>
-            <div class="use-detail"><ul><li>Claims documentation</li><li>Claims assessments</li><li>Approval workflows</li><li>Fraud investigations</li><li>Medical reports</li><li>Payment authorisations</li><li>Loss adjuster reports</li><li>Audit records</li></ul></div>
-          </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Professional services</b>
-            <div class="use-detail"><ul><li>Audit reports</li><li>Legal opinions</li><li>Client deliverables</li><li>Advisory reports</li><li>Due diligence reports</li><li>Compliance reviews</li><li>Transaction documentation</li><li>Expert certifications</li></ul></div>
-          </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M9.5 3a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM21 21l-6.4-6.4M9.5 6.5v6M6.5 9.5h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="record-row">
             <b>Research</b>
-            <div class="use-detail"><ul><li>Research reports</li><li>Field studies</li><li>Survey results</li><li>Published findings</li><li>Impact assessments</li><li>Monitoring reports</li><li>Scientific records</li><li>Data verification</li></ul></div>
+            <span>Research reports, field studies and monitoring data. Protects the integrity of findings once they leave the research team.</span>
           </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2a4 4 0 0 1 4 4c0 3-4 8-4 8s-4-5-4-8a4 4 0 0 1 4-4zM6 14c-1.5 2-2 6-2 6s4-.5 6-2M18 14c1.5 2 2 6 2 6s-4-.5-6-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Sustainability</b>
-            <div class="use-detail"><ul><li>ESG reports</li><li>Carbon project documentation</li><li>Impact assessments</li><li>Verification reports</li><li>Monitoring records</li><li>Sustainability disclosures</li><li>Environmental audits</li><li>Project certifications</li></ul></div>
+          <div class="record-row">
+            <b>Credentials</b>
+            <span>Degrees, transcripts and professional qualifications. Removes credential fraud from hiring and admissions decisions.</span>
           </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M2 12h20M2 12a10 10 0 0 1 20 0M2 12a10 10 0 0 0 20 0M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Export &amp; trade</b>
-            <div class="use-detail"><ul><li>Certificates of origin</li><li>Export permits</li><li>Inspection certificates</li><li>Shipping documentation</li><li>Customs records</li><li>Quality certificates</li><li>Supplier declarations</li><li>Trade compliance records</li></ul></div>
+          <div class="record-row">
+            <b>Board records</b>
+            <span>Board approvals, resolutions and governance records. Gives directors and shareholders confidence in what was actually approved.</span>
           </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Education</b>
-            <div class="use-detail"><ul><li>Degrees</li><li>Academic transcripts</li><li>Professional qualifications</li><li>Training certificates</li><li>Examination results</li><li>Accreditation records</li><li>CPD certifications</li><li>Student records</li></ul></div>
+          <div class="record-row">
+            <b>Export documentation</b>
+            <span>Shipping documentation, permits and customs declarations. Builds trust between exporters, importers, banks and customs authorities.</span>
           </div>
-          <div class="use-cell" role="button" tabindex="0" aria-expanded="false">
-            <svg class="use-cell-icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="use-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <b>Compliance</b>
-            <div class="use-detail"><ul><li>Internal audits</li><li>Regulatory filings</li><li>Compliance reports</li><li>Inspection records</li><li>Risk assessments</li><li>Control attestations</li><li>Monitoring reports</li><li>Certification records</li></ul></div>
+          <div class="record-row">
+            <b>Financial records</b>
+            <span>Financial statements, invoices and payment authorisations. Reduces payment fraud and strengthens confidence in reported numbers.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- WHY ORGANISATIONS TRUST KWELI -->
+    <section id="why-trust">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Why organisations trust Kweli</div>
+          <h2>Built on principle, not just technology.</h2>
+          <p>Kweli is deliberate about what it does — and precise about what it refuses to claim.</p>
+        </div>
+        <div class="record-list reveal" style="max-width:780px;">
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>No document storage</b>
+            <span>Documents never leave your systems. Kweli stores only a cryptographic fingerprint, never the file itself.</span>
+          </div>
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>Privacy first</b>
+            <span>Confidence is created by exposing as little information as possible, not by collecting more.</span>
+          </div>
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>Independent verification</b>
+            <span>A system cannot meaningfully verify itself. Anyone can check authenticity without relying on Kweli's word.</span>
+          </div>
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>Immutable proof</b>
+            <span>Once a fingerprint is anchored, it cannot be altered. Any change to the document is immediately detectable.</span>
+          </div>
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>Simple integration</b>
+            <span>Kweli sits alongside the systems you already use, built for minimal friction and fast deployment.</span>
+          </div>
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>Works with existing systems</b>
+            <span>Kweli strengthens the software you already run rather than asking you to replace it.</span>
+          </div>
+          <div class="record-row" style="grid-template-columns:260px 1fr;">
+            <b>Enterprise ready</b>
+            <span>Built for institutional scale, with the privacy and reliability enterprise verification demands.</span>
           </div>
         </div>
       </div>
@@ -5248,109 +3003,122 @@ h1 .line2 {
 
     <!-- TECHNOLOGY -->
     <section id="tech">
-      <div class="wrap">
-        <div class="tech-layout">
-          <div class="tech-panel reveal">
-            <div class="eyebrow">The technology</div>
-            <h2>JSON runs it.<br>Blockchain proves it.</h2>
-            <p>Kweli adds a proof layer beneath your existing systems. Institutions keep their databases, workflows and portals. Kweli simply makes the outputs verifiable.</p>
-            <p>Verification is free and public. Registration is the billable act.</p>
-            <div class="tech-tag">Built for institutional workflows</div>
-          </div>
-          <div class="tech-list reveal">
-            <div class="tech-item">
-              <div class="tech-item-icon">#</div>
-              <div>
-                <b>SHA-256 document fingerprint</b>
-                <span>Any change to the document creates a different hash, making tampering immediately visible to any verifier worldwide.</span>
-              </div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-item-icon">⛓</div>
-              <div>
-                <b>Base blockchain anchoring</b>
-                <span>Low-cost, high-throughput proof infrastructure suitable for high-volume certificate registration at institutional scale.</span>
-              </div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-item-icon">T</div>
-              <div>
-                <b>RFC 3161 timestamping</b>
-                <span>A recognised, standards-compliant timestamp layer for compliance, audit trail and institutional review processes.</span>
-              </div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-item-icon">⌨</div>
-              <div>
-                <b>Built for integration</b>
-                <span>Designed to plug into existing labs, registries, dashboards and enterprise systems with minimal friction.</span>
-              </div>
-            </div>
-            <div class="tech-item">
-              <div class="tech-item-icon">🔒</div>
-              <div>
-                <b>Can Kweli see my documents?</b>
-                <span>Kweli verifies documents using cryptographic fingerprints (SHA-256 hashes). Document contents are not written to the blockchain. Organisations retain control over their documents while maintaining the ability to independently verify authenticity.</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="wrap" style="max-width:700px;">
+        <div class="eyebrow reveal" style="text-align:center;">Technology</div>
+        <p class="reveal" style="text-align:center;font-size:18px;line-height:1.8;color:var(--soft);font-weight:300;max-width:600px;margin:0 auto;">Blockchain is plumbing, not the headline. Kweli fingerprints each document with <strong style="color:#f0f4ff;font-weight:600;">SHA-256</strong> and anchors it on <strong style="color:#f0f4ff;font-weight:600;">Base</strong>. Documents are never uploaded or stored — only the fingerprint, verified cryptographically, on a privacy-first architecture built for enterprise scale.</p>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- TEAM -->
-    <section id="team">
-      <div class="wrap">
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap" style="max-width:820px;">
         <div class="section-head reveal">
-          <div class="eyebrow">The team</div>
-          <h2>Built for trust.</h2>
-          <p>Combining technology, operations and real-world business experience.</p>
+          <div class="eyebrow">Frequently asked questions</div>
+          <h2>Before you ask.</h2>
         </div>
-        <div class="team-grid">
-          <div class="person-card reveal">
-            <div class="person-avatar-wrap">
-              <svg class="person-avatar person-silhouette" viewBox="0 0 110 110" role="img" aria-label="Team member placeholder">
-                <rect width="110" height="110" fill="#0F1622"/>
-                <circle cx="55" cy="44" r="20" fill="#2A3342"/>
-                <path d="M21 96c0-18 15-30 34-30s34 12 34 30z" fill="#2A3342"/>
-              </svg>
-              <div class="person-avatar-ring"></div>
-            </div>
-            <h3>Arjun Vidyarthi</h3>
-            <div class="person-role">Founder &amp; CEO</div>
-            <p>Arjun has spent more than two decades building businesses across media, technology and commercial operations. Throughout that time, one challenge appeared repeatedly: organisations often struggle to independently prove the authenticity of important records. Kweli was created to provide a trusted verification layer for documents, reports, certificates and other critical records.</p>
+        <div class="faq-list reveal">
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>What does Kweli store?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>A cryptographic fingerprint of your document, plus verification metadata such as the issuer and registration date. Never the document itself.</p></div>
           </div>
-          <div class="person-card reveal">
-            <div class="person-avatar-wrap">
-              <svg class="person-avatar person-silhouette" viewBox="0 0 110 110" role="img" aria-label="Team member placeholder">
-                <rect width="110" height="110" fill="#0F1622"/>
-                <circle cx="55" cy="44" r="20" fill="#2A3342"/>
-                <path d="M21 96c0-18 15-30 34-30s34 12 34 30z" fill="#2A3342"/>
-              </svg>
-              <div class="person-avatar-ring"></div>
-            </div>
-            <h3>Mason Strohl</h3>
-            <div class="person-role">Co-Founder &amp; CTO</div>
-            <p>Mason is a software engineer with experience across blockchain infrastructure, enterprise systems and application development. He leads the technical architecture behind Kweli, designing the systems that allow organisations to register, verify and independently validate important records at scale.</p>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Does Kweli store documents?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>No. Your document always stays in your systems. Kweli never receives, uploads or stores the original file.</p></div>
           </div>
-          <div class="person-card reveal">
-            <div class="person-avatar-wrap">
-              <svg class="person-avatar person-silhouette" viewBox="0 0 110 110" role="img" aria-label="Team member placeholder">
-                <rect width="110" height="110" fill="#0F1622"/>
-                <circle cx="55" cy="44" r="20" fill="#2A3342"/>
-                <path d="M21 96c0-18 15-30 34-30s34 12 34 30z" fill="#2A3342"/>
-              </svg>
-              <div class="person-avatar-ring"></div>
-            </div>
-            <h3>Paris Foot</h3>
-            <div class="person-role">Business Development</div>
-            <p>Paris brings experience from agriculture, operations and business development. Having worked closely with producers, farms and commercial organisations, he has seen first-hand how missing records, weak accountability and fragmented processes create risk. He works with organisations to identify practical applications for Kweli.</p>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Why blockchain?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>It gives Kweli an anchor that no single party — including Kweli — controls or can quietly edit. It is plumbing that makes independence possible, not the product itself.</p></div>
           </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Why Base?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Base is low-cost and high-throughput, which matters when an institution is registering documents at volume rather than one at a time.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can someone fake a fingerprint?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>No. SHA-256 is a one-way cryptographic function — producing two different documents with the same fingerprint is computationally infeasible. Changing even one character produces a completely different result.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>What happens if someone edits a document?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Its fingerprint changes. When it's re-uploaded for verification, the mismatch is immediate and the check returns Verification Failed.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can Kweli verify historical documents?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Only if they were registered with Kweli at the time they were issued. A document that was never registered returns Document Not Found — Kweli can't retroactively establish authenticity for something it never fingerprinted.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can this work with Microsoft 365?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes, as a layer alongside it. Documents produced or stored in Microsoft 365 can be registered and verified through Kweli without changing how your teams use it.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can this work with SharePoint?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes, in the same way. Kweli isn't a plug-in for SharePoint today — it's an independent verification layer that complements the documents it holds.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can this work with SAP?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes. Kweli is built as an API-first layer designed to sit alongside enterprise systems like SAP rather than replace them.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can this work with existing workflows?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes. Kweli adds independent verification to documents you already issue, without requiring you to redesign how your organisation works.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Does someone need a Kweli account?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Issuers need access to register documents. Verifiers don't — anyone can open a verification link and check a document without an account.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Who owns the data?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>You do, fully. Kweli's role is limited to the independent fingerprint and verification record.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can auditors verify records?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes. Auditors can independently confirm that evidence presented to them matches what was originally issued, without contacting the issuing organisation.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can regulators verify records?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes. Verification is free and public — a regulator can open a verification link, upload the document received, and see immediately whether it matches the registered record.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Does Kweli replace DocuSign?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>No. DocuSign captures signatures. Kweli proves a document hasn't changed since it was issued — a different function that can sit downstream of signing.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Does Kweli replace document management software?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>No. Kweli isn't a document management system and isn't designed to replace one. It adds an independent verification layer to what your existing systems already produce.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>How long does implementation take?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Because Kweli doesn't require you to change your existing workflow, implementation is designed to be lightweight. Exact timelines depend on how deeply you want to integrate — we'll size this together during a pilot conversation.</p></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false"><span>Can Kweli verify millions of documents?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="faq-a"><p>Yes. Kweli is built on Base, chosen specifically for low-cost, high-throughput registration at institutional scale.</p></div>
+          </div>
+
         </div>
       </div>
     </section>
+
 
     <div class="section-divider"></div>
 
@@ -5358,9 +3126,9 @@ h1 .line2 {
     <section id="contact">
       <div class="wrap">
         <div class="contact-panel reveal">
-          <div class="eyebrow" style="margin-bottom:16px">Start a pilot</div>
-          <h2>Want to make your records verifiable?</h2>
-          <p>Kweli is built for organisations that issue certificates, reports, credentials, claims or compliance records. Share a few details and we’ll come back to you.</p>
+          <div class="eyebrow" style="margin-bottom:16px">Get in touch</div>
+          <h2>Let's explore whether verification creates value for your organisation.</h2>
+          <p>Kweli works with organisations that issue certificates, reports, credentials, claims or compliance records. Share a few details and we'll come back to you.</p>
 
           <form id="kweliPilotForm" name="kweli-pilot" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="max-width:620px;margin:30px auto 0;text-align:left;display:grid;gap:14px;">
             <input type="hidden" name="form-name" value="kweli-pilot" />
@@ -5407,8 +3175,8 @@ h1 .line2 {
             </label>
 
             <button class="btn btn-primary" type="submit" style="font-size:15px;padding:13px 22px;display:inline-flex;justify-content:center;width:100%;margin-top:4px;">
-              Request pilot
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Start the conversation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </form>
 
@@ -5416,49 +3184,6 @@ h1 .line2 {
         </div>
       </div>
     </section>
-  
-  <!-- VERIFICATION MODAL -->
-  <div class="vmodal-overlay" id="vmodal" onclick="if(event.target===this)closeModal()">
-    <div class="vmodal" role="dialog" aria-modal="true" aria-label="Verification result">
-      <div class="vmodal-header">
-        <span class="vmodal-title">Kweli Verification · verify.kweli.io</span>
-        <button class="vmodal-close" onclick="closeModal()" aria-label="Close">&times;</button>
-      </div>
-      <div class="vmodal-body">
-        <div class="vmodal-check">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10.5 16.5L5 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="vmodal-verified">VERIFIED</div>
-        <div class="vmodal-sub">EAX Global Demo Registry<br>24 May 2026 · 12:00 UTC</div>
-        <div class="vmodal-proof">
-          <div class="vmodal-row">
-            <span class="vml">Blockchain proof</span>
-            <div class="vmdot"></div>
-            <span class="vmv">Base · 0x8f2a...91bc</span>
-          </div>
-          <div class="vmodal-row">
-            <span class="vml">Timestamp</span>
-            <div class="vmdot"></div>
-            <span class="vmv">RFC 3161 · Complete</span>
-          </div>
-          <div class="vmodal-row">
-            <span class="vml">Document hash</span>
-            <div class="vmdot"></div>
-            <span class="vmv">sha256:5d9152a…</span>
-          </div>
-          <div class="vmodal-row">
-            <span class="vml">Issuer</span>
-            <div class="vmdot"></div>
-            <span class="vmv">EAX Global Ltd</span>
-          </div>
-        </div>
-      </div>
-      <div class="vmodal-footer">
-        <span class="vmodal-reg">Registry ID: <span>KWL-2026-00847</span></span>
-        <span class="vmodal-badge">Public Record</span>
-      </div>
-    </div>
-  </div>
 
   </main>
 
@@ -5479,44 +3204,14 @@ h1 .line2 {
   </footer>
 
   <script>
-    // ===== VERIFY DEMO =====
-    function verifyHash() {
-      const input = document.getElementById('hashInput').value.trim();
-      const result = document.getElementById('result');
-      const ok = input.includes('5d9152a') || input.toLowerCase().includes('verified');
-      result.className = 'result-panel show' + (ok ? '' : ' bad');
-      if (ok) {
-        result.innerHTML = '<b style="color:#34d399">✓ VERIFIED</b><p>Issued by EAX Global Demo Registry. Blockchain proof anchored on Base · Block 19,247,884. RFC3161 timestamp confirmed.</p>';
-      } else {
-        result.innerHTML = '<b style="color:#f87171">✕ NOT VERIFIED</b><p>This hash could not be found in the Kweli registry. The record may not have been registered, or the document may have been altered since registration.</p>';
-      }
-    }
-
     // ===== MOBILE MENU =====
     document.querySelectorAll('.mobile-menu a').forEach(a =>
-      a.addEventListener('click', () => document.querySelector('.mobile-menu').classList.remove('open'))
+      a.addEventListener('click', () => {
+        document.querySelector('.mobile-menu').classList.remove('open');
+        const toggle = document.getElementById('menuToggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      })
     );
-
-    // ===== ADVANCED TOGGLE =====
-    function toggleAdv() {
-      const toggle = document.getElementById('advToggle');
-      const body = document.getElementById('advBody');
-      toggle.classList.toggle('open');
-      body.classList.toggle('open');
-    }
-
-    // ===== VERIFICATION MODAL =====
-    function openModal() {
-      document.getElementById('vmodal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('vmodal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-    });
 
     // ===== SCROLL REVEALS =====
     const revealEls = document.querySelectorAll('.reveal');
@@ -5531,27 +3226,15 @@ h1 .line2 {
 
     revealEls.forEach(el => revealObserver.observe(el));
 
-    // ===== WHO USES KWELI: EXPANDABLE INDUSTRY CARDS =====
+    // ===== FAQ ACCORDION =====
     (function () {
-      const cards = document.querySelectorAll('#industries .use-cell');
-      function toggle(card) {
-        const willOpen = !card.classList.contains('open');
-        cards.forEach(c => {
-          c.classList.remove('open');
-          c.setAttribute('aria-expanded', 'false');
-        });
-        if (willOpen) {
-          card.classList.add('open');
-          card.setAttribute('aria-expanded', 'true');
-        }
-      }
-      cards.forEach(card => {
-        card.addEventListener('click', () => toggle(card));
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-            e.preventDefault();
-            toggle(card);
-          }
+      const items = document.querySelectorAll('#faq .faq-item');
+      items.forEach(item => {
+        const btn = item.querySelector('.faq-q');
+        btn.addEventListener('click', () => {
+          const willOpen = !item.classList.contains('open');
+          item.classList.toggle('open', willOpen);
+          btn.setAttribute('aria-expanded', String(willOpen));
         });
       });
     })();
