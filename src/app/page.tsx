@@ -3,10 +3,12 @@ import { Footer } from "@/components/layout/Footer";
 import { ChapterDivider } from "@/components/layout/ChapterDivider";
 import { Hero } from "@/components/home/Hero";
 import { VerificationDemo } from "@/components/home/VerificationDemo";
-import { WhyKweli } from "@/components/home/WhyKweli";
+import { WhyKweliTeaser } from "@/components/home/WhyKweliTeaser";
 
-// Remaining homepage sections (Industries, Insights, FAQs, Book a Demo,
-// How It Works) land after this review.
+// Homepage is an overview + storytelling journey with previews and CTAs
+// into deeper pages. The full Why Kweli narrative lives at /why-kweli;
+// remaining sections (Industries, Insights, FAQs, Book a Demo previews)
+// land after this review.
 export default function Home() {
   return (
     <>
@@ -15,7 +17,7 @@ export default function Home() {
         <Hero />
         <VerificationDemo />
         <ChapterDivider />
-        <WhyKweli />
+        <WhyKweliTeaser />
       </main>
       <Footer />
     </>
