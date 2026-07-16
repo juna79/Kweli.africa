@@ -2,10 +2,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { VerificationDemo } from "@/components/home/VerificationDemo";
+import { WhyKweli } from "@/components/home/WhyKweli";
 
-// Phase 2 checkpoint: Hero + Verification Demonstration only.
-// Remaining homepage sections (Problem, Trust Infrastructure, Industries,
-// Why Kweli, Insights, FAQs, Book a Demo) land in Phase 3, after review.
+// Remaining homepage sections (Industries, Insights, FAQs, Book a Demo,
+// How It Works) land after this review.
 export default function Home() {
   return (
     <>
@@ -13,6 +13,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <VerificationDemo />
+        <WhyKweli />
       </main>
       <Footer />
     </>

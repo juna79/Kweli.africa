@@ -192,6 +192,33 @@ body {
   }
 }
 
+@keyframes travel-x {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
 .animate-fade-up {
   animation: fade-up var(--duration-section) var(--ease-trust) both;
 }
