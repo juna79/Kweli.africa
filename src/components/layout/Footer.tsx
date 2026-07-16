@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { industries } from "@/lib/industries";
+import { Logo } from "@/components/layout/Logo";
 
 const columns = [
   {
@@ -31,13 +31,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <Image
-              src="/brand/Kweli_Logo_Transparent.png"
-              alt="Kweli"
-              width={140}
-              height={36}
-              className="h-8 w-auto"
-            />
+            <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-slate)]">
               Trust Infrastructure for the World.
             </p>

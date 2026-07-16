@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { primaryNav, verifyNavItem, demoNavItem } from "@/lib/nav";
 import { industries } from "@/lib/industries";
 import { Button } from "@/components/ui/Button";
+import { Logo } from "@/components/layout/Logo";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,17 +28,8 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2" aria-label="Kweli home">
-          <Image
-            src="/brand/Kweli_Logo_Transparent.png"
-            alt="Kweli — Trust Infrastructure"
-            width={140}
-            height={36}
-            priority
-            className="h-8 w-auto"
-          />
-        </Link>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+        <Logo size="large" />
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {primaryNav.map((item) =>
