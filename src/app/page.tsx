@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ChapterDivider } from "@/components/layout/ChapterDivider";
 import { Hero } from "@/components/home/Hero";
 import { VerificationDemo } from "@/components/home/VerificationDemo";
 import { WhyKweli } from "@/components/home/WhyKweli";
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <VerificationDemo />
+        <ChapterDivider />
         <WhyKweli />
       </main>
       <Footer />
