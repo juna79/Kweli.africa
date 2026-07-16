@@ -6,33 +6,148 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R >> >> /MediaBox [0 0 612 792] /Contents 5 0 R >>
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R /F5 8 0 R >> >> /MediaBox [0 0 612 792] /Contents 9 0 R >>
 endobj
 4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 410 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+9 0 obj
+<< /Length 3932 >>
 stream
-q 0.788 0.635 0.153 rg 72 745 468 3 re f Q
-BT /F1 20 Tf 72 700 Td (Bank Guarantee) Tj ET
-BT /F1 12 Tf 72 665 Td (Issuer: Zenith Commercial Bank) Tj ET
-BT /F1 12 Tf 72 645 Td (Document Type: Bank Guarantee) Tj ET
-BT /F1 10 Tf 72 90 Td (This is a fictional document created for demonstration purposes only.) Tj ET
-BT /F1 10 Tf 72 76 Td (It does not represent a real organisation, person, or transaction.) Tj ET
-
+0 0 0 rg
+0 0 0 RG
+0.965 0.958 0.933 rg
+1 w
+0 0 612 792 re f
+0.6 0.46 0.09 RG
+0.6 0.46 0.09 rg
+1.5 w
+76 730 m 76 741.046 67.04599999999999 750 56 750 c 44.954 750 36 741.046 36 730 c 36 718.954 44.954 710 56 710 c 67.04599999999999 710 76 718.954 76 730 c S
+0.6 0.46 0.09 rg
+BT /F2 16 Tf 1 0 0 1 44.80 724 Tm (ZB) Tj ET
+0.11 0.11 0.13 rg
+BT /F2 15 Tf 1 0 0 1 86.00 736 Tm (Zenith Commercial Bank) Tj ET
+0.42 0.42 0.46 rg
+BT /F5 9 Tf 1 0 0 1 86.00 722 Tm (Corporate & Trade Finance) Tj ET
+0.11 0.11 0.13 rg
+BT /F2 11 Tf 1 0 0 1 438.84 736 Tm (BANK GUARANTEE) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 9 Tf 1 0 0 1 433.60 722 Tm (Ref: ZCB-BG-2026-99031) Tj ET
+BT /F1 9 Tf 1 0 0 1 469.47 710 Tm (22 February 2026) Tj ET
+0.6 0.46 0.09 RG
+1.5 w
+56 698 m 556 698 l S
+0.6 0.46 0.09 rg
+BT /F2 9 Tf 1 0 0 1 56.00 664 Tm (BENEFICIARY) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 56.00 648 Tm (Name) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 10 Tf 1 0 0 1 56.00 637 Tm (Kenya Ports Authority) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 56.00 620 Tm (Amount) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 10 Tf 1 0 0 1 56.00 609 Tm (KES 4,500,000) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 56.00 592 Tm (Validity) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 10 Tf 1 0 0 1 56.00 581 Tm (12 Months) Tj ET
+0.6 0.46 0.09 rg
+BT /F2 9 Tf 1 0 0 1 320.00 664 Tm (APPLICANT) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 320.00 648 Tm (Company) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 10 Tf 1 0 0 1 320.00 637 Tm (Coastal Traders Ltd) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 320.00 620 Tm (Account No.) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 10 Tf 1 0 0 1 320.00 609 Tm (ZCB-661029) Tj ET
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 320.00 592 Tm (Branch) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 10 Tf 1 0 0 1 320.00 581 Tm (Mombasa CBD) Tj ET
+0.42 0.42 0.46 rg
+BT /F2 8 Tf 1 0 0 1 56.00 482 Tm (NOTES) Tj ET
+0.11 0.11 0.13 rg
+BT /F1 9 Tf 1 0 0 1 56.00 468 Tm (This guarantee is issued unconditionally in favour of the beneficiary
+named above, subject to the bank's standard terms of issue.) Tj ET
+0.42 0.42 0.46 RG
+0.75 w
+56 130 m 226 130 l S
+0.75 w
+300 130 m 470 130 l S
+0.42 0.42 0.46 rg
+BT /F1 8 Tf 1 0 0 1 56.00 118 Tm (Branch Manager) Tj ET
+BT /F1 8 Tf 1 0 0 1 300.00 118 Tm (Date) Tj ET
+0.6 0.46 0.09 RG
+1.5 w
+532 166 m 532 183.6736 517.6736 198 500 198 c 482.3264 198 468 183.6736 468 166 c 468 148.3264 482.3264 134 500 134 c 517.6736 134 532 148.3264 532 166 c S
+0.75 w
+527 166 m 527 180.9121 514.9121 193 500 193 c 485.0879 193 473 180.9121 473 166 c 473 151.0879 485.0879 139 500 139 c 514.9121 139 527 151.0879 527 166 c S
+0.6 0.46 0.09 rg
+BT /F2 9 Tf 1 0 0 1 490.55 173 Tm (ZCB) Tj ET
+BT /F1 6 Tf 1 0 0 1 483.21 160 Tm (AUTHENTIC) Tj ET
+0.6 0.46 0.09 RG
+0.75 w
+56 70 m 556 70 l S
+0.42 0.42 0.46 rg
+BT /F5 8 Tf 1 0 0 1 56.00 56 Tm (Fictional demonstration document - created for Kweli Website V3.) Tj ET
+BT /F5 8 Tf 1 0 0 1 56.00 45 Tm (It does not represent a real organisation, person, or transaction.) Tj ET
+1 w
+532 34 3.6666666666666665 3.6666666666666665 re f
+1 w
+535.6666666666666 34 3.6666666666666665 3.6666666666666665 re f
+1 w
+539.3333333333334 34 3.6666666666666665 3.6666666666666665 re f
+1 w
+532 37.666666666666664 3.6666666666666665 3.6666666666666665 re f
+1 w
+546.6666666666666 37.666666666666664 3.6666666666666665 3.6666666666666665 re f
+1 w
+550.3333333333334 37.666666666666664 3.6666666666666665 3.6666666666666665 re f
+1 w
+546.6666666666666 41.333333333333336 3.6666666666666665 3.6666666666666665 re f
+1 w
+535.6666666666666 45 3.6666666666666665 3.6666666666666665 re f
+1 w
+539.3333333333334 45 3.6666666666666665 3.6666666666666665 re f
+1 w
+543 45 3.6666666666666665 3.6666666666666665 re f
+1 w
+550.3333333333334 45 3.6666666666666665 3.6666666666666665 re f
+1 w
+535.6666666666666 48.666666666666664 3.6666666666666665 3.6666666666666665 re f
+1 w
+543 48.666666666666664 3.6666666666666665 3.6666666666666665 re f
+1 w
+550.3333333333334 52.33333333333333 3.6666666666666665 3.6666666666666665 re f
 endstream
 endobj
 xref
-0 6
+0 10
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000241 00000 n 
-0000000311 00000 n 
+0000000281 00000 n 
+0000000351 00000 n 
+0000000426 00000 n 
+0000000498 00000 n 
+0000000569 00000 n 
+0000000647 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 10 /Root 1 0 R >>
 startxref
-771
+4630
 %%EOF
