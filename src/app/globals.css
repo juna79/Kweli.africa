@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+/*
+  Locked Website V3 design tokens (Kweli_V3_Master_Kickoff.md, section 6).
+  This file is the single source of truth for color/type/spacing primitives —
+  components should consume these tokens rather than hardcoding values.
+*/
+:root {
+  --color-background: #0b080f;
+  --color-surface-navy: #11233f;
+  --color-gold: #c9a227;
+  --color-gold-bright: #e6bd4a;
+  --color-warm-paper: #f6f4ee;
+  --color-slate: #5b6b7e;
+  --color-verified: #2e9e6b;
+  --color-failed: #ff4d4f;
+
+  /* Extended neutrals from the UI Kit reference, layered under the locked palette. */
+  --color-carbon: #0b080f;
+  --color-dark-slate: #12161c;
+  --color-stone: #2a313c;
+
+  --font-satoshi: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --ease-trust: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --duration-hover: 150ms;
+  --duration-press: 120ms;
+  --duration-card: 350ms;
+  --duration-section: 600ms;
+  --duration-hero: 1100ms;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-surface-navy: var(--color-surface-navy);
+  --color-gold: var(--color-gold);
+  --color-gold-bright: var(--color-gold-bright);
+  --color-warm-paper: var(--color-warm-paper);
+  --color-slate: var(--color-slate);
+  --color-verified: var(--color-verified);
+  --color-failed: var(--color-failed);
+  --color-carbon: var(--color-carbon);
+  --color-dark-slate: var(--color-dark-slate);
+  --color-stone: var(--color-stone);
+
+  --font-sans: var(--font-satoshi);
+  --font-inter: var(--font-inter);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  /* Type scale — Fonts spec (15_Fonts_Kweli_V3.pdf) */
+  --text-h1: 3.5rem;
+  --text-h1--line-height: 1.12;
+  --text-h2: 2.75rem;
+  --text-h2--line-height: 1.15;
+  --text-h3: 1.875rem;
+  --text-h3--line-height: 1.2;
+  --text-h4: 1.375rem;
+  --text-h4--line-height: 1.2;
+  --text-body-lg: 1.25rem;
+  --text-body-lg--line-height: 1.6;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.65;
+  --text-small: 1rem;
+  --text-small--line-height: 1.6;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --text-h1: 4.5rem;
+  }
+}
+
+html {
+  background: var(--color-background);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-warm-paper);
+  font-family: var(--font-satoshi);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-bright);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes trust-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 18px rgba(201, 162, 39, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up var(--duration-section) var(--ease-trust) both;
+}
+
+.animate-trust-pulse {
+  animation: trust-pulse 1.4s var(--ease-trust) infinite;
+}
