@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { FileText, X } from "lucide-react";
+import { FileText, Download, X } from "lucide-react";
 import { demoDocuments, type DemoDocument } from "@/lib/demoDocuments";
 
 export function SampleDocumentModal({
-  onSelect,
+  onDownload,
   onClose,
 }: {
-  onSelect: (doc: DemoDocument) => void;
+  onDownload: (doc: DemoDocument) => void;
   onClose: () => void;
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -41,7 +41,7 @@ export function SampleDocumentModal({
               Sample document library
             </p>
             <p className="mt-0.5 text-xs text-[var(--color-slate)]">
-              Pick any file — nothing here indicates which ones verify.
+              Download any file — nothing here indicates which ones verify.
             </p>
           </div>
           <button
@@ -56,24 +56,31 @@ export function SampleDocumentModal({
 
         <ul className="max-h-[60vh] overflow-y-auto p-2">
           {demoDocuments.map((doc) => (
-            <li key={doc.id}>
-              <button
-                onClick={() => onSelect(doc)}
-                className="flex w-full items-center gap-3 rounded-[var(--radius-md)] px-4 py-3 text-left transition-colors duration-150 hover:bg-white/5"
-              >
-                <FileText
-                  size={18}
-                  strokeWidth={2}
-                  className="shrink-0 text-[var(--color-gold-bright)]"
-                  aria-hidden
-                />
-                <span className="min-w-0 flex-1 truncate text-sm text-[var(--color-warm-paper)]">
+            <li
+              key={doc.id}
+              className="flex items-center gap-3 rounded-[var(--radius-md)] px-4 py-3 transition-colors duration-150 hover:bg-white/5"
+            >
+              <FileText
+                size={18}
+                strokeWidth={2}
+                className="shrink-0 text-[var(--color-gold-bright)]"
+                aria-hidden
+              />
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm text-[var(--color-warm-paper)]">
                   {doc.filename}
-                </span>
-                <span className="shrink-0 text-xs text-[var(--color-slate)]">
-                  {doc.fileSize}
-                </span>
-              </button>
+                </p>
+                <p className="text-xs text-[var(--color-slate)]">{doc.fileSize}</p>
+              </div>
+              <a
+                href={doc.assetPath}
+                download={doc.filename}
+                onClick={() => onDownload(doc)}
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-[var(--radius-sm)] border border-[var(--color-gold)]/40 px-3 py-1.5 text-xs font-medium text-[var(--color-warm-paper)] transition-colors duration-150 hover:border-[var(--color-gold-bright)] hover:bg-white/5"
+              >
+                <Download size={14} strokeWidth={2} aria-hidden />
+                Download
+              </a>
             </li>
           ))}
         </ul>

@@ -13,8 +13,9 @@ import {
   FileQuestion,
 } from "lucide-react";
 import { Badge, type BadgeStatus } from "@/components/ui/Badge";
-import type { DemoDocument, Outcome } from "@/lib/demoDocuments";
+import { findDocumentByHash, type DemoDocument, type Outcome } from "@/lib/demoDocuments";
 import { SampleDocumentModal } from "@/components/home/SampleDocumentModal";
+import { UploadDropzone } from "@/components/home/UploadDropzone";
 
 const steps = [
   { key: "upload", label: "Uploading", sub: "Document received for demonstration.", icon: Upload },
@@ -227,6 +228,8 @@ function ResultDetails({ doc }: { doc: DemoDocument }) {
 
 export function VerificationDemo() {
   const [libraryOpen, setLibraryOpen] = useState(false);
+  const [awaitingUpload, setAwaitingUpload] = useState(false);
+  const [pendingDownload, setPendingDownload] = useState<DemoDocument | null>(null);
   const [activeDoc, setActiveDoc] = useState<DemoDocument | null>(null);
   const [stepIndex, setStepIndex] = useState(-1);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -237,11 +240,36 @@ export function VerificationDemo() {
     };
   }, []);
 
-  function handleSelect(doc: DemoDocument) {
+  function handleDownload(doc: DemoDocument) {
+    // The anchor's own `download` attribute triggers the real browser
+    // download; this just moves the demo into the upload step.
+    setLibraryOpen(false);
+    setPendingDownload(doc);
+    setAwaitingUpload(true);
+  }
+
+  function handleFileUploaded(file: File, sha256: string) {
+    const matched = findDocumentByHash(sha256);
+    const resolved: DemoDocument =
+      matched ??
+      {
+        id: "unregistered-upload",
+        filename: file.name,
+        fileSize: "",
+        assetPath: "",
+        sha256,
+        outcome: "not-found",
+        notFound: {
+          issuer: "Unknown",
+          reasons: ["Never registered", "Unknown issuer"],
+        },
+      };
+
     timers.current.forEach(clearTimeout);
     timers.current = [];
-    setLibraryOpen(false);
-    setActiveDoc(doc);
+    setAwaitingUpload(false);
+    setPendingDownload(null);
+    setActiveDoc(resolved);
     setStepIndex(0);
 
     for (let i = 1; i < steps.length; i++) {
@@ -255,6 +283,8 @@ export function VerificationDemo() {
     timers.current = [];
     setActiveDoc(null);
     setStepIndex(-1);
+    setAwaitingUpload(false);
+    setPendingDownload(null);
     setLibraryOpen(true);
   }
 
@@ -279,12 +309,12 @@ export function VerificationDemo() {
             Watch verification happen.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[var(--text-body)] leading-[var(--text-body--line-height)] text-[var(--color-slate)]">
-            Try a few sample documents. Some verify, some don&apos;t — see if you can
-            tell which is which before the result comes back.
+            Download a few sample documents, then upload them back — some verify,
+            some don&apos;t, and the fingerprint is the only thing that decides.
           </p>
         </div>
 
-        {!activeDoc && (
+        {!activeDoc && !awaitingUpload && (
           <div className="mt-10 flex justify-center">
             <button
               onClick={() => setLibraryOpen(true)}
@@ -292,6 +322,34 @@ export function VerificationDemo() {
             >
               Browse Sample Documents
             </button>
+          </div>
+        )}
+
+        {awaitingUpload && (
+          <div className="mt-14 rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.015] p-8 sm:p-12">
+            <div className="mx-auto max-w-md text-center">
+              <p className="text-sm font-medium text-[var(--color-warm-paper)]">
+                Now upload the document you just downloaded to verify it.
+              </p>
+              {pendingDownload && (
+                <p className="mt-1 truncate text-xs text-[var(--color-slate)]">
+                  Downloaded: {pendingDownload.filename}
+                </p>
+              )}
+              <div className="mt-6">
+                <UploadDropzone onFile={handleFileUploaded} />
+              </div>
+              <button
+                onClick={() => {
+                  setAwaitingUpload(false);
+                  setPendingDownload(null);
+                  setLibraryOpen(true);
+                }}
+                className="mt-6 text-xs font-medium text-[var(--color-gold-bright)] hover:underline"
+              >
+                Choose a different document
+              </button>
+            </div>
           </div>
         )}
 
@@ -375,7 +433,7 @@ export function VerificationDemo() {
 
       {libraryOpen && (
         <SampleDocumentModal
-          onSelect={handleSelect}
+          onDownload={handleDownload}
           onClose={() => setLibraryOpen(false)}
         />
       )}
