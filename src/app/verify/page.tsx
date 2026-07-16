@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { VerificationDemo } from "@/components/verify/VerificationDemo";
 
-export const metadata: Metadata = { title: "Verify a Document" };
+export const metadata: Metadata = {
+  title: "Verify a Document",
+  description:
+    "Download a sample document, upload it back, and watch Kweli check its fingerprint in real time.",
+};
 
 export default function VerifyPage() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        <PagePlaceholder
-          title="Verify a Document"
-          description="Real client-side verification against the Kweli registry. This connects to real infrastructure, so it isn't simulated here — build pending registry access."
-        />
+        <VerificationDemo />
       </main>
       <Footer />
     </>

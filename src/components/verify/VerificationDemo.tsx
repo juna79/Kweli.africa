@@ -14,8 +14,8 @@ import {
 } from "lucide-react";
 import { Badge, type BadgeStatus } from "@/components/ui/Badge";
 import { findDocumentByHash, type DemoDocument, type Outcome } from "@/lib/demoDocuments";
-import { SampleDocumentModal } from "@/components/home/SampleDocumentModal";
-import { UploadDropzone } from "@/components/home/UploadDropzone";
+import { SampleDocumentModal } from "@/components/verify/SampleDocumentModal";
+import { UploadDropzone } from "@/components/verify/UploadDropzone";
 
 const steps = [
   { key: "upload", label: "Uploading", sub: "Document received for demonstration.", icon: Upload },
