@@ -46,9 +46,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "degree-cert",
     filename: "Degree Certificate.pdf",
-    fileSize: "4.1 KB",
+    fileSize: "4.4 KB",
     assetPath: "/sample-documents/degree-cert.pdf",
-    sha256: "ca496fb666c44ea234a23ecef4058e810ef47473d2dec19f625f17c06fad50d2",
+    sha256: "afec425b60d54e3bf808b4f27a585f38c283d93e5e500398f0bc3e30719255e3",
     outcome: "verified",
     verified: {
       issuer: "Kweli University",
@@ -61,9 +61,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "degree-cert-final",
     filename: "Degree Certificate Final.pdf",
-    fileSize: "3.8 KB",
+    fileSize: "4.3 KB",
     assetPath: "/sample-documents/degree-cert-final.pdf",
-    sha256: "3722b13f8a3f7edeee7b4ff8da6ad1c8c3286a5305d00d16b10245a2d2931629",
+    sha256: "5b67dcf6dfb3f1e8aca92358ce47e884e03ed44caf5284aacbf7d4b5368e1e4c",
     outcome: "failed",
     failed: {
       issuer: "Kweli University",
@@ -74,9 +74,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "degree-cert-scan",
     filename: "Degree Certificate Scan.pdf",
-    fileSize: "4.3 KB",
+    fileSize: "4.4 KB",
     assetPath: "/sample-documents/degree-cert-scan.pdf",
-    sha256: "798c50c1d13bbc4276ecc392decb7f551f2f9026064cc24d523face99e2a04c3",
+    sha256: "de5cd2e172d40b294dcbe00064e66752731639d54ad147c3baee3c4a5525fb76",
     outcome: "not-found",
     notFound: {
       issuer: "Kweli University",
@@ -89,7 +89,7 @@ export const demoDocuments: DemoDocument[] = [
     filename: "Repair Estimate.pdf",
     fileSize: "6.8 KB",
     assetPath: "/sample-documents/repair-estimate.pdf",
-    sha256: "0936fdd085658fb05500546dd1b5190b8ca62dcc3db5b9fd7a820ee0598dc3b5",
+    sha256: "0c3b9c0b277dbcb488cd4dd3921bfdb691718a413e92d0591ab06d293581f2af",
     outcome: "failed",
     failed: {
       issuer: "Northline Motors",
@@ -100,9 +100,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "repair-estimate-final",
     filename: "Repair Estimate Final.pdf",
-    fileSize: "6.7 KB",
+    fileSize: "6.8 KB",
     assetPath: "/sample-documents/repair-estimate-final.pdf",
-    sha256: "b65b6ad936e90eaa750353ded1ec0bb113e2258d2c807c04a9e7c318a7fdbed8",
+    sha256: "f08bd5607f04447e7029474d972a983f364eec735a6cd2fab6e4e228172bf1fa",
     outcome: "verified",
     verified: {
       issuer: "Northline Motors",
@@ -117,7 +117,7 @@ export const demoDocuments: DemoDocument[] = [
     filename: "Repair Estimate Copy.pdf",
     fileSize: "6.8 KB",
     assetPath: "/sample-documents/repair-estimate-copy.pdf",
-    sha256: "82b3923c7e619ee9159464ca853a2fac817d3ecdca39565bb0584b9d08b780cb",
+    sha256: "bf8743f6f0ed95d5e7e5f513c8e95ec3fcd313efe8219d8ae07964814a3d3438",
     outcome: "not-found",
     notFound: {
       issuer: "Northline Motors",
@@ -127,9 +127,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "insurance-claim",
     filename: "Insurance Claim Form.pdf",
-    fileSize: "5.8 KB",
+    fileSize: "6.2 KB",
     assetPath: "/sample-documents/insurance-claim.pdf",
-    sha256: "68c0634bcf69029d3c83e4c1dddca5fdebd0858bc834a26442991c6003132b98",
+    sha256: "8a974dd48d39795d661bb59d174df2cd61df9d4704b3634a9b569633015e04f5",
     outcome: "verified",
     verified: {
       issuer: "Turaco Underwriters",
@@ -143,9 +143,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "lab-report",
     filename: "Laboratory Report.pdf",
-    fileSize: "6.2 KB",
+    fileSize: "6.3 KB",
     assetPath: "/sample-documents/lab-report.pdf",
-    sha256: "08278115794e08d8e4fe33ab2bfe08f591123031ee02d8ae44f474a44e1b7f94",
+    sha256: "45d558ab7e8898a155b2213b2f34bce11b8ee317cea7271fb7e7c24a0af4e5a3",
     outcome: "verified",
     verified: {
       issuer: "Verstlab Diagnostics",
@@ -158,9 +158,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "lab-report-scan",
     filename: "Laboratory Report Scan.pdf",
-    fileSize: "5.8 KB",
+    fileSize: "6.2 KB",
     assetPath: "/sample-documents/lab-report-scan.pdf",
-    sha256: "1ab188be4e915496f046704c6f5876eba5a351834e0114af94a3631da82e4cd3",
+    sha256: "7ce3154cac7ff1248366adcf6aeb7d0a69e76706b17eb6bb3e400aec13401581",
     outcome: "not-found",
     notFound: {
       issuer: "Verstlab Diagnostics",
@@ -171,9 +171,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "organic-cert",
     filename: "Organic Certificate.pdf",
-    fileSize: "4.1 KB",
+    fileSize: "4.3 KB",
     assetPath: "/sample-documents/organic-cert.pdf",
-    sha256: "0326006300f78592b1ffdf0d818a3c8a848f83d7ff4a999d0d70c5164a49b9d8",
+    sha256: "a373cb9ea3535e85a36a0b14d89d5458880f7109af3fa50b83b86882b4a871e9",
     outcome: "verified",
     verified: {
       issuer: "Cropnuts Certification Body",
@@ -188,7 +188,7 @@ export const demoDocuments: DemoDocument[] = [
     filename: "Organic Certificate Updated.pdf",
     fileSize: "4.4 KB",
     assetPath: "/sample-documents/organic-cert-updated.pdf",
-    sha256: "ecfeeab71affff76930c2fdc3ce2a58e11d6ffc4966fa910590262f3a0781526",
+    sha256: "8fafe5dfcd986b8cb9d911db3f8c3295363f2de1920bb82cbc7ae7ff58ca4c4b",
     outcome: "failed",
     failed: {
       issuer: "Cropnuts Certification Body",
@@ -199,9 +199,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "shipping-manifest",
     filename: "Shipping Manifest.pdf",
-    fileSize: "5.8 KB",
+    fileSize: "6.0 KB",
     assetPath: "/sample-documents/shipping-manifest.pdf",
-    sha256: "10ef31fc792f0263741874c5c691449e9b151fb187bdc2c8304e10cf42b31b3d",
+    sha256: "8d2d76196ce10d711e507a1f7f7f7979c29b04542b78c2bea74cc6a3731b1577",
     outcome: "failed",
     failed: {
       issuer: "Meridian Freight Lines",
@@ -213,9 +213,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "building-permit",
     filename: "Building Permit.pdf",
-    fileSize: "5.1 KB",
+    fileSize: "5.4 KB",
     assetPath: "/sample-documents/building-permit.pdf",
-    sha256: "dd9c0b9b57401519e3b3b1e3f276db2aa628b856f3b5d80a01cc8f49ad4e49e3",
+    sha256: "31a26278a5912c985dfebb3ee7a5a5620c028ee62a822b6fec7c9184e26d119c",
     outcome: "not-found",
     notFound: {
       issuer: "Unknown",
@@ -226,9 +226,9 @@ export const demoDocuments: DemoDocument[] = [
   {
     id: "bank-guarantee",
     filename: "Bank Guarantee.pdf",
-    fileSize: "4.8 KB",
+    fileSize: "5.3 KB",
     assetPath: "/sample-documents/bank-guarantee.pdf",
-    sha256: "c59a3852e7ec13853f9c49ce0b677b2afc8d5838aa073b3846d18f7a420caef4",
+    sha256: "dcd0f103464e18b30909bb8aea0e7999a8eac5bbed8a42c7d0b2a5750f126fe5",
     outcome: "verified",
     verified: {
       issuer: "Zenith Commercial Bank",

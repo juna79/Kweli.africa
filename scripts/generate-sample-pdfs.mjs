@@ -1,8 +1,8 @@
-// Generates premium-looking, single-page fictional demonstration PDFs for
-// the Verification Demo's sample document library - letterhead, reference
-// numbers, tables, signature lines, a seal, and a small pseudo-QR mark, all
+// Generates fictional demonstration PDFs for the Verification Demo's sample
+// document library, styled to read as genuine administrative paperwork:
+// letterhead, security watermark, tables, handwritten-style signatures,
+// an angled ink stamp, and a small, unobtrusive legal footer. Everything is
 // drawn with plain PDF vector/text primitives (no external assets/fonts).
-// Every document carries a "Fictional demonstration document" footer.
 import { writeFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import path from "node:path";
@@ -14,10 +14,7 @@ mkdirSync(outDir, { recursive: true });
 
 // ---------- low-level PDF drawing helpers ----------
 
-// Approximate Helvetica/Times widths (per 1000 em units). Good enough for
-// centering/right-aligning text in a generated demo document.
 const CHAR_W = {
-  default: 556,
   space: 278,
   narrow: "iIl.,:;'!|".split(""),
   wide: "MWmw".split(""),
@@ -73,6 +70,51 @@ function makePage() {
       if (align === "center") tx = x - measure(str, size, bold) / 2;
       if (align === "right") tx = x - measure(str, size, bold);
       ops.push(`BT /${font} ${size} Tf 1 0 0 1 ${tx.toFixed(2)} ${y} Tm (${esc(str)}) Tj ET`);
+    },
+    rotatedText(x, y, size, str, angleDeg, { font = "F1", align = "left", bold = false } = {}) {
+      const rad = (angleDeg * Math.PI) / 180;
+      const cos = Math.cos(rad);
+      const sin = Math.sin(rad);
+      let d = 0;
+      if (align === "center") d = -measure(str, size, bold) / 2;
+      if (align === "right") d = -measure(str, size, bold);
+      const ox = x + d * cos;
+      const oy = y + d * sin;
+      ops.push(
+        `BT /${font} ${size} Tf ${cos.toFixed(4)} ${sin.toFixed(4)} ${(-sin).toFixed(4)} ${cos.toFixed(
+          4
+        )} ${ox.toFixed(2)} ${oy.toFixed(2)} Tm (${esc(str)}) Tj ET`
+      );
+    },
+    // Deterministic procedural "handwritten" scrawl — a connected sequence
+    // of bezier humps, seeded by the signer's name so the same person
+    // always produces the same-looking signature.
+    signature(x, y, w, h, color, seedStr) {
+      let seed = 0;
+      for (const ch of seedStr) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+      const rand = () => {
+        seed = (seed * 1664525 + 1013904223) >>> 0;
+        return seed / 4294967296;
+      };
+      const n = 5 + Math.floor(rand() * 2);
+      const segW = w / n;
+      let cx = x;
+      let path = `${cx.toFixed(1)} ${y.toFixed(1)} m `;
+      for (let i = 0; i < n; i++) {
+        const x1 = cx + segW * 0.3;
+        const y1 = y + (rand() - 0.25) * h;
+        const x2 = cx + segW * 0.65;
+        const y2 = y + (rand() - 0.8) * h;
+        const x3 = cx + segW;
+        const y3 = y + (rand() - 0.5) * h * 0.5;
+        path += `${x1.toFixed(1)} ${y1.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)} ${x3.toFixed(1)} ${y3.toFixed(
+          1
+        )} c `;
+        cx += segW;
+      }
+      ops.push(`${color[0]} ${color[1]} ${color[2]} RG`);
+      ops.push("1.4 w");
+      ops.push(path + "S");
     },
     qr(x, y, size, seed) {
       const n = 6;
@@ -145,15 +187,27 @@ function buildPdf(pageBuilderFn) {
   return Buffer.from(parts.join(""), "latin1");
 }
 
-// ---------- shared chrome: letterhead, footer, seal, signatures ----------
+// ---------- shared chrome ----------
 
 const PAPER = [0.965, 0.958, 0.933];
 const INK = [0.11, 0.11, 0.13];
 const MUTED = [0.42, 0.42, 0.46];
+const SIGNATURE_INK = [0.08, 0.08, 0.22];
+
+function tint(base, accent, amount) {
+  return base.map((v, i) => v * (1 - amount) + accent[i] * amount);
+}
+
+function drawWatermark(p, text, accent, { cx = 306, cy = 410, angle = -30, size = 130 } = {}) {
+  const color = tint(PAPER, accent, 0.1);
+  p.setFill(...color);
+  p.rotatedText(cx, cy, size, text, angle, { font: "F2", align: "center", bold: true });
+}
 
 function drawLetterhead(p, { orgName, tagline, accent, monogram, title, refNumber, date }) {
   p.setFill(...PAPER);
   p.rect(0, 0, 612, 792, { mode: "f" });
+  drawWatermark(p, monogram, accent);
 
   p.setStroke(...accent);
   p.setFill(...accent);
@@ -176,40 +230,51 @@ function drawLetterhead(p, { orgName, tagline, accent, monogram, title, refNumbe
   p.line(56, 698, 556, 698, { lineWidth: 1.5 });
 }
 
-function drawFooter(p, { accent, refNumber }) {
+function drawOfficeLine(p, y, text, accent) {
   p.setStroke(...accent);
-  p.line(56, 70, 556, 70, { lineWidth: 0.75 });
+  p.line(56, y + 16, 556, y + 16, { lineWidth: 0.5 });
   p.setFill(...MUTED);
-  p.text(56, 56, 8, "Fictional demonstration document - created for Kweli Website V3.", {
+  p.text(56, y, 7.5, text, { font: "F5" });
+}
+
+function drawFooter(p, { refNumber }) {
+  p.setStroke(0.82, 0.81, 0.79);
+  p.line(56, 48, 556, 48, { lineWidth: 0.5 });
+  p.setFill(0.58, 0.58, 0.6);
+  p.text(56, 36, 6.5, "Fictional demonstration document, created for Kweli Website V3 - not a real record.", {
     font: "F5",
   });
-  p.text(56, 45, 8, "It does not represent a real organisation, person, or transaction.", {
-    font: "F5",
-  });
-  p.qr(532, 34, 22, refNumber);
+  p.qr(536, 28, 18, refNumber);
 }
 
 function drawSeal(p, { x, y, accent, code }) {
   const r = 32;
+  const angle = -11;
   p.setStroke(...accent);
   p.circle(x, y, r, { mode: "S", lineWidth: 1.5 });
   p.circle(x, y, r - 5, { mode: "S", lineWidth: 0.75 });
   p.setFill(...accent);
-  const maxWidth = (r - 5) * 1.6;
+  const maxWidth = (r - 5) * 1.55;
   let codeSize = 9;
   while (measure(code, codeSize, true) > maxWidth && codeSize > 5) codeSize -= 1;
-  p.text(x, y + 7, codeSize, code, { font: "F2", align: "center", bold: true });
-  p.text(x, y - 6, 6, "AUTHENTIC", { font: "F1", align: "center" });
+  p.rotatedText(x, y + 6, codeSize, code, angle, { font: "F2", align: "center", bold: true });
+  p.rotatedText(x, y - 7, 6, "AUTHENTIC", angle, { font: "F1", align: "center" });
 }
 
-function drawSignatures(p, y, accent, labels) {
+function drawSignatureBlock(p, x, y, width, signer) {
+  p.signature(x + 8, y + 13, width - 24, 15, SIGNATURE_INK, signer.name);
   p.setStroke(...MUTED);
-  p.line(56, y, 226, y, { lineWidth: 0.75 });
-  p.line(300, y, 470, y, { lineWidth: 0.75 });
+  p.line(x, y, x + width, y, { lineWidth: 0.75 });
+  p.setFill(...INK);
+  p.text(x, y - 12, 9, signer.name, { font: "F2", bold: true });
   p.setFill(...MUTED);
-  p.text(56, y - 12, 8, labels[0], { font: "F1" });
-  p.text(300, y - 12, 8, labels[1], { font: "F1" });
-  drawSeal(p, { x: 500, y: y + 36, accent, code: labels[2] ?? "SEAL" });
+  p.text(x, y - 23, 8, signer.role, { font: "F1" });
+}
+
+function drawSignatures(p, y, accent, signers, stampCode) {
+  drawSignatureBlock(p, 56, y, 190, signers[0]);
+  drawSignatureBlock(p, 300, y, 170, signers[1]);
+  drawSeal(p, { x: 500, y: y + 36, accent, code: stampCode });
 }
 
 function drawFieldGroup(p, x, y, heading, fields, accent) {
@@ -221,7 +286,7 @@ function drawFieldGroup(p, x, y, heading, fields, accent) {
     p.text(x, cy, 8, label, { font: "F1" });
     p.setFill(...INK);
     p.text(x, cy - 11, 10, value, { font: "F1" });
-    cy -= 28;
+    cy -= 26;
   }
   return cy;
 }
@@ -294,7 +359,8 @@ function buildBusinessDoc(doc) {
       p.text(56, cursorY - 24, 9, doc.notes, { font: "F1" });
     }
 
-    drawSignatures(p, 130, doc.accent, doc.signatureLabels);
+    drawOfficeLine(p, 175, doc.officeLine, doc.accent);
+    drawSignatures(p, 128, doc.accent, doc.signers, doc.stampCode);
     drawFooter(p, doc);
   };
 }
@@ -305,38 +371,47 @@ function buildCertificateDoc(doc) {
   return (p) => {
     p.setFill(...PAPER);
     p.rect(0, 0, 612, 792, { mode: "f" });
+    drawWatermark(p, doc.monogram, doc.accent, { size: 200 });
     p.setStroke(...doc.accent);
     p.rect(30, 30, 552, 732, { mode: "S", lineWidth: 2 });
-    p.rect(38, 38, 536, 716, { mode: "S", lineWidth: 0.5 });
+    p.rect(38, 58, 536, 696, { mode: "S", lineWidth: 0.5 });
 
     p.setStroke(...doc.accent);
-    p.circle(306, 700, 24, { mode: "S", lineWidth: 1.5 });
+    p.circle(306, 706, 24, { mode: "S", lineWidth: 1.5 });
     p.setFill(...doc.accent);
-    p.text(306, 694, 18, doc.monogram, { font: "F4", align: "center", bold: true });
+    p.text(306, 700, 18, doc.monogram, { font: "F4", align: "center", bold: true });
 
     p.setFill(...INK);
-    p.text(306, 650, 22, doc.orgName, { font: "F4", align: "center", bold: true });
+    p.text(306, 658, 22, doc.orgName, { font: "F4", align: "center", bold: true });
     p.setFill(...MUTED);
-    p.text(306, 634, 10, doc.tagline, { font: "F3", align: "center" });
+    p.text(306, 642, 10, doc.tagline, { font: "F3", align: "center" });
 
     p.setFill(...doc.accent);
-    p.text(306, 590, 15, doc.title.toUpperCase(), { font: "F4", align: "center", bold: true });
+    p.text(306, 602, 15, doc.title.toUpperCase(), { font: "F4", align: "center", bold: true });
 
     p.setFill(...INK);
-    p.text(306, 550, 11, doc.certifyLine, { font: "F3", align: "center" });
+    p.text(306, 566, 11, doc.certifyLine, { font: "F3", align: "center" });
     p.setFill(...doc.accent);
-    p.text(306, 512, 24, doc.recipient, { font: "F4", align: "center", bold: true });
+    p.text(306, 530, 23, doc.recipient, { font: "F4", align: "center", bold: true });
     p.setFill(...INK);
-    p.text(306, 480, 11, doc.awardLine, { font: "F3", align: "center" });
+    p.text(306, 500, 11, doc.awardLine, { font: "F3", align: "center" });
     if (doc.awardLine2) {
-      p.text(306, 460, 11, doc.awardLine2, { font: "F3", align: "center" });
+      p.text(306, 482, 11, doc.awardLine2, { font: "F3", align: "center" });
+    }
+    if (doc.classification) {
+      p.setFill(...doc.accent);
+      p.text(306, 462, 10, doc.classification, { font: "F4", align: "center", bold: true });
     }
 
     p.setFill(...MUTED);
-    p.text(306, 420, 9, doc.date, { font: "F1", align: "center" });
-    p.text(306, 406, 9, `Ref: ${doc.refNumber}`, { font: "F1", align: "center" });
+    p.text(306, 430, 9, `${doc.date}  |  ${doc.graduationLocation}`, { font: "F1", align: "center" });
+    p.text(306, 417, 9, `Certificate No. ${doc.refNumber}  |  Student No. ${doc.studentNumber}`, {
+      font: "F1",
+      align: "center",
+    });
 
-    drawSignatures(p, 150, doc.accent, doc.signatureLabels);
+    drawOfficeLine(p, 195, doc.officeLine, doc.accent);
+    drawSignatures(p, 148, doc.accent, doc.signers, doc.stampCode);
     drawFooter(p, doc);
   };
 }
@@ -350,6 +425,32 @@ const TEAL = [0.09, 0.32, 0.34];
 const SLATE_BLUE = [0.16, 0.22, 0.4];
 const GOLD = [0.6, 0.46, 0.09];
 
+const repairFieldGroups = [
+  {
+    heading: "Customer Details",
+    fields: [
+      ["Name", "David Kiprotich"],
+      ["Phone", "+254 712 004 471"],
+      ["Vehicle", "Toyota Hilux 2019"],
+      ["VIN", "AHTFR22G8K2004471"],
+    ],
+  },
+  {
+    heading: "Claim Details",
+    fields: [
+      ["Reg. No.", "KDG 224Q"],
+      ["Policy No.", "PL-88213"],
+      ["Odometer", "64,210 km"],
+      ["Assessor Ref.", "NLM-ASR-2204"],
+    ],
+  },
+];
+const repairSigners = [
+  { name: "James Otieno", role: "Mechanic" },
+  { name: "Samuel Kariuki", role: "Service Manager" },
+];
+const repairOfficeLine = "Northline Motors Ltd - Enterprise Road, Nairobi - Tel: +254 20 445 1200";
+
 const businessDocs = [
   {
     id: "repair-estimate",
@@ -360,24 +461,7 @@ const businessDocs = [
     title: "REPAIR ESTIMATE",
     refNumber: "NLM-2026-04471",
     date: "2 April 2026",
-    fieldGroups: [
-      {
-        heading: "Customer Details",
-        fields: [
-          ["Name", "David Kiprotich"],
-          ["Phone", "+254 712 004 471"],
-          ["Vehicle", "Toyota Hilux 2019"],
-        ],
-      },
-      {
-        heading: "Claim Details",
-        fields: [
-          ["Policy No.", "PL-88213"],
-          ["Odometer", "64,210 km"],
-          ["Assessor", "B. Wanjiru"],
-        ],
-      },
-    ],
+    fieldGroups: repairFieldGroups,
     table: {
       headers: [
         { label: "Description", w: 260 },
@@ -396,7 +480,9 @@ const businessDocs = [
         ["Total (KES)", "78,532"],
       ],
     },
-    signatureLabels: ["Authorised Signature", "Date", "NLM"],
+    signers: repairSigners,
+    stampCode: "NLM",
+    officeLine: repairOfficeLine,
   },
   {
     id: "repair-estimate-final",
@@ -407,24 +493,7 @@ const businessDocs = [
     title: "REPAIR ESTIMATE (FINAL)",
     refNumber: "NLM-2026-04471-F",
     date: "9 April 2026",
-    fieldGroups: [
-      {
-        heading: "Customer Details",
-        fields: [
-          ["Name", "David Kiprotich"],
-          ["Phone", "+254 712 004 471"],
-          ["Vehicle", "Toyota Hilux 2019"],
-        ],
-      },
-      {
-        heading: "Claim Details",
-        fields: [
-          ["Policy No.", "PL-88213"],
-          ["Odometer", "64,210 km"],
-          ["Assessor", "B. Wanjiru"],
-        ],
-      },
-    ],
+    fieldGroups: repairFieldGroups,
     table: {
       headers: [
         { label: "Description", w: 260 },
@@ -443,7 +512,9 @@ const businessDocs = [
         ["Total (KES)", "84,448"],
       ],
     },
-    signatureLabels: ["Authorised Signature", "Date", "NLM"],
+    signers: repairSigners,
+    stampCode: "NLM",
+    officeLine: repairOfficeLine,
   },
   {
     id: "repair-estimate-copy",
@@ -454,24 +525,7 @@ const businessDocs = [
     title: "REPAIR ESTIMATE (COPY)",
     refNumber: "NLM-2026-04471-C",
     date: "2 April 2026",
-    fieldGroups: [
-      {
-        heading: "Customer Details",
-        fields: [
-          ["Name", "David Kiprotich"],
-          ["Phone", "+254 712 004 471"],
-          ["Vehicle", "Toyota Hilux 2019"],
-        ],
-      },
-      {
-        heading: "Claim Details",
-        fields: [
-          ["Policy No.", "PL-88213"],
-          ["Odometer", "64,210 km"],
-          ["Assessor", "B. Wanjiru"],
-        ],
-      },
-    ],
+    fieldGroups: repairFieldGroups,
     table: {
       headers: [
         { label: "Description", w: 260 },
@@ -490,7 +544,9 @@ const businessDocs = [
         ["Total (KES)", "78,532"],
       ],
     },
-    signatureLabels: ["Authorised Signature", "Date", "NLM"],
+    signers: repairSigners,
+    stampCode: "NLM",
+    officeLine: repairOfficeLine,
   },
   {
     id: "insurance-claim",
@@ -498,7 +554,7 @@ const businessDocs = [
     tagline: "General Insurance",
     accent: BURGUNDY,
     monogram: "TU",
-    title: "INSURANCE CLAIM FORM",
+    title: "CLAIM SETTLEMENT INVOICE",
     refNumber: "TU-CLM-2026-15588",
     date: "9 May 2026",
     fieldGroups: [
@@ -507,14 +563,16 @@ const businessDocs = [
         fields: [
           ["Name", "Grace Achieng"],
           ["Policy No.", "TU-88213-M"],
-          ["Cover Type", "Comprehensive"],
+          ["Claim No.", "TU-CLM-2026-15588"],
+          ["Invoice No.", "TU-INV-042207"],
         ],
       },
       {
-        heading: "Incident",
+        heading: "Settlement",
         fields: [
-          ["Date of Loss", "2 May 2026"],
-          ["Location", "Mombasa Road, Nairobi"],
+          ["Cover Type", "Comprehensive"],
+          ["Payment Terms", "Net 14 days"],
+          ["Settlement A/C", "Equity Bank - 0442071188"],
           ["Reported By", "G. Achieng"],
         ],
       },
@@ -532,12 +590,17 @@ const businessDocs = [
       ],
       totals: [["Total Approved (KES)", "32,500"]],
     },
-    signatureLabels: ["Claims Officer", "Date", "TU"],
+    signers: [
+      { name: "Michael Ochieng", role: "Claims Officer" },
+      { name: "Faith Njoroge", role: "Accounts Officer" },
+    ],
+    stampCode: "TU",
+    officeLine: "Turaco Underwriters Ltd - Kenyatta Avenue, Nairobi - Tel: +254 20 288 4400",
   },
   {
     id: "lab-report",
     orgName: "Verstlab Diagnostics",
-    tagline: "Clinical & Environmental Testing",
+    tagline: "Clinical & Environmental Laboratories",
     accent: TEAL,
     monogram: "VD",
     title: "LABORATORY REPORT",
@@ -545,41 +608,48 @@ const businessDocs = [
     date: "28 April 2026",
     fieldGroups: [
       {
-        heading: "Sample Information",
+        heading: "Specimen Information",
         fields: [
-          ["Sample ID", "VD-30215"],
-          ["Type", "Water - Borehole"],
+          ["Patient ID", "PT-448821"],
+          ["Specimen No.", "VD-30215"],
+          ["Specimen Type", "Venous Blood"],
           ["Collected", "26 April 2026"],
         ],
       },
       {
-        heading: "Client",
+        heading: "Clinical Details",
         fields: [
-          ["Requested By", "Amara Farms Ltd"],
-          ["Location", "Naivasha"],
-          ["Analyst", "Dr. J. Otieno"],
+          ["Referring Clinician", "Dr. J. Otieno"],
+          ["Ward / Clinic", "Outpatient"],
+          ["Reviewed By", "Dr. S. Achieng"],
+          ["Report Ref.", "VD-LAB-2026-30215"],
         ],
       },
     ],
     table: {
       headers: [
-        { label: "Parameter", w: 240 },
-        { label: "Result", w: 110, align: "right" },
-        { label: "Limit", w: 100, align: "right" },
+        { label: "Parameter", w: 220 },
+        { label: "Result", w: 100, align: "right" },
+        { label: "Reference Range", w: 130, align: "right" },
       ],
       rows: [
-        ["pH", "7.2", "6.5-8.5"],
-        ["Turbidity (NTU)", "1.4", "< 5.0"],
-        ["Coliform (CFU/mL)", "0", "0"],
+        ["Haemoglobin (g/dL)", "13.8", "13.0-17.0"],
+        ["White Cell Count (x10^9/L)", "6.1", "4.0-11.0"],
+        ["Platelet Count (x10^9/L)", "245", "150-400"],
       ],
-      totals: [["Overall Result", "PASS"]],
+      totals: [["Overall Result", "NORMAL"]],
     },
-    signatureLabels: ["Laboratory Manager", "Date", "VD"],
+    signers: [
+      { name: "Dr. Susan Achieng", role: "Laboratory Scientist" },
+      { name: "Dr. J. Otieno", role: "Pathologist" },
+    ],
+    stampCode: "VD",
+    officeLine: "Verstlab Diagnostics Ltd - Ngong Road, Nairobi - Tel: +254 20 271 9030",
   },
   {
     id: "lab-report-scan",
     orgName: "Verstlab Diagnostics",
-    tagline: "Clinical & Environmental Testing",
+    tagline: "Clinical & Environmental Laboratories",
     accent: TEAL,
     monogram: "VD",
     title: "LABORATORY REPORT (SCAN)",
@@ -587,36 +657,43 @@ const businessDocs = [
     date: "28 April 2026",
     fieldGroups: [
       {
-        heading: "Sample Information",
+        heading: "Specimen Information",
         fields: [
-          ["Sample ID", "VD-30215"],
-          ["Type", "Water - Borehole"],
+          ["Patient ID", "PT-448821"],
+          ["Specimen No.", "VD-30215"],
+          ["Specimen Type", "Venous Blood"],
           ["Collected", "26 April 2026"],
         ],
       },
       {
-        heading: "Client",
+        heading: "Clinical Details",
         fields: [
-          ["Requested By", "Amara Farms Ltd"],
-          ["Location", "Naivasha"],
-          ["Analyst", "Dr. J. Otieno"],
+          ["Referring Clinician", "Dr. J. Otieno"],
+          ["Ward / Clinic", "Outpatient"],
+          ["Reviewed By", "Dr. S. Achieng"],
+          ["Report Ref.", "VD-LAB-2026-30215"],
         ],
       },
     ],
     table: {
       headers: [
-        { label: "Parameter", w: 240 },
-        { label: "Result", w: 110, align: "right" },
-        { label: "Limit", w: 100, align: "right" },
+        { label: "Parameter", w: 220 },
+        { label: "Result", w: 100, align: "right" },
+        { label: "Reference Range", w: 130, align: "right" },
       ],
       rows: [
-        ["pH", "7.2", "6.5-8.5"],
-        ["Turbidity (NTU)", "1.4", "< 5.0"],
-        ["Coliform (CFU/mL)", "0", "0"],
+        ["Haemoglobin (g/dL)", "13.8", "13.0-17.0"],
+        ["White Cell Count (x10^9/L)", "6.1", "4.0-11.0"],
+        ["Platelet Count (x10^9/L)", "245", "150-400"],
       ],
-      totals: [["Overall Result", "PASS"]],
+      totals: [["Overall Result", "NORMAL"]],
     },
-    signatureLabels: ["Laboratory Manager", "Date", "VD"],
+    signers: [
+      { name: "Dr. Susan Achieng", role: "Laboratory Scientist" },
+      { name: "Dr. J. Otieno", role: "Pathologist" },
+    ],
+    stampCode: "VD",
+    officeLine: "Verstlab Diagnostics Ltd - Ngong Road, Nairobi - Tel: +254 20 271 9030",
   },
   {
     id: "shipping-manifest",
@@ -634,6 +711,7 @@ const businessDocs = [
           ["Company", "Cropnuts Exports Ltd"],
           ["Origin", "Mombasa, Kenya"],
           ["Vessel", "MV Kilimanjaro"],
+          ["Container No.", "MFLU-7740221"],
         ],
       },
       {
@@ -642,6 +720,7 @@ const businessDocs = [
           ["Company", "Global Trade Partners"],
           ["Destination", "Rotterdam, NL"],
           ["ETA", "22 June 2026"],
+          ["Bill of Lading", "MFL-BL-77042"],
         ],
       },
     ],
@@ -657,7 +736,12 @@ const businessDocs = [
       ],
       totals: [["Total Weight (kg)", "14,820"]],
     },
-    signatureLabels: ["Shipping Agent", "Date", "MFL"],
+    signers: [
+      { name: "Peter Mwangi", role: "Shipping Agent" },
+      { name: "Grace Kamau", role: "Customs Liaison" },
+    ],
+    stampCode: "MFL",
+    officeLine: "Meridian Freight Lines Ltd - Moi Avenue, Mombasa - Tel: +254 41 222 6600",
   },
   {
     id: "building-permit",
@@ -674,6 +758,7 @@ const businessDocs = [
         fields: [
           ["Name", "Alpha Developers Ltd"],
           ["Plot No.", "LR 4562/18"],
+          ["Parcel No.", "NRB/RK/4562/18"],
           ["Location", "Ruaka, Kiambu"],
         ],
       },
@@ -683,12 +768,18 @@ const businessDocs = [
           ["Type", "5-Storey Apartments"],
           ["Approved Plans", "CPA/PLN/2026/330"],
           ["Zoning", "Residential"],
+          ["Issued At", "County Planning Offices, Kiambu"],
         ],
       },
     ],
     notes:
       "Permission is granted to carry out the building works described above,\nsubject to the conditions set out in the approved plans on file.",
-    signatureLabels: ["Authorised Officer", "Date", "CPA"],
+    signers: [
+      { name: "Grace Nyambura", role: "Planning Officer" },
+      { name: "Daniel Mwangi", role: "County Engineer" },
+    ],
+    stampCode: "CPA",
+    officeLine: "County Planning Authority - Biashara Street, Kiambu - Tel: +254 66 802 2410",
   },
   {
     id: "bank-guarantee",
@@ -706,6 +797,7 @@ const businessDocs = [
           ["Name", "Kenya Ports Authority"],
           ["Amount", "KES 4,500,000"],
           ["Validity", "12 Months"],
+          ["Guarantee No.", "ZCB-BG-2026-99031"],
         ],
       },
       {
@@ -714,14 +806,26 @@ const businessDocs = [
           ["Company", "Coastal Traders Ltd"],
           ["Account No.", "ZCB-661029"],
           ["Branch", "Mombasa CBD"],
+          ["Facility Ref.", "ZCB-TF-22091"],
         ],
       },
     ],
     notes:
       "This guarantee is issued unconditionally in favour of the beneficiary\nnamed above, subject to the bank's standard terms of issue.",
-    signatureLabels: ["Branch Manager", "Date", "ZCB"],
+    signers: [
+      { name: "Daniel Kimani", role: "Branch Manager" },
+      { name: "Faith Wairimu", role: "Trade Finance Officer" },
+    ],
+    stampCode: "ZCB",
+    officeLine: "Zenith Commercial Bank Ltd - Nkrumah Road, Mombasa - Tel: +254 41 231 5500",
   },
 ];
+
+const degreeSigners = [
+  { name: "Dr. Peter Mwangi", role: "Registrar" },
+  { name: "Prof. Elizabeth Wanjiru", role: "Vice Chancellor" },
+];
+const degreeOfficeLine = "Office of the Registrar - Kweli University - P.O. Box 4021-00100, Nairobi, Kenya";
 
 const certificateDocs = [
   {
@@ -732,12 +836,17 @@ const certificateDocs = [
     monogram: "K",
     title: "Degree Certificate",
     refNumber: "KU/2026/BSCT/1147",
+    studentNumber: "KU-STU-2022-04471",
+    graduationLocation: "Nairobi, Kenya",
     date: "17 March 2026",
     certifyLine: "This is to certify that",
     recipient: "Amina N. Odhiambo",
     awardLine: "has been awarded the degree of",
     awardLine2: "Bachelor of Science in Information Technology",
-    signatureLabels: ["Registrar", "Vice Chancellor", "KU"],
+    classification: "Second Class Honours (Upper Division)",
+    signers: degreeSigners,
+    stampCode: "KU",
+    officeLine: degreeOfficeLine,
   },
   {
     id: "degree-cert-final",
@@ -747,12 +856,17 @@ const certificateDocs = [
     monogram: "K",
     title: "Degree Certificate (Final)",
     refNumber: "KU/2026/BSCT/1147-F",
+    studentNumber: "KU-STU-2022-04471",
+    graduationLocation: "Nairobi, Kenya",
     date: "24 March 2026",
     certifyLine: "This is to certify that",
     recipient: "Amina N. Odhiambo",
     awardLine: "has been awarded the degree of",
     awardLine2: "Bachelor of Science in Information Technology",
-    signatureLabels: ["Registrar", "Vice Chancellor", "KU"],
+    classification: "Second Class Honours (Upper Division)",
+    signers: degreeSigners,
+    stampCode: "KU",
+    officeLine: degreeOfficeLine,
   },
   {
     id: "degree-cert-scan",
@@ -762,12 +876,17 @@ const certificateDocs = [
     monogram: "K",
     title: "Degree Certificate (Scanned Copy)",
     refNumber: "KU/2026/BSCT/1147-S",
+    studentNumber: "KU-STU-2022-04471",
+    graduationLocation: "Nairobi, Kenya",
     date: "17 March 2026",
     certifyLine: "This is to certify that",
     recipient: "Amina N. Odhiambo",
     awardLine: "has been awarded the degree of",
     awardLine2: "Bachelor of Science in Information Technology",
-    signatureLabels: ["Registrar", "Vice Chancellor", "KU"],
+    classification: "Second Class Honours (Upper Division)",
+    signers: degreeSigners,
+    stampCode: "KU",
+    officeLine: degreeOfficeLine,
   },
   {
     id: "organic-cert",
@@ -777,12 +896,20 @@ const certificateDocs = [
     monogram: "C",
     title: "Organic Certificate",
     refNumber: "CCB-ORG-2026-05541",
+    studentNumber: "CCB-REG-2026-0341",
+    graduationLocation: "Naivasha, Kenya",
     date: "14 January 2026",
     certifyLine: "This certifies that the produce of",
     recipient: "Amara Farms Ltd",
     awardLine: "meets the requirements for",
     awardLine2: "Certified Organic Produce - Macadamia & Avocado",
-    signatureLabels: ["Certification Officer", "Date", "CCB"],
+    classification: "Certification Class: Full Organic",
+    signers: [
+      { name: "Ruth Wambui", role: "Certification Officer" },
+      { name: "John Kariuki", role: "Field Inspector" },
+    ],
+    stampCode: "CCB",
+    officeLine: "Cropnuts Certification Body - Karen Road, Nairobi - Tel: +254 20 388 2200",
   },
   {
     id: "organic-cert-updated",
@@ -792,12 +919,20 @@ const certificateDocs = [
     monogram: "C",
     title: "Organic Certificate (Updated)",
     refNumber: "CCB-ORG-2026-05541-U",
+    studentNumber: "CCB-REG-2026-0341",
+    graduationLocation: "Naivasha, Kenya",
     date: "3 February 2026",
     certifyLine: "This certifies that the produce of",
     recipient: "Amara Farms Ltd",
     awardLine: "meets the requirements for",
     awardLine2: "Certified Organic Produce - Macadamia & Avocado",
-    signatureLabels: ["Certification Officer", "Date", "CCB"],
+    classification: "Certification Class: Full Organic",
+    signers: [
+      { name: "Ruth Wambui", role: "Certification Officer" },
+      { name: "John Kariuki", role: "Field Inspector" },
+    ],
+    stampCode: "CCB",
+    officeLine: "Cropnuts Certification Body - Karen Road, Nairobi - Tel: +254 20 388 2200",
   },
 ];
 
