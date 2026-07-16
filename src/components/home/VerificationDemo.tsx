@@ -147,21 +147,26 @@ function ResultDetails({ doc }: { doc: DemoDocument }) {
   if (doc.outcome === "verified" && doc.verified) {
     const v = doc.verified;
     return (
-      <dl className="mt-5 space-y-2 text-xs">
-        {[
-          ["Issuer", v.issuer],
-          ["Document Type", v.documentType],
-          ["Issued", v.issuedDate],
-          ["Registered", v.registeredDate],
-          ["Registered By", v.registeredBy],
-          ["Status", "Authentic — unchanged since issuance"],
-        ].map(([label, value]) => (
-          <div key={label} className="flex justify-between gap-4 border-b border-white/5 pb-2">
-            <dt className="text-[var(--color-slate)]">{label}</dt>
-            <dd className="text-right text-[var(--color-warm-paper)]">{value}</dd>
-          </div>
-        ))}
-      </dl>
+      <div className="mt-4">
+        <p className="text-sm text-[var(--color-slate)]">
+          This document is authentic and unchanged since issuance.
+        </p>
+        <dl className="mt-4 space-y-2 text-xs">
+          {[
+            ["Issuer", v.issuer],
+            ["Document Type", v.documentType],
+            ["Issued", v.issuedDate],
+            ["Registered", v.registeredDate],
+            ["Registered By", v.registeredBy],
+            ["Status", "Authentic"],
+          ].map(([label, value]) => (
+            <div key={label} className="flex justify-between gap-4 border-b border-white/5 pb-2">
+              <dt className="text-[var(--color-slate)]">{label}</dt>
+              <dd className="text-right text-[var(--color-warm-paper)]">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     );
   }
 
@@ -358,7 +363,7 @@ export function VerificationDemo() {
                       className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-[var(--color-gold-bright)] hover:underline"
                     >
                       <RotateCcw size={14} strokeWidth={2} aria-hidden />
-                      Try another document
+                      Try Another Document
                     </button>
                   </div>
                 )}
