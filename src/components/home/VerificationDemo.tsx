@@ -13,46 +13,15 @@ import {
   FileQuestion,
 } from "lucide-react";
 import { Badge, type BadgeStatus } from "@/components/ui/Badge";
-
-type Outcome = "verified" | "failed" | "not-found";
-
-// Fictional demonstration documents only (per Kweli_V3_Master_Kickoff.md section 11 / 13).
-const demoDocuments: {
-  id: string;
-  label: string;
-  issuer: string;
-  documentType: string;
-  outcome: Outcome;
-}[] = [
-  {
-    id: "degree",
-    label: "Degree Certificate",
-    issuer: "Kweli University",
-    documentType: "Degree Certificate",
-    outcome: "verified",
-  },
-  {
-    id: "estimate",
-    label: "Repair Estimate",
-    issuer: "Northline Motors (fictional)",
-    documentType: "Repair Estimate",
-    outcome: "failed",
-  },
-  {
-    id: "permit",
-    label: "Building Permit",
-    issuer: "Unregistered Authority (fictional)",
-    documentType: "Building Permit",
-    outcome: "not-found",
-  },
-];
+import type { DemoDocument, Outcome } from "@/lib/demoDocuments";
+import { SampleDocumentModal } from "@/components/home/SampleDocumentModal";
 
 const steps = [
-  { key: "upload", label: "Upload", sub: "Document selected for demonstration.", icon: Upload },
+  { key: "upload", label: "Uploading", sub: "Document received for demonstration.", icon: Upload },
   { key: "hashing", label: "Hashing", sub: "Generating a unique cryptographic fingerprint.", icon: Fingerprint },
-  { key: "searching", label: "Searching", sub: "Searching the Kweli network for a matching record.", icon: Search },
-  { key: "verifying", label: "Verifying", sub: "Comparing the fingerprint against the registered record.", icon: ShieldCheck },
-  { key: "result", label: "Result", sub: "The result is returned instantly.", icon: FileCheck2 },
+  { key: "searching", label: "Searching Registry", sub: "Searching the Kweli registry for a matching record.", icon: Search },
+  { key: "verifying", label: "Comparing Fingerprint", sub: "Comparing the fingerprint against the registered record.", icon: ShieldCheck },
+  { key: "result", label: "Verification", sub: "Finalising verification.", icon: FileCheck2 },
 ] as const;
 
 const outcomeToBadge: Record<Outcome, BadgeStatus> = {
@@ -61,13 +30,12 @@ const outcomeToBadge: Record<Outcome, BadgeStatus> = {
   "not-found": "not-found",
 };
 
-const outcomeCopy: Record<
+const outcomeMeta: Record<
   Outcome,
-  { title: string; body: string; icon: typeof Check; ring: string; glow: string; text: string }
+  { title: string; icon: typeof Check; ring: string; glow: string; text: string }
 > = {
   verified: {
     title: "VERIFIED",
-    body: "This document is authentic and unchanged since issuance.",
     icon: Check,
     ring: "border-[var(--color-verified)]/50",
     glow: "shadow-[0_0_60px_-8px_rgba(46,158,107,0.45)]",
@@ -75,7 +43,6 @@ const outcomeCopy: Record<
   },
   failed: {
     title: "VERIFICATION FAILED",
-    body: "We could not verify this document. It may have been altered or is not authentic.",
     icon: X,
     ring: "border-[var(--color-failed)]/40",
     glow: "shadow-[0_0_50px_-10px_rgba(255,77,79,0.3)]",
@@ -83,7 +50,6 @@ const outcomeCopy: Record<
   },
   "not-found": {
     title: "DOCUMENT NOT FOUND",
-    body: "No record exists for this document. Please check the details and try again.",
     icon: FileQuestion,
     ring: "border-[var(--color-slate)]/40",
     glow: "",
@@ -115,7 +81,7 @@ function DocumentStage({
     return () => clearInterval(id);
   }, [stepKey]);
 
-  const resultTone = stepKey === "result" && outcome ? outcomeCopy[outcome] : null;
+  const resultTone = stepKey === "result" && outcome ? outcomeMeta[outcome] : null;
 
   return (
     <div className="relative mx-auto flex h-64 w-48 items-center justify-center">
@@ -124,7 +90,6 @@ function DocumentStage({
           resultTone ? `${resultTone.ring} ${resultTone.glow}` : "border-white/10"
         }`}
       >
-        {/* mock document lines */}
         <div className="space-y-2 p-4">
           <div className="h-2 w-3/4 rounded-full bg-white/15" />
           <div className="h-1.5 w-full rounded-full bg-white/10" />
@@ -135,14 +100,12 @@ function DocumentStage({
           <div className="h-1.5 w-1/2 rounded-full bg-white/10" />
         </div>
 
-        {/* scanning sweep during hashing */}
         {stepKey === "hashing" && (
           <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[var(--radius-lg)]">
             <div className="absolute inset-x-0 h-10 bg-gradient-to-b from-transparent via-[var(--color-gold-bright)]/25 to-transparent animate-[scan-sweep_1.1s_linear_infinite]" />
           </div>
         )}
 
-        {/* radar ping during searching */}
         {stepKey === "searching" && (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <span className="absolute h-16 w-16 rounded-full border border-[var(--color-gold-bright)]/50 animate-[radar-ping_1.4s_ease-out_infinite]" />
@@ -153,7 +116,6 @@ function DocumentStage({
           </div>
         )}
 
-        {/* rotating verifying ring */}
         {stepKey === "verifying" && (
           <div className="pointer-events-none absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-background)]">
             <span className="absolute h-9 w-9 rounded-full border-2 border-transparent border-t-[var(--color-gold-bright)] border-r-[var(--color-gold-bright)]/40 animate-[spin-slow_0.9s_linear_infinite]" />
@@ -161,7 +123,6 @@ function DocumentStage({
           </div>
         )}
 
-        {/* result overlay */}
         {resultTone && (
           <div className="absolute inset-0 flex items-center justify-center rounded-[var(--radius-lg)] bg-[var(--color-background)]/55">
             <span
@@ -182,8 +143,86 @@ function DocumentStage({
   );
 }
 
+function ResultDetails({ doc }: { doc: DemoDocument }) {
+  if (doc.outcome === "verified" && doc.verified) {
+    const v = doc.verified;
+    return (
+      <dl className="mt-5 space-y-2 text-xs">
+        {[
+          ["Issuer", v.issuer],
+          ["Document Type", v.documentType],
+          ["Issued", v.issuedDate],
+          ["Registered", v.registeredDate],
+          ["Registered By", v.registeredBy],
+          ["Status", "Authentic — unchanged since issuance"],
+        ].map(([label, value]) => (
+          <div key={label} className="flex justify-between gap-4 border-b border-white/5 pb-2">
+            <dt className="text-[var(--color-slate)]">{label}</dt>
+            <dd className="text-right text-[var(--color-warm-paper)]">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    );
+  }
+
+  if (doc.outcome === "failed" && doc.failed) {
+    const f = doc.failed;
+    return (
+      <div className="mt-4">
+        <p className="text-sm text-[var(--color-slate)]">
+          The uploaded document does not match the version originally registered.
+        </p>
+        <p className="mt-4 text-xs font-medium text-[var(--color-warm-paper)]">Possible reasons</p>
+        <ul className="mt-1 space-y-1">
+          {f.reasons.map((r) => (
+            <li key={r} className="text-xs text-[var(--color-slate)]">
+              • {r}
+            </li>
+          ))}
+        </ul>
+        <dl className="mt-4 space-y-2 text-xs">
+          <div className="flex justify-between gap-4 border-t border-white/5 pt-2">
+            <dt className="text-[var(--color-slate)]">Issuer</dt>
+            <dd className="text-right text-[var(--color-warm-paper)]">{f.issuer}</dd>
+          </div>
+          <div className="flex justify-between gap-4">
+            <dt className="text-[var(--color-slate)]">Document</dt>
+            <dd className="text-right text-[var(--color-warm-paper)]">{f.documentType}</dd>
+          </div>
+        </dl>
+      </div>
+    );
+  }
+
+  if (doc.outcome === "not-found" && doc.notFound) {
+    const n = doc.notFound;
+    return (
+      <div className="mt-4">
+        <p className="text-sm text-[var(--color-slate)]">No registered record exists.</p>
+        <p className="mt-4 text-xs font-medium text-[var(--color-warm-paper)]">Possible reasons</p>
+        <ul className="mt-1 space-y-1">
+          {n.reasons.map((r) => (
+            <li key={r} className="text-xs text-[var(--color-slate)]">
+              • {r}
+            </li>
+          ))}
+        </ul>
+        <dl className="mt-4 space-y-2 text-xs">
+          <div className="flex justify-between gap-4 border-t border-white/5 pt-2">
+            <dt className="text-[var(--color-slate)]">Issuer</dt>
+            <dd className="text-right text-[var(--color-warm-paper)]">{n.issuer}</dd>
+          </div>
+        </dl>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 export function VerificationDemo() {
-  const [activeDoc, setActiveDoc] = useState<(typeof demoDocuments)[number] | null>(null);
+  const [libraryOpen, setLibraryOpen] = useState(false);
+  const [activeDoc, setActiveDoc] = useState<DemoDocument | null>(null);
   const [stepIndex, setStepIndex] = useState(-1);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
@@ -193,9 +232,10 @@ export function VerificationDemo() {
     };
   }, []);
 
-  function runDemo(doc: (typeof demoDocuments)[number]) {
+  function handleSelect(doc: DemoDocument) {
     timers.current.forEach(clearTimeout);
     timers.current = [];
+    setLibraryOpen(false);
     setActiveDoc(doc);
     setStepIndex(0);
 
@@ -205,11 +245,12 @@ export function VerificationDemo() {
     }
   }
 
-  function reset() {
+  function tryAnother() {
     timers.current.forEach(clearTimeout);
     timers.current = [];
     setActiveDoc(null);
     setStepIndex(-1);
+    setLibraryOpen(true);
   }
 
   const isRunning = stepIndex >= 0 && stepIndex < steps.length - 1;
@@ -233,31 +274,19 @@ export function VerificationDemo() {
             Watch verification happen.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[var(--text-body)] leading-[var(--text-body--line-height)] text-[var(--color-slate)]">
-            Choose a fictional demonstration document to see how Kweli checks a
-            fingerprint against the registered record.
+            Try a few sample documents. Some verify, some don&apos;t — see if you can
+            tell which is which before the result comes back.
           </p>
         </div>
 
         {!activeDoc && (
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {demoDocuments.map((doc) => (
-              <button
-                key={doc.id}
-                onClick={() => runDemo(doc)}
-                className="group rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.02] p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)]/40 hover:bg-white/[0.04] hover:shadow-[0_20px_50px_-20px_rgba(201,162,39,0.35)]"
-              >
-                <FileCheck2
-                  size={22}
-                  strokeWidth={2}
-                  className="text-[var(--color-gold-bright)] transition-transform duration-300 group-hover:scale-110"
-                  aria-hidden
-                />
-                <p className="mt-4 text-sm font-medium text-[var(--color-warm-paper)]">
-                  {doc.label}
-                </p>
-                <p className="mt-1 text-xs text-[var(--color-slate)]">{doc.issuer}</p>
-              </button>
-            ))}
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => setLibraryOpen(true)}
+              className="group inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-gold)]/50 bg-white/[0.02] px-6 py-3 text-sm font-medium text-[var(--color-warm-paper)] transition-all duration-150 hover:-translate-y-0.5 hover:border-[var(--color-gold-bright)] hover:bg-white/[0.04]"
+            >
+              Browse Sample Documents
+            </button>
           </div>
         )}
 
@@ -270,6 +299,9 @@ export function VerificationDemo() {
               />
 
               <div>
+                <p className="mb-4 truncate text-xs font-medium text-[var(--color-slate)] lg:text-left">
+                  {activeDoc.filename}
+                </p>
                 <div className="relative">
                   <div className="absolute left-0 right-0 top-5 h-px bg-white/10" />
                   <div
@@ -318,23 +350,11 @@ export function VerificationDemo() {
                   <div className="animate-fade-up mt-6 border-t border-white/10 pt-6">
                     <Badge status={outcomeToBadge[activeDoc.outcome]} />
                     <p className="mt-4 text-lg font-bold text-[var(--color-warm-paper)]">
-                      {outcomeCopy[activeDoc.outcome].title}
+                      {outcomeMeta[activeDoc.outcome].title}
                     </p>
-                    <p className="mt-1 text-sm text-[var(--color-slate)]">
-                      {outcomeCopy[activeDoc.outcome].body}
-                    </p>
-                    <dl className="mt-5 space-y-2 text-xs">
-                      <div className="flex justify-between border-b border-white/5 pb-2">
-                        <dt className="text-[var(--color-slate)]">Issuer</dt>
-                        <dd className="text-[var(--color-warm-paper)]">{activeDoc.issuer}</dd>
-                      </div>
-                      <div className="flex justify-between border-b border-white/5 pb-2">
-                        <dt className="text-[var(--color-slate)]">Document Type</dt>
-                        <dd className="text-[var(--color-warm-paper)]">{activeDoc.documentType}</dd>
-                      </div>
-                    </dl>
+                    <ResultDetails doc={activeDoc} />
                     <button
-                      onClick={reset}
+                      onClick={tryAnother}
                       className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-[var(--color-gold-bright)] hover:underline"
                     >
                       <RotateCcw size={14} strokeWidth={2} aria-hidden />
@@ -347,6 +367,13 @@ export function VerificationDemo() {
           </div>
         )}
       </div>
+
+      {libraryOpen && (
+        <SampleDocumentModal
+          onSelect={handleSelect}
+          onClose={() => setLibraryOpen(false)}
+        />
+      )}
     </section>
   );
 }

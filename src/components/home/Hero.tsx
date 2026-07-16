@@ -1,4 +1,3 @@
-import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 /*
@@ -110,32 +109,10 @@ function HeroVisual() {
   );
 }
 
-function FloatingVerifiedCard() {
-  return (
-    <div
-      className="animate-fade-up absolute bottom-10 right-6 hidden w-56 -rotate-2 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.04] p-4 backdrop-blur-xl shadow-2xl sm:block lg:right-16"
-      style={{ animationDelay: "950ms", animationDuration: "900ms" }}
-    >
-      <div className="flex items-center gap-2">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--color-verified)]/15 text-[var(--color-verified)]">
-          <ShieldCheck size={15} strokeWidth={2.25} aria-hidden />
-        </span>
-        <span className="text-xs font-medium text-[var(--color-warm-paper)]">
-          Document Verified
-        </span>
-      </div>
-      <p className="mt-2 text-[11px] leading-relaxed text-[var(--color-slate)]">
-        Authentic and unchanged since issuance.
-      </p>
-    </div>
-  );
-}
-
 export function Hero() {
   return (
     <section className="relative flex min-h-[96vh] items-center overflow-hidden px-6 pt-16 pb-24 lg:px-8">
       <HeroVisual />
-      <FloatingVerifiedCard />
       <div className="relative z-10 mx-auto w-full max-w-4xl text-center">
         <div
           className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm"
