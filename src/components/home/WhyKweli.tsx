@@ -8,9 +8,9 @@ import {
   Building2,
   HeartPulse,
   Fingerprint,
-  ChevronDown,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 
 const chain = [
   { label: "Insurance Company", icon: Shield },
@@ -28,9 +28,9 @@ function DocumentChain() {
     <div className="relative">
       <div className="relative hidden items-start justify-between lg:flex">
         <div className="absolute left-0 right-0 top-6 h-px bg-white/10" />
-        <div className="absolute left-0 right-0 top-6 h-px overflow-hidden">
+        <div className="absolute left-0 right-0 top-6 h-px overflow-visible">
           <div
-            className="absolute h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[var(--color-gold-bright)] shadow-[0_0_10px_2px_rgba(230,189,74,0.7)] [animation:travel-x_11s_linear_infinite]"
+            className="absolute h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-[var(--color-gold-bright)] shadow-[0_0_22px_6px_rgba(230,189,74,0.85)] [animation:travel-x_17s_linear_infinite]"
             style={{ top: "1px" }}
             aria-hidden
           />
@@ -59,9 +59,70 @@ function DocumentChain() {
   );
 }
 
+// Premium editorial visual: one document, radiating out to the many hands
+// that touch it. Not a diagram — an atmospheric illustration.
+function DocumentJourneyVisual() {
+  const rays = [
+    { x2: 60, y2: 40 },
+    { x2: 540, y2: 30 },
+    { x2: 40, y2: 210 },
+    { x2: 560, y2: 220 },
+    { x2: 130, y2: 260 },
+    { x2: 470, y2: 260 },
+  ];
+
+  return (
+    <div className="relative mx-auto aspect-[21/9] w-full overflow-hidden rounded-[var(--radius-xl)] border border-white/10">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(201,162,39,0.16),transparent_70%)] bg-[var(--color-background)]" />
+
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 600 270"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden
+      >
+        {rays.map((r, i) => (
+          <line
+            key={i}
+            x1="300"
+            y1="135"
+            x2={r.x2}
+            y2={r.y2}
+            stroke="#e6bd4a"
+            strokeWidth="0.75"
+            strokeOpacity="0.28"
+          />
+        ))}
+        {rays.map((r, i) => (
+          <circle key={`d-${i}`} cx={r.x2} cy={r.y2} r="4" fill="#e6bd4a" fillOpacity="0.35" />
+        ))}
+      </svg>
+
+      <div
+        className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
+
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative h-28 w-20 -rotate-6 rounded-[var(--radius-md)] border border-[var(--color-gold)]/30 bg-[var(--color-warm-paper)] p-3 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)]">
+          <div className="h-1.5 w-3/4 rounded-full bg-[var(--color-slate)]/30" />
+          <div className="mt-2 h-1 w-full rounded-full bg-[var(--color-slate)]/20" />
+          <div className="mt-1.5 h-1 w-full rounded-full bg-[var(--color-slate)]/20" />
+          <div className="mt-1.5 h-1 w-2/3 rounded-full bg-[var(--color-slate)]/20" />
+          <div className="absolute bottom-3 right-3 h-4 w-4 rounded-full border border-[var(--color-gold)]/50" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function WhyKweli() {
   return (
-    <section className="relative overflow-hidden px-6 py-32 lg:px-8 lg:py-40">
+    <section className="relative overflow-hidden px-6 py-28 lg:px-8 lg:py-36">
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
@@ -72,11 +133,11 @@ export function WhyKweli() {
           </h2>
         </Reveal>
 
-        <Reveal delayMs={100} className="mt-24 lg:mt-32">
+        <Reveal delayMs={100} className="mt-20 lg:mt-28">
           <DocumentChain />
         </Reveal>
 
-        <Reveal className="mx-auto mt-14 max-w-md text-center">
+        <Reveal className="mx-auto mt-12 max-w-md text-center">
           <p className="text-[var(--text-body)] text-[var(--color-slate)]">
             Each transfer introduces uncertainty.
           </p>
@@ -88,7 +149,14 @@ export function WhyKweli() {
           </p>
         </Reveal>
 
-        <Reveal className="relative mt-32 text-center lg:mt-40">
+        <Reveal className="mt-16 lg:mt-20">
+          <DocumentJourneyVisual />
+          <p className="mt-4 text-center text-xs italic text-[var(--color-slate)]/80">
+            One document. Many hands.
+          </p>
+        </Reveal>
+
+        <Reveal className="relative mt-28 text-center lg:mt-36">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--color-gold)]/40 text-[var(--color-gold-bright)] animate-trust-pulse">
             <Fingerprint size={28} strokeWidth={1.75} aria-hidden />
           </div>
@@ -98,7 +166,7 @@ export function WhyKweli() {
           </h3>
         </Reveal>
 
-        <Reveal className="mx-auto mt-32 max-w-xl text-center lg:mt-40">
+        <Reveal className="mx-auto mt-28 max-w-xl text-center lg:mt-36">
           <p className="text-sm font-medium uppercase tracking-[0.15em] text-[var(--color-gold-bright)]">
             Kweli makes one promise.
           </p>
@@ -108,11 +176,20 @@ export function WhyKweli() {
           <p className="mt-4 text-[var(--text-body)] text-[var(--color-slate)]">Nothing more. Nothing less.</p>
         </Reveal>
 
-        <Reveal className="mt-28 flex flex-col items-center gap-3 text-center lg:mt-32">
-          <p className="text-sm text-[var(--color-slate)] [animation:soft-pulse_3s_ease-in-out_infinite]">
-            So how does Kweli make that promise possible?
+        <Reveal className="mx-auto mt-24 max-w-lg text-center lg:mt-28">
+          <p className="text-sm font-medium text-[var(--color-warm-paper)]">
+            Curious how Kweli actually does this?
           </p>
-          <ChevronDown size={18} strokeWidth={1.75} className="text-[var(--color-slate)]" aria-hidden />
+          <p className="mt-3 text-[var(--text-body)] text-[var(--color-slate)]">
+            Every verified document follows the same simple process. Discover how
+            Kweli fingerprints, registers and verifies documents without storing
+            the document itself.
+          </p>
+          <div className="mt-8">
+            <Button href="/technology" variant="secondary" withArrow>
+              Explore the Technology
+            </Button>
+          </div>
         </Reveal>
       </div>
     </section>
