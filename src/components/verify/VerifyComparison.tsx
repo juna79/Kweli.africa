@@ -1,7 +1,7 @@
 import { Check, X } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 const does = ["Document integrity", "Document authenticity", "Issuer registration", "Tampering"];
 const doesNot = [
@@ -18,7 +18,7 @@ export function VerifyComparison() {
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>An Important Distinction</p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             What Kweli verifies — and what it doesn&rsquo;t.
           </h2>
         </Reveal>

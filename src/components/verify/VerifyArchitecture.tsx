@@ -1,7 +1,7 @@
 import { Upload, Fingerprint, Search, FileCheck2, BadgeCheck } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 const steps = [
   { icon: Upload, label: "Upload" },
@@ -17,7 +17,7 @@ export function VerifyArchitecture() {
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>Behind the Scenes</p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             What happens in the moment you upload.
           </h2>
         </Reveal>

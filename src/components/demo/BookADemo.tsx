@@ -19,13 +19,13 @@ function Hero() {
       />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Book a Demo
           </p>
-          <h1 className="mx-auto mt-6 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             See it fit into your workflow.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Tell us where documents are slowing you down. We&rsquo;ll show you
             how Kweli fits into the workflow you already have, without
             changing the way your team works.

@@ -1,7 +1,7 @@
 import { Building2, Share2, ShieldCheck, Mail, MessageCircle, Cloud, FileText, Usb, ScanLine, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 const MUTED = "text-[var(--color-slate)]";
 
 const channels = [
@@ -32,7 +32,7 @@ function StepCard({
       <span className="relative flex h-12 w-12 items-center justify-center rounded-full border border-[var(--color-gold)]/40 text-[var(--color-gold-bright)]">
         <Icon size={20} strokeWidth={1.75} aria-hidden />
       </span>
-      <p className="relative mt-5 text-[var(--text-h4)] font-bold text-[var(--color-warm-paper)]">
+      <p className="relative mt-5 text-[length:var(--text-h4)] font-bold text-[var(--color-warm-paper)]">
         {title}
       </p>
       <div className="relative mt-4">{children}</div>
@@ -46,7 +46,7 @@ export function VerifyProcessSteps() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>How Verification Works</p>
-          <h2 className="mx-auto mt-6 max-w-xl text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-xl text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Three steps. No new workflow to learn.
           </h2>
         </Reveal>

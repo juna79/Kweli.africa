@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { Badge, type BadgeStatus } from "@/components/ui/Badge";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 const outcomes: { status: BadgeStatus; ring: string; copy: string }[] = [
   {
@@ -27,7 +27,7 @@ export function VerifyResultsExplainer() {
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>Understanding the Results</p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Every check ends in one of three states.
           </h2>
         </Reveal>

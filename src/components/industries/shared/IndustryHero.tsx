@@ -2,7 +2,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ArtFrame } from "@/components/ui/ArtFrame";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 export function IndustryHero({
   industryName,
@@ -26,10 +26,10 @@ export function IndustryHero({
       <div className="relative mx-auto grid max-w-6xl gap-14 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal className="text-center lg:text-left">
           <p className={EYEBROW}>{industryName}</p>
-          <h1 className="mx-auto mt-6 max-w-xl text-[var(--text-h1)] leading-[1.1] font-bold text-[var(--color-warm-paper)] lg:mx-0">
+          <h1 className="mx-auto mt-6 max-w-xl text-[length:var(--text-h1)] leading-[1.1] font-bold text-[var(--color-warm-paper)] lg:mx-0">
             {headline}
           </h1>
-          <p className="mx-auto mt-7 max-w-md text-[var(--text-body-lg)] leading-relaxed text-[var(--color-slate)] lg:mx-0">
+          <p className="mx-auto mt-7 max-w-md text-[length:var(--text-body-lg)] leading-relaxed text-[var(--color-slate)] lg:mx-0">
             {supportingCopy}
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">

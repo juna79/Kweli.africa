@@ -2,7 +2,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ArtFrame } from "@/components/ui/ArtFrame";
 import type { EcosystemTile } from "@/lib/industryPageTypes";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 export function IndustryEcosystem({
   eyebrow,
@@ -18,7 +18,7 @@ export function IndustryEcosystem({
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>{eyebrow}</p>
-          <h2 className="mx-auto mt-6 max-w-xl text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-xl text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
         </Reveal>

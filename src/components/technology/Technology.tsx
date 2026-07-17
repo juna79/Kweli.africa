@@ -50,13 +50,13 @@ function Hero() {
       <TechHeroVisual />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Technology
           </p>
-          <h1 className="mx-auto mt-7 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-7 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             Technology you never have to think about.
           </h1>
-          <p className="mx-auto mt-7 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-7 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli verifies authenticity and integrity without storing your
             documents. One simple process. Independent verification anywhere.
           </p>
@@ -114,10 +114,10 @@ function VerificationJourney() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
-          <h2 className="text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             The verification journey.
           </h2>
-          <p className={`mx-auto mt-3 max-w-md text-[var(--text-body)] ${MUTED}`}>
+          <p className={`mx-auto mt-3 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
             One process, from the moment a document is issued to the moment
             anyone checks it.
           </p>
@@ -143,10 +143,10 @@ function ClientSidePrivacy() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto grid max-w-4xl gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Client-side privacy
           </p>
-          <h2 className="mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Your document never leaves your browser.
           </h2>
           <ul className="mt-8 space-y-5">
@@ -158,7 +158,7 @@ function ClientSidePrivacy() {
                   className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]"
                   aria-hidden
                 />
-                <span className="text-[var(--text-body)] text-[var(--color-slate)]">{point.label}</span>
+                <span className="text-[length:var(--text-body)] text-[var(--color-slate)]">{point.label}</span>
               </li>
             ))}
           </ul>
@@ -218,10 +218,10 @@ function Registration() {
           <RegistrationInterface />
         </Reveal>
         <Reveal delayMs={100} className="order-1 lg:order-2">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Registration
           </p>
-          <h2 className="mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             The issuer registers the fingerprint, not the document.
           </h2>
           <ul className="mt-8 space-y-5">
@@ -233,7 +233,7 @@ function Registration() {
                   className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]"
                   aria-hidden
                 />
-                <span className="text-[var(--text-body)] text-[var(--color-slate)]">{point.label}</span>
+                <span className="text-[length:var(--text-body)] text-[var(--color-slate)]">{point.label}</span>
               </li>
             ))}
           </ul>
@@ -279,10 +279,10 @@ function Verification() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Verification
           </p>
-          <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Anyone can verify, without contacting the issuer.
           </h2>
         </Reveal>
@@ -329,10 +329,10 @@ function Boundaries() {
     <section className="relative px-6 py-28 lg:px-8 lg:py-36">
       <div className="mx-auto max-w-2xl">
         <Reveal className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             An important distinction
           </p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
             <span className="text-[var(--color-gold-bright)]">Authenticity</span> is not the
             same as <span className="italic text-[var(--color-warm-paper)]/90">truth</span>.
           </h2>
@@ -341,13 +341,13 @@ function Boundaries() {
         <Reveal delayMs={100} className="mt-16 space-y-4">
           <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.02] p-6">
             <X size={20} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-slate)]" aria-hidden />
-            <p className="text-[var(--text-body-lg)] text-[var(--color-warm-paper)]">
+            <p className="text-[length:var(--text-body-lg)] text-[var(--color-warm-paper)]">
               Kweli does not determine whether the information in a document is true.
             </p>
           </div>
           <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-[var(--color-gold)]/30 bg-[var(--color-gold)]/[0.03] p-6">
             <Check size={20} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]" aria-hidden />
-            <p className="text-[var(--text-body-lg)] text-[var(--color-warm-paper)]">
+            <p className="text-[length:var(--text-body-lg)] text-[var(--color-warm-paper)]">
               Kweli proves that the document being viewed is the same document that was originally issued.
             </p>
           </div>
@@ -387,10 +387,10 @@ function Security() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Security
           </p>
-          <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Built on a simple guarantee.
           </h2>
         </Reveal>
@@ -405,7 +405,7 @@ function Security() {
                 <item.icon size={18} strokeWidth={1.75} aria-hidden />
               </span>
               <p className="mt-5 text-base font-semibold text-[var(--color-warm-paper)]">{item.label}</p>
-              <p className="mt-2 text-[var(--text-body)] leading-relaxed text-[var(--color-slate)]">
+              <p className="mt-2 text-[length:var(--text-body)] leading-relaxed text-[var(--color-slate)]">
                 {item.copy}
               </p>
             </div>
@@ -423,10 +423,10 @@ function ClosingCta() {
     <section className="relative px-6 py-24 text-center lg:px-8 lg:py-32">
       <div className="mx-auto max-w-lg">
         <Reveal>
-          <h2 className="text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             See it for yourself.
           </h2>
-          <p className={`mx-auto mt-4 max-w-md text-[var(--text-body)] ${MUTED}`}>
+          <p className={`mx-auto mt-4 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
             Download a sample document, upload it back, and watch the process
             happen in real time.
           </p>

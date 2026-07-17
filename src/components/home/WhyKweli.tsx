@@ -74,10 +74,10 @@ function Intro() {
     <section className="relative px-6 pt-28 pb-4 lg:px-8 lg:pt-36">
       <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Why Kweli
           </p>
-          <h2 className="mx-auto mt-6 max-w-2xl text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-2xl text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
             Every important decision starts with a document.
           </h2>
         </Reveal>
@@ -95,13 +95,13 @@ function EcosystemChain() {
         </Reveal>
 
         <Reveal className="mx-auto mt-14 max-w-md text-center">
-          <p className="text-[var(--text-body)] text-[var(--color-slate)]">
+          <p className="text-[length:var(--text-body)] text-[var(--color-slate)]">
             Each transfer introduces uncertainty.
           </p>
-          <p className="mt-2 text-[var(--text-body)] text-[var(--color-slate)]">
+          <p className="mt-2 text-[length:var(--text-body)] text-[var(--color-slate)]">
             Not because people are dishonest.
           </p>
-          <p className="mt-2 text-[var(--text-body)] text-[var(--color-slate)]">
+          <p className="mt-2 text-[length:var(--text-body)] text-[var(--color-slate)]">
             Because documents naturally move through many hands.
           </p>
         </Reveal>
@@ -143,14 +143,14 @@ function Promise() {
   return (
     <section className="relative px-6 py-24 text-center lg:px-8 lg:py-32">
       <Reveal className="mx-auto max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+        <p className="text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
           Kweli makes one promise.
         </p>
-        <p className="mx-auto mt-8 max-w-xl text-[var(--text-h4)] leading-[1.35] font-medium text-[var(--color-warm-paper)]">
+        <p className="mx-auto mt-8 max-w-xl text-[length:var(--text-h4)] leading-[1.35] font-medium text-[var(--color-warm-paper)]">
           The document you are looking at is the same document that was
           issued.
         </p>
-        <p className="mt-6 text-[var(--text-body-lg)] tracking-wide text-[var(--color-slate)]">
+        <p className="mt-6 text-[length:var(--text-body-lg)] tracking-wide text-[var(--color-slate)]">
           Nothing more. Nothing less.
         </p>
       </Reveal>
@@ -165,7 +165,7 @@ function ClosingCta() {
         <p className="text-base font-medium text-[var(--color-warm-paper)]">
           Curious how Kweli actually does this?
         </p>
-        <p className="mt-3 text-[var(--text-body)] text-[var(--color-slate)]">
+        <p className="mt-3 text-[length:var(--text-body)] text-[var(--color-slate)]">
           Every verified document follows the same simple process. Discover how
           Kweli fingerprints, registers and verifies documents without storing
           the document itself.

@@ -128,7 +128,7 @@ export function Hero() {
         </div>
 
         <h1
-          className="animate-fade-up mt-8 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold tracking-tight"
+          className="animate-fade-up mt-8 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold tracking-tight"
           style={{ animationDelay: "350ms" }}
         >
           <span className="block bg-gradient-to-b from-[var(--color-warm-paper)] to-[var(--color-warm-paper)]/85 bg-clip-text text-transparent">
@@ -140,7 +140,7 @@ export function Hero() {
         </h1>
 
         <p
-          className="animate-fade-up mx-auto mt-7 max-w-2xl text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]"
+          className="animate-fade-up mx-auto mt-7 max-w-2xl text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]"
           style={{ animationDelay: "600ms" }}
         >
           Verify that the document in your hands is the genuine, unaltered one

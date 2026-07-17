@@ -44,10 +44,10 @@ export function ArticlePage({ article }: { article: Article }) {
             <span className={`text-xs ${MUTED}`}>{article.author_name}</span>
           </div>
 
-          <h1 className="mt-6 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             {article.title}
           </h1>
-          <p className={`mt-6 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] ${MUTED}`}>
+          <p className={`mt-6 text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] ${MUTED}`}>
             {article.excerpt}
           </p>
         </Reveal>
@@ -56,7 +56,7 @@ export function ArticlePage({ article }: { article: Article }) {
           {article.body.map((paragraph, i) => (
             <p
               key={i}
-              className="text-[var(--text-body)] leading-[var(--text-body--line-height)] text-[var(--color-warm-paper)]/90"
+              className="text-[length:var(--text-body)] leading-[var(--text-body--line-height)] text-[var(--color-warm-paper)]/90"
             >
               {paragraph}
             </p>

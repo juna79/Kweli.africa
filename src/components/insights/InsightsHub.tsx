@@ -28,13 +28,13 @@ function Hero() {
       />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Insights
           </p>
-          <h1 className="mx-auto mt-6 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             Practical writing on trust.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Notes on verification, document integrity, and where trust breaks
             down across industries.
           </p>
@@ -66,10 +66,10 @@ function FeaturedArticle({ article }: { article: Article }) {
                 {formatDate(article.published_at)}
               </span>
             </div>
-            <h2 className="mt-6 max-w-2xl text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+            <h2 className="mt-6 max-w-2xl text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
               {article.title}
             </h2>
-            <p className={`mt-4 max-w-2xl text-[var(--text-body-lg)] leading-relaxed ${MUTED}`}>
+            <p className={`mt-4 max-w-2xl text-[length:var(--text-body-lg)] leading-relaxed ${MUTED}`}>
               {article.excerpt}
             </p>
             <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-gold-bright)]">
@@ -107,7 +107,7 @@ function ArticleCard({ article, delayMs }: { article: Article; delayMs: number }
             {formatDate(article.published_at)}
           </span>
         </div>
-        <h3 className="mt-4 text-[var(--text-h4)] leading-[var(--text-h4--line-height)] font-bold text-[var(--color-warm-paper)]">
+        <h3 className="mt-4 text-[length:var(--text-h4)] leading-[var(--text-h4--line-height)] font-bold text-[var(--color-warm-paper)]">
           {article.title}
         </h3>
         <p className={`mt-3 text-sm leading-relaxed ${MUTED}`}>{article.excerpt}</p>

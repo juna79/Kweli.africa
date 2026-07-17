@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 const MUTED = "text-[var(--color-slate)]";
 
 export function IndustryCta({
@@ -20,10 +20,10 @@ export function IndustryCta({
       <div className="relative mx-auto max-w-lg">
         <Reveal>
           <p className={EYEBROW}>Get Started</p>
-          <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
-          <p className={`mx-auto mt-5 max-w-md text-[var(--text-body-lg)] ${MUTED}`}>
+          <p className={`mx-auto mt-5 max-w-md text-[length:var(--text-body-lg)] ${MUTED}`}>
             {supportingCopy}
           </p>
           <div className="mt-11">

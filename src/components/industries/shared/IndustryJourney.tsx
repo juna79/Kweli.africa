@@ -2,7 +2,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { TravellingDocument } from "@/components/ui/TravellingDocument";
 import type { JourneyStep } from "@/lib/industryPageTypes";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 const MUTED = "text-[var(--color-slate)]";
 
 export function IndustryJourney({
@@ -21,7 +21,7 @@ export function IndustryJourney({
       <div className="mx-auto max-w-6xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>{eyebrow}</p>
-          <h2 className="mx-auto mt-6 max-w-xl text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-xl text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
         </Reveal>

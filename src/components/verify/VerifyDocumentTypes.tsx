@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 const categories = [
   { label: "Insurance Reports", icon: Shield, href: "/industries/insurance" },
@@ -35,7 +35,7 @@ export function VerifyDocumentTypes() {
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>What Kweli Verifies</p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Any document, from any issuer.
           </h2>
         </Reveal>

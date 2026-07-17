@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import type { PilotStep } from "@/lib/industryPageTypes";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 export function IndustryPilot({
   heading,
@@ -15,7 +15,7 @@ export function IndustryPilot({
       <div className="mx-auto max-w-4xl">
         <Reveal>
           <p className={EYEBROW}>Start With One Workflow</p>
-          <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
         </Reveal>

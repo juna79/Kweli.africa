@@ -9,13 +9,13 @@ export function VerifyHero() {
       />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Verify a Document
           </p>
-          <h1 className="mx-auto mt-6 text-[var(--text-h1)] leading-[1.1] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[1.1] font-bold text-[var(--color-warm-paper)]">
             Trust Every Document. Instantly.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Upload an original document to verify whether it exactly matches
             the version registered by its issuer.
           </p>

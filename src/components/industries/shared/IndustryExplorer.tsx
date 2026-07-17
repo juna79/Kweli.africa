@@ -42,7 +42,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ArtFrame } from "@/components/ui/ArtFrame";
 import type { ExplorerLine, IconName } from "@/lib/industryPageTypes";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 // ExplorerLine.icon travels from a server component's data prop into this
 // client component, so it's a serializable string key, not a component
@@ -130,7 +130,7 @@ function ExplorerBody({ lines }: { lines: ExplorerLine[] }) {
 
         <div>
           <p className={EYEBROW}>{current.label}</p>
-          <p className="mt-4 text-[var(--text-body-lg)] leading-relaxed text-[var(--color-warm-paper)]">
+          <p className="mt-4 text-[length:var(--text-body-lg)] leading-relaxed text-[var(--color-warm-paper)]">
             {current.explanation}
           </p>
 
@@ -171,7 +171,7 @@ export function IndustryExplorer({
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
           <p className={EYEBROW}>{eyebrow}</p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
         </Reveal>

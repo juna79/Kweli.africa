@@ -17,13 +17,13 @@ function Hero() {
       />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Industries
           </p>
-          <h1 className="mx-auto mt-6 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             Where trust breaks down.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Every industry runs on documents that pass through many hands
             before a decision gets made. Find yours.
           </p>
@@ -76,7 +76,7 @@ function InsuranceFeature() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <Reveal className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             The Beachhead
           </p>
         </Reveal>
@@ -94,14 +94,14 @@ function InsuranceFeature() {
                 className="text-[var(--color-gold-bright)]"
                 aria-hidden
               />
-              <h2 className="text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+              <h2 className="text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
                 {insurance.name}
               </h2>
             </div>
-            <p className="mt-6 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
+            <p className="mt-6 text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
               {insurance.problem}
             </p>
-            <p className={`mt-4 text-[var(--text-body)] ${MUTED}`}>{insurance.solution}</p>
+            <p className={`mt-4 text-[length:var(--text-body)] ${MUTED}`}>{insurance.solution}</p>
 
             <ul className="mt-8 flex flex-wrap gap-2">
               {insurance.documents.map((doc) => (
@@ -153,7 +153,7 @@ function IndustryCard({
             <industry.icon size={18} strokeWidth={1.75} aria-hidden />
           </span>
 
-          <h3 className="mt-5 text-[var(--text-h4)] leading-[var(--text-h4--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h3 className="mt-5 text-[length:var(--text-h4)] leading-[var(--text-h4--line-height)] font-bold text-[var(--color-warm-paper)]">
             {industry.name}
           </h3>
           <p className={`mt-2 text-sm leading-relaxed ${MUTED}`}>{industry.tagline}</p>
@@ -196,10 +196,10 @@ function IndustryGrid() {
     <section className="relative px-6 py-4 lg:px-8 lg:py-8">
       <div className="mx-auto max-w-6xl">
         <Reveal className="text-center">
-          <h2 className="text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Six more industries. One trust layer.
           </h2>
-          <p className={`mx-auto mt-3 max-w-md text-[var(--text-body)] ${MUTED}`}>
+          <p className={`mx-auto mt-3 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
             The technology stays the same. Only the documents change.
           </p>
         </Reveal>
@@ -221,13 +221,13 @@ function ClosingCta() {
     <section className="relative px-6 py-24 text-center lg:px-8 lg:py-32">
       <div className="mx-auto max-w-lg">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             One platform
           </p>
-          <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Don&rsquo;t see your industry? The problem is still the same.
           </h2>
-          <p className={`mx-auto mt-4 max-w-md text-[var(--text-body)] ${MUTED}`}>
+          <p className={`mx-auto mt-4 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
             Kweli is horizontal trust infrastructure — wherever a document
             changes hands, the same verification layer applies.
           </p>

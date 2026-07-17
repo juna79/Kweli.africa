@@ -24,14 +24,14 @@ function Hero() {
       />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             About
           </p>
-          <h1 className="mx-auto mt-6 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             Independent trust has become a missing layer of modern
             infrastructure.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli exists to close that gap.
           </p>
         </Reveal>
@@ -45,13 +45,13 @@ function Origin() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-3xl">
         <Reveal className="space-y-6">
-          <p className="text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
+          <p className="text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
             Every organisation makes decisions using information it did not
             create — an insurer relies on a garage&rsquo;s repair estimate, a
             bank on an external valuation, an employer on a university&rsquo;s
             certificate, an exporter on a laboratory&rsquo;s report.
           </p>
-          <p className={`text-[var(--text-body)] leading-[var(--text-body--line-height)] ${MUTED}`}>
+          <p className={`text-[length:var(--text-body)] leading-[var(--text-body--line-height)] ${MUTED}`}>
             For most of history, physical friction — paper, signatures,
             stamps, delivery — quietly protected the trustworthiness of those
             records. Digitisation removed that friction. What remained is
@@ -59,7 +59,7 @@ function Origin() {
             looking identical to the original, yet the way organisations
             establish trust has barely changed.
           </p>
-          <p className="text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
+          <p className="text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
             Kweli gives organisations a simple, independent, provable way to
             establish whether a document they received is the exact document
             that was originally issued.
@@ -76,10 +76,10 @@ function MissionVision() {
       <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
         <Reveal>
           <div className="h-full rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.02] p-8 lg:p-10">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+            <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
               Mission
             </p>
-            <p className="mt-5 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
+            <p className="mt-5 text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
               Establish Kweli as the trust infrastructure for enterprise
               records — giving organisations a simple, independent, provable
               way to know whether a document they received is genuine.
@@ -88,10 +88,10 @@ function MissionVision() {
         </Reveal>
         <Reveal delayMs={100}>
           <div className="h-full rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.02] p-8 lg:p-10">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+            <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
               Vision
             </p>
-            <p className="mt-5 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
+            <p className="mt-5 text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
               A world where receiving an unverifiable document feels as
               unusual as receiving a website with no encryption — where
               independent trust is simply expected in every important
@@ -132,10 +132,10 @@ function Principles() {
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
+          <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             What we believe
           </p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
             Principles that don&rsquo;t bend for a deal.
           </h2>
         </Reveal>
@@ -147,7 +147,7 @@ function Principles() {
                 <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[var(--color-gold-bright)]">
                   <p.icon size={18} strokeWidth={1.75} aria-hidden />
                 </span>
-                <h3 className="mt-5 text-[var(--text-h4)] leading-[var(--text-h4--line-height)] font-bold text-[var(--color-warm-paper)]">
+                <h3 className="mt-5 text-[length:var(--text-h4)] leading-[var(--text-h4--line-height)] font-bold text-[var(--color-warm-paper)]">
                   {p.title}
                 </h3>
                 <p className={`mt-2 text-sm leading-relaxed ${MUTED}`}>{p.body}</p>
@@ -168,7 +168,7 @@ function ClosingStatement() {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[var(--color-gold)]/40 text-[var(--color-gold-bright)] animate-trust-pulse">
             <Fingerprint size={28} strokeWidth={1.75} aria-hidden />
           </div>
-          <p className="mx-auto mt-10 text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
+          <p className="mx-auto mt-10 text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
             Kweli is built from Kenya, for a problem that has no border. Every
             organisation, everywhere, eventually has to decide whether to
             trust a document it did not create.

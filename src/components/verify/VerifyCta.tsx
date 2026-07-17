@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 
-const EYEBROW = "text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
+const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
 
 export function VerifyCta() {
   return (
@@ -13,7 +13,7 @@ export function VerifyCta() {
       <div className="relative mx-auto max-w-lg">
         <Reveal>
           <p className={EYEBROW}>Get Started</p>
-          <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             Ready to verify trust at scale?
           </h2>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
