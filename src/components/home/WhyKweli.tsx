@@ -69,84 +69,6 @@ function DocumentChain() {
   );
 }
 
-// Premium editorial visual: one document, radiating out to the many hands
-// that touch it. Not a diagram — an atmospheric illustration. Endpoint
-// pulses and a breathing glow behind the document give the moment a
-// restrained sense of life, echoing the Hero's trust-network treatment.
-function DocumentJourneyVisual() {
-  const rays = [
-    { x2: 60, y2: 40, delay: 0 },
-    { x2: 540, y2: 30, delay: 0.5 },
-    { x2: 40, y2: 210, delay: 1 },
-    { x2: 560, y2: 220, delay: 1.5 },
-    { x2: 130, y2: 260, delay: 2 },
-    { x2: 470, y2: 260, delay: 2.5 },
-  ];
-
-  return (
-    <div className="relative mx-auto aspect-[21/9] w-full overflow-hidden rounded-[var(--radius-xl)] border border-white/10">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_50%_50%,rgba(201,162,39,0.16),transparent_70%)] bg-[var(--color-background)]" />
-
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 600 270"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden
-      >
-        {rays.map((r, i) => (
-          <line
-            key={i}
-            x1="300"
-            y1="135"
-            x2={r.x2}
-            y2={r.y2}
-            stroke="#e6bd4a"
-            strokeWidth="0.75"
-            strokeOpacity="0.28"
-          />
-        ))}
-        {rays.map((r, i) => (
-          <circle
-            key={`d-${i}`}
-            cx={r.x2}
-            cy={r.y2}
-            r="4"
-            fill="#e6bd4a"
-            fillOpacity="0.4"
-            className="[animation:node-pulse_3.2s_ease-in-out_infinite]"
-            style={{ animationDelay: `${r.delay}s`, transformOrigin: `${r.x2}px ${r.y2}px` }}
-          />
-        ))}
-      </svg>
-
-      <div
-        className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
-        aria-hidden
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }}
-      />
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative flex items-center justify-center">
-          <span
-            aria-hidden
-            className="absolute h-24 w-24 rounded-full bg-[var(--color-gold)]/20 blur-2xl [animation:soft-pulse_5s_ease-in-out_infinite]"
-          />
-          <div className="relative h-28 w-20 -rotate-6 rounded-[var(--radius-md)] border border-[var(--color-gold)]/30 bg-[var(--color-warm-paper)] p-3 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)]">
-            <div className="h-1.5 w-3/4 rounded-full bg-[var(--color-slate)]/30" />
-            <div className="mt-2 h-1 w-full rounded-full bg-[var(--color-slate)]/20" />
-            <div className="mt-1.5 h-1 w-full rounded-full bg-[var(--color-slate)]/20" />
-            <div className="mt-1.5 h-1 w-2/3 rounded-full bg-[var(--color-slate)]/20" />
-            <div className="absolute bottom-3 right-3 h-4 w-4 rounded-full border border-[var(--color-gold)]/50" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Intro() {
   return (
     <section className="relative px-6 pt-28 pb-4 lg:px-8 lg:pt-36">
@@ -166,7 +88,7 @@ function Intro() {
 
 function EcosystemChain() {
   return (
-    <section className="relative px-6 py-24 lg:px-8 lg:py-32">
+    <section className="relative px-6 pt-24 pb-28 lg:px-8 lg:pt-32 lg:pb-36">
       <div className="mx-auto max-w-4xl">
         <Reveal>
           <DocumentChain />
@@ -181,21 +103,6 @@ function EcosystemChain() {
           </p>
           <p className="mt-2 text-[var(--text-body)] text-[var(--color-slate)]">
             Because documents naturally move through many hands.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function JourneyVisual() {
-  return (
-    <section className="relative px-6 py-4 lg:px-8 lg:py-8">
-      <div className="mx-auto max-w-4xl">
-        <Reveal>
-          <DocumentJourneyVisual />
-          <p className="mt-5 text-center text-sm italic text-[var(--color-slate)]/80">
-            One document. Many hands.
           </p>
         </Reveal>
       </div>
@@ -285,7 +192,6 @@ export function WhyKweli() {
         icon={Users}
       />
       <EcosystemChain />
-      <JourneyVisual />
       <Manifesto />
       <Promise />
       <ClosingCta />
