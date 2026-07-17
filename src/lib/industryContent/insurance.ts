@@ -31,9 +31,9 @@ export const insurance: IndustryPageContent = {
       { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair", src: "/artwork/insurance/motor-repair.jpg" },
       { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital", src: "/artwork/insurance/medical-hospital.jpg" },
       { icon: Ship, label: "Marine Operation", art: "Vol. 2 · 07 · Marine — Shipping", src: "/artwork/insurance/marine-shipping.jpg" },
-      { icon: Flame, label: "Engineering Inspection", art: "Vol. 2 · 06 · Fire — Inspection", src: "/artwork/insurance/fire-inspection.jpg" },
+      { icon: Flame, label: "Engineering Inspection", art: "Engineering Inspection", src: "/artwork/insurance/engineering-inspection.jpg" },
       { icon: Landmark, label: "Construction Project", art: "Vol. 2 · 09 · Guarantees — Construction", src: "/artwork/insurance/guarantees-construction.jpg" },
-      { icon: ClipboardCheck, label: "Professional Assessment", art: "Vol. 2 · 02 · Motor — Assessment", src: "/artwork/insurance/motor-assessment.jpg" },
+      { icon: ClipboardCheck, label: "Professional Assessment", art: "Professional Assessment", src: "/artwork/insurance/professional-assessment.jpg" },
     ],
   },
 
@@ -58,7 +58,8 @@ export const insurance: IndustryPageContent = {
         key: "medical",
         label: "Medical",
         icon: "Stethoscope",
-        art: "Vol. 2 · 05 · Medical — Report",
+        art: "Vol. 2 · 05 · Medical Report",
+        src: "/artwork/insurance/medical-report.jpg",
         explanation: "Medical and diagnostic documents move from hospitals, doctors and laboratories into every medical claim.",
         documents: [
           { name: "Medical Report", issuer: "Hospital or Doctor" },
@@ -119,8 +120,8 @@ export const insurance: IndustryPageContent = {
         key: "guarantees",
         label: "Guarantees and Bonds",
         icon: "Landmark",
-        art: "Vol. 2 · 09 · Guarantees — Construction",
-        src: "/artwork/insurance/guarantees-construction.jpg",
+        art: "Guarantees & Bonds",
+        src: "/artwork/insurance/guarantees-bonds.jpg",
         explanation: "Bonds and guarantees move from banks and underwriters into every guarantee claim.",
         documents: [
           { name: "Bank Guarantee", issuer: "Bank" },

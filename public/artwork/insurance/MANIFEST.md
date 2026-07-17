@@ -1,39 +1,40 @@
 # Insurance page — Art Book asset manifest
 
-Source: Kweli Art Book Volume 2 (Industries). All Motor/Medical/Fire/
-Marine/Guarantees/Life frames plus a Hero Composite were supplied and are
-wired in. `Vol. 2 · 05 · Medical — Report` was never supplied — the
-Explorer's "Medical" line still renders the ArtFrame placeholder.
+Source: Kweli Art Book Volume 2 (Industries). **Every slot on this page
+is now fulfilled** — the last gap (Explorer — Medical) was filled by a
+supplied "Medical Report" frame, and two mismatched reuses (Ecosystem —
+Engineering Inspection, Ecosystem — Professional Assessment, Explorer —
+Guarantees and Bonds) were replaced with their correct dedicated frames.
 
 ## Fulfilled slots
 
 | Slot | File | Component |
 |---|---|---|
-| Hero | `hero-insurance.jpg` | `IndustryHero` — supplied as a composite (multiple insurance lines + Kweli badge), per this manifest's original note that no single frame covers "several lines" and a composite was an accepted option. Contains baked-in text ("VERIFIED. TRUSTED. EVERYWHERE." + Kweli wordmark) — used as supplied per explicit sign-off, not edited. |
+| Hero | `hero-insurance.jpg` | `IndustryHero` — supplied as a composite (multiple insurance lines + Kweli badge). Contains baked-in text ("VERIFIED. TRUSTED. EVERYWHERE." + Kweli wordmark) — used as supplied per explicit sign-off, not edited. |
 | Ecosystem — Garage | `motor-repair.jpg` | `IndustryEcosystem` |
 | Ecosystem — Hospital | `medical-hospital.jpg` | `IndustryEcosystem` |
 | Ecosystem — Marine Operation | `marine-shipping.jpg` | `IndustryEcosystem` |
-| Ecosystem — Engineering Inspection | `fire-inspection.jpg` | `IndustryEcosystem` |
+| Ecosystem — Engineering Inspection | `engineering-inspection.jpg` | `IndustryEcosystem` — dedicated frame, replaces the earlier `fire-inspection.jpg` reuse |
 | Ecosystem — Construction Project | `guarantees-construction.jpg` | `IndustryEcosystem` |
-| Ecosystem — Professional Assessment | `motor-assessment.jpg` | `IndustryEcosystem` |
+| Ecosystem — Professional Assessment | `professional-assessment.jpg` | `IndustryEcosystem` — dedicated frame, replaces the earlier `motor-assessment.jpg` reuse |
 | Explorer — Motor | `motor-claims-office.jpg` | `IndustryExplorer` |
+| Explorer — Medical | `medical-report.jpg` | `IndustryExplorer` — previously the one confirmed gap, now filled |
 | Explorer — Property and Fire | `fire-inspection.jpg` (reused) | `IndustryExplorer` |
 | Explorer — Marine | `marine-survey.jpg` | `IndustryExplorer` |
-| Explorer — Engineering | `engineering.jpg` | `IndustryExplorer` — previously a gap, now filled |
-| Explorer — Liability | `liability.jpg` | `IndustryExplorer` — previously a gap, now filled |
-| Explorer — Guarantees and Bonds | `guarantees-construction.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Travel | `travel.jpg` | `IndustryExplorer` — previously a gap, now filled |
+| Explorer — Engineering | `engineering.jpg` | `IndustryExplorer` — distinct from the Ecosystem "Engineering Inspection" tile above; different frame, correctly not touched by the Engineering Inspection update |
+| Explorer — Liability | `liability.jpg` | `IndustryExplorer` |
+| Explorer — Guarantees and Bonds | `guarantees-bonds.jpg` | `IndustryExplorer` — dedicated frame, replaces the earlier `guarantees-construction.jpg` reuse |
+| Explorer — Travel | `travel.jpg` | `IndustryExplorer` |
 | Explorer — Life | `life-protection.jpg` | `IndustryExplorer` |
-| Explorer — Underwriting | `underwriting.jpg` | `IndustryExplorer` — previously a gap, now filled |
+| Explorer — Underwriting | `underwriting.jpg` | `IndustryExplorer` |
 
-## Remaining gap
+## Unused asset
 
-- **Explorer — Medical** (`Vol. 2 · 05 · Medical — Report`) — no matching
-  file supplied. `medical-hospital.jpg` covers the Ecosystem tile for
-  Hospital, but was deliberately not reused here since "Hospital" and
-  "Report" are different framings and forcing a mismatch was flagged
-  against in this manifest's original scope. Still renders as an ArtFrame
-  placeholder pending the specific frame.
+- `motor-assessment.jpg` is no longer referenced by any slot (the
+  Ecosystem "Professional Assessment" tile now uses its own dedicated
+  frame instead of reusing this one). Left in place rather than deleted
+  — it's a real supplied asset, not scaffolding, and may suit a future
+  slot.
 
 ## Known issue, accepted as-is
 
