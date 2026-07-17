@@ -10,15 +10,14 @@ statement rather than support it. The single band below earns its place
 because it grounds the abstract document-chain diagram that follows it in
 something concrete before it gets iconographic.
 
-## Band — after the intro statement, before the Ecosystem chain
+## Band — after the intro statement, before the Ecosystem chain ✅ fulfilled
 
 | Field | Value |
 |---|---|
 | Placement | `CinematicBand` between `Intro` and `EcosystemChain` in `src/components/home/WhyKweli.tsx` |
-| Source | Volume 1, frame 13 or 17 — many hands / cross-professional trust scene |
+| Source | Volume 1, frame 13/17 — many hands reaching toward a glowing document |
 | Caption | "A document rarely stays where it was issued." |
-| Export as | `why-kweli-many-hands.webp` |
-| Crop | 21:9 desktop, 16:10 mobile, full-bleed, no embedded text |
+| File | `why-kweli-many-hands.jpg` (JPEG — no WebP encoder in the processing environment; clean photography, no embedded text) |
 | Why here | The DocumentChain diagram that follows is abstract (icons and labels). One real, human scene right before it gives the abstraction something to stand for, rather than opening cold into iconography. |
 
 ## Considered and rejected

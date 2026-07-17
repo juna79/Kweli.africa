@@ -278,6 +278,7 @@ export function WhyKweli() {
     <>
       <Intro />
       <CinematicBand
+        src="/artwork/why-kweli/why-kweli-many-hands.jpg"
         alt="Many hands and organisations exchanging a single document — Kweli Art Book"
         source="Art Book Vol. 1 — frame 13/17 (many hands, one document)"
         caption="A document rarely stays where it was issued."

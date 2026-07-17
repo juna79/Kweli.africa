@@ -20,6 +20,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <CinematicBand
+          src="/artwork/home/home-global-trust.jpg"
           alt="Africa traced with a fine gold trust-network, cinematic, global scale — Kweli Art Book"
           source="Art Book Vol. 1 — frame 02/05/19 (global trust)"
           caption="Trust infrastructure, wherever a document travels."
@@ -27,6 +28,7 @@ export default function Home() {
         />
         <VerificationTeaser />
         <CinematicBand
+          src="/artwork/home/home-cross-organisation-trust.jpg"
           alt="Two organisations exchanging a document, warm cinematic lighting — Kweli Art Book"
           source="Art Book Vol. 1 — frame 17 (cross-professional trust)"
           caption="Confidence built between organisations, not around them."
