@@ -17,21 +17,21 @@ const MUTED = "text-[var(--color-slate)]";
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 py-28 text-center lg:px-8 lg:py-36">
+    <section className="relative overflow-hidden px-6 py-14 text-center lg:px-8 lg:py-16">
       <div
         aria-hidden
         className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_20%,rgba(201,162,39,0.14),transparent_70%)]"
       />
-      <div className="relative z-10 mx-auto max-w-2xl">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             About
           </p>
-          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-4 max-w-5xl text-[length:var(--text-h1)] leading-[1.02] font-bold text-[var(--color-warm-paper)]">
             Independent trust has become a missing layer of modern
             infrastructure.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-4 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli exists to close that gap.
           </p>
         </Reveal>

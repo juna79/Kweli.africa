@@ -46,17 +46,17 @@ function TechHeroVisual() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 py-32 text-center lg:px-8 lg:py-40">
+    <section className="relative overflow-hidden px-6 py-16 text-center lg:px-8 lg:py-20">
       <TechHeroVisual />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Technology
           </p>
-          <h1 className="mx-auto mt-7 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-5 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             Technology you never have to think about.
           </h1>
-          <p className="mx-auto mt-7 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-5 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli verifies authenticity and integrity without storing your
             documents. One simple process. Independent verification anywhere.
           </p>
