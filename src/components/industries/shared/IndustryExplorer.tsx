@@ -93,7 +93,7 @@ function ExplorerBody({ lines }: { lines: ExplorerLine[] }) {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2.5">
         {lines.map((line) => {
           const isActive = line.key === active;
           const LineIcon = ICONS[line.icon];
@@ -102,13 +102,13 @@ function ExplorerBody({ lines }: { lines: ExplorerLine[] }) {
               key={line.key}
               onClick={() => setActive(line.key)}
               aria-pressed={isActive}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors duration-150 ${
+              className={`inline-flex items-center gap-2 rounded-full border px-4.5 py-2.5 text-sm font-medium transition-all duration-200 ease-[var(--ease-trust)] ${
                 isActive
-                  ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold-bright)]"
-                  : "border-white/10 text-[var(--color-slate)] hover:border-white/25 hover:text-[var(--color-warm-paper)]"
+                  ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold-bright)] shadow-[0_4px_16px_-6px_rgba(201,162,39,0.5)]"
+                  : "border-white/10 text-[var(--color-slate)] hover:-translate-y-0.5 hover:border-white/25 hover:text-[var(--color-warm-paper)]"
               }`}
             >
-              <LineIcon size={13} strokeWidth={1.75} aria-hidden />
+              <LineIcon size={14} strokeWidth={1.75} aria-hidden />
               {line.label}
             </button>
           );
@@ -138,15 +138,15 @@ function ExplorerBody({ lines }: { lines: ExplorerLine[] }) {
               {current.documents.map((doc) => (
                 <li
                   key={doc.name}
-                  className="flex items-center justify-between rounded-[var(--radius-sm)] px-2 py-3 transition-colors duration-150 hover:bg-white/[0.03]"
+                  className="flex items-center justify-between rounded-[var(--radius-sm)] px-2 py-3.5 transition-colors duration-150 hover:bg-white/[0.03]"
                 >
-                  <span className="text-sm text-[var(--color-warm-paper)]">{doc.name}</span>
-                  <span className="text-xs text-[var(--color-slate)]">{doc.issuer}</span>
+                  <span className="text-base text-[var(--color-warm-paper)]">{doc.name}</span>
+                  <span className="text-sm text-[var(--color-slate)]">{doc.issuer}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="mt-6 text-sm text-[var(--color-slate)]">
+            <p className="mt-6 text-base text-[var(--color-slate)]">
               Document types for this line are being finalised.
             </p>
           )}

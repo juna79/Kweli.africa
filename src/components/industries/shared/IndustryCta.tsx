@@ -23,10 +23,10 @@ export function IndustryCta({
           <h2 className="mx-auto mt-6 text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
-          <p className={`mx-auto mt-4 max-w-md text-[var(--text-body)] ${MUTED}`}>
+          <p className={`mx-auto mt-5 max-w-md text-[var(--text-body-lg)] ${MUTED}`}>
             {supportingCopy}
           </p>
-          <div className="mt-10">
+          <div className="mt-11">
             <Button href="/book-a-demo" variant="primary" withArrow>
               Book a Demo
             </Button>
