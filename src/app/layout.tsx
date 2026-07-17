@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     title: "Kweli — Trust Infrastructure for the World",
     description:
       "Verify that the document in your hands is the genuine, unaltered one issued by a named organisation.",
-    url: siteUrl,
     siteName: "Kweli",
     type: "website",
   },
