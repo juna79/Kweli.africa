@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { BookADemo } from "@/components/demo/BookADemo";
 
-export const metadata: Metadata = { title: "Book a Demo" };
+const description =
+  "See how Kweli can fit into your existing workflow without changing the way your teams already work.";
+
+export const metadata: Metadata = {
+  title: "Book a Demo",
+  description,
+  openGraph: {
+    title: "Book a Demo — Kweli",
+    description,
+    siteName: "Kweli",
+    type: "website",
+  },
+  twitter: { title: "Book a Demo — Kweli", description },
+};
 
 export default function BookADemoPage() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        <PagePlaceholder
-          title="Book a Demo"
-          description="See how Kweli can fit into your existing workflow without changing the way your teams already work."
-        />
+        <BookADemo />
       </main>
       <Footer />
     </>

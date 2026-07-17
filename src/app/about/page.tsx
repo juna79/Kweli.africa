@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { About } from "@/components/about/About";
 
-export const metadata: Metadata = { title: "About" };
+const description =
+  "Independent trust has become a missing layer of modern infrastructure. Kweli exists to close that gap.";
+
+export const metadata: Metadata = {
+  title: "About",
+  description,
+  openGraph: {
+    title: "About — Kweli",
+    description,
+    siteName: "Kweli",
+    type: "website",
+  },
+  twitter: { title: "About — Kweli", description },
+};
 
 export default function AboutPage() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        <PagePlaceholder
-          title="About"
-          description="Why Kweli exists, and the team building trust infrastructure for the world."
-        />
+        <About />
       </main>
       <Footer />
     </>
