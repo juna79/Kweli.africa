@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { IndustriesHub } from "@/components/industries/IndustriesHub";
 
-export const metadata: Metadata = { title: "Industries" };
+export const metadata: Metadata = {
+  title: "Industries",
+  description:
+    "One trust platform, seven industries — insurance, banking, healthcare, government, education, trade and professional services. Find where Kweli fits into yours.",
+};
 
 export default function IndustriesPage() {
   return (
     <>
       <Header />
       <main className="flex-1">
-        <PagePlaceholder
-          title="Industries"
-          description="One trust platform, seven industry hubs — insurance, banking, healthcare, government, education, trade and professional services."
-        />
+        <IndustriesHub />
       </main>
       <Footer />
     </>

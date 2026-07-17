@@ -295,7 +295,7 @@ export function VerificationDemo() {
     : 0;
 
   return (
-    <section className="relative px-6 py-28 lg:px-8">
+    <section id="demo" className="relative scroll-mt-24 px-6 pb-28 lg:px-8">
       <div
         aria-hidden
         className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(201,162,39,0.08),transparent_65%)]"
@@ -305,23 +305,22 @@ export function VerificationDemo() {
           <span className="inline-block rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-medium tracking-wide text-[var(--color-slate)] uppercase">
             Product demonstration — simulated, not a live lookup
           </span>
-          <h2 className="mt-6 text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Watch verification happen.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[var(--text-body)] leading-[var(--text-body--line-height)] text-[var(--color-slate)]">
-            Download a few sample documents, then upload them back — some verify,
-            some don&apos;t, and the fingerprint is the only thing that decides.
-          </p>
         </div>
 
         {!activeDoc && !awaitingUpload && (
-          <div className="mt-10 flex justify-center">
-            <button
-              onClick={() => setLibraryOpen(true)}
-              className="group inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-gold)]/50 bg-white/[0.02] px-6 py-3 text-sm font-medium text-[var(--color-warm-paper)] transition-all duration-150 hover:-translate-y-0.5 hover:border-[var(--color-gold-bright)] hover:bg-white/[0.04]"
-            >
-              Browse Sample Documents
-            </button>
+          <div className="mx-auto mt-8 max-w-md">
+            <UploadDropzone onFile={handleFileUploaded} />
+            <div className="mt-6 text-center">
+              <p className="text-xs text-[var(--color-slate)]">
+                Don&apos;t have a document handy?{" "}
+                <button
+                  onClick={() => setLibraryOpen(true)}
+                  className="font-medium text-[var(--color-gold-bright)] hover:underline"
+                >
+                  Browse sample documents
+                </button>
+              </p>
+            </div>
           </div>
         )}
 
