@@ -13,10 +13,14 @@ import {
   Clock,
   Building2,
   FileCheck2,
+  ServerCog,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CinematicBand } from "@/components/ui/CinematicBand";
+import { TravellingDocument } from "@/components/ui/TravellingDocument";
+import { SequencedPrivacyIllustration } from "@/components/technology/SequencedPrivacyIllustration";
 
 const MUTED = "text-[var(--color-slate)]";
 
@@ -34,6 +38,7 @@ function TechHeroVisual() {
         }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_35%,rgba(201,162,39,0.14),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_35%_30%_at_15%_10%,rgba(230,189,74,0.1),transparent_65%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_100%,var(--color-background)_20%,transparent_70%)]" />
     </div>
   );
@@ -41,17 +46,17 @@ function TechHeroVisual() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 py-28 text-center lg:px-8 lg:py-36">
+    <section className="relative overflow-hidden px-6 py-32 text-center lg:px-8 lg:py-40">
       <TechHeroVisual />
       <div className="relative z-10 mx-auto max-w-2xl">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Technology
           </p>
-          <h1 className="mx-auto mt-6 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-7 text-[var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
             Technology you never have to think about.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-7 max-w-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli verifies authenticity and integrity without storing your
             documents. One simple process. Independent verification anywhere.
           </p>
@@ -75,31 +80,28 @@ function JourneyRow() {
   return (
     <div className="relative">
       <div className="relative hidden items-start justify-between md:flex">
-        <div className="absolute left-0 right-0 top-6 h-px bg-white/10" />
-        <div className="absolute left-0 right-0 top-6 h-px overflow-visible">
-          <div
-            className="absolute h-2 w-2 -translate-y-1/2 rounded-full bg-[var(--color-gold-bright)] shadow-[0_0_18px_5px_rgba(230,189,74,0.75)] [animation:travel-x_9s_linear_infinite]"
-            style={{ top: "1px" }}
-            aria-hidden
-          />
+        <div className="absolute left-0 right-0 top-7 h-px bg-white/10" />
+        <div className="absolute left-0 right-0 top-7 h-8 overflow-visible">
+          <TravellingDocument delay="0s" />
+          <TravellingDocument delay="4.5s" />
         </div>
         {journey.map((step) => (
           <div key={step.label} className="relative z-10 flex w-32 flex-col items-center text-center">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-[var(--color-background)] text-[var(--color-gold-bright)]">
-              <step.icon size={18} strokeWidth={1.75} aria-hidden />
+            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-[var(--color-background)] text-[var(--color-gold-bright)] shadow-[0_8px_20px_-10px_rgba(0,0,0,0.7)] transition-transform duration-200 hover:scale-105">
+              <step.icon size={20} strokeWidth={1.75} aria-hidden />
             </span>
-            <span className="mt-3 text-xs leading-snug text-[var(--color-slate)]">{step.label}</span>
+            <span className="mt-3 text-sm leading-snug text-[var(--color-slate)]">{step.label}</span>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:hidden">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-9 md:hidden">
         {journey.map((step) => (
           <div key={step.label} className="flex flex-col items-center text-center">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[var(--color-gold-bright)]">
-              <step.icon size={16} strokeWidth={1.75} aria-hidden />
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 text-[var(--color-gold-bright)]">
+              <step.icon size={18} strokeWidth={1.75} aria-hidden />
             </span>
-            <span className="mt-2 text-xs leading-snug text-[var(--color-slate)]">{step.label}</span>
+            <span className="mt-2.5 text-sm leading-snug text-[var(--color-slate)]">{step.label}</span>
           </div>
         ))}
       </div>
@@ -129,47 +131,6 @@ function VerificationJourney() {
 }
 
 /* ---------- 3. Client-side Privacy ---------- */
-
-function PrivacyIllustration() {
-  return (
-    <div className="relative mx-auto w-full max-w-md rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.02] p-6">
-      <div className="flex items-center gap-1.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-failed)]/50" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]/50" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-verified)]/50" />
-        <span className="ml-3 h-4 flex-1 rounded-full bg-white/5" />
-      </div>
-
-      <div className="relative mt-6 rounded-[var(--radius-md)] border border-dashed border-white/15 p-5">
-        <span className="absolute -top-2.5 left-4 bg-[var(--color-dark-slate)] px-2 text-[10px] font-medium uppercase tracking-wide text-[var(--color-slate)]">
-          Your browser
-        </span>
-        <div className="flex items-center gap-3">
-          <FileText size={20} strokeWidth={1.75} className="text-[var(--color-warm-paper)]" aria-hidden />
-          <div className="flex-1 space-y-1.5">
-            <div className="h-1.5 w-3/4 rounded-full bg-white/10" />
-            <div className="h-1.5 w-1/2 rounded-full bg-white/10" />
-          </div>
-        </div>
-        <div className="mt-4 flex items-center gap-2 text-[10px] font-mono tracking-tight text-[var(--color-gold-bright)]/80">
-          <Fingerprint size={14} strokeWidth={1.75} aria-hidden />
-          a3f5e2…9c7b2d
-        </div>
-      </div>
-
-      <div className="mt-4 flex items-center justify-center">
-        <div className="h-6 w-px bg-gradient-to-b from-[var(--color-gold)]/50 to-transparent" />
-      </div>
-      <p className="text-center text-[10px] text-[var(--color-slate)]">
-        only the fingerprint leaves
-      </p>
-      <div className="mt-2 flex items-center justify-center gap-2 text-xs text-[var(--color-slate)]">
-        <Database size={14} strokeWidth={1.75} aria-hidden />
-        Kweli registry
-      </div>
-    </div>
-  );
-}
 
 function ClientSidePrivacy() {
   const points = [
@@ -203,7 +164,7 @@ function ClientSidePrivacy() {
           </ul>
         </Reveal>
         <Reveal delayMs={100}>
-          <PrivacyIllustration />
+          <SequencedPrivacyIllustration />
         </Reveal>
       </div>
     </section>
@@ -217,20 +178,25 @@ function RegistrationInterface() {
     ["Issuer", "Kweli University"],
     ["Fingerprint", "a3f5e2…9c7b2d"],
     ["Timestamp", "17 Mar 2026 · 09:41 EAT"],
-    ["Status", "Registered"],
   ];
 
   return (
-    <div className="mx-auto w-full max-w-md rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.02] overflow-hidden">
-      <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.02] px-5 py-3">
-        <Building2 size={16} strokeWidth={1.75} className="text-[var(--color-gold-bright)]" aria-hidden />
-        <span className="text-xs font-medium text-[var(--color-warm-paper)]">Registration Record</span>
+    <div className="mx-auto w-full max-w-md rounded-[var(--radius-xl)] border border-white/10 bg-white/[0.02] shadow-[0_20px_50px_-24px_rgba(0,0,0,0.6)] overflow-hidden">
+      <div className="flex items-center gap-2.5 border-b border-white/10 bg-white/[0.03] px-5 py-4">
+        <Building2 size={18} strokeWidth={1.75} className="text-[var(--color-gold-bright)]" aria-hidden />
+        <span className="text-sm font-medium text-[var(--color-warm-paper)]">Registration Record</span>
+        <span className="ml-auto rounded-[var(--radius-sm)] border border-[var(--color-verified)]/40 bg-[var(--color-verified)]/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[var(--color-verified)]">
+          Registered
+        </span>
       </div>
       <dl className="divide-y divide-white/5 px-5">
         {fields.map(([label, value]) => (
-          <div key={label} className="flex items-center justify-between py-3">
-            <dt className={`text-xs ${MUTED}`}>{label}</dt>
-            <dd className="text-sm text-[var(--color-warm-paper)]">{value}</dd>
+          <div
+            key={label}
+            className="flex items-center justify-between py-3.5 transition-colors duration-150 hover:bg-white/[0.02]"
+          >
+            <dt className={`text-sm ${MUTED}`}>{label}</dt>
+            <dd className="font-mono text-sm text-[var(--color-warm-paper)]">{value}</dd>
           </div>
         ))}
       </dl>
@@ -287,6 +253,12 @@ const verifySteps = [
   { label: "Verified", icon: FileCheck2 },
 ] as const;
 
+const outcomeTint: Record<"verified" | "failed" | "not-found", string> = {
+  verified: "border-[var(--color-verified)]/25 bg-[var(--color-verified)]/[0.04]",
+  failed: "border-[var(--color-failed)]/25 bg-[var(--color-failed)]/[0.04]",
+  "not-found": "border-white/10 bg-white/[0.02]",
+};
+
 function Verification() {
   const outcomes = [
     {
@@ -336,12 +308,12 @@ function Verification() {
           {outcomes.map((outcome) => (
             <div
               key={outcome.status}
-              className="rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.02] p-5 text-center"
+              className={`rounded-[var(--radius-lg)] border p-6 text-center transition-transform duration-200 hover:-translate-y-0.5 ${outcomeTint[outcome.status]}`}
             >
               <div className="flex justify-center">
                 <Badge status={outcome.status} />
               </div>
-              <p className="mt-4 text-xs leading-relaxed text-[var(--color-slate)]">{outcome.copy}</p>
+              <p className="mt-4 text-sm leading-relaxed text-[var(--color-slate)]">{outcome.copy}</p>
             </div>
           ))}
         </Reveal>
@@ -354,27 +326,28 @@ function Verification() {
 
 function Boundaries() {
   return (
-    <section className="relative px-6 py-24 lg:px-8 lg:py-32">
+    <section className="relative px-6 py-28 lg:px-8 lg:py-36">
       <div className="mx-auto max-w-2xl">
         <Reveal className="text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             An important distinction
           </p>
-          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Authenticity is not the same as truth.
+          <h2 className="mx-auto mt-6 max-w-lg text-[var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+            <span className="text-[var(--color-gold-bright)]">Authenticity</span> is not the
+            same as <span className="italic text-[var(--color-warm-paper)]/90">truth</span>.
           </h2>
         </Reveal>
 
-        <Reveal delayMs={100} className="mt-14 space-y-4">
-          <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.02] p-5">
-            <X size={18} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-slate)]" aria-hidden />
-            <p className="text-[var(--text-body)] text-[var(--color-warm-paper)]">
+        <Reveal delayMs={100} className="mt-16 space-y-4">
+          <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.02] p-6">
+            <X size={20} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-slate)]" aria-hidden />
+            <p className="text-[var(--text-body-lg)] text-[var(--color-warm-paper)]">
               Kweli does not determine whether the information in a document is true.
             </p>
           </div>
-          <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-[var(--color-gold)]/30 bg-white/[0.02] p-5">
-            <Check size={18} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]" aria-hidden />
-            <p className="text-[var(--text-body)] text-[var(--color-warm-paper)]">
+          <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-[var(--color-gold)]/30 bg-[var(--color-gold)]/[0.03] p-6">
+            <Check size={20} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]" aria-hidden />
+            <p className="text-[var(--text-body-lg)] text-[var(--color-warm-paper)]">
               Kweli proves that the document being viewed is the same document that was originally issued.
             </p>
           </div>
@@ -412,7 +385,7 @@ const security = [
 function Security() {
   return (
     <section className="relative px-6 py-24 lg:px-8 lg:py-32">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-4xl">
         <Reveal className="text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Security
@@ -422,19 +395,19 @@ function Security() {
           </h2>
         </Reveal>
 
-        <Reveal delayMs={100} className="mt-14 divide-y divide-white/5">
+        <Reveal delayMs={100} className="mt-16 grid gap-5 sm:grid-cols-2">
           {security.map((item) => (
-            <div key={item.label} className="flex items-start gap-5 py-6">
-              <item.icon
-                size={20}
-                strokeWidth={1.75}
-                className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]"
-                aria-hidden
-              />
-              <div>
-                <p className="text-sm font-medium text-[var(--color-warm-paper)]">{item.label}</p>
-                <p className="mt-1.5 text-[var(--text-body)] text-[var(--color-slate)]">{item.copy}</p>
-              </div>
+            <div
+              key={item.label}
+              className="rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.02] p-7 transition-all duration-[350ms] ease-[var(--ease-trust)] hover:-translate-y-1 hover:border-[var(--color-gold)]/30 hover:bg-white/[0.04]"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[var(--color-gold-bright)]">
+                <item.icon size={18} strokeWidth={1.75} aria-hidden />
+              </span>
+              <p className="mt-5 text-base font-semibold text-[var(--color-warm-paper)]">{item.label}</p>
+              <p className="mt-2 text-[var(--text-body)] leading-relaxed text-[var(--color-slate)]">
+                {item.copy}
+              </p>
             </div>
           ))}
         </Reveal>
@@ -472,6 +445,12 @@ export function Technology() {
   return (
     <>
       <Hero />
+      <CinematicBand
+        alt="Secure enterprise server environment, cinematic lighting — Kweli Art Book"
+        source="Art Book Vol. 3 — enterprise infrastructure"
+        caption="Registered once. Verifiable anywhere, by anyone holding the document."
+        icon={ServerCog}
+      />
       <VerificationJourney />
       <ClientSidePrivacy />
       <Registration />
