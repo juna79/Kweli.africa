@@ -15,7 +15,7 @@ function isActivePath(pathname: string, href: string) {
 }
 
 const navLinkBase =
-  "relative text-sm font-medium transition-colors duration-150 pb-1";
+  "relative text-base font-medium transition-colors duration-150 pb-1";
 const navLinkInactive =
   "text-[var(--color-warm-paper)]/90 hover:text-[var(--color-gold-bright)]";
 const navLinkActive = "font-semibold text-[var(--color-gold-bright)]";

@@ -5,13 +5,13 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 type Variant = "primary" | "secondary" | "tertiary";
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-medium transition-all duration-150 ease-[var(--ease-trust)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold-bright)] disabled:opacity-40 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 text-[1.0625rem] font-medium transition-all duration-150 ease-[var(--ease-trust)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold-bright)] disabled:opacity-40 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-[var(--color-gold)] text-[#0b080f] rounded-[var(--radius-md)] px-6 py-3 hover:bg-[var(--color-gold-bright)] hover:-translate-y-0.5 active:translate-y-0 active:duration-[120ms]",
+    "bg-[var(--color-gold)] text-[#0b080f] rounded-[var(--radius-md)] px-7 py-3.5 hover:bg-[var(--color-gold-bright)] hover:-translate-y-0.5 hover:shadow-[0_8px_28px_-8px_rgba(230,189,74,0.55)] active:translate-y-0 active:duration-[120ms]",
   secondary:
-    "border border-[var(--color-gold)]/50 text-[var(--color-warm-paper)] rounded-[var(--radius-md)] px-6 py-3 hover:border-[var(--color-gold-bright)] hover:bg-white/[0.03]",
+    "border border-[var(--color-gold)]/50 text-[var(--color-warm-paper)] rounded-[var(--radius-md)] px-7 py-3.5 hover:border-[var(--color-gold-bright)] hover:bg-white/[0.03]",
   tertiary:
     "text-[var(--color-gold-bright)] px-0 py-1 underline-offset-4 hover:underline",
 };

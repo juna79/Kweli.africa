@@ -57,28 +57,30 @@
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
 
-  /* Type scale — Fonts spec (15_Fonts_Kweli_V3.pdf) */
-  --text-h1: 3.5rem;
-  --text-h1--line-height: 1.12;
-  --text-h2: 2.75rem;
-  --text-h2--line-height: 1.15;
-  --text-h3: 1.875rem;
-  --text-h3--line-height: 1.2;
-  --text-h4: 1.375rem;
+  /* Type scale — Fonts spec (15_Fonts_Kweli_V3.pdf), +10-15% per the Art
+     Director polish pass (creative-direction brief, not the original
+     Website V3 lock) to give headings and CTAs more visual confidence. */
+  --text-h1: 4rem;
+  --text-h1--line-height: 1.1;
+  --text-h2: 3.125rem;
+  --text-h2--line-height: 1.14;
+  --text-h3: 2.125rem;
+  --text-h3--line-height: 1.18;
+  --text-h4: 1.5625rem;
   --text-h4--line-height: 1.2;
-  --text-body-lg: 1.25rem;
-  --text-body-lg--line-height: 1.6;
-  --text-body: 1.125rem;
-  --text-body--line-height: 1.65;
-  --text-small: 1rem;
-  --text-small--line-height: 1.6;
-  --text-caption: 0.875rem;
+  --text-body-lg: 1.375rem;
+  --text-body-lg--line-height: 1.58;
+  --text-body: 1.25rem;
+  --text-body--line-height: 1.6;
+  --text-small: 1.125rem;
+  --text-small--line-height: 1.55;
+  --text-caption: 1rem;
   --text-caption--line-height: 1.5;
 }
 
 @media (min-width: 768px) {
   :root {
-    --text-h1: 4.5rem;
+    --text-h1: 5rem;
   }
 }
 

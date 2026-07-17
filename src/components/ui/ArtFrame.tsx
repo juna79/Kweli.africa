@@ -24,12 +24,18 @@ export function ArtFrame({
 }) {
   if (src) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={src}
-        alt={alt}
-        className={`w-full rounded-[var(--radius-lg)] border border-white/10 object-cover ${aspect} ${className}`}
-      />
+      <div
+        className={`group overflow-hidden rounded-[var(--radius-lg)] border border-white/10 ${aspect} ${className}`}
+      >
+        {/* Motion Bible: images zoom 2-3% on hover — the one hover
+           treatment every real Art Book photograph gets once it lands. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover transition-transform duration-[var(--duration-card)] ease-[var(--ease-trust)] group-hover:scale-[1.03]"
+        />
+      </div>
     );
   }
 
