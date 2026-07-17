@@ -19,6 +19,7 @@ export function IndustryPage({ content }: { content: IndustryPageContent }) {
         headline={content.hero.headline}
         supportingCopy={content.hero.supportingCopy}
         art={content.hero.art}
+        src={content.hero.src}
       />
       <IndustryEcosystem
         eyebrow={`The ${content.name} Ecosystem`}

@@ -21,18 +21,19 @@ export const insurance: IndustryPageContent = {
     headline: "Every claim runs on documents insurers didn't create.",
     supportingCopy:
       "Repair estimates, medical reports, marine surveys, engineering assessments, valuations and guarantees — third-party documents influence every insurance decision.",
-    art: "Vol. 2 · Hero Composite (TBD)",
+    art: "Vol. 2 · Hero Composite (insurance)",
+    src: "/artwork/insurance/hero-insurance.jpg",
   },
 
   ecosystem: {
     heading: "One trust layer, wherever the document originates.",
     tiles: [
-      { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair" },
-      { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital" },
-      { icon: Ship, label: "Marine Operation", art: "Vol. 2 · 07 · Marine — Shipping" },
-      { icon: Flame, label: "Engineering Inspection", art: "Vol. 2 · 06 · Fire — Inspection" },
-      { icon: Landmark, label: "Construction Project", art: "Vol. 2 · 09 · Guarantees — Construction" },
-      { icon: ClipboardCheck, label: "Professional Assessment", art: "Vol. 2 · 02 · Motor — Assessment" },
+      { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair", src: "/artwork/insurance/motor-repair.jpg" },
+      { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital", src: "/artwork/insurance/medical-hospital.jpg" },
+      { icon: Ship, label: "Marine Operation", art: "Vol. 2 · 07 · Marine — Shipping", src: "/artwork/insurance/marine-shipping.jpg" },
+      { icon: Flame, label: "Engineering Inspection", art: "Vol. 2 · 06 · Fire — Inspection", src: "/artwork/insurance/fire-inspection.jpg" },
+      { icon: Landmark, label: "Construction Project", art: "Vol. 2 · 09 · Guarantees — Construction", src: "/artwork/insurance/guarantees-construction.jpg" },
+      { icon: ClipboardCheck, label: "Professional Assessment", art: "Vol. 2 · 02 · Motor — Assessment", src: "/artwork/insurance/motor-assessment.jpg" },
     ],
   },
 
@@ -44,6 +45,7 @@ export const insurance: IndustryPageContent = {
         label: "Motor",
         icon: "Car",
         art: "Vol. 2 · 03 · Motor — Claims Office",
+        src: "/artwork/insurance/motor-claims-office.jpg",
         explanation: "Repair and assessment documents move from garages and assessors into every motor claim.",
         documents: [
           { name: "Repair Estimate", issuer: "Garage" },
@@ -70,6 +72,7 @@ export const insurance: IndustryPageContent = {
         label: "Property and Fire",
         icon: "Flame",
         art: "Vol. 2 · 06 · Fire — Inspection",
+        src: "/artwork/insurance/fire-inspection.jpg",
         explanation: "Inspection, survey and valuation reports move from independent professionals into every property claim.",
         documents: [
           { name: "Inspection Report", issuer: "Inspector" },
@@ -82,6 +85,7 @@ export const insurance: IndustryPageContent = {
         label: "Marine",
         icon: "Ship",
         art: "Vol. 2 · 08 · Marine — Survey",
+        src: "/artwork/insurance/marine-survey.jpg",
         explanation: "Survey and inspection documents move from marine surveyors and inspection companies into every marine claim.",
         documents: [
           { name: "Marine Survey", issuer: "Marine Surveyor" },
@@ -93,7 +97,8 @@ export const insurance: IndustryPageContent = {
         key: "engineering",
         label: "Engineering",
         icon: "HardHat",
-        art: null,
+        art: "Vol. 2 · Engineering",
+        src: "/artwork/insurance/engineering.jpg",
         explanation: "Engineering reports and structural assessments move from engineers and inspection firms into every engineering claim.",
         documents: [
           { name: "Engineering Report", issuer: "Engineer" },
@@ -105,7 +110,8 @@ export const insurance: IndustryPageContent = {
         key: "liability",
         label: "Liability",
         icon: "Scale",
-        art: null,
+        art: "Vol. 2 · Liability",
+        src: "/artwork/insurance/liability.jpg",
         explanation: "Liability claims depend on independent assessment before a decision is made.",
         documents: [],
       },
@@ -114,6 +120,7 @@ export const insurance: IndustryPageContent = {
         label: "Guarantees and Bonds",
         icon: "Landmark",
         art: "Vol. 2 · 09 · Guarantees — Construction",
+        src: "/artwork/insurance/guarantees-construction.jpg",
         explanation: "Bonds and guarantees move from banks and underwriters into every guarantee claim.",
         documents: [
           { name: "Bank Guarantee", issuer: "Bank" },
@@ -125,7 +132,8 @@ export const insurance: IndustryPageContent = {
         key: "travel",
         label: "Travel",
         icon: "Plane",
-        art: null,
+        art: "Vol. 2 · Travel",
+        src: "/artwork/insurance/travel.jpg",
         explanation: "Medical and assessment documents move from clinics and authorised professionals into every travel claim.",
         documents: [
           { name: "Medical Certificate", issuer: "Doctor or Clinic" },
@@ -138,6 +146,7 @@ export const insurance: IndustryPageContent = {
         label: "Life",
         icon: "Heart",
         art: "Vol. 2 · 10 · Life — Protection",
+        src: "/artwork/insurance/life-protection.jpg",
         explanation: "Medical and assessment documents move from clinics and authorised professionals into every life claim.",
         documents: [
           { name: "Medical Certificate", issuer: "Doctor or Clinic" },
@@ -149,7 +158,8 @@ export const insurance: IndustryPageContent = {
         key: "underwriting",
         label: "Underwriting",
         icon: "ClipboardList",
-        art: null,
+        art: "Vol. 2 · Underwriting",
+        src: "/artwork/insurance/underwriting.jpg",
         explanation: "Valuation and inspection documents move from valuers and engineers into every underwriting decision.",
         documents: [
           { name: "Valuation Report", issuer: "Valuer" },

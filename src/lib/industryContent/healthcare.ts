@@ -9,18 +9,19 @@ export const healthcare: IndustryPageContent = {
     headline: "Healthcare decisions depend on records that must be trusted.",
     supportingCopy:
       "Medical reports, lab results, referral letters and discharge summaries move between hospitals, doctors, laboratories and insurers — and every one shapes a treatment or claims decision.",
-    art: "Vol. 2 · Hero Composite (TBD)",
+    art: "Vol. 2 · Hero Composite (Healthcare)",
+    src: "/artwork/healthcare/hero-healthcare.jpg",
   },
 
   ecosystem: {
     heading: "From the ward to the pharmacy, the same trust layer applies.",
     tiles: [
-      { icon: Users, label: "Patient", art: "Vol. 2 · Healthcare — Patient Registration" },
-      { icon: Stethoscope, label: "Doctor", art: "Vol. 2 · Healthcare — Medical Records" },
-      { icon: Building2, label: "Hospital", art: "Vol. 2 · Healthcare — Surgery" },
-      { icon: Microscope, label: "Laboratory", art: "Vol. 2 · Healthcare — Lab Results" },
-      { icon: ShieldCheck, label: "Insurer", art: "Vol. 2 · Healthcare — Insurance Claim" },
-      { icon: Pill, label: "Pharmacy", art: "Vol. 2 · Healthcare — Pharmacy" },
+      { icon: Users, label: "Patient", art: "Vol. 2 · Healthcare — Patient Registration", src: "/artwork/healthcare/patient-registration.jpg" },
+      { icon: Stethoscope, label: "Doctor", art: "Vol. 2 · Healthcare — Medical Records", src: "/artwork/healthcare/medical-records.jpg" },
+      { icon: Building2, label: "Hospital", art: "Vol. 2 · Healthcare — Surgery", src: "/artwork/healthcare/surgery.jpg" },
+      { icon: Microscope, label: "Laboratory", art: "Vol. 2 · Healthcare — Lab Results", src: "/artwork/healthcare/lab-results.jpg" },
+      { icon: ShieldCheck, label: "Insurer", art: "Vol. 2 · Healthcare — Insurance Claim", src: "/artwork/healthcare/insurance-claim.jpg" },
+      { icon: Pill, label: "Pharmacy", art: "Vol. 2 · Healthcare — Pharmacy", src: "/artwork/healthcare/pharmacy.jpg" },
     ],
   },
 
@@ -32,6 +33,7 @@ export const healthcare: IndustryPageContent = {
         label: "Patient Registration",
         icon: "IdCard",
         art: "Vol. 2 · Healthcare — Patient Registration",
+        src: "/artwork/healthcare/patient-registration.jpg",
         explanation: "Identity documents move from patients into every hospital record.",
         documents: [
           { name: "Registration Form", issuer: "Patient" },
@@ -43,6 +45,7 @@ export const healthcare: IndustryPageContent = {
         label: "Medical Records",
         icon: "FileCheck2",
         art: "Vol. 2 · Healthcare — Medical Records",
+        src: "/artwork/healthcare/medical-records.jpg",
         explanation: "Reports and summaries move from hospitals and doctors into every referral and claim.",
         documents: [
           { name: "Medical Report", issuer: "Hospital or Doctor" },
@@ -54,6 +57,7 @@ export const healthcare: IndustryPageContent = {
         label: "Lab Results",
         icon: "Microscope",
         art: "Vol. 2 · Healthcare — Lab Results",
+        src: "/artwork/healthcare/lab-results.jpg",
         explanation: "Diagnostic reports move from laboratories into every treatment decision.",
         documents: [
           { name: "Laboratory Report", issuer: "Laboratory" },
@@ -65,6 +69,7 @@ export const healthcare: IndustryPageContent = {
         label: "Prescription",
         icon: "Pill",
         art: "Vol. 2 · Healthcare — Prescription",
+        src: "/artwork/healthcare/prescription.jpg",
         explanation: "Prescriptions move from doctors into every dispensing decision.",
         documents: [{ name: "Prescription", issuer: "Doctor" }],
       },
@@ -73,6 +78,7 @@ export const healthcare: IndustryPageContent = {
         label: "Referral Letter",
         icon: "Mail",
         art: "Vol. 2 · Healthcare — Referral Letter",
+        src: "/artwork/healthcare/referral-letter.jpg",
         explanation: "Referral letters move between clinics and specialists into every continuity-of-care decision.",
         documents: [{ name: "Referral Letter", issuer: "Doctor or Clinic" }],
       },
@@ -81,6 +87,7 @@ export const healthcare: IndustryPageContent = {
         label: "Insurance Claim",
         icon: "ShieldCheck",
         art: "Vol. 2 · Healthcare — Insurance Claim",
+        src: "/artwork/healthcare/insurance-claim.jpg",
         explanation: "Claim and treatment documents move from hospitals into every insurer decision.",
         documents: [
           { name: "Insurance Claim Form", issuer: "Hospital or Patient" },
@@ -92,6 +99,7 @@ export const healthcare: IndustryPageContent = {
         label: "Radiology",
         icon: "Monitor",
         art: "Vol. 2 · Healthcare — Radiology",
+        src: "/artwork/healthcare/radiology.jpg",
         explanation: "Imaging reports move from radiologists into every diagnosis.",
         documents: [{ name: "Radiology Report", issuer: "Radiologist" }],
       },
@@ -100,6 +108,7 @@ export const healthcare: IndustryPageContent = {
         label: "Surgery",
         icon: "Syringe",
         art: "Vol. 2 · Healthcare — Surgery",
+        src: "/artwork/healthcare/surgery.jpg",
         explanation: "Surgical records and consent forms move from hospitals into every procedure.",
         documents: [
           { name: "Surgical Report", issuer: "Hospital" },
@@ -111,6 +120,7 @@ export const healthcare: IndustryPageContent = {
         label: "Pharmacy",
         icon: "Building2",
         art: "Vol. 2 · Healthcare — Pharmacy",
+        src: "/artwork/healthcare/pharmacy.jpg",
         explanation: "Dispensing records move from pharmacies into every prescription fulfilment.",
         documents: [{ name: "Dispensing Record", issuer: "Pharmacy" }],
       },
@@ -119,6 +129,7 @@ export const healthcare: IndustryPageContent = {
         label: "Telemedicine",
         icon: "Stethoscope",
         art: "Vol. 2 · Healthcare — Telemedicine",
+        src: "/artwork/healthcare/telemedicine.jpg",
         explanation: "Consultation records move from remote providers into every follow-up decision.",
         documents: [{ name: "Consultation Report", issuer: "Doctor" }],
       },

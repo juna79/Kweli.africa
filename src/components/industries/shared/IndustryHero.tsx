@@ -9,11 +9,13 @@ export function IndustryHero({
   headline,
   supportingCopy,
   art,
+  src,
 }: {
   industryName: string;
   headline: string;
   supportingCopy: string;
   art: string;
+  src?: string;
 }) {
   return (
     <section className="relative overflow-hidden px-6 py-24 lg:px-8 lg:py-32">
@@ -42,6 +44,7 @@ export function IndustryHero({
 
         <Reveal delayMs={150}>
           <ArtFrame
+            src={src}
             alt={`${industryName} documents in context — Kweli Art Book`}
             source={art}
             aspect="aspect-[4/5] lg:aspect-square"

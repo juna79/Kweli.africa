@@ -26,7 +26,7 @@ export function IndustryEcosystem({
         <Reveal delayMs={100} className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3">
           {tiles.map((tile) => (
             <div key={tile.label} className="group transition-transform duration-300 ease-[var(--ease-trust)] hover:-translate-y-1">
-              <ArtFrame alt={tile.label} source={tile.art} icon={tile.icon} aspect="aspect-square" />
+              <ArtFrame src={tile.src} alt={tile.label} source={tile.art} icon={tile.icon} aspect="aspect-square" />
               <p className="mt-3.5 text-center text-sm font-medium text-[var(--color-slate)] transition-colors duration-150 group-hover:text-[var(--color-warm-paper)]">
                 {tile.label}
               </p>

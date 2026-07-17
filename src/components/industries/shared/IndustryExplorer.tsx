@@ -121,6 +121,7 @@ function ExplorerBody({ lines }: { lines: ExplorerLine[] }) {
         style={{ animationDuration: "350ms" }}
       >
         <ArtFrame
+          src={current.src}
           alt={`${current.label} — Kweli Art Book`}
           source={current.art ?? "Not yet sourced — see MANIFEST.md"}
           icon={CurrentIcon}

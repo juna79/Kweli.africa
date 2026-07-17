@@ -9,6 +9,7 @@ export type EcosystemTile = {
   icon: LucideIcon;
   label: string;
   art: string;
+  src?: string;
 };
 
 export type ExplorerDocument = {
@@ -25,6 +26,7 @@ export type ExplorerLine = {
   label: string;
   icon: IconName;
   art: string | null;
+  src?: string;
   explanation: string;
   documents: ExplorerDocument[];
 };
@@ -82,6 +84,7 @@ export type IndustryPageContent = {
     headline: string;
     supportingCopy: string;
     art: string;
+    src?: string;
   };
 
   ecosystem: {
