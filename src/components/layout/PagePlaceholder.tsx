@@ -10,7 +10,7 @@ export function PagePlaceholder({
   return (
     <section className="relative px-6 py-40 text-center lg:px-8">
       <div className="mx-auto max-w-xl">
-        <h1 className="text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+        <h1 className="text-[2.75rem] leading-[1.1] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem] md:text-[4.75rem] md:leading-[1.08]">
           {title}
         </h1>
         <p className="mx-auto mt-6 max-w-md text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">

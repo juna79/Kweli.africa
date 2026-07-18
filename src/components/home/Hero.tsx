@@ -22,7 +22,7 @@ function HeroVisual() {
   });
 
   return (
-    <div aria-hidden className="animate-fade-up absolute inset-0 z-0 overflow-hidden [animation-duration:1200ms]">
+    <div aria-hidden className="animate-fade-up absolute inset-0 z-0 isolate overflow-hidden [animation-duration:1200ms]">
       {/* base atmosphere */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_22%,rgba(201,162,39,0.32),transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_45%_at_85%_5%,rgba(230,189,74,0.22),transparent_58%)]" />

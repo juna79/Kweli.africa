@@ -78,9 +78,9 @@ function Intro() {
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Why Kweli
           </p>
-          <h2 className="mx-auto mt-6 max-w-2xl text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 max-w-2xl text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
             Every important decision starts with a document.
-          </h2>
+          </h1>
         </HeroReveal>
       </div>
     </section>
@@ -126,12 +126,12 @@ function Manifesto() {
         <div className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--color-gold)]/40 text-[var(--color-gold-bright)] animate-trust-pulse">
           <Fingerprint size={34} strokeWidth={1.5} aria-hidden />
         </div>
-        <h3 className="mx-auto mt-12 max-w-2xl text-[3rem] leading-[1.08] font-bold sm:text-[3.75rem]">
+        <h2 className="mx-auto mt-12 max-w-2xl text-[3rem] leading-[1.08] font-bold sm:text-[3.75rem]">
           <span className="block text-[var(--color-warm-paper)]">The document travels.</span>
           <span className="mt-2 block text-[var(--color-gold-bright)] [text-shadow:0_0_70px_rgba(230,189,74,0.3)]">
             The trust should not.
           </span>
-        </h3>
+        </h2>
       </Reveal>
     </section>
   );
