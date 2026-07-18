@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { LegalPage } from "@/components/legal/LegalPage";
-import { cookiePolicy } from "@/lib/legal/cookiePolicy";
+import { CookiePolicyPage } from "@/components/legal/CookiePolicyPage";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
@@ -14,7 +13,7 @@ export default function CookiesPage() {
     <>
       <Header />
       <main className="flex-1">
-        <LegalPage content={cookiePolicy} />
+        <CookiePolicyPage />
       </main>
       <Footer />
     </>

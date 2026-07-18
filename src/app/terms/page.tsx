@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { LegalPage } from "@/components/legal/LegalPage";
-import { termsOfService } from "@/lib/legal/termsOfService";
+import { TermsOfServicePage } from "@/components/legal/TermsOfServicePage";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -14,7 +13,7 @@ export default function TermsPage() {
     <>
       <Header />
       <main className="flex-1">
-        <LegalPage content={termsOfService} />
+        <TermsOfServicePage />
       </main>
       <Footer />
     </>

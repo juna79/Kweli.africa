@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { LegalPage } from "@/components/legal/LegalPage";
-import { privacyPolicy } from "@/lib/legal/privacyPolicy";
+import { PrivacyPolicyPage } from "@/components/legal/PrivacyPolicyPage";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -14,7 +13,7 @@ export default function PrivacyPage() {
     <>
       <Header />
       <main className="flex-1">
-        <LegalPage content={privacyPolicy} />
+        <PrivacyPolicyPage />
       </main>
       <Footer />
     </>
