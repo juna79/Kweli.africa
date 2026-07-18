@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form definitions</title>
+  </head>
+  <body>
+    <!--
+      This page is never linked to or rendered for visitors. It exists only
+      so Netlify's build-time form scanner has a plain static HTML file to
+      read: the Next.js Runtime serves app pages through its own routing
+      layer, which the scanner does not reliably crawl, so forms rendered
+      only inside React components can go undetected. Netlify's official
+      workaround for JS-framework sites is a static form definition like
+      this one, kept in sync with the real form's name and field names in
+      src/components/demo/BookADemo.tsx. The live form still submits via
+      fetch(); this file only handles registration.
+    -->
+    <form name="book-a-demo" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="book-a-demo" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="text" name="industry" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
