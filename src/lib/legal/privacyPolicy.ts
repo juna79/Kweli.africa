@@ -9,53 +9,50 @@ export const privacyPolicy: LegalPageContent = {
   ],
   sections: [
     {
-      heading: "Information we collect",
+      heading: "What personal information we collect",
       paragraphs: [
-        "We collect information in the following ways:",
+        "We collect only what we need to run this website and respond to the people who use it. Depending on how you interact with us, that can include:",
       ],
       list: [
-        "Information you provide directly — for example, your name, work email address, company name, industry, and any message you include when you request a demo or contact us.",
-        "Information collected automatically — standard technical information such as IP address, browser type, device type, pages viewed, and referring pages, typically gathered through analytics tools when you visit the Site.",
+        "Contact details you give us — name, work email address, company name, and industry, typically when you request a demo or get in touch",
+        "The content of any message you send us, for example what you write in a demo request or an email",
+        "Standard technical information collected automatically when you visit the Site, such as IP address, browser and device type, and the pages you view",
       ],
     },
     {
-      heading: "How document verification works",
+      heading: "How information is collected",
+      paragraphs: [
+        "Most of what we hold about you, you gave us directly — by filling in the demo request form or emailing us. Technical information is collected automatically as a normal part of serving web pages and understanding how the Site is used, described in more detail below.",
+      ],
+    },
+    {
+      heading: "Website analytics",
+      paragraphs: [
+        "We may use analytics tools to understand, in aggregate, how visitors use the Site — for example, which pages are viewed and how people arrive at the Site. This helps us improve it. Analytics data is typically aggregated and is not used to build individual profiles beyond what's needed to understand overall usage.",
+      ],
+    },
+    {
+      heading: "Cookies",
+      paragraphs: [
+        "The Site uses a small number of cookies for essential functionality and, where enabled, to understand aggregate usage. Full detail on what each cookie does and how to control them is in our Cookie Policy.",
+      ],
+    },
+    {
+      heading: "Demo request information",
+      paragraphs: [
+        "When you request a demo through the Site, the details you submit — name, work email, company, industry, and any message — are sent to our team so we can follow up and schedule a conversation. We use this information only to respond to your request and, if it leads to an ongoing relationship, to communicate with you about it. We don't use it for anything else, and we don't sell it.",
+      ],
+    },
+    {
+      heading: "Uploaded documents and how verification works",
       paragraphs: [
         "Kweli is built so that we never see the documents you verify. When you use Kweli to check a document, the document itself is processed locally in your browser and is never uploaded to our servers.",
-        "Only a cryptographic fingerprint of the document — together with limited metadata supplied at registration, such as the issuer's identity and a timestamp — is transmitted to and stored in the Kweli registry.",
-        "Because the underlying document never leaves your device during verification, we have no access to, and do not store, the content of any document you check.",
+        "Only a cryptographic fingerprint of the document — a one-way hash that cannot be reversed to reconstruct the document — together with limited metadata supplied at registration, such as the issuer's identity and a timestamp, is transmitted to and stored in the Kweli registry.",
+        "Because the underlying document never leaves your device during verification, we have no access to, and do not store, the content of any document you check. Unless a specific product feature says otherwise at the point you use it, Kweli does not retain a copy of any document you upload or verify — only its fingerprint.",
       ],
     },
     {
-      heading: "How we use information",
-      paragraphs: ["We use the information we collect to:"],
-      list: [
-        "Respond to demo requests and business enquiries",
-        "Operate, maintain, and improve the Site and the Kweli service",
-        "Communicate with you about updates, security notices, and administrative matters",
-        "Understand how visitors use the Site so that we can improve it",
-        "Comply with our legal obligations",
-      ],
-    },
-    {
-      heading: "Cookies and analytics",
-      paragraphs: [
-        "The Site may use cookies and similar technologies for essential functionality and to understand aggregate usage patterns. You can control cookies through your browser settings; disabling them may affect some Site functionality.",
-      ],
-    },
-    {
-      heading: "How we share information",
-      paragraphs: [
-        "We do not sell personal information. We may share information in the following circumstances:",
-      ],
-      list: [
-        "With service providers who help us operate the Site — for example, hosting, analytics, and email delivery — each bound by appropriate confidentiality obligations",
-        "If required by law, or to protect the rights, property, or safety of EAX Global, our users, or others",
-        "As part of a merger, acquisition, financing, or sale of business assets, in which case information may be transferred as part of that transaction",
-      ],
-    },
-    {
-      heading: "Data security",
+      heading: "Security",
       paragraphs: [
         "We use reasonable technical and organisational measures designed to protect information from unauthorised access, loss, or misuse. Fingerprint records registered with Kweli are anchored using tamper-evident cryptographic techniques, so that a registered record cannot be quietly altered after the fact.",
         "No method of transmission or storage is completely secure, and we cannot guarantee absolute security.",
@@ -69,15 +66,22 @@ export const privacyPolicy: LegalPageContent = {
       ],
     },
     {
-      heading: "Your rights",
+      heading: "Third-party services",
       paragraphs: [
-        "Depending on where you are located, you may have rights to access, correct, delete, or restrict the use of your personal information, or to object to its processing. To exercise these rights, contact us at info@kweli.solutions.",
+        "We rely on a small number of service providers to run the Site and respond to enquiries — for example, providers of website hosting, form submission handling, analytics, and email delivery. Each is only given the information needed to perform its function, and each is bound by appropriate confidentiality obligations.",
+        "We do not sell personal information. Beyond the service providers above, we may share information if required by law, to protect the rights, property, or safety of EAX Global, our users, or others, or as part of a merger, acquisition, financing, or sale of business assets.",
       ],
     },
     {
       heading: "International data transfers",
       paragraphs: [
-        "We may process and store information in countries other than your own. Where we do, we take steps intended to ensure that information receives an appropriate level of protection.",
+        "We may process and store information in countries other than your own. Where we do, we take steps intended to ensure that information receives an appropriate level of protection, wherever it is processed.",
+      ],
+    },
+    {
+      heading: "Your rights",
+      paragraphs: [
+        "Depending on where you are located, you may have rights to access, correct, delete, or restrict the use of your personal information, or to object to its processing. To exercise these rights, contact us at info@kweli.solutions.",
       ],
     },
     {
@@ -87,9 +91,9 @@ export const privacyPolicy: LegalPageContent = {
       ],
     },
     {
-      heading: "Changes to this policy",
+      heading: "Updates to this policy",
       paragraphs: [
-        "We may update this Policy from time to time. We will post the updated version on this page with a revised “Last updated” date.",
+        "We may update this Policy from time to time. We will post the updated version on this page with a revised “Last updated” date. If changes are significant, we'll make that clear on this page.",
       ],
     },
     {

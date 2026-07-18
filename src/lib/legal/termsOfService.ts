@@ -15,7 +15,7 @@ export const termsOfService: LegalPageContent = {
       ],
     },
     {
-      heading: "Eligibility and business use",
+      heading: "Website usage and eligibility",
       paragraphs: [
         "The Service is intended for business and professional use. By using the Service, you represent that you have the authority to do so, including on behalf of your organisation where applicable.",
       ],
@@ -32,15 +32,6 @@ export const termsOfService: LegalPageContent = {
       ],
     },
     {
-      heading: "The nature of verification",
-      paragraphs: [
-        "Kweli verifies document authenticity — whether a presented document is identical to the version originally registered — not the truthfulness, legality, or validity of the information the document contains.",
-        "A “Verified” result means the presented document matches the version registered at issuance. It does not mean that the issuer is legitimate, that the document's content is accurate, or that any transaction or decision based on the document is sound.",
-        "A “Document Not Found” result means no registered record exists for the document; it does not, by itself, mean that the document is fraudulent.",
-        "Decisions made on the basis of a Kweli verification result remain the sole responsibility of the party making them.",
-      ],
-    },
-    {
       heading: "Intellectual property",
       paragraphs: [
         "The Site, the Kweli name and logo, and all related content, features, and functionality are owned by EAX Global Ltd or its licensors and are protected by applicable intellectual property laws. Nothing in these Terms grants you any right to use the Kweli name, logo, or branding without our prior written consent.",
@@ -53,15 +44,46 @@ export const termsOfService: LegalPageContent = {
       ],
     },
     {
-      heading: "Disclaimer of warranties",
+      heading: "Demo requests",
       paragraphs: [
-        "The Service is provided “as is” and “as available,” without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or completely secure.",
+        "Submitting a demo request through the Site is an enquiry, not a contract. It doesn't commit you, or us, to anything — it simply lets our team follow up to arrange a conversation. Any commercial relationship that follows is subject to its own separate agreement.",
+      ],
+    },
+    {
+      heading: "Authenticity, integrity, and truthfulness — what verification does and doesn't mean",
+      paragraphs: [
+        "This distinction matters, and we want it to be unambiguous. Kweli speaks to two specific properties of a document, and does not speak to a third:",
+      ],
+      list: [
+        "Authenticity — whether the document actually originates from the issuer it claims to. Kweli helps establish this by comparing a presented document against the fingerprint registered by that issuer at the time of issuance.",
+        "Integrity — whether the document is unchanged since it was registered. A “Verified” result means the document presented today is byte-for-byte identical to the version originally registered; the smallest alteration would change its fingerprint and break the match.",
+        "Truthfulness — whether the information written in the document is accurate. Kweli makes no assessment of this at all. A document can be perfectly authentic and unaltered while still containing information that is incomplete, mistaken, or false — Kweli verifies the document, not the facts inside it.",
+      ],
+    },
+    {
+      heading: "Verification service limitations",
+      paragraphs: [
+        "A “Verified” result means the presented document matches the version registered at issuance. It does not mean that the issuer is legitimate, that the document's content is accurate, or that any transaction or decision based on the document is sound.",
+        "A “Document Not Found” result means no registered record exists for the document; it does not, by itself, mean that the document is fraudulent — it may simply predate registration or have been issued by an organisation not yet using Kweli.",
+        "Decisions made on the basis of a Kweli verification result remain the sole responsibility of the party making them.",
+      ],
+    },
+    {
+      heading: "No warranties",
+      paragraphs: [
+        "The Service is provided “as is” and “as available,” without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or completely secure, and we do not warrant or guarantee the truthfulness of any document's contents.",
       ],
     },
     {
       heading: "Limitation of liability",
       paragraphs: [
         "To the maximum extent permitted by law, EAX Global Ltd shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenue, arising from or related to your use of the Service, even if advised of the possibility of such damages.",
+      ],
+    },
+    {
+      heading: "Availability of the service",
+      paragraphs: [
+        "We aim to keep the Service available and reliable, but we don't guarantee uninterrupted access. The Service may be unavailable from time to time for maintenance, updates, or reasons outside our control, and we may change, suspend, or discontinue any part of it without liability to you for doing so.",
       ],
     },
     {

@@ -91,6 +91,12 @@ export function Footer() {
             >
               Terms of Service
             </Link>
+            <Link
+              href="/cookies"
+              className="text-xs text-[var(--color-slate)] hover:text-[var(--color-gold-bright)]"
+            >
+              Cookie Policy
+            </Link>
           </div>
         </div>
       </div>
