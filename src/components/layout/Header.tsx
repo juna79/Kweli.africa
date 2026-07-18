@@ -8,6 +8,7 @@ import { primaryNav, verifyNavItem, demoNavItem } from "@/lib/nav";
 import { industries } from "@/lib/industries";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -187,6 +188,9 @@ export function Header() {
             <Button href={demoNavItem.href} variant="primary" className="w-full">
               {demoNavItem.label}
             </Button>
+          </div>
+          <div className="mt-6 flex items-center justify-center border-t border-white/5 pt-6">
+            <SocialLinks />
           </div>
         </nav>
       )}

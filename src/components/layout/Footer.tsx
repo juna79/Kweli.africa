@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { industries } from "@/lib/industries";
 import { Logo } from "@/components/layout/Logo";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 
 const columns = [
   {
@@ -35,6 +36,7 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-slate)]">
               Trust Infrastructure for the World.
             </p>
+            <SocialLinks className="-ml-2.5 mt-3" />
           </div>
           {columns.map((col) => (
             <div key={col.title}>
