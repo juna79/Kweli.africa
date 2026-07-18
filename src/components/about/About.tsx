@@ -28,9 +28,9 @@ function Hero() {
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             About
           </p>
-          <h1 className="mx-auto mt-4 max-w-5xl text-[length:var(--text-h1)] leading-[1.02] font-bold text-[var(--color-warm-paper)]">
-            Independent trust has become a missing layer of modern
-            infrastructure.
+          <h1 className="mx-auto mt-4 max-w-4xl text-[2.75rem] leading-[1.1] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem] md:text-[4.5rem] md:leading-[1.08]">
+            Independent trust has become a missing layer
+            <br className="hidden sm:block" /> of modern infrastructure.
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli exists to close that gap.

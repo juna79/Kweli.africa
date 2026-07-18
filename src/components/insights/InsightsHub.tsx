@@ -32,10 +32,10 @@ function Hero() {
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Insights
           </p>
-          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[2.75rem] leading-[1.1] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem] md:text-[4.75rem] md:leading-[1.08]">
             Practical writing on trust.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
+          <p className="mx-auto mt-8 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Notes on verification, document integrity, and where trust breaks
             down across industries.
           </p>

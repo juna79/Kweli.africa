@@ -12,7 +12,7 @@ export function VerifyHero() {
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Verify a Document
           </p>
-          <h1 className="mx-auto mt-6 text-[length:var(--text-h1)] leading-[1.1] font-bold text-[var(--color-warm-paper)]">
+          <h1 className="mx-auto mt-6 text-[2.75rem] leading-[1.1] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem] md:text-[4.75rem] md:leading-[1.08]">
             Trust Every Document. Instantly.
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
