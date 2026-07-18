@@ -96,7 +96,12 @@ function DemoForm() {
       const body = new URLSearchParams();
       data.forEach((value, key) => body.append(key, String(value)));
 
-      const res = await fetch("/book-a-demo", {
+      // Posts to the static form-definition file, not this page. The Next.js
+      // Runtime serves /book-a-demo from its own prerendered-page cache even
+      // for POST requests, which never reaches Netlify's forms processing —
+      // confirmed by inspecting response headers (cache-status: "Next.js"; hit)
+      // versus the real Netlify Forms "Thank you" response from /__forms.html.
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: body.toString(),
