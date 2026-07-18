@@ -8,6 +8,7 @@ import { primaryNav, verifyNavItem, demoNavItem } from "@/lib/nav";
 import { industries } from "@/lib/industries";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
+import { BrandTag } from "@/components/layout/BrandTag";
 import { SocialLinks } from "@/components/layout/SocialLinks";
 
 function isActivePath(pathname: string, href: string) {
@@ -53,8 +54,11 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-        <Logo size="large" />
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <div className="flex flex-col gap-0.5">
+          <Logo size="large" />
+          <BrandTag />
+        </div>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {primaryNav.map((item) => {

@@ -64,7 +64,21 @@ export function Footer() {
             © {new Date().getFullYear()} Kweli. Kweli verifies authenticity and
             integrity — not factual correctness.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <a
+              href="mailto:info@kweli.solutions"
+              className="text-xs text-[var(--color-slate)] transition-colors duration-150 hover:text-[var(--color-gold-bright)]"
+            >
+              Contact Us
+            </a>
+            <a
+              href="https://eaxglobal.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-[var(--color-slate)] transition-colors duration-150 hover:text-[var(--color-gold-bright)]"
+            >
+              EAX Global
+            </a>
             <Link
               href="/privacy"
               className="text-xs text-[var(--color-slate)] hover:text-[var(--color-gold-bright)]"
