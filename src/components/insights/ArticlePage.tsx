@@ -53,15 +53,11 @@ export function ArticlePage({ article }: { article: Article }) {
           </p>
         </HeroReveal>
 
-        <Reveal delayMs={100} className="mt-14 space-y-6">
-          {article.body.map((paragraph, i) => (
-            <p
-              key={i}
-              className="text-[length:var(--text-body)] leading-[var(--text-body--line-height)] text-[var(--color-warm-paper)]/90"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <Reveal delayMs={100} className="mt-14">
+          <div
+            className="space-y-6 [&_a]:text-[var(--color-gold-bright)] [&_a]:underline [&_a]:underline-offset-2 [&_li]:ml-5 [&_li]:list-disc [&_ol]:space-y-2 [&_p]:text-[length:var(--text-body)] [&_p]:leading-[var(--text-body--line-height)] [&_p]:text-[var(--color-warm-paper)]/90 [&_strong]:font-semibold [&_strong]:text-[var(--color-warm-paper)] [&_ul]:space-y-2"
+            dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
+          />
         </Reveal>
 
         <Reveal className="mt-20 border-t border-white/10 pt-10 text-center">
