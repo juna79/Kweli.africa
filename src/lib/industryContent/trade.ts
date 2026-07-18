@@ -1,4 +1,4 @@
-import { Truck, Anchor, Building2, Ship, Warehouse, FileSearch, BadgeCheck } from "lucide-react";
+import { Truck, Anchor, Building2, Ship, Warehouse, FileSearch } from "lucide-react";
 import type { IndustryPageContent } from "@/lib/industryPageTypes";
 
 export const trade: IndustryPageContent = {
@@ -37,6 +37,17 @@ export const trade: IndustryPageContent = {
           { name: "Shipping Instruction", issuer: "Exporter" },
           { name: "Packing List", issuer: "Exporter" },
         ],
+        journey: {
+          heading: "How an export shipment moves from instruction to departure.",
+          steps: [
+            { icon: "Truck", label: "Exporter issues shipping instruction and packing list" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Shipping line receives documents" },
+            { icon: "ShieldCheck", label: "Freight forwarder verifies" },
+            { icon: "BadgeCheck", label: "Shipment proceeds" },
+          ],
+          footnote: "Kweli does not assess the condition or quantity of the goods described.",
+        },
       },
       {
         key: "certificate-of-origin",
@@ -45,6 +56,17 @@ export const trade: IndustryPageContent = {
         art: "Vol. 2 · Trade — Certificate of Origin",
         explanation: "Certificates of origin move from the chamber of commerce or exporter into every customs decision.",
         documents: [{ name: "Certificate of Origin", issuer: "Chamber of Commerce or Exporter" }],
+        journey: {
+          heading: "How a certificate of origin moves from issue to clearance.",
+          steps: [
+            { icon: "Award", label: "Chamber of commerce or exporter issues certificate" },
+            { icon: "Fingerprint", label: "Certificate registered" },
+            { icon: "Share2", label: "Importer or customs receives certificate" },
+            { icon: "ShieldCheck", label: "Customs verifies" },
+            { icon: "BadgeCheck", label: "Clearance proceeds" },
+          ],
+          footnote: "Kweli does not confirm the true country of origin, only that the certificate matches what was registered.",
+        },
       },
       {
         key: "customs",
@@ -56,6 +78,18 @@ export const trade: IndustryPageContent = {
           { name: "Customs Declaration", issuer: "Customs Agent" },
           { name: "Import or Export Permit", issuer: "Customs Authority" },
         ],
+        journey: {
+          heading: "How a customs declaration moves from filing to release.",
+          steps: [
+            { icon: "Briefcase", label: "Customs agent files declaration" },
+            { icon: "Building2", label: "Customs authority issues permit" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Customs office receives documents" },
+            { icon: "ShieldCheck", label: "Officer verifies" },
+            { icon: "BadgeCheck", label: "Goods released" },
+          ],
+          footnote: "Kweli does not assess whether duties owed have been correctly calculated.",
+        },
       },
       {
         key: "inspection",
@@ -67,6 +101,18 @@ export const trade: IndustryPageContent = {
           { name: "Inspection Certificate", issuer: "Inspection Company" },
           { name: "Quality Certificate", issuer: "Inspection Company" },
         ],
+        journey: {
+          heading: "How an inspection certificate moves from testing to release.",
+          steps: [
+            { icon: "FileSearch", label: "Inspection company completes inspection" },
+            { icon: "FileCheck2", label: "Inspection and quality certificates issued" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Buyer or customs receives certificates" },
+            { icon: "ShieldCheck", label: "Authenticity verified" },
+            { icon: "BadgeCheck", label: "Shipment released" },
+          ],
+          footnote: "Kweli does not assess the quality of the goods, only whether the certificate matches what was registered.",
+        },
       },
       {
         key: "warehouse",
@@ -75,6 +121,17 @@ export const trade: IndustryPageContent = {
         art: "Vol. 2 · Trade — Warehouse",
         explanation: "Warehouse receipts move from operators into every storage or financing decision.",
         documents: [{ name: "Warehouse Receipt", issuer: "Warehouse Operator" }],
+        journey: {
+          heading: "How a warehouse receipt moves from storage to financing.",
+          steps: [
+            { icon: "Warehouse", label: "Warehouse operator issues receipt" },
+            { icon: "Fingerprint", label: "Receipt registered" },
+            { icon: "Share2", label: "Holder shares receipt" },
+            { icon: "ShieldCheck", label: "Financier or buyer verifies" },
+            { icon: "BadgeCheck", label: "Storage or financing decision proceeds" },
+          ],
+          footnote: "Kweli does not confirm the condition or quantity of goods held in storage.",
+        },
       },
       {
         key: "bill-of-lading",
@@ -83,6 +140,17 @@ export const trade: IndustryPageContent = {
         art: "Vol. 2 · Trade — Bill of Lading",
         explanation: "Bills of lading move from shipping lines into every cargo release.",
         documents: [{ name: "Bill of Lading", issuer: "Shipping Line" }],
+        journey: {
+          heading: "How a bill of lading moves from issue to cargo release.",
+          steps: [
+            { icon: "Ship", label: "Shipping line issues bill of lading" },
+            { icon: "Fingerprint", label: "Document registered" },
+            { icon: "Share2", label: "Consignee receives bill" },
+            { icon: "ShieldCheck", label: "Carrier or customs verifies" },
+            { icon: "BadgeCheck", label: "Cargo released" },
+          ],
+          footnote: "Kweli does not assess the condition of the cargo described.",
+        },
       },
       {
         key: "cold-chain",
@@ -94,6 +162,18 @@ export const trade: IndustryPageContent = {
           { name: "Temperature Log", issuer: "Logistics Provider" },
           { name: "Cold Chain Certificate", issuer: "Inspection Company" },
         ],
+        journey: {
+          heading: "How a cold chain record moves from log to acceptance.",
+          steps: [
+            { icon: "Snowflake", label: "Logistics provider records temperature log" },
+            { icon: "FileCheck2", label: "Inspection company issues cold chain certificate" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Buyer receives documents" },
+            { icon: "ShieldCheck", label: "Authenticity verified" },
+            { icon: "BadgeCheck", label: "Shipment accepted" },
+          ],
+          footnote: "Kweli does not confirm the actual temperature the goods experienced, only that the recorded log matches what was registered.",
+        },
       },
       {
         key: "importer",
@@ -105,6 +185,18 @@ export const trade: IndustryPageContent = {
           { name: "Import Permit", issuer: "Customs Authority" },
           { name: "Purchase Order", issuer: "Importer" },
         ],
+        journey: {
+          heading: "How an import moves from permit to intake.",
+          steps: [
+            { icon: "Anchor", label: "Customs authority issues import permit" },
+            { icon: "FileCheck2", label: "Importer issues purchase order" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Supplier receives documents" },
+            { icon: "ShieldCheck", label: "Customs verifies" },
+            { icon: "BadgeCheck", label: "Intake proceeds" },
+          ],
+          footnote: "Kweli does not assess whether the import complies with regulatory requirements.",
+        },
       },
       {
         key: "exporter",
@@ -116,21 +208,20 @@ export const trade: IndustryPageContent = {
           { name: "Commercial Invoice", issuer: "Exporter" },
           { name: "Export Licence", issuer: "Government" },
         ],
+        journey: {
+          heading: "How an export moves from invoice to departure.",
+          steps: [
+            { icon: "Truck", label: "Exporter issues commercial invoice" },
+            { icon: "Building2", label: "Government issues export licence" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Buyer or customs receives documents" },
+            { icon: "ShieldCheck", label: "Authenticity verified" },
+            { icon: "BadgeCheck", label: "Export proceeds" },
+          ],
+          footnote: "Kweli does not assess whether the export complies with regulatory requirements.",
+        },
       },
     ],
-  },
-
-  journey: {
-    heading: "How a trade document moves from exporter to importer.",
-    steps: [
-      { icon: Truck, label: "Exporter" },
-      { icon: FileSearch, label: "Inspection" },
-      { icon: Anchor, label: "Origin" },
-      { icon: Ship, label: "Shipping" },
-      { icon: Building2, label: "Customs" },
-      { icon: BadgeCheck, label: "Importer" },
-    ],
-    footnote: "Kweli does not clear a shipment and does not assess the quality of the goods described.",
   },
 
   businessImpact: {
@@ -150,7 +241,7 @@ export const trade: IndustryPageContent = {
   },
 
   pilot: {
-    heading: "A focused pilot, not a customs-wide overhaul.",
+    heading: "One workflow, proven in practice — not a customs-wide overhaul.",
     steps: [
       { label: "Choose one document type" },
       { label: "Onboard a manageable group of exporters" },
@@ -160,7 +251,7 @@ export const trade: IndustryPageContent = {
   },
 
   cta: {
-    heading: "Ready to start with one document type?",
+    heading: "Ready to bring verification into your trade documentation?",
     supportingCopy: "Begin with certificates of origin and expand across shipping and customs.",
   },
 };

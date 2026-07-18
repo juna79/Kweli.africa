@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Can Kweli integrate with existing systems?",
-    a: "Kweli is built as an independent trust layer that fits alongside the systems an organisation already uses, rather than replacing them. Integration specifics are worked out as part of every pilot.",
+    a: "Kweli is built as an independent trust layer that fits alongside the systems an organisation already uses, rather than replacing them. Integration specifics are worked out together, based on the systems and workflow involved.",
   },
   {
     q: "What happens if no record exists?",

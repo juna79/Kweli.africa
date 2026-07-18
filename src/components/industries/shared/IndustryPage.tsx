@@ -1,16 +1,16 @@
 import { IndustryHero } from "@/components/industries/shared/IndustryHero";
 import { IndustryEcosystem } from "@/components/industries/shared/IndustryEcosystem";
-import { IndustryExplorer } from "@/components/industries/shared/IndustryExplorer";
-import { IndustryJourney } from "@/components/industries/shared/IndustryJourney";
+import { IndustryWorkflowSection } from "@/components/industries/shared/IndustryWorkflowSection";
 import { IndustryBusinessImpact } from "@/components/industries/shared/IndustryBusinessImpact";
 import { IndustryPilot } from "@/components/industries/shared/IndustryPilot";
 import { IndustryCta } from "@/components/industries/shared/IndustryCta";
 import type { IndustryPageContent } from "@/lib/industryPageTypes";
 
 // The locked seven-section industry page template: Hero, Ecosystem,
-// Explorer, Journey, Business Impact, Pilot, CTA. One component hierarchy,
-// shared spacing/typography/animation, reused for every industry — only
-// the content passed in changes.
+// Explorer+Journey (one client island, shared selection state — see
+// IndustryWorkflowSection), Business Impact, Pilot, CTA. One component
+// hierarchy, shared spacing/typography/animation, reused for every
+// industry — only the content passed in changes.
 export function IndustryPage({ content }: { content: IndustryPageContent }) {
   return (
     <>
@@ -26,12 +26,11 @@ export function IndustryPage({ content }: { content: IndustryPageContent }) {
         heading={content.ecosystem.heading}
         tiles={content.ecosystem.tiles}
       />
-      <IndustryExplorer
-        eyebrow={`Explore ${content.name} Workflows`}
-        heading={content.explorer.heading}
+      <IndustryWorkflowSection
+        explorerEyebrow={`Explore ${content.name} Workflows`}
+        explorerHeading={content.explorer.heading}
         lines={content.explorer.lines}
       />
-      <IndustryJourney heading={content.journey.heading} steps={content.journey.steps} footnote={content.journey.footnote} />
       <IndustryBusinessImpact
         heading={content.businessImpact.heading}
         today={content.businessImpact.today}

@@ -1,4 +1,4 @@
-import { Users, FileCheck2, Gavel, Building2, Briefcase, Award, Fingerprint, Share2, ShieldCheck, BadgeCheck } from "lucide-react";
+import { Users, FileCheck2, Gavel, Building2, Briefcase, Award } from "lucide-react";
 import type { IndustryPageContent } from "@/lib/industryPageTypes";
 
 export const professionalServices: IndustryPageContent = {
@@ -37,6 +37,17 @@ export const professionalServices: IndustryPageContent = {
           { name: "Audit Report", issuer: "Audit Firm" },
           { name: "Management Letter", issuer: "Audit Firm" },
         ],
+        journey: {
+          heading: "How an audit report moves from fieldwork to sign-off.",
+          steps: [
+            { icon: "FileCheck2", label: "Audit firm completes audit" },
+            { icon: "Fingerprint", label: "Report and management letter registered" },
+            { icon: "Share2", label: "Client receives audit report" },
+            { icon: "ShieldCheck", label: "Board or regulator verifies" },
+            { icon: "BadgeCheck", label: "Sign-off proceeds" },
+          ],
+          footnote: "Kweli does not form the audit opinion and does not assess whether the accounts are accurate.",
+        },
       },
       {
         key: "board-minutes",
@@ -48,6 +59,17 @@ export const professionalServices: IndustryPageContent = {
           { name: "Board Minutes", issuer: "Company Secretary" },
           { name: "Board Resolution", issuer: "Company Secretary" },
         ],
+        journey: {
+          heading: "How board minutes move from record to governance decision.",
+          steps: [
+            { icon: "Users", label: "Company secretary records minutes and resolution" },
+            { icon: "Fingerprint", label: "Minutes registered" },
+            { icon: "Share2", label: "Board shares minutes" },
+            { icon: "ShieldCheck", label: "Regulator or auditor verifies" },
+            { icon: "BadgeCheck", label: "Governance record confirmed" },
+          ],
+          footnote: "Kweli does not assess whether the resolution was validly passed.",
+        },
       },
       {
         key: "contracts",
@@ -59,6 +81,17 @@ export const professionalServices: IndustryPageContent = {
           { name: "Signed Contract", issuer: "Law Firm or Client" },
           { name: "Contract Amendment", issuer: "Law Firm" },
         ],
+        journey: {
+          heading: "How a signed contract moves from execution to agreement.",
+          steps: [
+            { icon: "Gavel", label: "Law firm or client signs contract" },
+            { icon: "Fingerprint", label: "Contract registered" },
+            { icon: "Share2", label: "Counterparty receives contract" },
+            { icon: "ShieldCheck", label: "Legal team verifies" },
+            { icon: "BadgeCheck", label: "Agreement proceeds" },
+          ],
+          footnote: "Kweli does not assess the enforceability or terms of the contract.",
+        },
       },
       {
         key: "due-diligence",
@@ -70,6 +103,18 @@ export const professionalServices: IndustryPageContent = {
           { name: "Due Diligence Report", issuer: "Advisory Firm" },
           { name: "Data Room Index", issuer: "Advisory Firm" },
         ],
+        journey: {
+          heading: "How a due diligence report moves from review to decision.",
+          steps: [
+            { icon: "FileSearch", label: "Advisory firm completes due diligence" },
+            { icon: "FileCheck2", label: "Report and data room index issued" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Client or acquirer receives report" },
+            { icon: "ShieldCheck", label: "Transaction team verifies" },
+            { icon: "BadgeCheck", label: "Transaction decision proceeds" },
+          ],
+          footnote: "Kweli does not form the findings in the report and does not assess the underlying transaction.",
+        },
       },
       {
         key: "valuation",
@@ -78,6 +123,18 @@ export const professionalServices: IndustryPageContent = {
         art: "Vol. 2 · Professional Services — Valuation",
         explanation: "Independent valuation reports move from valuers into every transaction or financing decision.",
         documents: [{ name: "Valuation Report", issuer: "Valuer" }],
+        journey: {
+          heading: "How a valuation report moves from assessment to decision.",
+          steps: [
+            { icon: "Landmark", label: "Valuer completes assessment" },
+            { icon: "FileCheck2", label: "Valuation report issued" },
+            { icon: "Fingerprint", label: "Report registered" },
+            { icon: "Share2", label: "Client or lender receives report" },
+            { icon: "ShieldCheck", label: "Recipient verifies" },
+            { icon: "BadgeCheck", label: "Financing or transaction decision proceeds" },
+          ],
+          footnote: "Kweli does not assess the accuracy of the valuation.",
+        },
       },
       {
         key: "advisory",
@@ -86,6 +143,17 @@ export const professionalServices: IndustryPageContent = {
         art: "Vol. 2 · Professional Services — Advisory",
         explanation: "Advisory opinions move from advisory firms into every strategic decision.",
         documents: [{ name: "Advisory Opinion", issuer: "Advisory Firm" }],
+        journey: {
+          heading: "How an advisory opinion moves from firm to decision.",
+          steps: [
+            { icon: "Briefcase", label: "Advisory firm issues opinion" },
+            { icon: "Fingerprint", label: "Opinion registered" },
+            { icon: "Share2", label: "Client receives opinion" },
+            { icon: "ShieldCheck", label: "Client verifies" },
+            { icon: "BadgeCheck", label: "Strategic decision proceeds" },
+          ],
+          footnote: "Kweli does not form the opinion and does not assess whether the advice given was sound.",
+        },
       },
       {
         key: "governance",
@@ -97,6 +165,18 @@ export const professionalServices: IndustryPageContent = {
           { name: "Governance Review", issuer: "Advisory Firm" },
           { name: "Compliance Certificate", issuer: "Regulator" },
         ],
+        journey: {
+          heading: "How a governance review moves from assessment to decision.",
+          steps: [
+            { icon: "Building2", label: "Advisory firm completes governance review" },
+            { icon: "FileCheck2", label: "Regulator issues compliance certificate" },
+            { icon: "Fingerprint", label: "Documents registered" },
+            { icon: "Share2", label: "Board receives documents" },
+            { icon: "ShieldCheck", label: "Regulator verifies" },
+            { icon: "BadgeCheck", label: "Governance decision proceeds" },
+          ],
+          footnote: "Kweli does not assess whether governance practices meet regulatory standards.",
+        },
       },
       {
         key: "legal",
@@ -105,20 +185,19 @@ export const professionalServices: IndustryPageContent = {
         art: "Vol. 2 · Professional Services — Legal",
         explanation: "Legal opinions move from law firms into every decision that depends on them.",
         documents: [{ name: "Legal Opinion", issuer: "Law Firm" }],
+        journey: {
+          heading: "How a legal opinion moves from firm to decision.",
+          steps: [
+            { icon: "Gavel", label: "Law firm issues legal opinion" },
+            { icon: "Fingerprint", label: "Opinion registered" },
+            { icon: "Share2", label: "Client receives opinion" },
+            { icon: "ShieldCheck", label: "Client or regulator verifies" },
+            { icon: "BadgeCheck", label: "Decision proceeds" },
+          ],
+          footnote: "Kweli does not form the legal opinion and does not assess whether the advice given was sound.",
+        },
       },
     ],
-  },
-
-  journey: {
-    heading: "How a professional report moves from firm to decision.",
-    steps: [
-      { icon: Briefcase, label: "Firm issues report" },
-      { icon: Fingerprint, label: "Firm registers its fingerprint" },
-      { icon: Share2, label: "Report shared with client" },
-      { icon: ShieldCheck, label: "Client or regulator verifies" },
-      { icon: BadgeCheck, label: "Decision proceeds" },
-    ],
-    footnote: "Kweli does not form the opinion in the report and does not assess whether the advice given was sound.",
   },
 
   businessImpact: {
@@ -138,7 +217,7 @@ export const professionalServices: IndustryPageContent = {
   },
 
   pilot: {
-    heading: "A focused pilot, not a firm-wide rollout.",
+    heading: "One workflow, proven in practice — not a firm-wide rollout.",
     steps: [
       { label: "Choose one report type" },
       { label: "Onboard a manageable group of client engagements" },
@@ -148,7 +227,7 @@ export const professionalServices: IndustryPageContent = {
   },
 
   cta: {
-    heading: "Ready to start with one report type?",
+    heading: "Ready to bring verification into your engagements?",
     supportingCopy: "Begin with audit reports and expand across legal opinions and valuations.",
   },
 };

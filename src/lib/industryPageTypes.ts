@@ -29,6 +29,10 @@ export type ExplorerLine = {
   src?: string;
   explanation: string;
   documents: ExplorerDocument[];
+  // Each workflow has its own Document Journey — selecting this line in
+  // IndustryExplorer drives the IndustryJourney section too, via shared
+  // state lifted to IndustryPage. See IndustryPage.tsx.
+  journey: WorkflowJourney;
 };
 
 export type IconName =
@@ -65,11 +69,27 @@ export type IconName =
   | "HeartPulse"
   | "Syringe"
   | "Monitor"
-  | "Mail";
+  | "Mail"
+  | "Fingerprint"
+  | "Share2"
+  | "BadgeCheck"
+  | "Search"
+  | "ClipboardCheck"
+  | "Stamp"
+  | "PackageCheck";
 
+// A journey step now references an icon by name (like ExplorerLine.icon),
+// not a component reference — see the note above on why: it has to cross
+// the server -> client boundary as serializable data.
 export type JourneyStep = {
-  icon: LucideIcon;
+  icon: IconName;
   label: string;
+};
+
+export type WorkflowJourney = {
+  heading: string;
+  steps: JourneyStep[];
+  footnote?: string;
 };
 
 export type PilotStep = {
@@ -95,12 +115,6 @@ export type IndustryPageContent = {
   explorer: {
     heading: string;
     lines: ExplorerLine[];
-  };
-
-  journey: {
-    heading: string;
-    steps: JourneyStep[];
-    footnote?: string;
   };
 
   businessImpact: {

@@ -14,7 +14,7 @@ export function IndustryPilot({
     <section className="relative px-6 py-24 text-center lg:px-8 lg:py-32">
       <div className="mx-auto max-w-4xl">
         <Reveal>
-          <p className={EYEBROW}>Start With One Workflow</p>
+          <p className={EYEBROW}>Implementation</p>
           <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
             {heading}
           </h2>
