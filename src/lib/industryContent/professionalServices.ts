@@ -9,18 +9,19 @@ export const professionalServices: IndustryPageContent = {
     headline: "Professional advice is only as trustworthy as the documents behind it.",
     supportingCopy:
       "Audit reports, legal opinions, valuations and due-diligence materials move between firms, clients and regulators — and every one shapes a decision worth relying on.",
-    art: "Vol. 2 · Hero Composite (TBD)",
+    art: "Vol. 2 · Hero Composite (Professional Services)",
+    src: "/artwork/professional-services/hero-professional-services.jpg",
   },
 
   ecosystem: {
     heading: "From the engagement letter to the boardroom, the same trust layer applies.",
     tiles: [
-      { icon: Users, label: "Client", art: "Vol. 2 · Professional Services — Advisory" },
-      { icon: FileCheck2, label: "Auditor", art: "Vol. 2 · Professional Services — Audit" },
-      { icon: Gavel, label: "Law Firm", art: "Vol. 2 · Professional Services — Legal" },
-      { icon: Building2, label: "Regulator", art: "Vol. 2 · Corporate Governance" },
-      { icon: Briefcase, label: "Board", art: "Vol. 2 · Professional Services — Board Meeting" },
-      { icon: Award, label: "Advisory Firm", art: "Vol. 2 · Professional Services — Due Diligence" },
+      { icon: Users, label: "Client", art: "Vol. 2 · Professional Services — Advisory", src: "/artwork/professional-services/advisory.jpg" },
+      { icon: FileCheck2, label: "Auditor", art: "Vol. 2 · Professional Services — Audit", src: "/artwork/professional-services/audit.jpg" },
+      { icon: Gavel, label: "Law Firm", art: "Vol. 2 · Professional Services — Legal", src: "/artwork/professional-services/legal.jpg" },
+      { icon: Building2, label: "Regulator", art: "Vol. 2 · Corporate Governance", src: "/artwork/professional-services/governance.jpg" },
+      { icon: Briefcase, label: "Board", art: "Vol. 2 · Professional Services — Board Meeting", src: "/artwork/professional-services/board-minutes.jpg" },
+      { icon: Award, label: "Advisory Firm", art: "Vol. 2 · Professional Services — Due Diligence", src: "/artwork/professional-services/due-diligence.jpg" },
     ],
   },
 
@@ -32,6 +33,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Audit",
         icon: "FileCheck2",
         art: "Vol. 2 · Professional Services — Audit",
+        src: "/artwork/professional-services/audit.jpg",
         explanation: "Audit reports and management letters move from audit firms into every client's financial record.",
         documents: [
           { name: "Audit Report", issuer: "Audit Firm" },
@@ -54,6 +56,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Board Minutes",
         icon: "Users",
         art: "Vol. 2 · Professional Services — Board Meeting",
+        src: "/artwork/professional-services/board-minutes.jpg",
         explanation: "Minutes and resolutions move from the company secretary into every governance decision.",
         documents: [
           { name: "Board Minutes", issuer: "Company Secretary" },
@@ -76,6 +79,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Contracts",
         icon: "BookOpen",
         art: "Vol. 2 · Professional Services — Contracts",
+        src: "/artwork/professional-services/contracts.jpg",
         explanation: "Signed contracts and amendments move between law firms and clients into every agreement.",
         documents: [
           { name: "Signed Contract", issuer: "Law Firm or Client" },
@@ -98,6 +102,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Due Diligence",
         icon: "FileSearch",
         art: "Vol. 2 · Professional Services — Due Diligence",
+        src: "/artwork/professional-services/due-diligence.jpg",
         explanation: "Due-diligence reports move from advisory firms into every transaction decision.",
         documents: [
           { name: "Due Diligence Report", issuer: "Advisory Firm" },
@@ -121,6 +126,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Valuation",
         icon: "Landmark",
         art: "Vol. 2 · Professional Services — Valuation",
+        src: "/artwork/professional-services/valuation.jpg",
         explanation: "Independent valuation reports move from valuers into every transaction or financing decision.",
         documents: [{ name: "Valuation Report", issuer: "Valuer" }],
         journey: {
@@ -141,6 +147,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Advisory",
         icon: "Briefcase",
         art: "Vol. 2 · Professional Services — Advisory",
+        src: "/artwork/professional-services/advisory.jpg",
         explanation: "Advisory opinions move from advisory firms into every strategic decision.",
         documents: [{ name: "Advisory Opinion", issuer: "Advisory Firm" }],
         journey: {
@@ -160,6 +167,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Governance",
         icon: "Building2",
         art: "Vol. 2 · Corporate Governance",
+        src: "/artwork/professional-services/governance.jpg",
         explanation: "Governance reviews and compliance certificates move between advisors and regulators into every governance decision.",
         documents: [
           { name: "Governance Review", issuer: "Advisory Firm" },
@@ -183,6 +191,7 @@ export const professionalServices: IndustryPageContent = {
         label: "Legal",
         icon: "Gavel",
         art: "Vol. 2 · Professional Services — Legal",
+        src: "/artwork/professional-services/legal.jpg",
         explanation: "Legal opinions move from law firms into every decision that depends on them.",
         documents: [{ name: "Legal Opinion", issuer: "Law Firm" }],
         journey: {
@@ -219,10 +228,10 @@ export const professionalServices: IndustryPageContent = {
   pilot: {
     heading: "One workflow, proven in practice — not a firm-wide rollout.",
     steps: [
-      { label: "Choose one report type" },
-      { label: "Onboard a manageable group of client engagements" },
-      { label: "Train one engagement team" },
-      { label: "Measure compliance, exceptions, handling time and cycle time" },
+      { label: "Start with one report type, such as audit reports" },
+      { label: "Bring on a defined group of client engagements" },
+      { label: "Train the engagement team who handle them" },
+      { label: "Track sign-off time and exceptions across engagements" },
     ],
   },
 

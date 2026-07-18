@@ -9,18 +9,19 @@ export const banking: IndustryPageContent = {
     headline: "Every banking decision runs on documents your bank didn't issue.",
     supportingCopy:
       "KYC documents, financial statements, guarantees, valuations and trade finance paperwork all come from outside your institution — and every one of them shapes a lending, onboarding or compliance decision.",
-    art: "Vol. 2 · Hero Composite (TBD)",
+    art: "Vol. 2 · Hero Composite (Banking and Financial Services)",
+    src: "/artwork/banking/hero-banking.jpg",
   },
 
   ecosystem: {
     heading: "From the branch to the boardroom, the same trust layer applies.",
     tiles: [
-      { icon: Users, label: "Customer", art: "Vol. 2 · Banking — Account Opening" },
-      { icon: Briefcase, label: "Employer", art: "Vol. 2 · Banking — Corporate Banking" },
-      { icon: Gavel, label: "Lawyer", art: "Vol. 2 · Banking — Loan Application" },
-      { icon: FileCheck2, label: "Auditor", art: "Vol. 2 · Banking — Credit Assessment" },
-      { icon: Banknote, label: "Accountant", art: "Vol. 2 · Banking — Financial Statements" },
-      { icon: Landmark, label: "Valuer", art: "Vol. 2 · Banking — Valuation Report" },
+      { icon: Users, label: "Customer", art: "Vol. 2 · Banking — Account Opening", src: "/artwork/banking/account-opening.jpg" },
+      { icon: Briefcase, label: "Employer", art: "Vol. 2 · Banking — Corporate Banking", src: "/artwork/banking/corporate-banking.jpg" },
+      { icon: Gavel, label: "Lawyer", art: "Vol. 2 · Banking — Loan Application", src: "/artwork/banking/lending.jpg" },
+      { icon: FileCheck2, label: "Auditor", art: "Vol. 2 · Banking — Credit Assessment", src: "/artwork/banking/credit-assessment-auditor.jpg" },
+      { icon: Banknote, label: "Accountant", art: "Vol. 2 · Banking — Financial Statements", src: "/artwork/banking/financial-statements.jpg" },
+      { icon: Landmark, label: "Valuer", art: "Vol. 2 · Banking — Valuation Report", src: "/artwork/banking/valuation.jpg" },
     ],
   },
 
@@ -32,6 +33,7 @@ export const banking: IndustryPageContent = {
         label: "KYC",
         icon: "IdCard",
         art: "Vol. 2 · Banking — KYC Verification",
+        src: "/artwork/banking/kyc.jpg",
         explanation: "Identity and address documents move from customers into every onboarding decision.",
         documents: [
           { name: "ID Verification", issuer: "Customer" },
@@ -55,6 +57,7 @@ export const banking: IndustryPageContent = {
         label: "Account Opening",
         icon: "Users",
         art: "Vol. 2 · Banking — Account Opening",
+        src: "/artwork/banking/account-opening.jpg",
         explanation: "Identification and mandate documents move from customers into every new account.",
         documents: [
           { name: "Identification Document", issuer: "Customer" },
@@ -77,6 +80,7 @@ export const banking: IndustryPageContent = {
         label: "Lending",
         icon: "Banknote",
         art: "Vol. 2 · Banking — Loan Application",
+        src: "/artwork/banking/lending.jpg",
         explanation: "Income and credit documents move from customers and employers into every lending decision.",
         documents: [
           { name: "Loan Application", issuer: "Customer" },
@@ -101,6 +105,7 @@ export const banking: IndustryPageContent = {
         label: "Trade Finance",
         icon: "FileSearch",
         art: "Vol. 2 · Banking — Trade Finance",
+        src: "/artwork/banking/trade-finance.jpg",
         explanation: "Shipping and payment documents move from exporters and shipping lines into every trade finance decision.",
         documents: [
           { name: "Bill of Lading", issuer: "Shipping Line" },
@@ -124,6 +129,7 @@ export const banking: IndustryPageContent = {
         label: "Corporate Banking",
         icon: "Building2",
         art: "Vol. 2 · Banking — Corporate Banking",
+        src: "/artwork/banking/corporate-banking.jpg",
         explanation: "Governance and financial documents move from companies and auditors into every corporate banking decision.",
         documents: [
           { name: "Board Resolution", issuer: "Company" },
@@ -147,6 +153,7 @@ export const banking: IndustryPageContent = {
         label: "Bank Guarantees",
         icon: "Landmark",
         art: "Vol. 2 · Banking — Bank Guarantees",
+        src: "/artwork/banking/guarantees.jpg",
         explanation: "Guarantees and bonds move between banks and underwriters into every guarantee decision.",
         documents: [
           { name: "Bank Guarantee", issuer: "Bank" },
@@ -169,6 +176,7 @@ export const banking: IndustryPageContent = {
         label: "Financial Statements",
         icon: "FileCheck2",
         art: "Vol. 2 · Banking — Financial Statements",
+        src: "/artwork/banking/financial-statements.jpg",
         explanation: "Audited statements move from auditors and accountants into every credit and compliance decision.",
         documents: [
           { name: "Audited Financial Statements", issuer: "Auditor" },
@@ -191,6 +199,7 @@ export const banking: IndustryPageContent = {
         label: "Valuation",
         icon: "Scale",
         art: "Vol. 2 · Banking — Valuation Report",
+        src: "/artwork/banking/valuation.jpg",
         explanation: "Independent valuation reports move from valuers into every secured lending decision.",
         documents: [
           { name: "Property Valuation Report", issuer: "Valuer" },
@@ -214,6 +223,7 @@ export const banking: IndustryPageContent = {
         label: "Branch Operations",
         icon: "Briefcase",
         art: "Vol. 2 · Banking — Branch Operations",
+        src: "/artwork/banking/branch-operations.jpg",
         explanation: "Signed forms and mandates move from customers into every branch transaction.",
         documents: [
           { name: "Account Opening Form", issuer: "Customer" },
@@ -248,10 +258,10 @@ export const banking: IndustryPageContent = {
   pilot: {
     heading: "One workflow, proven in practice — not a compliance overhaul.",
     steps: [
-      { label: "Choose one document workflow" },
-      { label: "Onboard a manageable group of issuers" },
-      { label: "Train one branch or team" },
-      { label: "Measure compliance, exceptions, handling time and cycle time" },
+      { label: "Start with one document workflow, such as KYC verification" },
+      { label: "Bring on a defined group of customers or issuers" },
+      { label: "Train the branch or compliance team who process it" },
+      { label: "Track onboarding time and compliance exceptions" },
     ],
   },
 

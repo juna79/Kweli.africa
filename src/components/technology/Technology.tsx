@@ -16,6 +16,7 @@ import {
   ServerCog,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { CinematicBand } from "@/components/ui/CinematicBand";
@@ -49,7 +50,7 @@ function Hero() {
     <section className="relative overflow-hidden px-6 py-16 text-center lg:px-8 lg:py-20">
       <TechHeroVisual />
       <div className="relative z-10 mx-auto max-w-2xl">
-        <Reveal>
+        <HeroReveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Technology
           </p>
@@ -60,7 +61,7 @@ function Hero() {
             Kweli verifies authenticity and integrity without storing your
             documents. One simple process. Independent verification anywhere.
           </p>
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );
@@ -446,6 +447,7 @@ export function Technology() {
     <>
       <Hero />
       <CinematicBand
+        src="/artwork/technology/enterprise-infrastructure.jpg"
         alt="Secure enterprise server environment, cinematic lighting — Kweli Art Book"
         source="Art Book Vol. 3 — enterprise infrastructure"
         caption="Registered once. Verifiable anywhere, by anyone holding the document."

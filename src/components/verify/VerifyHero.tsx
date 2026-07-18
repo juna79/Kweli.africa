@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 
 export function VerifyHero() {
   return (
@@ -8,7 +8,7 @@ export function VerifyHero() {
         className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_10%,rgba(201,162,39,0.16),transparent_65%)]"
       />
       <div className="relative z-10 mx-auto max-w-2xl">
-        <Reveal>
+        <HeroReveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Verify a Document
           </p>
@@ -19,7 +19,7 @@ export function VerifyHero() {
             Upload an original document to verify whether it exactly matches
             the version registered by its issuer.
           </p>
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );

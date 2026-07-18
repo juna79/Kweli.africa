@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { getPublishedArticles, getFeaturedArticle, type Article } from "@/lib/insights";
 import { industries } from "@/lib/industries";
 
@@ -27,7 +28,7 @@ function Hero() {
         className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_20%,rgba(201,162,39,0.14),transparent_70%)]"
       />
       <div className="relative z-10 mx-auto max-w-2xl">
-        <Reveal>
+        <HeroReveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Insights
           </p>
@@ -38,7 +39,7 @@ function Hero() {
             Notes on verification, document integrity, and where trust breaks
             down across industries.
           </p>
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );

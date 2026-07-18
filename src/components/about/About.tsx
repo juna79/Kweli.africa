@@ -6,6 +6,7 @@ import {
   Fingerprint,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { Button } from "@/components/ui/Button";
 
 const MUTED = "text-[var(--color-slate)]";
@@ -23,7 +24,7 @@ function Hero() {
         className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_20%,rgba(201,162,39,0.14),transparent_70%)]"
       />
       <div className="relative z-10 mx-auto max-w-6xl">
-        <Reveal>
+        <HeroReveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             About
           </p>
@@ -34,7 +35,7 @@ function Hero() {
           <p className="mx-auto mt-4 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Kweli exists to close that gap.
           </p>
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );

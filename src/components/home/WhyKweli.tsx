@@ -11,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { Button } from "@/components/ui/Button";
 import { CinematicBand } from "@/components/ui/CinematicBand";
 
@@ -73,14 +74,14 @@ function Intro() {
   return (
     <section className="relative px-6 pt-28 pb-4 lg:px-8 lg:pt-36">
       <div className="mx-auto max-w-4xl">
-        <Reveal className="text-center">
+        <HeroReveal className="text-center">
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Why Kweli
           </p>
           <h2 className="mx-auto mt-6 max-w-2xl text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
             Every important decision starts with a document.
           </h2>
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );

@@ -1,12 +1,12 @@
+import Image from "next/image";
 import { Image as ImageIcon, type LucideIcon } from "lucide-react";
 
-// Reserved slot for a Kweli Art Book frame. No source image exists in the
-// repo yet — pass `src` once the individual export lands (see
-// public/artwork/{industry}/MANIFEST.md for the exact frame each slot maps
-// to) and this renders the real photograph with no layout change. The
-// empty state is a deliberate design, not a debug box: a centred glyph on
-// a soft dot-grid, a short truncated source tag, and a hover response —
-// built to disappear the moment a real photograph lands.
+// Reserved slot for a Kweli Art Book frame. Pass `src` once the frame
+// lands (see public/artwork/{industry}/MANIFEST.md) and this renders the
+// real photograph with no layout change. The empty state is a deliberate
+// design, not a debug box: a centred glyph on a soft dot-grid, a short
+// truncated source tag, and a hover response — built to disappear the
+// moment a real photograph lands.
 export function ArtFrame({
   src,
   alt,
@@ -14,6 +14,8 @@ export function ArtFrame({
   icon: Icon,
   aspect = "aspect-[4/5]",
   className = "",
+  sizes = "(min-width: 1024px) 40vw, 90vw",
+  priority = false,
 }: {
   src?: string;
   alt: string;
@@ -21,19 +23,23 @@ export function ArtFrame({
   icon?: LucideIcon;
   aspect?: string;
   className?: string;
+  sizes?: string;
+  priority?: boolean;
 }) {
   if (src) {
     return (
       <div
-        className={`group overflow-hidden rounded-[var(--radius-lg)] border border-white/10 ${aspect} ${className}`}
+        className={`group relative overflow-hidden rounded-[var(--radius-lg)] border border-white/10 ${aspect} ${className}`}
       >
         {/* Motion Bible: images zoom 2-3% on hover — the one hover
            treatment every real Art Book photograph gets once it lands. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={src}
           alt={alt}
-          className="h-full w-full object-cover transition-transform duration-[var(--duration-card)] ease-[var(--ease-trust)] group-hover:scale-[1.03]"
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover transition-transform duration-[var(--duration-card)] ease-[var(--ease-trust)] group-hover:scale-[1.03]"
         />
       </div>
     );

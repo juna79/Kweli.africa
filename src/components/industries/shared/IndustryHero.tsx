@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { Button } from "@/components/ui/Button";
 import { ArtFrame } from "@/components/ui/ArtFrame";
 
@@ -24,7 +24,7 @@ export function IndustryHero({
         className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_60%_50%_at_20%_15%,rgba(201,162,39,0.14),transparent_65%)]"
       />
       <div className="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-12">
-        <Reveal className="text-center lg:text-left">
+        <HeroReveal className="text-center lg:text-left">
           <p className={EYEBROW}>{industryName}</p>
           {/* Sized at the h2 tier, not h1: this is a two-column composition
              sharing the fold with an image, not a full-width page hero.
@@ -44,16 +44,17 @@ export function IndustryHero({
               Try Verification
             </Button>
           </div>
-        </Reveal>
+        </HeroReveal>
 
-        <Reveal delayMs={150} className="lg:pt-2">
+        <HeroReveal delayMs={150} className="lg:pt-2">
           <ArtFrame
             src={src}
             alt={`${industryName} documents in context — Kweli Art Book`}
             source={art}
             aspect="aspect-[4/5] lg:aspect-square"
+            priority
           />
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );

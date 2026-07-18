@@ -9,17 +9,18 @@ export const education: IndustryPageContent = {
     headline: "Credentials only create trust when they can be independently verified.",
     supportingCopy:
       "Degree certificates, transcripts and professional qualifications move from institutions to graduates to employers — and every one shapes a hiring decision.",
-    art: "Vol. 2 · Hero Composite (TBD)",
+    art: "Vol. 2 · Hero Composite (Education)",
+    src: "/artwork/education/hero-education.jpg",
   },
 
   ecosystem: {
     heading: "From the lecture hall to the hiring desk, the same trust layer applies.",
     tiles: [
-      { icon: Building2, label: "Institution", art: "Vol. 2 · Education — Certificate" },
-      { icon: GraduationCap, label: "Graduate", art: "Vol. 2 · Education — Graduation" },
-      { icon: Briefcase, label: "Employer", art: "Vol. 2 · Education — Employer Verification" },
-      { icon: Award, label: "Accreditation Body", art: "Vol. 2 · Education — Professional Qualification" },
-      { icon: IdCard, label: "Registrar", art: "Vol. 2 · Education — Student Verification" },
+      { icon: Building2, label: "Institution", art: "Vol. 2 · Education — Certificate", src: "/artwork/education/certificate.jpg" },
+      { icon: GraduationCap, label: "Graduate", art: "Vol. 2 · Education — Graduation", src: "/artwork/education/graduation.jpg" },
+      { icon: Briefcase, label: "Employer", art: "Vol. 2 · Education — Employer Verification", src: "/artwork/education/employer-verification.jpg" },
+      { icon: Award, label: "Accreditation Body", art: "Vol. 2 · Education — Professional Qualification", src: "/artwork/education/qualification.jpg" },
+      { icon: IdCard, label: "Registrar", art: "Vol. 2 · Education — Student Verification", src: "/artwork/education/student-verification.jpg" },
     ],
   },
 
@@ -31,6 +32,7 @@ export const education: IndustryPageContent = {
         label: "Graduation",
         icon: "GraduationCap",
         art: "Vol. 2 · Education — Graduation",
+        src: "/artwork/education/graduation.jpg",
         explanation: "Graduation lists move from institutions into every conferred qualification.",
         documents: [{ name: "Graduation List", issuer: "Institution" }],
         journey: {
@@ -50,6 +52,7 @@ export const education: IndustryPageContent = {
         label: "Certificate",
         icon: "Award",
         art: "Vol. 2 · Education — Certificate",
+        src: "/artwork/education/certificate.jpg",
         explanation: "Degree certificates move from institutions into every graduate's record.",
         documents: [{ name: "Degree Certificate", issuer: "Institution" }],
         journey: {
@@ -69,6 +72,7 @@ export const education: IndustryPageContent = {
         label: "Transcript",
         icon: "BookOpen",
         art: "Vol. 2 · Education — Transcript",
+        src: "/artwork/education/transcript.jpg",
         explanation: "Academic transcripts move from institutions into every admissions or hiring decision.",
         documents: [{ name: "Academic Transcript", issuer: "Institution" }],
         journey: {
@@ -88,6 +92,7 @@ export const education: IndustryPageContent = {
         label: "Employer Verification",
         icon: "Briefcase",
         art: "Vol. 2 · Education — Employer Verification",
+        src: "/artwork/education/employer-verification.jpg",
         explanation: "Employment verification letters move from employers into every reference check.",
         documents: [{ name: "Employment Verification Letter", issuer: "Employer" }],
         journey: {
@@ -107,6 +112,7 @@ export const education: IndustryPageContent = {
         label: "Qualification",
         icon: "FileCheck2",
         art: "Vol. 2 · Education — Professional Qualification",
+        src: "/artwork/education/qualification.jpg",
         explanation: "Professional qualification certificates move from accrediting bodies into every credentialing decision.",
         documents: [{ name: "Professional Qualification Certificate", issuer: "Professional Body" }],
         journey: {
@@ -126,6 +132,7 @@ export const education: IndustryPageContent = {
         label: "Recommendation Letter",
         icon: "Mail",
         art: "Vol. 2 · Education — Recommendation Letter",
+        src: "/artwork/education/recommendation-letter.jpg",
         explanation: "Recommendation letters move from institutions or employers into every application decision.",
         documents: [{ name: "Recommendation Letter", issuer: "Institution or Employer" }],
         journey: {
@@ -145,6 +152,7 @@ export const education: IndustryPageContent = {
         label: "Student Verification",
         icon: "IdCard",
         art: "Vol. 2 · Education — Student Verification",
+        src: "/artwork/education/student-verification.jpg",
         explanation: "Enrolment confirmations move from institutions into every student status check.",
         documents: [{ name: "Student ID Confirmation", issuer: "Institution" }],
         journey: {
@@ -164,6 +172,7 @@ export const education: IndustryPageContent = {
         label: "Digital Credentials",
         icon: "Monitor",
         art: "Vol. 2 · Education — Digital Credentials",
+        src: "/artwork/education/digital-credentials.jpg",
         explanation: "Digital credential records move from institutions into every online verification.",
         documents: [{ name: "Digital Credential Record", issuer: "Institution" }],
         journey: {
@@ -200,10 +209,10 @@ export const education: IndustryPageContent = {
   pilot: {
     heading: "One credential type, proven in practice — not an institution-wide rollout.",
     steps: [
-      { label: "Choose one credential type" },
-      { label: "Onboard a manageable group of institutions" },
-      { label: "Train one admissions or HR team" },
-      { label: "Measure compliance, exceptions, handling time and cycle time" },
+      { label: "Start with one credential type, such as degree certificates" },
+      { label: "Bring on a defined group of institutions" },
+      { label: "Train the admissions or HR team who verify them" },
+      { label: "Track verification turnaround and exception rates" },
     ],
   },
 

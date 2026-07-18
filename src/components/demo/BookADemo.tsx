@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Info } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { industries } from "@/lib/industries";
 
 const MUTED = "text-[var(--color-slate)]";
@@ -18,7 +19,7 @@ function Hero() {
         className="absolute inset-0 -z-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_10%,rgba(201,162,39,0.16),transparent_65%)]"
       />
       <div className="relative z-10 mx-auto max-w-2xl">
-        <Reveal>
+        <HeroReveal>
           <p className="text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]">
             Book a Demo
           </p>
@@ -30,7 +31,7 @@ function Hero() {
             how Kweli fits into the workflow you already have, without
             changing the way your team works.
           </p>
-        </Reveal>
+        </HeroReveal>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { HeroReveal } from "@/components/ui/HeroReveal";
 import { Button } from "@/components/ui/Button";
 import { industries } from "@/lib/industries";
 import type { Article } from "@/lib/insights";
@@ -23,7 +24,7 @@ export function ArticlePage({ article }: { article: Article }) {
   return (
     <article className="relative px-6 py-28 lg:px-8 lg:py-36">
       <div className="mx-auto max-w-2xl">
-        <Reveal>
+        <HeroReveal>
           <Link
             href="/insights"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-slate)] transition-colors duration-150 hover:text-[var(--color-gold-bright)]"
@@ -50,7 +51,7 @@ export function ArticlePage({ article }: { article: Article }) {
           <p className={`mt-6 text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] ${MUTED}`}>
             {article.excerpt}
           </p>
-        </Reveal>
+        </HeroReveal>
 
         <Reveal delayMs={100} className="mt-14 space-y-6">
           {article.body.map((paragraph, i) => (

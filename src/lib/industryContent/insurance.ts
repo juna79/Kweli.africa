@@ -300,10 +300,10 @@ export const insurance: IndustryPageContent = {
   pilot: {
     heading: "One workflow, proven in claims — not a platform rollout.",
     steps: [
-      { label: "Choose one document workflow" },
-      { label: "Onboard a manageable group of issuers" },
-      { label: "Train one claims team" },
-      { label: "Measure compliance, exceptions, handling time and cycle time" },
+      { label: "Start with a single claims workflow, such as motor repair estimates" },
+      { label: "Bring on a defined group of garages, assessors or hospitals" },
+      { label: "Train the claims handlers who process the documents" },
+      { label: "Track exception rates and claims cycle time" },
     ],
   },
 

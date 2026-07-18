@@ -1,11 +1,10 @@
+import Image from "next/image";
 import { Image as ImageIcon, type LucideIcon } from "lucide-react";
 
-// Full-bleed Art Book placeholder band — the homepage-specific counterpart
-// to ArtFrame's contained card treatment. No rounded corners/border: this
-// is meant to read as cinematic full-width artwork breaking the page
-// rhythm, not another bordered panel. Swap `src` in once the named Volume 1
-// frame is exported (see public/artwork/home/MANIFEST.md); no other change
-// needed.
+// Full-bleed Art Book band — the homepage-specific counterpart to
+// ArtFrame's contained card treatment. No rounded corners/border: this is
+// meant to read as cinematic full-width artwork breaking the page rhythm,
+// not another bordered panel.
 export function CinematicBand({
   src,
   alt,
@@ -22,12 +21,15 @@ export function CinematicBand({
   return (
     <section className="relative">
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={src}
-          alt={alt}
-          className="aspect-[16/10] w-full object-cover sm:aspect-[21/9]"
-        />
+        <div className="relative aspect-[16/10] w-full sm:aspect-[21/9]">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       ) : (
         <div className="group relative aspect-[16/10] w-full overflow-hidden border-y border-white/5 bg-white/[0.015] sm:aspect-[21/9]">
           <div

@@ -9,18 +9,19 @@ export const trade: IndustryPageContent = {
     headline: "International trade depends on trusted paperwork.",
     supportingCopy:
       "Certificates of origin, inspection certificates, bills of lading and customs declarations move between exporters, inspectors, shipping lines and customs — and every one shapes a clearance decision.",
-    art: "Vol. 2 · Hero Composite (TBD)",
+    art: "Vol. 2 · Hero Composite (Trade and Supply Chain)",
+    src: "/artwork/trade/hero-trade.jpg",
   },
 
   ecosystem: {
     heading: "From the warehouse to the wharf, the same trust layer applies.",
     tiles: [
-      { icon: Truck, label: "Exporter", art: "Vol. 2 · Trade — Exporter" },
-      { icon: Anchor, label: "Importer", art: "Vol. 2 · Trade — Importer" },
-      { icon: Building2, label: "Customs", art: "Vol. 2 · Trade — Customs Clearance" },
-      { icon: Ship, label: "Shipping Line", art: "Vol. 2 · Trade — Export Shipment" },
-      { icon: Warehouse, label: "Warehouse", art: "Vol. 2 · Trade — Warehouse" },
-      { icon: FileSearch, label: "Inspector", art: "Vol. 2 · Trade — Inspection" },
+      { icon: Truck, label: "Exporter", art: "Vol. 2 · Trade — Exporter", src: "/artwork/trade/exporter.jpg" },
+      { icon: Anchor, label: "Importer", art: "Vol. 2 · Trade — Importer", src: "/artwork/trade/importer.jpg" },
+      { icon: Building2, label: "Customs", art: "Vol. 2 · Trade — Customs Clearance", src: "/artwork/trade/customs.jpg" },
+      { icon: Ship, label: "Shipping Line", art: "Vol. 2 · Trade — Export Shipment", src: "/artwork/trade/export-shipment.jpg" },
+      { icon: Warehouse, label: "Warehouse", art: "Vol. 2 · Trade — Warehouse", src: "/artwork/trade/warehouse.jpg" },
+      { icon: FileSearch, label: "Inspector", art: "Vol. 2 · Trade — Inspection", src: "/artwork/trade/inspection.jpg" },
     ],
   },
 
@@ -32,6 +33,7 @@ export const trade: IndustryPageContent = {
         label: "Export Shipment",
         icon: "Ship",
         art: "Vol. 2 · Trade — Export Shipment",
+        src: "/artwork/trade/export-shipment.jpg",
         explanation: "Shipping instructions and packing lists move from exporters into every shipment.",
         documents: [
           { name: "Shipping Instruction", issuer: "Exporter" },
@@ -54,6 +56,7 @@ export const trade: IndustryPageContent = {
         label: "Certificate of Origin",
         icon: "Award",
         art: "Vol. 2 · Trade — Certificate of Origin",
+        src: "/artwork/trade/certificate-of-origin.jpg",
         explanation: "Certificates of origin move from the chamber of commerce or exporter into every customs decision.",
         documents: [{ name: "Certificate of Origin", issuer: "Chamber of Commerce or Exporter" }],
         journey: {
@@ -73,6 +76,7 @@ export const trade: IndustryPageContent = {
         label: "Customs",
         icon: "Building2",
         art: "Vol. 2 · Trade — Customs Clearance",
+        src: "/artwork/trade/customs.jpg",
         explanation: "Declarations and permits move between customs agents and authorities into every clearance decision.",
         documents: [
           { name: "Customs Declaration", issuer: "Customs Agent" },
@@ -96,6 +100,7 @@ export const trade: IndustryPageContent = {
         label: "Inspection",
         icon: "FileSearch",
         art: "Vol. 2 · Trade — Inspection",
+        src: "/artwork/trade/inspection.jpg",
         explanation: "Inspection and quality certificates move from inspection companies into every shipment release.",
         documents: [
           { name: "Inspection Certificate", issuer: "Inspection Company" },
@@ -119,6 +124,7 @@ export const trade: IndustryPageContent = {
         label: "Warehouse",
         icon: "Warehouse",
         art: "Vol. 2 · Trade — Warehouse",
+        src: "/artwork/trade/warehouse.jpg",
         explanation: "Warehouse receipts move from operators into every storage or financing decision.",
         documents: [{ name: "Warehouse Receipt", issuer: "Warehouse Operator" }],
         journey: {
@@ -138,6 +144,7 @@ export const trade: IndustryPageContent = {
         label: "Bill of Lading",
         icon: "FileCheck2",
         art: "Vol. 2 · Trade — Bill of Lading",
+        src: "/artwork/trade/bill-of-lading.jpg",
         explanation: "Bills of lading move from shipping lines into every cargo release.",
         documents: [{ name: "Bill of Lading", issuer: "Shipping Line" }],
         journey: {
@@ -157,6 +164,7 @@ export const trade: IndustryPageContent = {
         label: "Cold Chain",
         icon: "Snowflake",
         art: "Vol. 2 · Trade — Cold Chain",
+        src: "/artwork/trade/cold-chain.jpg",
         explanation: "Temperature logs and certificates move from logistics providers into every cold-chain shipment.",
         documents: [
           { name: "Temperature Log", issuer: "Logistics Provider" },
@@ -180,6 +188,7 @@ export const trade: IndustryPageContent = {
         label: "Importer",
         icon: "Anchor",
         art: "Vol. 2 · Trade — Importer",
+        src: "/artwork/trade/importer.jpg",
         explanation: "Permits and purchase orders move between customs and importers into every intake decision.",
         documents: [
           { name: "Import Permit", issuer: "Customs Authority" },
@@ -203,6 +212,7 @@ export const trade: IndustryPageContent = {
         label: "Exporter",
         icon: "Truck",
         art: "Vol. 2 · Trade — Exporter",
+        src: "/artwork/trade/exporter.jpg",
         explanation: "Invoices and licences move from exporters and government into every export decision.",
         documents: [
           { name: "Commercial Invoice", issuer: "Exporter" },
@@ -243,10 +253,10 @@ export const trade: IndustryPageContent = {
   pilot: {
     heading: "One workflow, proven in practice — not a customs-wide overhaul.",
     steps: [
-      { label: "Choose one document type" },
-      { label: "Onboard a manageable group of exporters" },
-      { label: "Train one trade operations team" },
-      { label: "Measure compliance, exceptions, handling time and cycle time" },
+      { label: "Start with one document type, such as certificates of origin" },
+      { label: "Bring on a defined group of exporters" },
+      { label: "Train the trade operations team who process it" },
+      { label: "Track clearance time and exceptions at the border" },
     ],
   },
 

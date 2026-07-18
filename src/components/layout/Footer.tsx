@@ -75,13 +75,6 @@ export function Footer() {
             >
               Terms of Service
             </Link>
-            {/* TODO: point at the real Kweli-Brain login URL once confirmed */}
-            <a
-              href="#brain-login"
-              className="text-xs font-medium text-[var(--color-slate)] hover:text-[var(--color-gold-bright)]"
-            >
-              Brain Login
-            </a>
           </div>
         </div>
       </div>

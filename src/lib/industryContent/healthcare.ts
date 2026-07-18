@@ -264,10 +264,10 @@ export const healthcare: IndustryPageContent = {
   pilot: {
     heading: "One record type, proven in practice — not a hospital-wide rollout.",
     steps: [
-      { label: "Choose one record type" },
-      { label: "Onboard a manageable group of hospitals or labs" },
-      { label: "Train one claims or records team" },
-      { label: "Measure compliance, exceptions, handling time and cycle time" },
+      { label: "Start with one record type, such as medical reports" },
+      { label: "Bring on a defined group of hospitals or laboratories" },
+      { label: "Train the records or claims team who handle them" },
+      { label: "Track turnaround time and exceptions for that record type" },
     ],
   },
 
