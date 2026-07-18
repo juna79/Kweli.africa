@@ -128,7 +128,7 @@ export function Hero() {
         </div>
 
         <h1
-          className="animate-fade-up mt-8 text-[length:var(--text-h1)] leading-[var(--text-h1--line-height)] font-bold tracking-tight"
+          className="animate-fade-up mt-8 text-[2.75rem] leading-[1.08] font-bold tracking-tight sm:text-[length:var(--text-h1)] sm:leading-[var(--text-h1--line-height)]"
           style={{ animationDelay: "350ms" }}
         >
           <span className="block bg-gradient-to-b from-[var(--color-warm-paper)] to-[var(--color-warm-paper)]/85 bg-clip-text text-transparent">
