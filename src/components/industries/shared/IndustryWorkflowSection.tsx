@@ -55,7 +55,7 @@ export function IndustryWorkflowSection({
                     key={line.key}
                     onClick={() => setActive(line.key)}
                     aria-pressed={isActive}
-                    className={`inline-flex items-center gap-2 rounded-full border px-4.5 py-2.5 text-sm font-medium transition-all duration-200 ease-[var(--ease-trust)] ${
+                    className={`inline-flex items-center gap-2 rounded-full border px-4.5 py-3 text-sm font-medium transition-all duration-200 ease-[var(--ease-trust)] ${
                       isActive
                         ? "border-[var(--color-gold)] bg-[var(--color-gold)]/10 text-[var(--color-gold-bright)] shadow-[0_4px_16px_-6px_rgba(201,162,39,0.5)]"
                         : "border-white/10 text-[var(--color-slate)] hover:-translate-y-0.5 hover:border-white/25 hover:text-[var(--color-warm-paper)]"

@@ -147,7 +147,7 @@ export function Header() {
         </div>
 
         <button
-          className="lg:hidden text-[var(--color-warm-paper)]"
+          className="-mr-2.5 flex h-11 w-11 items-center justify-center text-[var(--color-warm-paper)] lg:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -161,7 +161,7 @@ export function Header() {
           className="lg:hidden border-t border-white/5 bg-[var(--color-background)] px-6 py-4"
           aria-label="Mobile"
         >
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-1">
             {[...primaryNav, verifyNavItem].map((item) => {
               const active = isActivePath(pathname, item.href);
               return (
@@ -169,7 +169,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`flex items-center gap-2 text-base font-medium transition-colors duration-150 ${
+                    className={`flex items-center gap-2 rounded-[var(--radius-sm)] px-2 py-3 text-base font-medium transition-colors duration-150 active:bg-white/5 ${
                       active
                         ? "font-semibold text-[var(--color-gold-bright)]"
                         : "text-[var(--color-warm-paper)]"
