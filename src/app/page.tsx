@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Globe2, Handshake } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -5,6 +6,16 @@ import { Hero } from "@/components/home/Hero";
 import { CinematicBand } from "@/components/ui/CinematicBand";
 import { VerificationTeaser } from "@/components/home/VerificationTeaser";
 import { WhyKweliTeaser } from "@/components/home/WhyKweliTeaser";
+
+// No explicit title here: the root layout's default title
+// ("Kweli — Trust Infrastructure for the World") already targets the
+// homepage's primary keyword and reads brand-first, which the "%s — Kweli"
+// template used by every other page would break out of order.
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 // Homepage is a concise overview + entry point — short teasers with CTAs
 // into the dedicated pages, not the full content of any of them:

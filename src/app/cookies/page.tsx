@@ -6,6 +6,9 @@ import { CookiePolicyPage } from "@/components/legal/CookiePolicyPage";
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description: "How Kweli, by EAX Global, uses cookies on this website.",
+  alternates: {
+    canonical: "/cookies",
+  },
 };
 
 export default function CookiesPage() {

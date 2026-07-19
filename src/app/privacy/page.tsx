@@ -6,6 +6,9 @@ import { PrivacyPolicyPage } from "@/components/legal/PrivacyPolicyPage";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How Kweli, by EAX Global, collects, uses, and protects information.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

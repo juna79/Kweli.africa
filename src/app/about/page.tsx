@@ -7,15 +7,18 @@ const description =
   "Independent trust has become a missing layer of modern infrastructure. Kweli exists to close that gap.";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Kweli",
   description,
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
-    title: "About — Kweli",
+    title: "About Kweli",
     description,
     siteName: "Kweli",
     type: "website",
   },
-  twitter: { title: "About — Kweli", description },
+  twitter: { title: "About Kweli", description },
 };
 
 export default function AboutPage() {

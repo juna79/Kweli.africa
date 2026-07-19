@@ -6,6 +6,9 @@ import { TermsOfServicePage } from "@/components/legal/TermsOfServicePage";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "The terms that govern use of Kweli, by EAX Global.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {
