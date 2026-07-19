@@ -12,6 +12,8 @@ import {
   Check,
   X,
   FileQuestion,
+  FileText,
+  ArrowRight,
 } from "lucide-react";
 import { Badge, type BadgeStatus } from "@/components/ui/Badge";
 import { findDocumentByHash, type DemoDocument, type Outcome } from "@/lib/demoDocuments";
@@ -318,17 +320,30 @@ export function VerificationDemo() {
         {!activeDoc && !awaitingUpload && (
           <div className="mx-auto mt-8 max-w-md">
             <UploadDropzone onFile={handleFileUploaded} />
-            <div className="mt-6 text-center">
-              <p className="text-xs text-[var(--color-slate)]">
-                Don&apos;t have a document handy?{" "}
-                <button
-                  onClick={() => setLibraryOpen(true)}
-                  className="font-medium text-[var(--color-gold-bright)] hover:underline"
-                >
-                  Browse sample documents
-                </button>
-              </p>
-            </div>
+
+            <button
+              type="button"
+              onClick={() => setLibraryOpen(true)}
+              className="group mt-10 flex w-full items-center gap-4 rounded-[var(--radius-xl)] border border-[var(--color-gold)]/25 bg-white/[0.02] px-6 py-5 text-left backdrop-blur-sm transition-all duration-[var(--duration-card)] ease-[var(--ease-trust)] hover:-translate-y-0.5 hover:border-[var(--color-gold)]/50 hover:bg-white/[0.05] hover:shadow-[0_12px_36px_-16px_rgba(230,189,74,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold-bright)]"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--color-gold)]/40 text-[var(--color-gold-bright)] transition-transform duration-200 group-hover:scale-105">
+                <FileText size={20} strokeWidth={1.75} aria-hidden />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-xs text-[var(--color-slate)]">
+                  Don&apos;t have a document handy?
+                </span>
+                <span className="mt-0.5 block text-base font-bold text-[var(--color-warm-paper)] sm:text-lg">
+                  Browse Sample Documents
+                </span>
+              </span>
+              <ArrowRight
+                size={20}
+                strokeWidth={2}
+                className="shrink-0 text-[var(--color-gold-bright)] transition-transform duration-150 group-hover:translate-x-1"
+                aria-hidden
+              />
+            </button>
           </div>
         )}
 
