@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { satoshi } from "@/fonts/satoshi";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema, siteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -9,9 +10,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
-
-const satoshiHref =
-  "https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap";
 
 export const viewport: Viewport = {
   themeColor: "#0b080f",
@@ -50,21 +48,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      className={`${inter.variable} ${satoshi.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <head>
-        <link
-          rel="preconnect"
-          href="https://api.fontshare.com"
-          crossOrigin="anonymous"
-        />
-        {/* Preload lets the browser fetch this render-critical stylesheet
-            at high priority in parallel with other head resources, ahead
-            of when the <link rel="stylesheet"> below would otherwise be
-            discovered. Confirmed via controlled Lighthouse re-testing that
-            this has no measurable effect on performance score in either
-            direction on this site — kept as standard practice. */}
-        <link rel="preload" href={satoshiHref} as="style" />
-        <link rel="stylesheet" href={satoshiHref} />
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
       </head>

@@ -20,7 +20,9 @@
   --color-dark-slate: #12161c;
   --color-stone: #2a313c;
 
-  --font-satoshi: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* --font-satoshi is supplied by next/font/local (src/fonts/satoshi.ts),
+     applied as a CSS variable on <html> — self-hosted, so it's not
+     redeclared here to avoid two conflicting sources of truth. */
 
   --radius-sm: 4px;
   --radius-md: 8px;

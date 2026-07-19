@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import {
   Upload,
   Fingerprint,
@@ -14,8 +15,15 @@ import {
 } from "lucide-react";
 import { Badge, type BadgeStatus } from "@/components/ui/Badge";
 import { findDocumentByHash, type DemoDocument, type Outcome } from "@/lib/demoDocuments";
-import { SampleDocumentModal } from "@/components/verify/SampleDocumentModal";
 import { UploadDropzone } from "@/components/verify/UploadDropzone";
+
+// Loaded only when the sample-document library is actually opened —
+// its own ~90 lines plus the full demo-document list never need to be
+// in the initial /verify bundle for the (common) case where a visitor
+// never opens it.
+const SampleDocumentModal = dynamic(
+  () => import("@/components/verify/SampleDocumentModal").then((m) => m.SampleDocumentModal),
+);
 
 const steps = [
   { key: "upload", label: "Uploading", sub: "Document received for demonstration.", icon: Upload },
