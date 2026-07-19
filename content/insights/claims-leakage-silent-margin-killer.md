@@ -6,7 +6,7 @@ author_name: "Kweli Team"
 published_at: "2026-06-20"
 featured: false
 ---
-Claims leakage is a familiar term in insurance, and a frustrating one, because it rarely has a single cause an insurer can point to and fix. It builds up from a long list of small gaps: a repair estimate that was quietly revised after approval, a duplicate claim that slipped through because two documents looked different enough not to match, a medical report that was altered between the hospital and the insurer without anyone noticing.
+Claims leakage is a familiar term in insurance, and a frustrating one, because it rarely has a single cause an insurer can point to and fix. It builds up from a long list of small gaps: a repair estimate that was quietly revised after approval, a duplicate claim that slipped through because two documents looked different enough not to match, a medical report that was altered between the [hospital](/industries/healthcare) and the insurer without anyone noticing.
 
 None of these gaps require sophisticated fraud. Most of them are simply what happens when a claims process depends on documents that arrive from outside the organisation, with no independent way to confirm they are unchanged since they were issued. A claims handler working through a full queue does not have time to call every garage and every hospital to double-check every document — so the system runs on reasonable trust, and reasonable trust is exactly where leakage lives.
 

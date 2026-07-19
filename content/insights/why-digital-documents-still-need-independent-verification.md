@@ -14,4 +14,4 @@ A digital document is, from a trust perspective, just as editable as a physical 
 
 If anything, the ease of editing digital files makes independent verification more necessary, not less. A paper document at least requires physical access and some effort to alter convincingly. A digital one requires neither, and the alteration leaves no visible trace in the file itself.
 
-The fix is not to distrust digital documents or go back to paper — it is to give digital documents the one thing they were never designed to have: an independent record, created at the moment of issuance, that anyone holding the document later can check it against. Format was never the source of trust. A verifiable record of the original always was.
+The fix is not to distrust digital documents or go back to paper — it is to give digital documents the one thing they were never designed to have: [an independent record, created at the moment of issuance](/technology), that anyone holding the document later can check it against. Format was never the source of trust. A verifiable record of the original always was.

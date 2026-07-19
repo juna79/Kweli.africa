@@ -5,11 +5,13 @@ import {
   EyeOff,
   Fingerprint,
 } from "lucide-react";
+import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { HeroReveal } from "@/components/ui/HeroReveal";
 import { Button } from "@/components/ui/Button";
 
 const MUTED = "text-[var(--color-slate)]";
+const INLINE_LINK = "text-[var(--color-gold-bright)] underline underline-offset-2";
 
 // Content sourced from Kweli_Canonical_OS.md §1 (Mission) and §3 (Product
 // Philosophy) — mission/vision and non-confidential principles only. No
@@ -48,9 +50,11 @@ function Origin() {
         <Reveal className="space-y-6">
           <p className="text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-warm-paper)]">
             Every organisation makes decisions using information it did not
-            create — an insurer relies on a garage&rsquo;s repair estimate, a
-            bank on an external valuation, an employer on a university&rsquo;s
-            certificate, an exporter on a laboratory&rsquo;s report.
+            create — an <Link href="/industries/insurance" className={INLINE_LINK}>insurer</Link> relies
+            on a garage&rsquo;s repair estimate, a <Link href="/industries/banking" className={INLINE_LINK}>bank</Link> on
+            an external valuation, an employer on a <Link href="/industries/education" className={INLINE_LINK}>university&rsquo;s
+            certificate</Link>, an <Link href="/industries/trade" className={INLINE_LINK}>exporter</Link> on
+            a laboratory&rsquo;s report.
           </p>
           <p className={`text-[length:var(--text-body)] leading-[var(--text-body--line-height)] ${MUTED}`}>
             For most of history, physical friction — paper, signatures,

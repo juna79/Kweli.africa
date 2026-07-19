@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Technology } from "@/components/technology/Technology";
 
 const description =
-  "How Kweli's document verification technology fingerprints, registers and verifies documents without storing them — client-side privacy, immutable registration, and independent verification.";
+  "How Kweli's document verification technology fingerprints, registers and verifies documents without storing them — client-side privacy, independent verification.";
 
 export const metadata: Metadata = {
   title: "Document Verification Technology",

@@ -35,9 +35,12 @@ export function ArticlePage({ article }: { article: Article }) {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             {industry && (
-              <span className="rounded-[var(--radius-sm)] border border-white/10 px-2.5 py-1 text-xs text-[var(--color-slate)]">
+              <Link
+                href={`/industries/${industry.slug}`}
+                className="rounded-[var(--radius-sm)] border border-white/10 px-2.5 py-1 text-xs text-[var(--color-slate)] transition-colors duration-150 hover:border-[var(--color-gold)]/40 hover:text-[var(--color-gold-bright)]"
+              >
                 {industry.name}
-              </span>
+              </Link>
             )}
             <span className={`text-xs ${MUTED}`}>
               {formatDate(article.published_at)}

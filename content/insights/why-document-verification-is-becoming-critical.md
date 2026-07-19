@@ -6,7 +6,7 @@ author_name: "Kweli Team"
 published_at: "2026-04-18"
 featured: false
 ---
-The way documents move has changed faster than the way they get verified. A degree certificate issued in one country is routinely presented to an employer in another. A shipment's paperwork passes through exporters, freight forwarders, customs officials and banks who have never dealt with each other before and may never deal with each other again. A claim can involve a garage, a hospital, an assessor and an insurer, none of whom share a system.
+The way documents move has changed faster than the way they get verified. A [degree certificate](/industries/education) issued in one country is routinely presented to an employer in another. A shipment's paperwork passes through exporters, freight forwarders, customs officials and banks who have never dealt with each other before and may never deal with each other again. A claim can involve a garage, a [hospital](/industries/healthcare), an assessor and an [insurer](/industries/insurance), none of whom share a system.
 
 Each of those handoffs used to happen locally, between parties who often did know each other, or at least operated within the same regulatory and institutional context. That is increasingly not how business works. Organisations now routinely trust documents from issuers they have no relationship with, in jurisdictions they don't operate in, through channels — email, WhatsApp, scanned PDFs — that make alteration trivially easy and detection almost impossible by eye.
 
