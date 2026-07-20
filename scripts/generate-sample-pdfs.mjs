@@ -136,7 +136,22 @@ function makePage() {
   };
 }
 
-function buildPdf(pageBuilderFn) {
+// Adobe Acrobat/Reader applies stricter-than-spec validation heuristics and
+// can show a benign "repair" prompt for PDFs that are structurally valid but
+// carry no /Info dictionary or /ID trailer entry at all — both optional per
+// ISO 32000, but their total absence is a hallmark of minimal/hand-rolled
+// generators (like this one) rather than an established PDF library, and
+// trips that heuristic. Adding real producer/title/date metadata and a file
+// identifier removes the signal without changing anything else about the file.
+function pdfDate(dateStr) {
+  const d = new Date(dateStr);
+  const pad = (n) => String(n).padStart(2, "0");
+  return `D:${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}${pad(
+    d.getUTCHours()
+  )}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
+}
+
+function buildPdf(pageBuilderFn, meta) {
   const page = makePage();
   page.setFill(0, 0, 0);
   page.setStroke(0, 0, 0);
@@ -176,13 +191,28 @@ function buildPdf(pageBuilderFn) {
   objOffsets[9] = offset;
   push(`9 0 obj\n<< /Length ${streamLen} >>\nstream\n${streamContent}endstream\nendobj\n`);
 
+  const creationDate = pdfDate(meta.date);
+  const infoDict =
+    `<< /Producer (${esc("Kweli Website Document Generator")}) ` +
+    `/Creator (${esc("Kweli")}) ` +
+    `/Title (${esc(meta.title)}) ` +
+    `/CreationDate (${creationDate}) /ModDate (${creationDate}) >>`;
+  objOffsets[10] = offset;
+  push(`10 0 obj\n${infoDict}\nendobj\n`);
+
   const xrefOffset = offset;
-  let xref = "xref\n0 10\n0000000000 65535 f \n";
-  for (let i = 1; i <= 9; i++) {
+  let xref = "xref\n0 11\n0000000000 65535 f \n";
+  for (let i = 1; i <= 10; i++) {
     xref += String(objOffsets[i]).padStart(10, "0") + " 00000 n \n";
   }
   push(xref);
-  push(`trailer\n<< /Size 10 /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`);
+
+  // File identifier: deterministic (not random) so re-running the generator
+  // with unchanged document data reproduces byte-identical PDFs.
+  const fileId = createHash("md5").update(`${meta.refNumber}|${meta.title}|${creationDate}`).digest("hex");
+  push(
+    `trailer\n<< /Size 11 /Root 1 0 R /Info 10 0 R /ID [<${fileId}> <${fileId}>] >>\nstartxref\n${xrefOffset}\n%%EOF`
+  );
 
   return Buffer.from(parts.join(""), "latin1");
 }
@@ -939,13 +969,15 @@ const certificateDocs = [
 const results = [];
 
 for (const doc of businessDocs) {
-  const buf = buildPdf(buildBusinessDoc(doc));
+  const meta = { title: `${doc.orgName} - ${doc.title}`, date: doc.date, refNumber: doc.refNumber };
+  const buf = buildPdf(buildBusinessDoc(doc), meta);
   writeFileSync(path.join(outDir, `${doc.id}.pdf`), buf);
   results.push({ id: doc.id, sha256: createHash("sha256").update(buf).digest("hex"), size: buf.length });
 }
 
 for (const doc of certificateDocs) {
-  const buf = buildPdf(buildCertificateDoc(doc));
+  const meta = { title: `${doc.orgName} - ${doc.title}`, date: doc.date, refNumber: doc.refNumber };
+  const buf = buildPdf(buildCertificateDoc(doc), meta);
   writeFileSync(path.join(outDir, `${doc.id}.pdf`), buf);
   results.push({ id: doc.id, sha256: createHash("sha256").update(buf).digest("hex"), size: buf.length });
 }

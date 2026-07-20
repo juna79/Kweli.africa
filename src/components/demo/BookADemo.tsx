@@ -4,7 +4,17 @@ import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { HeroReveal } from "@/components/ui/HeroReveal";
+import { Select, type SelectOption } from "@/components/ui/Select";
 import { industries } from "@/lib/industries";
+
+const industryOptions: SelectOption[] = [
+  ...industries.map((industry) => ({
+    value: industry.slug,
+    label: industry.name,
+    icon: industry.icon,
+  })),
+  { value: "other", label: "Other" },
+];
 
 const MUTED = "text-[var(--color-slate)]";
 
@@ -257,25 +267,18 @@ function DemoForm() {
               <label htmlFor="industry" className="text-sm font-medium text-[var(--color-warm-paper)]">
                 Industry
               </label>
-              <select
-                id="industry"
-                name="industry"
-                defaultValue=""
-                aria-invalid={Boolean(errors.industry)}
-                aria-describedby={errors.industry ? "industry-error" : undefined}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => e.target.value && clearError("industry")}
-                className={`mt-2 ${fieldClasses(Boolean(errors.industry))}`}
-              >
-                <option value="" disabled>
-                  Select your industry
-                </option>
-                {industries.map((industry) => (
-                  <option key={industry.slug} value={industry.slug}>
-                    {industry.name}
-                  </option>
-                ))}
-                <option value="other">Other</option>
-              </select>
+              <div className="mt-2">
+                <Select
+                  triggerId="industry"
+                  name="industry"
+                  options={industryOptions}
+                  placeholder="Select your industry"
+                  required
+                  invalid={Boolean(errors.industry)}
+                  describedBy={errors.industry ? "industry-error" : undefined}
+                  onValueChange={(value) => value && clearError("industry")}
+                />
+              </div>
               {errors.industry && (
                 <p id="industry-error" role="alert" className="mt-1.5 text-xs text-[var(--color-failed)]">
                   {errors.industry}
