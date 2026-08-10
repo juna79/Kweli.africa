@@ -350,7 +350,7 @@ function Boundaries() {
           <div className="flex items-start gap-4 rounded-[var(--radius-lg)] border border-[var(--color-gold)]/30 bg-[var(--color-gold)]/[0.03] p-6">
             <Check size={20} strokeWidth={2} className="mt-0.5 shrink-0 text-[var(--color-gold-bright)]" aria-hidden />
             <p className="text-[length:var(--text-body-lg)] text-[var(--color-warm-paper)]">
-              Kweli proves that the document being viewed is the same document that was originally issued.
+              Kweli proves that the document being viewed is the same one its authorised issuer registered at issuance.
             </p>
           </div>
         </Reveal>

@@ -197,10 +197,11 @@ function IndustryGrid() {
       <div className="mx-auto max-w-6xl">
         <Reveal className="text-center">
           <h2 className="text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Six more industries. One trust layer.
+            Insurance first. Six more industries to follow.
           </h2>
           <p className={`mx-auto mt-3 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
-            The technology stays the same. Only the documents change.
+            The same verification approach extends to each of these — one issuer,
+            one workflow at a time.
           </p>
         </Reveal>
 
@@ -228,8 +229,9 @@ function ClosingCta() {
             Don&rsquo;t see your industry? The problem is still the same.
           </h2>
           <p className={`mx-auto mt-4 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
-            Kweli is horizontal trust infrastructure — wherever a document
-            changes hands, the same verification layer applies.
+            Kweli is horizontal trust infrastructure — wherever an authorised
+            issuer can register a document at source, the same verification
+            layer applies.
           </p>
           <div className="mt-8">
             <Button href="/book-a-demo" variant="primary" withArrow>

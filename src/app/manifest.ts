@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Kweli — Trust Infrastructure for the World",
     short_name: "Kweli",
     description:
-      "Verify that the document in your hands is the genuine, unaltered one issued by a named organisation.",
+      "Check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
     start_url: "/",
     display: "standalone",
     background_color: "#0b080f",

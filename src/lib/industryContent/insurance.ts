@@ -13,15 +13,15 @@ export const insurance: IndustryPageContent = {
   name: "Insurance",
 
   hero: {
-    headline: "Every claim runs on documents insurers didn't create.",
+    headline: "Bonds and guarantees today. Claims evidence, panel by panel.",
     supportingCopy:
-      "Repair estimates, medical reports, marine surveys, engineering assessments, valuations and guarantees — third-party documents influence every insurance decision.",
+      "The documents an insurer issues — bonds, guarantees, policy schedules, insurance certificates and letters of undertaking — can be verified from day one, because the insurer controls issuance. Claims evidence from garages, assessors, hospitals and laboratories follows, as each authorised provider begins registering documents at source.",
     art: "Vol. 2 · Hero Composite (insurance)",
     src: "/artwork/insurance/hero-insurance.jpg",
   },
 
   ecosystem: {
-    heading: "One trust layer, wherever the document originates.",
+    heading: "Claims evidence becomes verifiable one authorised provider at a time.",
     tiles: [
       { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair", src: "/artwork/insurance/motor-repair.jpg" },
       { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital", src: "/artwork/insurance/medical-hospital.jpg" },
@@ -33,15 +33,43 @@ export const insurance: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every line of business.",
+    heading: "Where verification fits, line by line.",
     lines: [
+      {
+        key: "guarantees",
+        label: "Bonds and Guarantees",
+        icon: "Landmark",
+        art: "Guarantees & Bonds",
+        src: "/artwork/insurance/guarantees-bonds.jpg",
+        explanation:
+          "The documents an insurer issues — bonds, guarantees, policy schedules, certificates and letters of undertaking. Because the insurer controls issuance, these can be registered and verified from day one, with no third party to onboard first.",
+        documents: [
+          { name: "Bond", issuer: "Insurer" },
+          { name: "Guarantee", issuer: "Insurer" },
+          { name: "Policy Schedule", issuer: "Insurer" },
+          { name: "Insurance Certificate", issuer: "Insurer" },
+          { name: "Letter of Undertaking", issuer: "Insurer" },
+        ],
+        journey: {
+          heading: "How an insurer-issued instrument moves from issue to acceptance.",
+          steps: [
+            { icon: "Landmark", label: "Insurer issues bond or guarantee" },
+            { icon: "Fingerprint", label: "Insurer registers the document" },
+            { icon: "Share2", label: "Beneficiary or counterparty receives it" },
+            { icon: "ShieldCheck", label: "Receiving party verifies" },
+            { icon: "BadgeCheck", label: "Validity confirmed" },
+            { icon: "Handshake", label: "Transaction proceeds" },
+          ],
+          footnote: "Kweli does not guarantee payment and does not assess the underlying transaction.",
+        },
+      },
       {
         key: "motor",
         label: "Motor",
         icon: "Car",
         art: "Vol. 2 · 03 · Motor — Claims Office",
         src: "/artwork/insurance/motor-claims-office.jpg",
-        explanation: "Repair and assessment documents move from garages and assessors into every motor claim.",
+        explanation: "Repair and assessment documents move from garages and assessors into every motor claim. Verification begins with an authorised panel of garages and assessors registering their documents at source, then expands provider by provider.",
         documents: [
           { name: "Repair Estimate", issuer: "Garage" },
           { name: "Garage Invoice", issuer: "Garage" },
@@ -67,7 +95,7 @@ export const insurance: IndustryPageContent = {
         icon: "Stethoscope",
         art: "Vol. 2 · 05 · Medical Report",
         src: "/artwork/insurance/medical-report.jpg",
-        explanation: "Medical and diagnostic documents move from hospitals, doctors and laboratories into every medical claim.",
+        explanation: "Medical and diagnostic documents move from hospitals, doctors and laboratories into every medical claim. Verification begins with an authorised panel of hospitals and laboratories registering their documents at source, then expands provider by provider.",
         documents: [
           { name: "Medical Report", issuer: "Hospital or Doctor" },
           { name: "Treatment Estimate", issuer: "Hospital" },
@@ -184,31 +212,6 @@ export const insurance: IndustryPageContent = {
         },
       },
       {
-        key: "guarantees",
-        label: "Guarantees and Bonds",
-        icon: "Landmark",
-        art: "Guarantees & Bonds",
-        src: "/artwork/insurance/guarantees-bonds.jpg",
-        explanation: "Bonds and guarantees move from banks and underwriters into every guarantee claim.",
-        documents: [
-          { name: "Bank Guarantee", issuer: "Bank" },
-          { name: "Performance Bond", issuer: "Bank or Underwriter" },
-          { name: "Insurance Bond", issuer: "Insurer" },
-        ],
-        journey: {
-          heading: "How a guarantee or bond moves from issue to transaction.",
-          steps: [
-            { icon: "Landmark", label: "Bank or underwriter issues guarantee/bond" },
-            { icon: "Fingerprint", label: "Document registered" },
-            { icon: "Share2", label: "Contractor or beneficiary shares it" },
-            { icon: "ShieldCheck", label: "Receiving party verifies" },
-            { icon: "BadgeCheck", label: "Validity confirmed" },
-            { icon: "Handshake", label: "Transaction proceeds" },
-          ],
-          footnote: "Kweli does not guarantee payment and does not assess the underlying transaction.",
-        },
-      },
-      {
         key: "travel",
         label: "Travel",
         icon: "Plane",
@@ -308,7 +311,7 @@ export const insurance: IndustryPageContent = {
   },
 
   cta: {
-    heading: "Ready to bring verification into your claims process?",
-    supportingCopy: "Begin with motor repair estimates and expand as trust proves itself across every line of business.",
+    heading: "Ready to bring verification into your insurance workflows?",
+    supportingCopy: "Begin with the documents you issue, then extend to claims evidence one authorised panel at a time.",
   },
 };

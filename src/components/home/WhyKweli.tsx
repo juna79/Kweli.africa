@@ -148,8 +148,8 @@ function Promise() {
           Kweli makes one promise.
         </p>
         <p className="mx-auto mt-8 max-w-xl text-[length:var(--text-h4)] leading-[1.35] font-medium text-[var(--color-warm-paper)]">
-          The document you are looking at is the same document that was
-          issued.
+          The document you are looking at is the same one its authorised issuer
+          registered at issuance.
         </p>
         <p className="mt-6 text-[length:var(--text-body-lg)] tracking-wide text-[var(--color-slate)]">
           Nothing more. Nothing less.

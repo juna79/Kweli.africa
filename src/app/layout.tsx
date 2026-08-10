@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     template: "%s — Kweli",
   },
   description:
-    "Verify that the document in your hands is the genuine, unaltered one issued by a named organisation. Kweli is trust infrastructure for the world.",
+    "Kweli lets you check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Kweli — Trust Infrastructure for the World",
     description:
-      "Verify that the document in your hands is the genuine, unaltered one issued by a named organisation.",
+      "Check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
     siteName: "Kweli",
     url: siteUrl,
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kweli — Trust Infrastructure for the World",
     description:
-      "Verify that the document in your hands is the genuine, unaltered one issued by a named organisation.",
+      "Check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
   },
 };
 

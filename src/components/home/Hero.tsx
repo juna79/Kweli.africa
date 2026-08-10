@@ -123,7 +123,7 @@ export function Hero() {
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--color-gold-bright)]" />
           </span>
           <span className="text-xs font-medium tracking-wide text-[var(--color-slate)]">
-            Independently verifiable, anywhere
+            Starting in insurance
           </span>
         </div>
 
@@ -143,8 +143,9 @@ export function Hero() {
           className="animate-fade-up mx-auto mt-7 max-w-2xl text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]"
           style={{ animationDelay: "600ms" }}
         >
-          Verify that the document in your hands is the genuine, unaltered one
-          issued by a named organisation.
+          Check whether the document in your hands matches the version its
+          issuer registered — fingerprinted on your device, never uploaded to
+          Kweli.
         </p>
 
         <div

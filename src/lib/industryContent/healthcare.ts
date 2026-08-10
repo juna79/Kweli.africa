@@ -26,7 +26,7 @@ export const healthcare: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every healthcare workflow.",
+    heading: "Built for healthcare, one workflow at a time.",
     lines: [
       {
         key: "patient-registration",

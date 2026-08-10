@@ -26,7 +26,7 @@ export const banking: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every banking workflow.",
+    heading: "Built for banking, one workflow at a time.",
     lines: [
       {
         key: "kyc",

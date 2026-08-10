@@ -26,7 +26,7 @@ export const trade: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every trade workflow.",
+    heading: "Built for trade, one workflow at a time.",
     lines: [
       {
         key: "export-shipment",

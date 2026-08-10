@@ -26,7 +26,7 @@ export const professionalServices: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every professional services engagement.",
+    heading: "Built for professional services, one engagement at a time.",
     lines: [
       {
         key: "audit",

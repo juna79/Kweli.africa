@@ -26,7 +26,7 @@ export const government: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every government workflow.",
+    heading: "Built for government, one workflow at a time.",
     lines: [
       {
         key: "permits",

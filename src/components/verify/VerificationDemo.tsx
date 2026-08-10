@@ -313,7 +313,7 @@ export function VerificationDemo() {
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="text-center">
           <span className="inline-block rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-medium tracking-wide text-[var(--color-slate)] uppercase">
-            Product demonstration — simulated, not a live lookup
+            Product demonstration — real fingerprinting, sample results (not a live registry)
           </span>
         </div>
 

@@ -36,8 +36,12 @@ export function VerifyDocumentTypes() {
         <Reveal className="text-center">
           <p className={EYEBROW}>What Kweli Verifies</p>
           <h2 className="mx-auto mt-6 max-w-lg text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Any document, from any issuer.
+            The documents decisions depend on.
           </h2>
+          <p className="mx-auto mt-5 max-w-md text-[length:var(--text-body)] leading-relaxed text-[var(--color-slate)]">
+            Once an authorised issuer registers a document at source, anyone
+            holding it can check it here.
+          </p>
         </Reveal>
 
         <Reveal delayMs={100} className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">

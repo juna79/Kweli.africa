@@ -12,7 +12,7 @@ export function organizationSchema() {
     url: siteUrl,
     logo: `${siteUrl}/brand/Kweli_Logo_Transparent.png`,
     description:
-      "Kweli is trust infrastructure that lets anyone verify a document is the genuine, unaltered version issued by its named organisation — without storing the document itself.",
+      "Kweli is trust infrastructure that lets anyone check whether a document matches the version its issuer registered at issuance — without storing the document itself. Insurance is Kweli's initial market.",
     email: "info@kweli.solutions",
     parentOrganization: {
       "@type": "Organization",

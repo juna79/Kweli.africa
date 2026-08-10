@@ -25,7 +25,7 @@ export const education: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Kweli works across every credential type.",
+    heading: "Built for credentials, one type at a time.",
     lines: [
       {
         key: "graduation",

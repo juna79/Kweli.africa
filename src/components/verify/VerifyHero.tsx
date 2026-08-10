@@ -13,7 +13,7 @@ export function VerifyHero() {
             Verify a Document
           </p>
           <h1 className="mx-auto mt-6 text-[2.75rem] leading-[1.1] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem] md:text-[4.75rem] md:leading-[1.08]">
-            Trust Every Document. Instantly.
+            Check a document against what its issuer registered.
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
             Upload an original document to verify whether it exactly matches
