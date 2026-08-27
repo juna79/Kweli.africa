@@ -35,6 +35,8 @@ import {
 import {
   steps,
   matchFaqDetailed,
+  matchGuidedStep,
+  matchGuidedDocuments,
   getFollowUps,
   getInitialFollowUps,
   isLeadTopic,
@@ -297,6 +299,43 @@ export default function KweliBot() {
     const qid = say("user", text);
     setInput("");
 
+    // GUIDED: interpret the typed text as a response to the CURRENT step first.
+    // Only fall through to the FAQ matcher (which keeps the guided state) and
+    // then the unknown fallback if it matches no current option.
+    if (stage === "guided" && currentStep) {
+      if (currentStep.id === "documents") {
+        const docs = matchGuidedDocuments(activeIndustry?.exampleDocuments ?? [], text);
+        if (docs.length) {
+          setDocSelection((prev) => Array.from(new Set([...prev, ...docs])));
+          say("bot", `Added: ${docs.join(", ")}. Pick any more, or tap Continue.`);
+          setAnchorId(qid);
+          return;
+        }
+      } else {
+        const g = matchGuidedStep(currentStep.id, text);
+        if (g && g.kind === "match") {
+          // Advance exactly as if the option had been clicked (the visitor's
+          // typed text is already shown as their message).
+          const updated: ConversationContext = { ...ctx };
+          if (currentStep.contextKey && currentStep.contextKey !== "documents") {
+            (updated as Record<string, unknown>)[currentStep.contextKey] = g.option.value;
+          }
+          setCtx(updated);
+          advanceGuided(stepIndex, updated);
+          return;
+        }
+        if (g && g.kind === "clarify") {
+          say(
+            "bot",
+            `Just to check — did you mean "${g.options[0].label}" or "${g.options[1].label}"? You can tap an option below.`,
+          );
+          setAnchorId(qid);
+          return; // stay on the step; its option buttons remain visible
+        }
+      }
+      // No current-step match → fall through to FAQ handling below (still guided).
+    }
+
     // Recent conversation context (most-recent topic first) helps the matcher
     // resolve short/ambiguous questions.
     const contextIds = [...answered].reverse();
@@ -330,7 +369,19 @@ export default function KweliBot() {
       return;
     }
 
-    // No confident match → never invent. Offer the team.
+    // Matches neither the current guided step nor an approved FAQ. During the
+    // guided flow, keep the visitor in it and re-present the current question
+    // (their option buttons remain) rather than abandoning the journey.
+    if (stage === "guided" && currentStep) {
+      say(
+        "bot",
+        `I didn't quite catch that — you can pick one of the options below, or tell me in a few words. ${currentStep.prompt}`,
+      );
+      setAnchorId(qid);
+      return;
+    }
+
+    // Otherwise → never invent; offer the team.
     say("bot", unknownAnswer);
     setPendingQuestion(text);
     setSuggestions([]);
@@ -409,10 +460,7 @@ export default function KweliBot() {
     }
   }
 
-  const activeIndustry = useMemo(
-    () => industries.find((i) => i.id === ctx.industry),
-    [ctx.industry],
-  );
+  const activeIndustry = industries.find((i) => i.id === ctx.industry);
 
   const showTypedInput = stage === "guided" || stage === "followups";
   const showBack = stage === "guided" && stepIndex > 0;

@@ -9,7 +9,7 @@
  * question to the team. It never invents answers.
  */
 
-import { faqs, type Faq } from "./knowledge";
+import { faqs, industries, type Faq } from "./knowledge";
 
 /** A selectable option (chip) in the guided flow. */
 export type Option = {
@@ -18,6 +18,11 @@ export type Option = {
   value: string;
   /** Optional id of the next step to go to. Defaults to linear progression. */
   next?: StepId;
+  /**
+   * Natural wording a visitor might type instead of clicking this option
+   * (e.g. "both" for "We do both"). Matching metadata only — never displayed.
+   */
+  aliases?: string[];
 };
 
 export type StepId =
@@ -58,43 +63,43 @@ export type ConversationContext = {
 };
 
 export const roleOptions: Option[] = [
-  { label: "We mainly issue documents", value: "issue" },
-  { label: "We mainly receive documents", value: "receive" },
-  { label: "We do both", value: "both" },
+  { label: "We mainly issue documents", value: "issue", aliases: ["issue", "we issue", "mainly issue", "mostly issue", "issuer", "we create", "we produce", "we send"] },
+  { label: "We mainly receive documents", value: "receive", aliases: ["receive", "we receive", "mainly receive", "mostly receive", "we get", "incoming", "we accept"] },
+  { label: "We do both", value: "both", aliases: ["both", "we do both", "issue and receive", "send and receive", "either"] },
 ];
 
 export const movementOptions: Option[] = [
-  { label: "Email", value: "email" },
-  { label: "WhatsApp or messaging", value: "messaging" },
-  { label: "A portal or upload", value: "portal" },
-  { label: "Courier or paper", value: "paper" },
-  { label: "Through a broker or intermediary", value: "intermediary" },
-  { label: "Other", value: "other" },
+  { label: "Email", value: "email", aliases: ["email", "emails", "by email", "over email", "e-mail"] },
+  { label: "WhatsApp or messaging", value: "messaging", aliases: ["whatsapp", "messaging", "message", "sms", "text", "chat", "telegram"] },
+  { label: "A portal or upload", value: "portal", aliases: ["portal", "upload", "uploads", "web portal", "online portal", "our system", "platform"] },
+  { label: "Courier or paper", value: "paper", aliases: ["courier", "paper", "postal", "hand delivery", "printed", "hard copy", "physical", "by post"] },
+  { label: "Through a broker or intermediary", value: "intermediary", aliases: ["broker", "brokers", "intermediary", "agent", "agents", "middleman", "third party"] },
+  { label: "Other", value: "other", aliases: ["other", "something else", "none of these", "different"] },
 ];
 
 export const checkingOptions: Option[] = [
-  { label: "We phone or email the issuer", value: "contact-issuer" },
-  { label: "Manual review by our team", value: "manual" },
-  { label: "We generally trust the sender", value: "trust" },
-  { label: "There's no reliable way today", value: "none" },
-  { label: "Other", value: "other" },
+  { label: "We phone or email the issuer", value: "contact-issuer", aliases: ["phone", "call", "we call", "ring", "email the issuer", "contact the issuer", "check with the issuer"] },
+  { label: "Manual review by our team", value: "manual", aliases: ["manual", "manually", "by hand", "our team reviews", "we review", "review", "we check manually"] },
+  { label: "We generally trust the sender", value: "trust", aliases: ["trust", "we trust", "take their word", "assume", "trust the sender"] },
+  { label: "There's no reliable way today", value: "none", aliases: ["no reliable way", "no way", "we cant", "cannot verify", "nothing", "no method", "we dont"] },
+  { label: "Other", value: "other", aliases: ["other", "something else", "different"] },
 ];
 
 export const concernOptions: Option[] = [
-  { label: "Documents being altered", value: "alteration" },
-  { label: "Slow approvals", value: "speed" },
-  { label: "Cost of manual checking", value: "cost" },
-  { label: "Audit and compliance", value: "compliance" },
-  { label: "Trusting counterparties", value: "counterparty" },
-  { label: "Other", value: "other" },
+  { label: "Documents being altered", value: "alteration", aliases: ["altered", "alteration", "tampering", "tampered", "forgery", "forged", "fraud", "fake", "edited", "changed"] },
+  { label: "Slow approvals", value: "speed", aliases: ["slow", "speed", "slow approvals", "delays", "turnaround", "faster", "time"] },
+  { label: "Cost of manual checking", value: "cost", aliases: ["cost", "costs", "expensive", "efficiency", "save money", "reduce cost", "manual cost"] },
+  { label: "Audit and compliance", value: "compliance", aliases: ["audit", "compliance", "regulatory", "regulation", "auditability", "compliant"] },
+  { label: "Trusting counterparties", value: "counterparty", aliases: ["counterparties", "counterparty", "third parties", "trusting others", "partners"] },
+  { label: "Other", value: "other", aliases: ["other", "something else", "different"] },
 ];
 
 export const volumeOptions: Option[] = [
-  { label: "Fewer than 100 / month", value: "<100" },
-  { label: "100–1,000 / month", value: "100-1000" },
-  { label: "1,000–10,000 / month", value: "1000-10000" },
-  { label: "More than 10,000 / month", value: ">10000" },
-  { label: "Not sure", value: "unsure" },
+  { label: "Fewer than 100 / month", value: "<100", aliases: ["less than 100", "under 100", "fewer than 100", "a few", "handful", "dozens", "tens", "small", "low"] },
+  { label: "100–1,000 / month", value: "100-1000", aliases: ["hundreds", "a few hundred", "several hundred", "few hundred", "100 to 1000"] },
+  { label: "1,000–10,000 / month", value: "1000-10000", aliases: ["thousands", "a few thousand", "several thousand", "1000 to 10000", "few thousand"] },
+  { label: "More than 10,000 / month", value: ">10000", aliases: ["tens of thousands", "many thousands", "over 10000", "more than 10000", "huge", "very high", "massive"] },
+  { label: "Not sure", value: "unsure", aliases: ["not sure", "unsure", "dunno", "no idea", "dont know", "not certain", "hard to say"] },
 ];
 
 /**
@@ -404,6 +409,186 @@ export function matchFaq(rawInput: string, contextIds: string[] = []): Faq | nul
   const r = matchFaqDetailed(rawInput, contextIds);
   return r && r.kind === "match" ? r.faq : null;
 }
+
+// ---------------------------------------------------------------------------
+// Guided-step typed-input matching
+//
+// When a visitor types while a guided step is active, the input is first
+// interpreted as a natural response to the current question (e.g. "schools" →
+// Education & Credentials) and only falls through to the FAQ matcher / unknown
+// fallback if it matches no current option. Never silently guesses between two
+// genuinely-plausible options.
+// ---------------------------------------------------------------------------
+
+export type GuidedMatch =
+  | { kind: "match"; option: Option }
+  | { kind: "clarify"; options: Option[] }
+  | null;
+
+const OPTION_THRESHOLD = 3;
+const OPTION_MARGIN = 2;
+
+/** The selectable options for a guided step (industry pulls from knowledge). */
+export function guidedOptions(stepId: string): Option[] {
+  switch (stepId) {
+    case "industry":
+      return industries.map((i) => ({ label: i.label, value: i.id, aliases: i.aliases }));
+    case "role":
+      return roleOptions;
+    case "movement":
+      return movementOptions;
+    case "checking":
+      return checkingOptions;
+    case "concern":
+      return concernOptions;
+    case "volume":
+      return volumeOptions;
+    default:
+      return []; // documents (multi-select) is handled by the component
+  }
+}
+
+/** Free-text / numeric volume → bucket value, or null. */
+function volumeToOptionValue(norm: string): string | null {
+  if (/\b(not sure|unsure|dunno|no idea|do ?n'?t know|not certain|hard to say)\b/.test(norm))
+    return "unsure";
+  const m = norm.match(/(\d[\d,]*)\s*(k|thousand|thousands|m|million|mil)?/);
+  if (!m) {
+    if (/tens of thousands|many thousands/.test(norm)) return ">10000";
+    if (/hundreds|few hundred/.test(norm)) return "100-1000";
+    if (/thousands|few thousand/.test(norm)) return "1000-10000";
+    if (/\b(a few|handful|dozens|dozen|tens|couple)\b/.test(norm)) return "<100";
+    return null;
+  }
+  let n = parseInt(m[1].replace(/,/g, ""), 10);
+  if (Number.isNaN(n)) return null;
+  const unit = m[2] || "";
+  if (/k|thousand/.test(unit)) n *= 1000;
+  else if (/m|million|mil/.test(unit)) n *= 1000000;
+  if (n < 100) return "<100";
+  if (n < 1000) return "100-1000";
+  if (n < 10000) return "1000-10000";
+  return ">10000";
+}
+
+function scoreOption(
+  opt: Option,
+  inputTokens: string[],
+  contentTokens: string[],
+): number {
+  let score = 0;
+  const lt = tokens(normalize(opt.label));
+  // A fully-present multi-word label is a strong phrase hit.
+  if (lt.length >= 2 && allTokensPresent(lt, inputTokens)) score += 4;
+  // Single-word signals — distinctive label words + single-word aliases —
+  // deduped so a word that is both (e.g. "email") is counted once. This keeps
+  // two distinctly-mentioned options ("email and whatsapp") tied → clarify.
+  const singleSignals = new Set<string>();
+  for (const w of lt) if (w.length >= 3 && !STOPWORDS.has(w)) singleSignals.add(w);
+  for (const alias of opt.aliases ?? []) {
+    const at = tokens(normalize(alias));
+    if (at.length >= 2) {
+      if (allTokensPresent(at, inputTokens)) score += 5;
+    } else if (at.length === 1 && at[0].length >= 3) {
+      singleSignals.add(at[0]);
+    }
+  }
+  for (const w of singleSignals) if (tokenInList(w, contentTokens)) score += 3;
+  return score;
+}
+
+/**
+ * Interpret a typed response as a selection among the given step's options.
+ * Returns a single option when it clearly wins, a two-way clarify when genuinely
+ * close, or null (caller then tries the FAQ matcher, then the unknown fallback).
+ */
+export function matchGuidedOption(
+  options: Option[],
+  rawInput: string,
+  stepId?: string,
+): GuidedMatch {
+  const norm = normalize(rawInput);
+  if (!norm) return null;
+  const inputTokens = tokens(norm);
+  const contentTokens = inputTokens.filter((t) => !STOPWORDS.has(t));
+
+  if (stepId === "volume") {
+    const v = volumeToOptionValue(norm);
+    if (v) {
+      const opt = options.find((o) => o.value === v);
+      if (opt) return { kind: "match", option: opt };
+    }
+  }
+
+  const scored = options
+    .map((o) => ({ o, s: scoreOption(o, inputTokens, contentTokens) }))
+    .filter((x) => x.s > 0)
+    .sort((a, b) => b.s - a.s);
+  if (!scored.length || scored[0].s < OPTION_THRESHOLD) return null;
+
+  const best = scored[0];
+  const second = scored[1];
+  if (second && second.s >= OPTION_THRESHOLD && best.s - second.s < OPTION_MARGIN) {
+    return { kind: "clarify", options: [best.o, second.o] };
+  }
+  return { kind: "match", option: best.o };
+}
+
+/** Convenience: match a typed response against a guided step by its id. */
+export function matchGuidedStep(stepId: string, rawInput: string): GuidedMatch {
+  return matchGuidedOption(guidedOptions(stepId), rawInput, stepId);
+}
+
+/**
+ * Documents step is multi-select — return every document chip the typed input
+ * mentions (e.g. "repair estimates and invoices" → both), so the caller can
+ * toggle them on and let the visitor add more or Continue.
+ */
+export function matchGuidedDocuments(docs: string[], rawInput: string): string[] {
+  const norm = normalize(rawInput);
+  if (!norm) return [];
+  const inputTokens = tokens(norm);
+  const contentTokens = inputTokens.filter((t) => !STOPWORDS.has(t));
+  return docs.filter(
+    (d) => scoreOption({ label: d, value: d }, inputTokens, contentTokens) >= OPTION_THRESHOLD,
+  );
+}
+
+/**
+ * Regression cases for guided typed-input routing. `expect` is an option value,
+ * `"clarify"`, or `null` (no option → caller tries FAQ / unknown). Includes the
+ * exact live failure: "schools" at the industry step → Education & Credentials.
+ */
+export const guidedOptionRegressionCases: {
+  step: string;
+  input: string;
+  expect: string | "clarify" | null;
+}[] = [
+  { step: "industry", input: "schools", expect: "education" },
+  { step: "industry", input: "I run a school", expect: "education" },
+  { step: "industry", input: "we are an insurance company", expect: "insurance" },
+  { step: "industry", input: "hospital", expect: "healthcare" },
+  { step: "industry", input: "we work with banks", expect: "banking" },
+  { step: "industry", input: "a law firm", expect: "professional-services" },
+  { step: "industry", input: "logistics business", expect: "trade" },
+  { step: "industry", input: "government ministry", expect: "government" },
+  { step: "industry", input: "farming", expect: "agriculture" },
+  { step: "industry", input: "something else", expect: "other" },
+  { step: "industry", input: "how does verification work", expect: null },
+  { step: "role", input: "both", expect: "both" },
+  { step: "role", input: "mostly receive", expect: "receive" },
+  { step: "role", input: "we issue", expect: "issue" },
+  { step: "movement", input: "email", expect: "email" },
+  { step: "movement", input: "whatsapp", expect: "messaging" },
+  { step: "movement", input: "email and whatsapp", expect: "clarify" },
+  { step: "checking", input: "manually", expect: "manual" },
+  { step: "concern", input: "fraud", expect: "alteration" },
+  { step: "concern", input: "cost", expect: "cost" },
+  { step: "volume", input: "about 500 per month", expect: "100-1000" },
+  { step: "volume", input: "50000", expect: ">10000" },
+  { step: "volume", input: "not sure", expect: "unsure" },
+  { step: "volume", input: "a few", expect: "<100" },
+];
 
 /**
  * Regression cases for the deterministic matcher (durable documentation +

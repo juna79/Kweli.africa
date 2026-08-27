@@ -36,6 +36,13 @@ export type Industry = {
    * Written to be accurate whether they issue or receive documents.
    */
   tailoredExplainer: string;
+  /**
+   * Natural wording a visitor might type at the industry step instead of
+   * clicking the option (e.g. "schools", "we are an insurance company"). Used
+   * only to route a typed guided response to this option — matching metadata,
+   * never displayed.
+   */
+  aliases?: string[];
 };
 
 export type Faq = {
@@ -140,6 +147,10 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "Insurance is Kweli's first market. Documents like repair estimates, assessor reports, police abstracts and medical reports each shape a claim decision, and each can be altered after it is issued. Kweli lets a claims team confirm a document matches the version registered under the issuer — for example the garage, assessor or hospital — before the decision is made. It confirms the document is unchanged; it does not judge whether the amount or diagnosis is correct.",
+    aliases: [
+      "insurance", "insurer", "insurers", "insurance company", "claims",
+      "claim", "underwriter", "underwriting", "broker", "reinsurance",
+    ],
   },
   {
     id: "banking",
@@ -155,6 +166,11 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "Guarantees, statements and audit reports underpin lending and settlement decisions, and are often produced by a party the bank never deals with directly. Kweli lets a bank confirm a financial document matches the version recorded under the issuing institution's registration — integrity, not a judgement that the figures themselves are correct.",
+    aliases: [
+      "bank", "banks", "banking", "lender", "lending", "microfinance",
+      "sacco", "saccos", "fintech", "financial services", "financial",
+      "credit union",
+    ],
   },
   {
     id: "healthcare",
@@ -169,6 +185,11 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "Medical reports and referrals travel between clinics, insurers and employers. Kweli lets the receiving party confirm nothing changed since a hospital or lab issued the report, without judging the clinical content itself.",
+    aliases: [
+      "hospital", "hospitals", "clinic", "clinics", "healthcare", "health",
+      "medical", "laboratory", "lab", "labs", "pharmacy", "pharmacies",
+      "diagnostic",
+    ],
   },
   {
     id: "government",
@@ -184,6 +205,10 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "A permit or certificate is only as useful as a receiving office's ability to trust it long after it was handed over. Kweli lets any receiving organisation confirm a permit, licence or certificate matches the version registered under the issuing authority.",
+    aliases: [
+      "government", "govt", "ministry", "county", "regulator", "regulatory",
+      "public sector", "authority", "municipality", "agency",
+    ],
   },
   {
     id: "education",
@@ -197,6 +222,12 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "A qualification only matters if an employer can trust it, and certificates are shared long after they are issued. Where an institution registers its certificates, an employer can confirm a presented certificate or transcript matches the registered version — without contacting the university.",
+    aliases: [
+      "school", "schools", "university", "universities", "college", "colleges",
+      "education", "educational", "training institution", "training",
+      "certificate", "certificates", "credential", "credentials", "academic",
+      "transcript", "transcripts", "student", "i run a school",
+    ],
   },
   {
     id: "trade",
@@ -212,6 +243,11 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "Certificates of origin and inspection reports change hands across exporters, carriers and customs, and trust in the paperwork degrades the further it travels from its origin. Kweli lets an importer or customs officer confirm a document matches the version registered under the named issuer — which may be an exporter, chamber, inspection company, regulator or other authorised body.",
+    aliases: [
+      "trade", "logistics", "shipping", "customs", "importer", "importers",
+      "exporter", "exporters", "freight", "supply chain", "import", "export",
+      "clearing", "forwarding",
+    ],
   },
   {
     id: "professional-services",
@@ -227,6 +263,11 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "Audit reports, legal opinions and valuations carry high-stakes decisions and are often produced by an external firm the recipient has no direct way to check. Kweli lets a client, regulator or board confirm a professional report matches the version registered under the issuing firm.",
+    aliases: [
+      "law firm", "lawyer", "lawyers", "legal", "auditor", "auditors", "audit",
+      "accountant", "accountants", "accounting", "consultant", "consultants",
+      "consulting", "engineering firm", "engineers", "advisory", "professional services",
+    ],
   },
   {
     id: "agriculture",
@@ -241,6 +282,10 @@ export const industries: Industry[] = [
     ],
     tailoredExplainer:
       "Agricultural supply chains rely on certificates, inspection reports, quality reports and invoices that move between producers, buyers and inspectors. Kweli allows a receiving party to check whether the digital file presented matches the version registered under the named issuer. For a paper document, scan or transformed copy, the QR workflow allows the verifier to inspect the registration record and compare the registered details.",
+    aliases: [
+      "agriculture", "agricultural", "farming", "farm", "farms", "agribusiness",
+      "produce", "farmer", "farmers", "cooperative", "co-op", "growers",
+    ],
   },
   {
     id: "other",
@@ -250,6 +295,9 @@ export const industries: Industry[] = [
     exampleDocuments: ["Certificates", "Reports", "Statements", "Invoices"],
     tailoredExplainer:
       "Kweli is industry-agnostic: the technology is the same everywhere, only the document and workflow change. Wherever your organisation issues or receives important documents, Kweli lets a recipient confirm a file matches the version recorded under the named issuer's registration, and that it is unchanged. Tell the team a bit about your workflow and they can show you where it fits.",
+    aliases: [
+      "other", "something else", "none of these", "none", "different industry",
+    ],
   },
 ];
 
