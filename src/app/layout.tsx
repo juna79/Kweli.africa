@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { satoshi } from "@/fonts/satoshi";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationSchema, websiteSchema, siteUrl } from "@/lib/seo";
+import { KweliBotMount } from "@/components/kweli-bot/KweliBotMount";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,6 +60,10 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         {children}
+        {/* Feature-flagged, isolated overlay widget. Renders nothing when
+            NEXT_PUBLIC_KWELI_BOT_ENABLED !== "true", and is wrapped in an
+            error boundary so it can never break the rest of the site. */}
+        <KweliBotMount />
       </body>
     </html>
   );

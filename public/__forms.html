@@ -25,5 +25,29 @@
       <input type="text" name="industry" />
       <textarea name="message"></textarea>
     </form>
+
+    <!--
+      Kweli Bot lead capture. Kept in sync with the fields submitted in
+      src/lib/kweliBot/leadSubmit.ts. Same registration-only pattern as above:
+      the bot submits via fetch() to /__forms.html; this definition just lets
+      Netlify's scanner register the form and its fields. No database or paid
+      service is involved.
+    -->
+    <form name="kweli-bot-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="kweli-bot-lead" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <textarea name="question"></textarea>
+      <input type="text" name="industry" />
+      <input type="text" name="role" />
+      <input type="text" name="documentTypes" />
+      <input type="text" name="movement" />
+      <input type="text" name="checking" />
+      <input type="text" name="concern" />
+      <input type="text" name="volume" />
+      <textarea name="conversationSummary"></textarea>
+    </form>
   </body>
 </html>
