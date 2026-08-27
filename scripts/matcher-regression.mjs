@@ -35,9 +35,12 @@ execFileSync(
   { cwd: root, stdio: "inherit" },
 );
 
-const { matchFaqDetailed, matcherRegressionCases } = require(
-  join(outDir, "conversation.js"),
-);
+const {
+  matchFaqDetailed,
+  matcherRegressionCases,
+  matchGuidedStep,
+  guidedOptionRegressionCases,
+} = require(join(outDir, "conversation.js"));
 
 // Extra coverage on top of the committed cases: brief wording, typos, and both
 // sides of the register-a-file vs photo-of-a-document distinction.
@@ -60,10 +63,22 @@ const failures = [];
 for (const c of cases) {
   const r = matchFaqDetailed(c.input, []);
   const got = r === null ? null : r.kind === "clarify" ? "clarify" : r.faq.id;
-  if (got !== c.expect) failures.push({ input: c.input, expect: c.expect, got });
+  if (got !== c.expect) failures.push({ suite: "faq", input: c.input, expect: c.expect, got });
 }
 
-console.log(`matcher regression: ${cases.length - failures.length}/${cases.length} passed`);
+// Guided typed-input routing (current-step-first).
+for (const c of guidedOptionRegressionCases) {
+  const r = matchGuidedStep(c.step, c.input);
+  const got = r === null ? null : r.kind === "clarify" ? "clarify" : r.option.value;
+  if (got !== c.expect)
+    failures.push({ suite: "guided", step: c.step, input: c.input, expect: c.expect, got });
+}
+
+const total = cases.length + guidedOptionRegressionCases.length;
+console.log(
+  `matcher regression: ${total - failures.length}/${total} passed ` +
+    `(faq ${cases.length}, guided ${guidedOptionRegressionCases.length})`,
+);
 if (failures.length) {
   console.error("FAILURES:", JSON.stringify(failures, null, 2));
   process.exit(1);
