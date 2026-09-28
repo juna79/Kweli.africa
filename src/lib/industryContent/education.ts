@@ -10,17 +10,17 @@ export const education: IndustryPageContent = {
     supportingCopy:
       "Your institution registers the final certificate when it is issued. A graduate can share it with an employer, who checks its QR record and whether the digital file matches the version you registered.",
     art: "Vol. 2 · Hero Composite (Education)",
-    src: "/artwork/education/hero-education.jpg",
+    src: "/artwork/education/hero-education.webp",
   },
 
   ecosystem: {
     heading: "From the lecture hall to the hiring desk, the same trust layer applies.",
     tiles: [
-      { icon: Building2, label: "Institution", art: "Vol. 2 · Education — Certificate", src: "/artwork/education/certificate.jpg" },
-      { icon: GraduationCap, label: "Graduate", art: "Vol. 2 · Education — Graduation", src: "/artwork/education/graduation.jpg" },
-      { icon: Briefcase, label: "Employer", art: "Vol. 2 · Education — Employer Verification", src: "/artwork/education/employer-verification.jpg" },
-      { icon: Award, label: "Accreditation Body", art: "Vol. 2 · Education — Professional Qualification", src: "/artwork/education/qualification.jpg" },
-      { icon: IdCard, label: "Registrar", art: "Vol. 2 · Education — Student Verification", src: "/artwork/education/student-verification.jpg" },
+      { icon: Building2, label: "Institution", art: "Vol. 2 · Education — Certificate", src: "/artwork/education/certificate.webp" },
+      { icon: GraduationCap, label: "Graduate", art: "Vol. 2 · Education — Graduation", src: "/artwork/education/graduation.webp" },
+      { icon: Briefcase, label: "Employer", art: "Vol. 2 · Education — Employer Verification", src: "/artwork/education/employer-verification.webp" },
+      { icon: Award, label: "Accreditation Body", art: "Vol. 2 · Education — Professional Qualification", src: "/artwork/education/qualification.webp" },
+      { icon: IdCard, label: "Registrar", art: "Vol. 2 · Education — Student Verification", src: "/artwork/education/student-verification.webp" },
     ],
   },
 
@@ -32,7 +32,7 @@ export const education: IndustryPageContent = {
         label: "Certificate",
         icon: "Award",
         art: "Vol. 2 · Education — Certificate",
-        src: "/artwork/education/certificate.jpg",
+        src: "/artwork/education/certificate.webp",
         explanation: "Degree certificates move from institutions into every graduate's record.",
         documents: [{ name: "Degree Certificate", issuer: "Institution" }],
         journey: {
@@ -52,7 +52,7 @@ export const education: IndustryPageContent = {
         label: "Graduation",
         icon: "GraduationCap",
         art: "Vol. 2 · Education — Graduation",
-        src: "/artwork/education/graduation.jpg",
+        src: "/artwork/education/graduation.webp",
         explanation: "Graduation lists move from institutions into every conferred qualification.",
         documents: [{ name: "Graduation List", issuer: "Institution" }],
         journey: {
@@ -72,7 +72,7 @@ export const education: IndustryPageContent = {
         label: "Transcript",
         icon: "BookOpen",
         art: "Vol. 2 · Education — Transcript",
-        src: "/artwork/education/transcript.jpg",
+        src: "/artwork/education/transcript.webp",
         explanation: "Academic transcripts move from institutions into every admissions or hiring decision.",
         documents: [{ name: "Academic Transcript", issuer: "Institution" }],
         journey: {
@@ -92,7 +92,7 @@ export const education: IndustryPageContent = {
         label: "Employer Verification",
         icon: "Briefcase",
         art: "Vol. 2 · Education — Employer Verification",
-        src: "/artwork/education/employer-verification.jpg",
+        src: "/artwork/education/employer-verification.webp",
         explanation: "Employment verification letters move from employers into every reference check.",
         documents: [{ name: "Employment Verification Letter", issuer: "Employer" }],
         journey: {
@@ -112,7 +112,7 @@ export const education: IndustryPageContent = {
         label: "Qualification",
         icon: "FileCheck2",
         art: "Vol. 2 · Education — Professional Qualification",
-        src: "/artwork/education/qualification.jpg",
+        src: "/artwork/education/qualification.webp",
         explanation: "Professional qualification certificates move from accrediting bodies into every credentialing decision.",
         documents: [{ name: "Professional Qualification Certificate", issuer: "Professional Body" }],
         journey: {
@@ -132,7 +132,7 @@ export const education: IndustryPageContent = {
         label: "Recommendation Letter",
         icon: "Mail",
         art: "Vol. 2 · Education — Recommendation Letter",
-        src: "/artwork/education/recommendation-letter.jpg",
+        src: "/artwork/education/recommendation-letter.webp",
         explanation: "Recommendation letters move from institutions or employers into every application decision.",
         documents: [{ name: "Recommendation Letter", issuer: "Institution or Employer" }],
         journey: {
@@ -152,7 +152,7 @@ export const education: IndustryPageContent = {
         label: "Student Verification",
         icon: "IdCard",
         art: "Vol. 2 · Education — Student Verification",
-        src: "/artwork/education/student-verification.jpg",
+        src: "/artwork/education/student-verification.webp",
         explanation: "Enrolment confirmations move from institutions into every student status check.",
         documents: [{ name: "Student ID Confirmation", issuer: "Institution" }],
         journey: {
@@ -172,7 +172,7 @@ export const education: IndustryPageContent = {
         label: "Digital Credentials",
         icon: "Monitor",
         art: "Vol. 2 · Education — Digital Credentials",
-        src: "/artwork/education/digital-credentials.jpg",
+        src: "/artwork/education/digital-credentials.webp",
         explanation: "Digital credential records move from institutions into every online verification.",
         documents: [{ name: "Digital Credential Record", issuer: "Institution" }],
         journey: {

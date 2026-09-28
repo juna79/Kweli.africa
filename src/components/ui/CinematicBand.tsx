@@ -27,6 +27,7 @@ export function CinematicBand({
             alt={alt}
             fill
             sizes="100vw"
+            unoptimized
             className="object-cover"
           />
         </div>

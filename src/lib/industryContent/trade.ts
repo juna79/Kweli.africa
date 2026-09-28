@@ -10,18 +10,18 @@ export const trade: IndustryPageContent = {
     supportingCopy:
       "A certificate of origin, inspection report or packing list can cross several organisations before a buyer relies on it. Each issuing party registers its own final document, so the next recipient can check the issuer's record and the exact file.",
     art: "Vol. 2 · Hero Composite (Trade and Supply Chain)",
-    src: "/artwork/trade/hero-trade.jpg",
+    src: "/artwork/trade/hero-trade.webp",
   },
 
   ecosystem: {
     heading: "From the warehouse to the wharf, the same trust layer applies.",
     tiles: [
-      { icon: Truck, label: "Exporter", art: "Vol. 2 · Trade — Exporter", src: "/artwork/trade/exporter.jpg" },
-      { icon: Anchor, label: "Importer", art: "Vol. 2 · Trade — Importer", src: "/artwork/trade/importer.jpg" },
-      { icon: Building2, label: "Customs", art: "Vol. 2 · Trade — Customs Clearance", src: "/artwork/trade/customs.jpg" },
-      { icon: Ship, label: "Shipping Line", art: "Vol. 2 · Trade — Export Shipment", src: "/artwork/trade/export-shipment.jpg" },
-      { icon: Warehouse, label: "Warehouse", art: "Vol. 2 · Trade — Warehouse", src: "/artwork/trade/warehouse.jpg" },
-      { icon: FileSearch, label: "Inspector", art: "Vol. 2 · Trade — Inspection", src: "/artwork/trade/inspection.jpg" },
+      { icon: Truck, label: "Exporter", art: "Vol. 2 · Trade — Exporter", src: "/artwork/trade/exporter.webp" },
+      { icon: Anchor, label: "Importer", art: "Vol. 2 · Trade — Importer", src: "/artwork/trade/importer.webp" },
+      { icon: Building2, label: "Customs", art: "Vol. 2 · Trade — Customs Clearance", src: "/artwork/trade/customs.webp" },
+      { icon: Ship, label: "Shipping Line", art: "Vol. 2 · Trade — Export Shipment", src: "/artwork/trade/export-shipment.webp" },
+      { icon: Warehouse, label: "Warehouse", art: "Vol. 2 · Trade — Warehouse", src: "/artwork/trade/warehouse.webp" },
+      { icon: FileSearch, label: "Inspector", art: "Vol. 2 · Trade — Inspection", src: "/artwork/trade/inspection.webp" },
     ],
   },
 
@@ -33,7 +33,7 @@ export const trade: IndustryPageContent = {
         label: "Certificate of Origin",
         icon: "Award",
         art: "Vol. 2 · Trade — Certificate of Origin",
-        src: "/artwork/trade/certificate-of-origin.jpg",
+        src: "/artwork/trade/certificate-of-origin.webp",
         explanation: "A certificate of origin should be registered by the organisation that actually issued it. The importer or buyer can then compare the QR record and final file before relying on the certificate.",
         documents: [{ name: "Certificate of Origin", issuer: "Issuing Chamber or Authority" }],
         journey: {
@@ -53,7 +53,7 @@ export const trade: IndustryPageContent = {
         label: "Export Shipment",
         icon: "Ship",
         art: "Vol. 2 · Trade — Export Shipment",
-        src: "/artwork/trade/export-shipment.jpg",
+        src: "/artwork/trade/export-shipment.webp",
         explanation: "Shipping instructions and packing lists move from exporters into every shipment.",
         documents: [
           { name: "Shipping Instruction", issuer: "Exporter" },
@@ -76,7 +76,7 @@ export const trade: IndustryPageContent = {
         label: "Customs",
         icon: "Building2",
         art: "Vol. 2 · Trade — Customs Clearance",
-        src: "/artwork/trade/customs.jpg",
+        src: "/artwork/trade/customs.webp",
         explanation: "Declarations and permits move between customs agents and authorities into every clearance decision.",
         documents: [
           { name: "Customs Declaration", issuer: "Customs Agent" },
@@ -100,7 +100,7 @@ export const trade: IndustryPageContent = {
         label: "Inspection",
         icon: "FileSearch",
         art: "Vol. 2 · Trade — Inspection",
-        src: "/artwork/trade/inspection.jpg",
+        src: "/artwork/trade/inspection.webp",
         explanation: "Inspection and quality certificates move from inspection companies into every shipment release.",
         documents: [
           { name: "Inspection Certificate", issuer: "Inspection Company" },
@@ -124,7 +124,7 @@ export const trade: IndustryPageContent = {
         label: "Warehouse",
         icon: "Warehouse",
         art: "Vol. 2 · Trade — Warehouse",
-        src: "/artwork/trade/warehouse.jpg",
+        src: "/artwork/trade/warehouse.webp",
         explanation: "Warehouse receipts move from operators into every storage or financing decision.",
         documents: [{ name: "Warehouse Receipt", issuer: "Warehouse Operator" }],
         journey: {
@@ -144,7 +144,7 @@ export const trade: IndustryPageContent = {
         label: "Bill of Lading",
         icon: "FileCheck2",
         art: "Vol. 2 · Trade — Bill of Lading",
-        src: "/artwork/trade/bill-of-lading.jpg",
+        src: "/artwork/trade/bill-of-lading.webp",
         explanation: "Bills of lading move from shipping lines into every cargo release.",
         documents: [{ name: "Bill of Lading", issuer: "Shipping Line" }],
         journey: {
@@ -164,7 +164,7 @@ export const trade: IndustryPageContent = {
         label: "Cold Chain",
         icon: "Snowflake",
         art: "Vol. 2 · Trade — Cold Chain",
-        src: "/artwork/trade/cold-chain.jpg",
+        src: "/artwork/trade/cold-chain.webp",
         explanation: "Temperature logs and certificates move from logistics providers into every cold-chain shipment.",
         documents: [
           { name: "Temperature Log", issuer: "Logistics Provider" },
@@ -188,7 +188,7 @@ export const trade: IndustryPageContent = {
         label: "Importer",
         icon: "Anchor",
         art: "Vol. 2 · Trade — Importer",
-        src: "/artwork/trade/importer.jpg",
+        src: "/artwork/trade/importer.webp",
         explanation: "Permits and purchase orders move between customs and importers into every intake decision.",
         documents: [
           { name: "Import Permit", issuer: "Customs Authority" },
@@ -212,7 +212,7 @@ export const trade: IndustryPageContent = {
         label: "Exporter",
         icon: "Truck",
         art: "Vol. 2 · Trade — Exporter",
-        src: "/artwork/trade/exporter.jpg",
+        src: "/artwork/trade/exporter.webp",
         explanation: "Invoices and licences move from exporters and government into every export decision.",
         documents: [
           { name: "Commercial Invoice", issuer: "Exporter" },

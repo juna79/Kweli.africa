@@ -17,7 +17,7 @@ something concrete before it gets iconographic.
 | Placement | `CinematicBand` between `Intro` and `EcosystemChain` in `src/components/home/WhyKweli.tsx` |
 | Source | Volume 1, frame 13/17 — many hands reaching toward a glowing document |
 | Caption | "A document rarely stays where it was issued." |
-| File | `why-kweli-many-hands.jpg` (JPEG — no WebP encoder in the processing environment; clean photography, no embedded text) |
+| File | `why-kweli-many-hands.webp` (WebP — clean photography, no embedded text) |
 | Why here | The DocumentChain diagram that follows is abstract (icons and labels). One real, human scene right before it gives the abstraction something to stand for, rather than opening cold into iconography. |
 
 ## Considered and rejected
