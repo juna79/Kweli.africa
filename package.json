@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:images && next build",
+    "check:images": "node scripts/check-images.mjs",
     "start": "next start",
     "lint": "eslint"
   },
