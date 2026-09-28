@@ -14,14 +14,14 @@ export function VerifyCta() {
         <Reveal>
           <p className={EYEBROW}>Get Started</p>
           <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Ready to verify trust at scale?
+            Want to use this in your own document workflow?
           </h2>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href="/book-a-demo" variant="primary" withArrow>
               Book a Demo
             </Button>
             <Button href="#demo" variant="secondary">
-              Try Verification
+              Try the sample checker
             </Button>
           </div>
         </Reveal>

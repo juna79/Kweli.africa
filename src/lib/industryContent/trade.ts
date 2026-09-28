@@ -6,9 +6,9 @@ export const trade: IndustryPageContent = {
   name: "Trade",
 
   hero: {
-    headline: "International trade depends on trusted paperwork.",
+    headline: "Check the document at each handoff.",
     supportingCopy:
-      "Certificates of origin, inspection certificates, bills of lading and customs declarations move between exporters, inspectors, shipping lines and customs — and every one shapes a clearance decision.",
+      "A certificate of origin, inspection report or packing list can cross several organisations before a buyer relies on it. Each issuing party registers its own final document, so the next recipient can check the issuer's record and the exact file.",
     art: "Vol. 2 · Hero Composite (Trade and Supply Chain)",
     src: "/artwork/trade/hero-trade.jpg",
   },
@@ -26,8 +26,28 @@ export const trade: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Built for trade, one workflow at a time.",
+    heading: "Start with one document and its issuer.",
     lines: [
+      {
+        key: "certificate-of-origin",
+        label: "Certificate of Origin",
+        icon: "Award",
+        art: "Vol. 2 · Trade — Certificate of Origin",
+        src: "/artwork/trade/certificate-of-origin.jpg",
+        explanation: "A certificate of origin should be registered by the organisation that actually issued it. The importer or buyer can then compare the QR record and final file before relying on the certificate.",
+        documents: [{ name: "Certificate of Origin", issuer: "Issuing Chamber or Authority" }],
+        journey: {
+          heading: "How a certificate of origin moves from issue to clearance.",
+          steps: [
+            { icon: "Award", label: "Issuing body creates the certificate" },
+            { icon: "Fingerprint", label: "Certificate registered" },
+            { icon: "Share2", label: "Importer or customs receives certificate" },
+            { icon: "ShieldCheck", label: "Customs verifies" },
+            { icon: "BadgeCheck", label: "Clearance proceeds" },
+          ],
+          footnote: "Kweli does not confirm the true country of origin, only that the certificate matches what was registered.",
+        },
+      },
       {
         key: "export-shipment",
         label: "Export Shipment",
@@ -49,26 +69,6 @@ export const trade: IndustryPageContent = {
             { icon: "BadgeCheck", label: "Shipment proceeds" },
           ],
           footnote: "Kweli does not assess the condition or quantity of the goods described.",
-        },
-      },
-      {
-        key: "certificate-of-origin",
-        label: "Certificate of Origin",
-        icon: "Award",
-        art: "Vol. 2 · Trade — Certificate of Origin",
-        src: "/artwork/trade/certificate-of-origin.jpg",
-        explanation: "Certificates of origin move from the chamber of commerce or exporter into every customs decision.",
-        documents: [{ name: "Certificate of Origin", issuer: "Chamber of Commerce or Exporter" }],
-        journey: {
-          heading: "How a certificate of origin moves from issue to clearance.",
-          steps: [
-            { icon: "Award", label: "Chamber of commerce or exporter issues certificate" },
-            { icon: "Fingerprint", label: "Certificate registered" },
-            { icon: "Share2", label: "Importer or customs receives certificate" },
-            { icon: "ShieldCheck", label: "Customs verifies" },
-            { icon: "BadgeCheck", label: "Clearance proceeds" },
-          ],
-          footnote: "Kweli does not confirm the true country of origin, only that the certificate matches what was registered.",
         },
       },
       {

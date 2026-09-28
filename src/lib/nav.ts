@@ -9,5 +9,5 @@ export const primaryNav = [
   { label: "About", href: "/about" },
 ] as const;
 
-export const verifyNavItem = { label: "Verify", href: "/verify" } as const;
+export const verifyNavItem = { label: "How verification works", href: "/verify" } as const;
 export const demoNavItem = { label: "Book a Demo", href: "/book-a-demo" } as const;

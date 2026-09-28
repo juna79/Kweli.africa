@@ -120,8 +120,8 @@ function VerificationJourney() {
             The verification journey.
           </h2>
           <p className={`mx-auto mt-3 max-w-md text-[length:var(--text-body)] ${MUTED}`}>
-            One process, from the moment a document is issued to the moment
-            anyone checks it.
+            From issuer registration to a recipient checking the QR record
+            and, when needed, the exact digital file.
           </p>
         </Reveal>
         <Reveal delayMs={100} className="mt-16 lg:mt-20">
@@ -269,7 +269,7 @@ function Verification() {
     },
     {
       status: "failed" as const,
-      copy: "The uploaded document does not match the version originally registered.",
+      copy: "The selected file does not match the final version registered under that proof.",
     },
     {
       status: "not-found" as const,
@@ -285,7 +285,7 @@ function Verification() {
             Verification
           </p>
           <h2 className="mx-auto mt-6 text-[length:var(--text-h3)] leading-[var(--text-h3--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Anyone can verify, without contacting the issuer.
+            Check the issuer's record without a phone call.
           </h2>
         </Reveal>
 
@@ -369,8 +369,8 @@ const security = [
   },
   {
     icon: Database,
-    label: "Immutable registration",
-    copy: "Once a fingerprint is registered at issuance, it cannot be altered.",
+    label: "Issuance record",
+    copy: "The issuer's record identifies the final file and its registered details. Chain anchoring is a separate step when available.",
   },
   {
     icon: Search,
@@ -380,7 +380,7 @@ const security = [
   {
     icon: ShieldCheck,
     label: "Independent verification",
-    copy: "Anyone holding a document can verify it without contacting the issuer.",
+    copy: "A recipient can check the issuer's QR record without contacting them; an exact-file check may require a portal account.",
   },
 ] as const;
 
@@ -434,7 +434,7 @@ function ClosingCta() {
           </p>
           <div className="mt-8">
             <Button href="/verify" variant="primary" withArrow>
-              Try the Verification Experience
+              Explore verification and sample files
             </Button>
           </div>
         </Reveal>
@@ -451,7 +451,7 @@ export function Technology() {
         src="/artwork/technology/enterprise-infrastructure.jpg"
         alt="Secure enterprise server environment, cinematic lighting — Kweli Art Book"
         source="Art Book Vol. 3 — enterprise infrastructure"
-        caption="Registered once. Verifiable anywhere, by anyone holding the document."
+        caption="A registered file can be checked wherever it travels."
         icon={ServerCog}
       />
       <VerificationJourney />

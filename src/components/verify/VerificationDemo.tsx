@@ -28,9 +28,9 @@ const SampleDocumentModal = dynamic(
 );
 
 const steps = [
-  { key: "upload", label: "Uploading", sub: "Document received for demonstration.", icon: Upload },
+  { key: "upload", label: "Selecting", sub: "File selected on your device.", icon: Upload },
   { key: "hashing", label: "Hashing", sub: "Generating a unique cryptographic fingerprint.", icon: Fingerprint },
-  { key: "searching", label: "Searching Registry", sub: "Searching the Kweli registry for a matching record.", icon: Search },
+  { key: "searching", label: "Checking Samples", sub: "Looking for a fingerprint in the sample list.", icon: Search },
   { key: "verifying", label: "Comparing Fingerprint", sub: "Comparing the fingerprint against the registered record.", icon: ShieldCheck },
   { key: "result", label: "Verification", sub: "Finalising verification.", icon: FileCheck2 },
 ] as const;
@@ -313,7 +313,7 @@ export function VerificationDemo() {
       <div className="relative z-10 mx-auto max-w-5xl">
         <div className="text-center">
           <span className="inline-block rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-medium tracking-wide text-[var(--color-slate)] uppercase">
-            Product demonstration — real fingerprinting, sample results (not a live registry)
+            Sample fingerprint checker — local files only, no live registry lookup
           </span>
         </div>
 

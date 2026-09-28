@@ -17,7 +17,7 @@ const outcomes: { status: BadgeStatus; ring: string; copy: string }[] = [
   {
     status: "not-found",
     ring: "border-[var(--color-slate)]/40 hover:border-[var(--color-slate)]/70",
-    copy: "No matching fingerprint exists. The document has never been registered or cannot be verified.",
+    copy: "No issued record was found for this reference or file. The result alone cannot tell you why.",
   },
 ];
 

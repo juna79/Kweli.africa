@@ -9,7 +9,7 @@ const columns = [
     links: [
       { label: "Why Kweli", href: "/why-kweli" },
       { label: "Technology", href: "/technology" },
-      { label: "Verify a Document", href: "/verify" },
+      { label: "How verification works", href: "/verify" },
     ],
   },
   {
@@ -34,7 +34,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-slate)]">
-              Trust Infrastructure for the World.
+              Check the exact file against what its issuer registered.
             </p>
             <SocialLinks className="-ml-2.5 mt-3" />
           </div>

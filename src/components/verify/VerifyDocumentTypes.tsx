@@ -39,8 +39,8 @@ export function VerifyDocumentTypes() {
             The documents decisions depend on.
           </h2>
           <p className="mx-auto mt-5 max-w-md text-[length:var(--text-body)] leading-relaxed text-[var(--color-slate)]">
-            Once an authorised issuer registers a document at source, anyone
-            holding it can check it here.
+            These are examples of documents an authorised issuer could register.
+            This page&apos;s checker uses sample files; live records are checked in the portal.
           </p>
         </Reveal>
 
