@@ -1,11 +1,5 @@
-import { FileCheck2, QrCode, ScanSearch } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-
-const steps = [
-  { icon: FileCheck2, title: "Lab issues the final report", body: "A soil, food or diagnostic lab completes its normal review and registers the final file with Kweli." },
-  { icon: QrCode, title: "Report travels to a buyer", body: "The recipient scans its QR to see the lab's proof record and compare the registered details." },
-  { icon: ScanSearch, title: "Recipient checks the file", body: "The exact digital report is fingerprinted on the recipient's device and compared with the lab's issued version." },
-];
+import { VerificationJourney } from "@/components/industries/shared/VerificationJourney";
 
 export function LaboratoriesIndustry() {
   return (
@@ -23,16 +17,8 @@ export function LaboratoriesIndustry() {
       </section>
       <section className="border-y border-white/10 bg-white/[0.025] px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-[var(--color-warm-paper)]">One report, three checks along its journey.</h2>
-          <div className="mt-9 grid gap-4 md:grid-cols-3">
-            {steps.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="rounded-[var(--radius-lg)] border border-white/10 bg-[var(--color-background)] p-6">
-                <Icon size={26} className="text-[var(--color-gold-bright)]" aria-hidden />
-                <h3 className="mt-5 text-xl font-semibold text-[var(--color-warm-paper)]">{title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-[var(--color-warm-paper)]/75">{body}</p>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-center text-3xl font-bold text-[var(--color-warm-paper)]">From the lab report to the buyer&apos;s check.</h2>
+          <VerificationJourney />
         </div>
       </section>
       <section className="px-6 py-24 lg:px-8">
