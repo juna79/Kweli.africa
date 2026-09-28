@@ -13,11 +13,11 @@ export function VerifyHero() {
             Verify a Document
           </p>
           <h1 className="mx-auto mt-6 text-[2.75rem] leading-[1.1] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem] md:text-[4.75rem] md:leading-[1.08]">
-            Check a document against what its issuer registered.
+            See how a Kweli document is checked.
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
-            Upload an original document to verify whether it exactly matches
-            the version registered by its issuer.
+            The QR opens the issuer&apos;s proof record. An exact-file check then
+            tells you whether your copy matches the final version the issuer registered.
           </p>
         </HeroReveal>
       </div>

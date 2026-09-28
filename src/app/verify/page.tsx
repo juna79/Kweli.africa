@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema } from "@/lib/seo";
 import { verifyFaqs } from "@/lib/verifyFaqs";
 import { VerifyHero } from "@/components/verify/VerifyHero";
+import { QrJourney } from "@/components/verify/QrJourney";
 import { VerificationDemo } from "@/components/verify/VerificationDemo";
 import { VerifyProcessSteps } from "@/components/verify/VerifyProcessSteps";
 import { VerifyResultsExplainer } from "@/components/verify/VerifyResultsExplainer";
@@ -16,7 +17,7 @@ import { VerifyFaq } from "@/components/verify/VerifyFaq";
 import { VerifyCta } from "@/components/verify/VerifyCta";
 
 const description =
-  "Upload an original document to verify whether it exactly matches the version registered by its issuer.";
+  "See how Kweli QR records and exact-file verification work, then try the sample fingerprint checker.";
 
 export const metadata: Metadata = {
   title: "Verify a Document",
@@ -42,6 +43,7 @@ export default function VerifyPage() {
       <Header />
       <main className="flex-1">
         <VerifyHero />
+        <QrJourney />
         <VerificationDemo />
         <VerifyProcessSteps />
         <VerifyResultsExplainer />

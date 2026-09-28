@@ -1,7 +1,7 @@
 export const verifyFaqs = [
   {
     q: "How do you verify a document?",
-    a: "Upload it in your browser. Kweli computes the document's cryptographic fingerprint locally and checks it against the registry — if it matches what was registered at issuance, the result is Verified. The document itself is never uploaded anywhere.",
+    a: "Scan the Kweli QR to open the issuer's proof record and compare its key details with the document. To check an exact digital copy, select the file: Kweli computes its fingerprint locally and compares it with the final issued version. The file itself is not uploaded for this check.",
   },
   {
     q: "What is document authenticity?",
@@ -21,23 +21,23 @@ export const verifyFaqs = [
   },
   {
     q: "Can anyone verify?",
-    a: "Yes. Anyone holding a document can verify it independently, without contacting the issuer.",
+    a: "A recipient can open the QR proof record without contacting the issuer. An account may be needed for an exact-file check in the Kweli portal.",
   },
   {
     q: "What if a document changes?",
-    a: "Any change to a document — even a single character — produces a completely different fingerprint. Kweli returns Verification Failed rather than accepting the altered version.",
+    a: "Any change to the final digital file changes its fingerprint. With a known proof ID, an exact-file check can show that the presented copy does not match the registered one.",
   },
   {
     q: "What happens if verification fails?",
-    a: "You'll see a Verification Failed result: the presented document's fingerprint doesn't match what was registered at issuance. That means it has been altered in some way since then, even if the change isn't visible to the eye.",
+    a: "The presented file does not exactly match the final file registered under that proof. It may have been edited, re-saved, corrupted or replaced. The result alone does not identify the cause.",
   },
   {
     q: "How is Kweli different from digital signatures?",
-    a: "A digital signature is applied by the signer at signing time, and verifying it later depends on the recipient trusting that signer's key infrastructure. Kweli instead registers a document's fingerprint independently at issuance, so anyone can verify it afterwards on their own, in their browser, with no key exchange, certificate chain, or prior relationship with the issuer.",
+    a: "Digital signatures and Kweli can work together. Kweli records an approved issuer's proof details and the fingerprint of the final issued file, then offers a hosted record and exact-file check to recipients.",
   },
   {
     q: "Can blockchain prove authenticity?",
-    a: "Not by itself. A tamper-evident ledger can prove a record hasn't been altered since it was written — that's integrity. Authenticity is a separate claim: that the record genuinely came from the issuer it claims to. Kweli anchors the issuer's registration itself, not just a fingerprint, which is what ties the two together.",
+    a: "No. A ledger can help show that a recorded proof was not changed later. The issuer's identity and issuance process still matter. Kweli's QR record and exact-file check are useful even where chain anchoring is pending.",
   },
   {
     q: "Can Kweli integrate with existing systems?",
@@ -45,10 +45,10 @@ export const verifyFaqs = [
   },
   {
     q: "What happens if no record exists?",
-    a: "Kweli returns Document Not Found. That means the document was never registered, or the version presented doesn't match anything on record.",
+    a: "Kweli returns Document Not Found when it cannot locate an issued proof for the reference or file supplied. Check the proof ID and ask the claimed issuer if the record should exist.",
   },
   {
     q: "Why blockchain?",
-    a: "Each fingerprint is anchored as a tamper-evident cryptographic proof, so a registered record can't be quietly altered later. The technology is an implementation detail — what matters is that the proof can't be tampered with after the fact.",
+    a: "Chain anchoring can provide an additional tamper-evident record. It is not required for the basic QR record and exact-file check, and it should only be described as completed when a transaction is confirmed.",
   },
 ] as const;

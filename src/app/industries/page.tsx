@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { IndustriesHub } from "@/components/industries/IndustriesHub";
 
 const description =
-  "One trust platform, seven industries — insurance, banking, healthcare, government, education, trade and professional services. Find where Kweli fits into yours.";
+  "Explore how Kweli helps issuers and recipients verify documents across insurance, laboratories, education, trade and other workflows.";
 
 export const metadata: Metadata = {
   title: "Industries",

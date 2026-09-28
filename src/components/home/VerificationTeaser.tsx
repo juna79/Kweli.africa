@@ -12,15 +12,16 @@ export function VerificationTeaser() {
             Product demonstration
           </span>
           <h2 className="mx-auto mt-6 max-w-xl text-[length:var(--text-h2)] leading-[var(--text-h2--line-height)] font-bold text-[var(--color-warm-paper)]">
-            Watch verification happen.
+            See the QR and file check together.
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-[length:var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-[var(--color-slate)]">
-            Download a sample document, upload it back, and watch Kweli check
-            its fingerprint in real time.
+            A QR opens the issuer&apos;s record. Checking the file confirms whether
+            your copy matches what the issuer registered. Try the sample checker
+            and see the full journey.
           </p>
           <div className="mt-10">
             <Button href="/verify" variant="primary" withArrow>
-              Try the Verification Experience
+              Explore Verification
             </Button>
           </div>
         </Reveal>

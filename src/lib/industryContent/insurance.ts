@@ -13,15 +13,15 @@ export const insurance: IndustryPageContent = {
   name: "Insurance",
 
   hero: {
-    headline: "Bonds and guarantees today. Claims evidence, panel by panel.",
+    headline: "Check the documents behind a claim.",
     supportingCopy:
-      "The documents an insurer issues — bonds, guarantees, policy schedules, insurance certificates and letters of undertaking — can be verified from day one, because the insurer controls issuance. Claims evidence from garages, assessors, hospitals and laboratories follows, as each authorised provider begins registering documents at source.",
+      "A motor claim can include a garage estimate, towing invoice, assessor report and valuation. Kweli lets a claims handler check whether a file matches the version its authorised issuer registered. Start with a defined group of garages and assessors, then extend the workflow as more providers join.",
     art: "Vol. 2 · Hero Composite (insurance)",
     src: "/artwork/insurance/hero-insurance.jpg",
   },
 
   ecosystem: {
-    heading: "Claims evidence becomes verifiable one authorised provider at a time.",
+    heading: "Bring each issuer into the claim file, one provider at a time.",
     tiles: [
       { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair", src: "/artwork/insurance/motor-repair.jpg" },
       { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital", src: "/artwork/insurance/medical-hospital.jpg" },
@@ -33,8 +33,35 @@ export const insurance: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Where verification fits, line by line.",
+    heading: "Start with motor claims. Extend to other lines.",
     lines: [
+      {
+        key: "motor",
+        label: "Motor",
+        icon: "Car",
+        art: "Vol. 2 · 03 · Motor — Claims Office",
+        src: "/artwork/insurance/motor-claims-office.jpg",
+        explanation: "A garage or assessor registers its own final document. The claims handler scans the QR to review the issuer's record, then checks the file for an exact match. The insurer can begin with a small panel and one document type.",
+        documents: [
+          { name: "Repair Estimate", issuer: "Garage" },
+          { name: "Garage Invoice", issuer: "Garage" },
+          { name: "Assessor Report", issuer: "Assessor" },
+          { name: "Towing Invoice", issuer: "Towing Provider" },
+          { name: "Valuation Report", issuer: "Valuer" },
+        ],
+        journey: {
+          heading: "How a motor claim moves from estimate to decision.",
+          steps: [
+            { icon: "Car", label: "Garage issues estimate" },
+            { icon: "Fingerprint", label: "Garage registers document" },
+            { icon: "ClipboardCheck", label: "Assessor issues report" },
+            { icon: "Share2", label: "Documents reach insurer" },
+            { icon: "ShieldCheck", label: "Claims handler verifies" },
+            { icon: "BadgeCheck", label: "Claim proceeds" },
+          ],
+          footnote: "Kweli does not approve the claim and does not assess whether the repair cost is fair.",
+        },
+      },
       {
         key: "guarantees",
         label: "Bonds and Guarantees",
@@ -61,32 +88,6 @@ export const insurance: IndustryPageContent = {
             { icon: "Handshake", label: "Transaction proceeds" },
           ],
           footnote: "Kweli does not guarantee payment and does not assess the underlying transaction.",
-        },
-      },
-      {
-        key: "motor",
-        label: "Motor",
-        icon: "Car",
-        art: "Vol. 2 · 03 · Motor — Claims Office",
-        src: "/artwork/insurance/motor-claims-office.jpg",
-        explanation: "Repair and assessment documents move from garages and assessors into every motor claim. Verification begins with an authorised panel of garages and assessors registering their documents at source, then expands provider by provider.",
-        documents: [
-          { name: "Repair Estimate", issuer: "Garage" },
-          { name: "Garage Invoice", issuer: "Garage" },
-          { name: "Assessor Report", issuer: "Assessor" },
-          { name: "Valuation Report", issuer: "Valuer" },
-        ],
-        journey: {
-          heading: "How a motor claim moves from estimate to decision.",
-          steps: [
-            { icon: "Car", label: "Garage issues estimate" },
-            { icon: "Fingerprint", label: "Garage registers document" },
-            { icon: "ClipboardCheck", label: "Assessor issues report" },
-            { icon: "Share2", label: "Documents reach insurer" },
-            { icon: "ShieldCheck", label: "Claims handler verifies" },
-            { icon: "BadgeCheck", label: "Claim proceeds" },
-          ],
-          footnote: "Kweli does not approve the claim and does not assess whether the repair cost is fair.",
         },
       },
       {
@@ -296,22 +297,22 @@ export const insurance: IndustryPageContent = {
       "Independent document verification",
       "Clear exceptions",
       "Stronger audit trail",
-      "Faster handling of compliant documents",
+      "A clearer record of which version was checked",
     ],
   },
 
   pilot: {
     heading: "One workflow, proven in claims — not a platform rollout.",
     steps: [
-      { label: "Start with a single claims workflow, such as motor repair estimates" },
-      { label: "Bring on a defined group of garages, assessors or hospitals" },
-      { label: "Train the claims handlers who process the documents" },
-      { label: "Track exception rates and claims cycle time" },
+      { label: "Choose one motor-claims document, such as the repair estimate" },
+      { label: "Invite a small panel of garages or assessors to register final files" },
+      { label: "Let claims handlers scan the QR and check the file" },
+      { label: "Review matches, exceptions and time spent on manual confirmation" },
     ],
   },
 
   cta: {
     heading: "Ready to bring verification into your insurance workflows?",
-    supportingCopy: "Begin with the documents you issue, then extend to claims evidence one authorised panel at a time.",
+    supportingCopy: "Show us the claims documents you handle most often. We can map a pilot around one issuer group and one clear workflow.",
   },
 };

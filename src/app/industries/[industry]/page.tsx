@@ -12,12 +12,14 @@ import { GovernmentIndustry } from "@/components/industries/GovernmentIndustry";
 import { TradeIndustry } from "@/components/industries/TradeIndustry";
 import { ProfessionalServicesIndustry } from "@/components/industries/ProfessionalServicesIndustry";
 import { EducationIndustry } from "@/components/industries/EducationIndustry";
+import { LaboratoriesIndustry } from "@/components/industries/LaboratoriesIndustry";
 import { industries } from "@/lib/industries";
 
 // All seven industries now share the locked IndustryPage template — see
 // src/components/industries/shared/.
 const builtIndustries: Partial<Record<string, () => React.JSX.Element>> = {
   insurance: InsuranceIndustry,
+  laboratories: LaboratoriesIndustry,
   banking: BankingIndustry,
   healthcare: HealthcareIndustry,
   government: GovernmentIndustry,
@@ -32,6 +34,7 @@ const builtIndustries: Partial<Record<string, () => React.JSX.Element>> = {
 // search). Metadata only; none of this touches visible copy.
 const seoTopic: Record<string, string> = {
   insurance: "Insurance Document Verification",
+  laboratories: "Laboratory Report Verification",
   banking: "Banking Document Verification",
   healthcare: "Medical Document Verification",
   government: "Government Document Verification",

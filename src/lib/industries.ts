@@ -1,5 +1,6 @@
 import {
   Shield,
+  Microscope,
   Landmark,
   HeartPulse,
   Building2,
@@ -11,7 +12,7 @@ import {
 // Copy per 02_Copy_Bible_Kweli_V3.pdf. Sub-workflows per Kweli_Canonical_OS.md
 // (insurance list is canonical/approved; others per Kweli_V3_Master_Kickoff.md Product Flows).
 //
-// Seven industries per the approved Kweli taxonomy. Header/Footer/mega-menu/
+// Industry navigation. Header/Footer/mega-menu/
 // dynamic industry routing all derive from this array.
 export const industries = [
   {
@@ -44,6 +45,16 @@ export const industries = [
       "Travel",
       "Life",
     ],
+  },
+  {
+    slug: "laboratories",
+    name: "Laboratories",
+    icon: Microscope,
+    tagline: "Let buyers verify the exact report your lab issued.",
+    problem: "A soil, food or diagnostic report may pass through several inboxes before a buyer acts on it. A PDF with the lab's name does not prove it is the version the lab sent.",
+    solution: "The laboratory registers its final report. The recipient checks its QR record and the exact file against the lab's issued version.",
+    documents: ["Soil Reports", "Test Certificates", "Quality Reports"],
+    workflows: ["Report issuance", "Buyer verification"],
   },
   {
     slug: "banking",

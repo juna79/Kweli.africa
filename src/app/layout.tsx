@@ -19,27 +19,27 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Kweli — Trust Infrastructure for the World",
+    default: "Kweli — Verify the document its issuer sent",
     template: "%s — Kweli",
   },
   description:
-    "Kweli lets you check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
+    "Scan a Kweli QR to review its issuer's record, then check whether the exact digital file matches the final version registered at issuance.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Kweli — Trust Infrastructure for the World",
+    title: "Kweli — Verify the document its issuer sent",
     description:
-      "Check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
+      "Scan a Kweli QR to review its issuer's record, then check whether the exact digital file matches the final version registered at issuance.",
     siteName: "Kweli",
     url: siteUrl,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kweli — Trust Infrastructure for the World",
+    title: "Kweli — Verify the document its issuer sent",
     description:
-      "Check whether a document matches the version its issuer registered — fingerprinted on your device, never uploaded. Insurance is where Kweli starts.",
+      "Scan a Kweli QR to review its issuer's record, then check whether the exact digital file matches the final version registered at issuance.",
   },
 };
 

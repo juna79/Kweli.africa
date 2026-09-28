@@ -1,4 +1,4 @@
-import { Building2, Share2, ShieldCheck, Mail, MessageCircle, Cloud, FileText, Usb, ScanLine, ChevronRight } from "lucide-react";
+import { Building2, Share2, ShieldCheck, Mail, MessageCircle, Cloud, FileText, Usb, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
 const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
@@ -10,7 +10,6 @@ const channels = [
   { icon: Cloud, label: "Cloud" },
   { icon: FileText, label: "PDF" },
   { icon: Usb, label: "USB" },
-  { icon: ScanLine, label: "Paper scan" },
 ] as const;
 
 function StepCard({
@@ -55,7 +54,7 @@ export function VerifyProcessSteps() {
           <Reveal className="flex-1">
             <StepCard index={1} icon={Building2} title="Issuer registers document">
               <ul className="space-y-2 text-sm">
-                {["Original document created", "SHA-256 fingerprint generated", "Minimal metadata registered"].map(
+                {["Final document created with its Kweli QR", "Final file fingerprinted", "Issuer and key fields registered"].map(
                   (line) => (
                     <li key={line} className={MUTED}>
                       {line}
@@ -87,7 +86,7 @@ export function VerifyProcessSteps() {
                 ))}
               </div>
               <p className="mt-4 text-sm font-medium text-[var(--color-warm-paper)]">
-                It doesn&rsquo;t matter.
+                For an exact match, check the final digital file.
               </p>
             </StepCard>
           </Reveal>
@@ -103,10 +102,10 @@ export function VerifyProcessSteps() {
             <StepCard index={3} icon={ShieldCheck} title="Recipient verifies">
               <ul className="space-y-2 text-sm">
                 {[
-                  "Upload document",
+                  "Scan QR to see the issuer's record",
+                  "Select the final file",
                   "Fingerprint calculated locally",
-                  "Compared against registered fingerprint",
-                  "Verification returned instantly",
+                  "Exact match checked against the issued version",
                 ].map((line) => (
                   <li key={line} className={MUTED}>
                     {line}

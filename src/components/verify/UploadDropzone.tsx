@@ -80,10 +80,10 @@ export function UploadDropzone({
 
         <div className="relative">
           <p className="text-sm font-medium text-[var(--color-warm-paper)]">
-            {hashing ? "Reading file locally…" : "Drag and drop your document here"}
+            {hashing ? "Reading file locally…" : "Drop a sample document here"}
           </p>
           <p className="mt-1 text-xs text-[var(--color-slate)]">
-            or browse to select it from your computer
+            or select a sample PDF you downloaded below
           </p>
         </div>
 
@@ -106,7 +106,7 @@ export function UploadDropzone({
 
       <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-[var(--color-slate)]">
         <Lock size={12} strokeWidth={1.75} aria-hidden />
-        Your file is fingerprinted in your browser and never uploaded.
+        This sample check fingerprints the file in your browser. It is never uploaded.
       </p>
     </div>
   );

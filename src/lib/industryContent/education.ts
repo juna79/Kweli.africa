@@ -6,9 +6,9 @@ export const education: IndustryPageContent = {
   name: "Education",
 
   hero: {
-    headline: "Credentials only create trust when they can be independently verified.",
+    headline: "Let an employer check the certificate your institution issued.",
     supportingCopy:
-      "Degree certificates, transcripts and professional qualifications move from institutions to graduates to employers — and every one shapes a hiring decision.",
+      "Your institution registers the final certificate when it is issued. A graduate can share it with an employer, who checks its QR record and whether the digital file matches the version you registered.",
     art: "Vol. 2 · Hero Composite (Education)",
     src: "/artwork/education/hero-education.jpg",
   },
@@ -25,28 +25,8 @@ export const education: IndustryPageContent = {
   },
 
   explorer: {
-    heading: "Built for credentials, one type at a time.",
+    heading: "Begin with certificates, then extend to other records.",
     lines: [
-      {
-        key: "graduation",
-        label: "Graduation",
-        icon: "GraduationCap",
-        art: "Vol. 2 · Education — Graduation",
-        src: "/artwork/education/graduation.jpg",
-        explanation: "Graduation lists move from institutions into every conferred qualification.",
-        documents: [{ name: "Graduation List", issuer: "Institution" }],
-        journey: {
-          heading: "How a graduation record moves from list to confirmation.",
-          steps: [
-            { icon: "Building2", label: "Institution compiles graduation list" },
-            { icon: "Fingerprint", label: "List registered" },
-            { icon: "Share2", label: "Registrar shares confirmed list" },
-            { icon: "ShieldCheck", label: "Receiving party verifies" },
-            { icon: "BadgeCheck", label: "Qualification confirmed" },
-          ],
-          footnote: "Kweli does not assess whether the graduate met the academic requirements.",
-        },
-      },
       {
         key: "certificate",
         label: "Certificate",
@@ -65,6 +45,26 @@ export const education: IndustryPageContent = {
             { icon: "BadgeCheck", label: "Hiring decision proceeds" },
           ],
           footnote: "Kweli does not assess the graduate's suitability for a role.",
+        },
+      },
+      {
+        key: "graduation",
+        label: "Graduation",
+        icon: "GraduationCap",
+        art: "Vol. 2 · Education — Graduation",
+        src: "/artwork/education/graduation.jpg",
+        explanation: "Graduation lists move from institutions into every conferred qualification.",
+        documents: [{ name: "Graduation List", issuer: "Institution" }],
+        journey: {
+          heading: "How a graduation record moves from list to confirmation.",
+          steps: [
+            { icon: "Building2", label: "Institution compiles graduation list" },
+            { icon: "Fingerprint", label: "List registered" },
+            { icon: "Share2", label: "Registrar shares confirmed list" },
+            { icon: "ShieldCheck", label: "Receiving party verifies" },
+            { icon: "BadgeCheck", label: "Qualification confirmed" },
+          ],
+          footnote: "Kweli does not assess whether the graduate met the academic requirements.",
         },
       },
       {
