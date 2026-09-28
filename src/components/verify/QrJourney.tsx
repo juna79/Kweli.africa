@@ -6,11 +6,11 @@ const portalUrl = process.env.NEXT_PUBLIC_KWELI_PORTAL_URL;
 
 export function QrJourney() {
   return (
-    <section className="px-6 pb-16 lg:px-8">
-      <div className="mx-auto max-w-5xl rounded-[var(--radius-xl)] border border-[var(--color-gold)]/25 bg-white/[0.025] p-6 sm:p-10">
+    <section className="px-6 pb-12 lg:px-8">
+      <div className="mx-auto max-w-5xl rounded-[var(--radius-xl)] border border-[var(--color-gold)]/25 bg-white/[0.025] p-6 sm:p-8">
         <p className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--color-gold-bright)]">The Kweli QR journey</p>
-        <h2 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-[var(--color-warm-paper)] sm:text-4xl">Scan the QR. Check the record. Then check the file.</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <h2 className="mt-3 max-w-2xl text-2xl font-bold leading-tight text-[var(--color-warm-paper)] sm:text-3xl">Scan the QR. Check the record. Then check the file.</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
             { icon: FileText, title: "The issuer registers", body: "An approved issuer creates the final document, adds its Kweli QR and registers that final version." },
             { icon: QrCode, title: "The QR opens its record", body: "The recipient checks the issuer and registered fields. A valid QR record alone does not prove the copy is unchanged." },
