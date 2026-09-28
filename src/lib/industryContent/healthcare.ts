@@ -21,7 +21,7 @@ export const healthcare: IndustryPageContent = {
       { icon: Building2, label: "Hospital", art: "Vol. 2 · Healthcare — Surgery", src: "/artwork/healthcare/surgery.webp" },
       { icon: Microscope, label: "Laboratory", art: "Vol. 2 · Healthcare — Lab Results", src: "/artwork/healthcare/lab-results.webp" },
       { icon: ShieldCheck, label: "Insurer", art: "Vol. 2 · Healthcare — Insurance Claim", src: "/artwork/healthcare/insurance-claim.webp" },
-      { icon: Pill, label: "Pharmacy", art: "Vol. 2 · Healthcare — Pharmacy", src: "/artwork/healthcare/pharmacy.webp" },
+      { icon: Pill, label: "Pharmacy", art: "Vol. 2 · Healthcare — Pharmacy", src: "/artwork/healthcare/pharmacy.webp?v=20260929" },
     ],
   },
 
@@ -211,7 +211,7 @@ export const healthcare: IndustryPageContent = {
         label: "Pharmacy",
         icon: "Building2",
         art: "Vol. 2 · Healthcare — Pharmacy",
-        src: "/artwork/healthcare/pharmacy.webp",
+        src: "/artwork/healthcare/pharmacy.webp?v=20260929",
         explanation: "Dispensing records move from pharmacies into every prescription fulfilment.",
         documents: [{ name: "Dispensing Record", issuer: "Pharmacy" }],
         journey: {
