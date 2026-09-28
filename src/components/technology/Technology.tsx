@@ -448,7 +448,7 @@ export function Technology() {
     <>
       <Hero />
       <CinematicBand
-        src="/artwork/technology/enterprise-infrastructure.jpg"
+        src="/artwork/technology/enterprise-infrastructure.webp"
         alt="Secure enterprise server environment, cinematic lighting — Kweli Art Book"
         source="Art Book Vol. 3 — enterprise infrastructure"
         caption="A registered file can be checked wherever it travels."

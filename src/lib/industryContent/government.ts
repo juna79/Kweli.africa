@@ -10,18 +10,18 @@ export const government: IndustryPageContent = {
     supportingCopy:
       "Permits, licences, land records and certificates move between citizens, businesses and government offices — and every one shapes a decision about who receives a service.",
     art: "Vol. 2 · Hero Composite (Government)",
-    src: "/artwork/government/hero-government.jpg",
+    src: "/artwork/government/hero-government.webp",
   },
 
   ecosystem: {
     heading: "From the counter to the courtroom, the same trust layer applies.",
     tiles: [
-      { icon: Users, label: "Citizen", art: "Vol. 2 · Government — Citizen ID", src: "/artwork/government/citizen-id.jpg" },
-      { icon: Building2, label: "Ministry or Department", art: "Vol. 2 · Government — Public Services", src: "/artwork/government/public-services.jpg" },
-      { icon: FileCheck2, label: "Registrar", art: "Vol. 2 · Government — Land Registry", src: "/artwork/government/land-registry.jpg" },
-      { icon: Gavel, label: "Court", art: "Vol. 2 · Government — Court Documents", src: "/artwork/government/court.jpg" },
-      { icon: Landmark, label: "Land Office", art: "Vol. 2 · Government — Land Office", src: "/artwork/government/land-office.jpg" },
-      { icon: Award, label: "Licensing Authority", art: "Vol. 2 · Government — Business Licences", src: "/artwork/government/business-licences.jpg" },
+      { icon: Users, label: "Citizen", art: "Vol. 2 · Government — Citizen ID", src: "/artwork/government/citizen-id.webp" },
+      { icon: Building2, label: "Ministry or Department", art: "Vol. 2 · Government — Public Services", src: "/artwork/government/public-services.webp" },
+      { icon: FileCheck2, label: "Registrar", art: "Vol. 2 · Government — Land Registry", src: "/artwork/government/land-registry.webp" },
+      { icon: Gavel, label: "Court", art: "Vol. 2 · Government — Court Documents", src: "/artwork/government/court.webp" },
+      { icon: Landmark, label: "Land Office", art: "Vol. 2 · Government — Land Office", src: "/artwork/government/land-office.webp" },
+      { icon: Award, label: "Licensing Authority", art: "Vol. 2 · Government — Business Licences", src: "/artwork/government/business-licences.webp" },
     ],
   },
 
@@ -33,7 +33,7 @@ export const government: IndustryPageContent = {
         label: "Permits",
         icon: "FileCheck2",
         art: "Vol. 2 · Government — Permits",
-        src: "/artwork/government/permits.jpg",
+        src: "/artwork/government/permits.webp",
         explanation: "Permit applications and approvals move between citizens or businesses and government offices.",
         documents: [
           { name: "Building Permit", issuer: "Government" },
@@ -57,7 +57,7 @@ export const government: IndustryPageContent = {
         label: "Business Licences",
         icon: "Award",
         art: "Vol. 2 · Government — Business Licences",
-        src: "/artwork/government/business-licences.jpg",
+        src: "/artwork/government/business-licences.webp",
         explanation: "Licences and renewals move from licensing authorities into every business's compliance record.",
         documents: [
           { name: "Business Licence", issuer: "Government" },
@@ -80,7 +80,7 @@ export const government: IndustryPageContent = {
         label: "Land Registry",
         icon: "Landmark",
         art: "Vol. 2 · Government — Land Registry",
-        src: "/artwork/government/land-registry.jpg",
+        src: "/artwork/government/land-registry.webp",
         explanation: "Title deeds and search certificates move from the land registry into every property transaction.",
         documents: [
           { name: "Title Deed", issuer: "Land Registry" },
@@ -103,7 +103,7 @@ export const government: IndustryPageContent = {
         label: "Citizen ID",
         icon: "IdCard",
         art: "Vol. 2 · Government — Citizen ID",
-        src: "/artwork/government/citizen-id.jpg",
+        src: "/artwork/government/citizen-id.webp",
         explanation: "Identity documents move from government registrars into every citizen-facing service.",
         documents: [
           { name: "National ID", issuer: "Government" },
@@ -127,7 +127,7 @@ export const government: IndustryPageContent = {
         label: "Tax",
         icon: "Banknote",
         art: "Vol. 2 · Government — Tax Compliance",
-        src: "/artwork/government/tax.jpg",
+        src: "/artwork/government/tax.webp",
         explanation: "Compliance certificates and returns move between taxpayers and the revenue authority.",
         documents: [
           { name: "Tax Compliance Certificate", issuer: "Revenue Authority" },
@@ -151,7 +151,7 @@ export const government: IndustryPageContent = {
         label: "Procurement",
         icon: "Briefcase",
         art: "Vol. 2 · Government — Procurement",
-        src: "/artwork/government/procurement.jpg",
+        src: "/artwork/government/procurement.webp",
         explanation: "Tender documents and awards move between government and suppliers into every procurement decision.",
         documents: [
           { name: "Tender Document", issuer: "Government" },
@@ -175,7 +175,7 @@ export const government: IndustryPageContent = {
         label: "Elections",
         icon: "Vote",
         art: "Vol. 2 · Government — Election Integrity",
-        src: "/artwork/government/elections.jpg",
+        src: "/artwork/government/elections.webp",
         explanation: "Certified results move from the electoral commission into every declared outcome.",
         documents: [{ name: "Certified Results Form", issuer: "Electoral Commission" }],
         journey: {
@@ -195,7 +195,7 @@ export const government: IndustryPageContent = {
         label: "Court",
         icon: "Gavel",
         art: "Vol. 2 · Government — Court Documents",
-        src: "/artwork/government/court.jpg",
+        src: "/artwork/government/court.webp",
         explanation: "Orders and judgments move from the court into every enforcement action.",
         documents: [
           { name: "Court Order", issuer: "Court" },
@@ -218,7 +218,7 @@ export const government: IndustryPageContent = {
         label: "Public Services",
         icon: "Building2",
         art: "Vol. 2 · Government — Public Services",
-        src: "/artwork/government/public-services.jpg",
+        src: "/artwork/government/public-services.webp",
         explanation: "Applications and approvals move between citizens and government offices into every service request.",
         documents: [
           { name: "Service Application", issuer: "Citizen" },
@@ -242,7 +242,7 @@ export const government: IndustryPageContent = {
         label: "Voter Registration",
         icon: "Vote",
         art: "Vol. 2 · Government — Voter Registration",
-        src: "/artwork/government/voter-registration.jpg",
+        src: "/artwork/government/voter-registration.webp",
         explanation: "Registration records move from the electoral commission into every voter roll.",
         documents: [{ name: "Voter Registration Card", issuer: "Electoral Commission" }],
         journey: {

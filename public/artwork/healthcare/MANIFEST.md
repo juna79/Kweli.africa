@@ -8,23 +8,23 @@ is the one page with a fully complete image set.
 
 | Slot | File | Component |
 |---|---|---|
-| Hero | `hero-healthcare.jpg` | `IndustryHero` |
-| Ecosystem — Patient | `patient-registration.jpg` | `IndustryEcosystem` |
-| Ecosystem — Doctor | `medical-records.jpg` | `IndustryEcosystem` |
-| Ecosystem — Hospital | `surgery.jpg` | `IndustryEcosystem` |
-| Ecosystem — Laboratory | `lab-results.jpg` | `IndustryEcosystem` |
-| Ecosystem — Insurer | `insurance-claim.jpg` | `IndustryEcosystem` |
-| Ecosystem — Pharmacy | `pharmacy.jpg` | `IndustryEcosystem` |
-| Explorer — Patient Registration | `patient-registration.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Medical Records | `medical-records.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Lab Results | `lab-results.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Prescription | `prescription.jpg` | `IndustryExplorer` |
-| Explorer — Referral Letter | `referral-letter.jpg` | `IndustryExplorer` |
-| Explorer — Insurance Claim | `insurance-claim.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Radiology | `radiology.jpg` | `IndustryExplorer` |
-| Explorer — Surgery | `surgery.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Pharmacy | `pharmacy.jpg` (reused) | `IndustryExplorer` |
-| Explorer — Telemedicine | `telemedicine.jpg` | `IndustryExplorer` |
+| Hero | `hero-healthcare.webp` | `IndustryHero` |
+| Ecosystem — Patient | `patient-registration.webp` | `IndustryEcosystem` |
+| Ecosystem — Doctor | `medical-records.webp` | `IndustryEcosystem` |
+| Ecosystem — Hospital | `surgery.webp` | `IndustryEcosystem` |
+| Ecosystem — Laboratory | `lab-results.webp` | `IndustryEcosystem` |
+| Ecosystem — Insurer | `insurance-claim.webp` | `IndustryEcosystem` |
+| Ecosystem — Pharmacy | `pharmacy.webp` | `IndustryEcosystem` |
+| Explorer — Patient Registration | `patient-registration.webp` (reused) | `IndustryExplorer` |
+| Explorer — Medical Records | `medical-records.webp` (reused) | `IndustryExplorer` |
+| Explorer — Lab Results | `lab-results.webp` (reused) | `IndustryExplorer` |
+| Explorer — Prescription | `prescription.webp` | `IndustryExplorer` |
+| Explorer — Referral Letter | `referral-letter.webp` | `IndustryExplorer` |
+| Explorer — Insurance Claim | `insurance-claim.webp` (reused) | `IndustryExplorer` |
+| Explorer — Radiology | `radiology.webp` | `IndustryExplorer` |
+| Explorer — Surgery | `surgery.webp` (reused) | `IndustryExplorer` |
+| Explorer — Pharmacy | `pharmacy.webp` (reused) | `IndustryExplorer` |
+| Explorer — Telemedicine | `telemedicine.webp` | `IndustryExplorer` |
 
 ## Known issue, accepted as-is
 
@@ -44,5 +44,4 @@ and worth resolving with a text-free asset pass eventually.
 
 ## Format note
 
-Supplied as JPEG rather than WebP (no WebP encoder in the processing
-environment), quality 84, no resize — source was already ~1536×1024.
+The original JPEG artwork was encoded as WebP for direct delivery without resizing.

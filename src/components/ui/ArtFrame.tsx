@@ -39,6 +39,7 @@ export function ArtFrame({
           fill
           sizes={sizes}
           priority={priority}
+          unoptimized
           className="object-cover transition-transform duration-[var(--duration-card)] ease-[var(--ease-trust)] group-hover:scale-[1.03]"
         />
       </div>

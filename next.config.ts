@@ -38,13 +38,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
-    // Serve AVIF where the client supports it, falling back to WebP —
-    // both are visually equivalent to the source JPEGs/PNGs at Next's
-    // default quality, just smaller in bytes. Purely a delivery-format
-    // change; no image files or their appearance are touched. Confirmed
-    // via controlled Lighthouse re-testing that this has no measurable
-    // effect on performance score in either direction.
-    formats: ["image/avif", "image/webp"],
+    // Brand PNGs are still optimized by Next. Artwork is pre-encoded as
+    // WebP and served directly to avoid per-request image transformation.
+    formats: ["image/webp"],
     // Default is 4 hours. These are static marketing/product photography
     // that only changes on a deliberate redeploy with a new source file —
     // a year-long cache is appropriate. If an image is ever replaced at

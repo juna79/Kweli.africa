@@ -17,18 +17,18 @@ export const insurance: IndustryPageContent = {
     supportingCopy:
       "A motor claim can include a garage estimate, towing invoice, assessor report and valuation. Kweli lets a claims handler check whether a file matches the version its authorised issuer registered. Start with a defined group of garages and assessors, then extend the workflow as more providers join.",
     art: "Vol. 2 · Hero Composite (insurance)",
-    src: "/artwork/insurance/hero-insurance.jpg",
+    src: "/artwork/insurance/hero-insurance.webp",
   },
 
   ecosystem: {
     heading: "Bring each issuer into the claim file, one provider at a time.",
     tiles: [
-      { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair", src: "/artwork/insurance/motor-repair.jpg" },
-      { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital", src: "/artwork/insurance/medical-hospital.jpg" },
-      { icon: Ship, label: "Marine Operation", art: "Vol. 2 · 07 · Marine — Shipping", src: "/artwork/insurance/marine-shipping.jpg" },
-      { icon: Flame, label: "Engineering Inspection", art: "Engineering Inspection", src: "/artwork/insurance/engineering-inspection.jpg" },
-      { icon: Landmark, label: "Construction Project", art: "Vol. 2 · 09 · Guarantees — Construction", src: "/artwork/insurance/guarantees-construction.jpg" },
-      { icon: ClipboardCheck, label: "Professional Assessment", art: "Professional Assessment", src: "/artwork/insurance/professional-assessment.jpg" },
+      { icon: Car, label: "Garage", art: "Vol. 2 · 01 · Motor — Repair", src: "/artwork/insurance/motor-repair.webp" },
+      { icon: Stethoscope, label: "Hospital", art: "Vol. 2 · 04 · Medical — Hospital", src: "/artwork/insurance/medical-hospital.webp" },
+      { icon: Ship, label: "Marine Operation", art: "Vol. 2 · 07 · Marine — Shipping", src: "/artwork/insurance/marine-shipping.webp" },
+      { icon: Flame, label: "Engineering Inspection", art: "Engineering Inspection", src: "/artwork/insurance/engineering-inspection.webp" },
+      { icon: Landmark, label: "Construction Project", art: "Vol. 2 · 09 · Guarantees — Construction", src: "/artwork/insurance/guarantees-construction.webp" },
+      { icon: ClipboardCheck, label: "Professional Assessment", art: "Professional Assessment", src: "/artwork/insurance/professional-assessment.webp" },
     ],
   },
 
@@ -40,7 +40,7 @@ export const insurance: IndustryPageContent = {
         label: "Motor",
         icon: "Car",
         art: "Vol. 2 · 03 · Motor — Claims Office",
-        src: "/artwork/insurance/motor-claims-office.jpg",
+        src: "/artwork/insurance/motor-claims-office.webp",
         explanation: "A garage or assessor registers its own final document. The claims handler scans the QR to review the issuer's record, then checks the file for an exact match. The insurer can begin with a small panel and one document type.",
         documents: [
           { name: "Repair Estimate", issuer: "Garage" },
@@ -67,7 +67,7 @@ export const insurance: IndustryPageContent = {
         label: "Bonds and Guarantees",
         icon: "Landmark",
         art: "Guarantees & Bonds",
-        src: "/artwork/insurance/guarantees-bonds.jpg",
+        src: "/artwork/insurance/guarantees-bonds.webp",
         explanation:
           "The documents an insurer issues — bonds, guarantees, policy schedules, certificates and letters of undertaking. Because the insurer controls issuance, these can be registered and verified from day one, with no third party to onboard first.",
         documents: [
@@ -95,7 +95,7 @@ export const insurance: IndustryPageContent = {
         label: "Medical",
         icon: "Stethoscope",
         art: "Vol. 2 · 05 · Medical Report",
-        src: "/artwork/insurance/medical-report.jpg",
+        src: "/artwork/insurance/medical-report.webp",
         explanation: "Medical and diagnostic documents move from hospitals, doctors and laboratories into every medical claim. Verification begins with an authorised panel of hospitals and laboratories registering their documents at source, then expands provider by provider.",
         documents: [
           { name: "Medical Report", issuer: "Hospital or Doctor" },
@@ -121,7 +121,7 @@ export const insurance: IndustryPageContent = {
         label: "Property and Fire",
         icon: "Flame",
         art: "Vol. 2 · 06 · Fire — Inspection",
-        src: "/artwork/insurance/fire-inspection.jpg",
+        src: "/artwork/insurance/fire-inspection.webp",
         explanation: "Inspection, survey and valuation reports move from independent professionals into every property claim.",
         documents: [
           { name: "Inspection Report", issuer: "Inspector" },
@@ -146,7 +146,7 @@ export const insurance: IndustryPageContent = {
         label: "Marine",
         icon: "Ship",
         art: "Vol. 2 · 08 · Marine — Survey",
-        src: "/artwork/insurance/marine-survey.jpg",
+        src: "/artwork/insurance/marine-survey.webp",
         explanation: "Survey and inspection documents move from marine surveyors and inspection companies into every marine claim.",
         documents: [
           { name: "Marine Survey", issuer: "Marine Surveyor" },
@@ -171,7 +171,7 @@ export const insurance: IndustryPageContent = {
         label: "Engineering",
         icon: "HardHat",
         art: "Vol. 2 · Engineering",
-        src: "/artwork/insurance/engineering.jpg",
+        src: "/artwork/insurance/engineering.webp",
         explanation: "Engineering reports and structural assessments move from engineers and inspection firms into every engineering claim.",
         documents: [
           { name: "Engineering Report", issuer: "Engineer" },
@@ -196,7 +196,7 @@ export const insurance: IndustryPageContent = {
         label: "Liability",
         icon: "Scale",
         art: "Vol. 2 · Liability",
-        src: "/artwork/insurance/liability.jpg",
+        src: "/artwork/insurance/liability.webp",
         explanation: "Liability claims depend on independent assessment before a decision is made.",
         documents: [],
         journey: {
@@ -217,7 +217,7 @@ export const insurance: IndustryPageContent = {
         label: "Travel",
         icon: "Plane",
         art: "Vol. 2 · Travel",
-        src: "/artwork/insurance/travel.jpg",
+        src: "/artwork/insurance/travel.webp",
         explanation: "Medical and assessment documents move from clinics and authorised professionals into every travel claim.",
         documents: [
           { name: "Medical Certificate", issuer: "Doctor or Clinic" },
@@ -242,7 +242,7 @@ export const insurance: IndustryPageContent = {
         label: "Life",
         icon: "Heart",
         art: "Vol. 2 · 10 · Life — Protection",
-        src: "/artwork/insurance/life-protection.jpg",
+        src: "/artwork/insurance/life-protection.webp",
         explanation: "Medical and assessment documents move from clinics and authorised professionals into every life claim.",
         documents: [
           { name: "Medical Certificate", issuer: "Doctor or Clinic" },
@@ -267,7 +267,7 @@ export const insurance: IndustryPageContent = {
         label: "Underwriting",
         icon: "ClipboardList",
         art: "Vol. 2 · Underwriting",
-        src: "/artwork/insurance/underwriting.jpg",
+        src: "/artwork/insurance/underwriting.webp",
         explanation: "Valuation and inspection documents move from valuers and engineers into every underwriting decision.",
         documents: [
           { name: "Valuation Report", issuer: "Valuer" },

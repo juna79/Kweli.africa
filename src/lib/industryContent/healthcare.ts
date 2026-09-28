@@ -10,18 +10,18 @@ export const healthcare: IndustryPageContent = {
     supportingCopy:
       "Medical reports, lab results, referral letters and discharge summaries move between hospitals, doctors, laboratories and insurers — and every one shapes a treatment or claims decision.",
     art: "Vol. 2 · Hero Composite (Healthcare)",
-    src: "/artwork/healthcare/hero-healthcare.jpg",
+    src: "/artwork/healthcare/hero-healthcare.webp",
   },
 
   ecosystem: {
     heading: "From the ward to the pharmacy, the same trust layer applies.",
     tiles: [
-      { icon: Users, label: "Patient", art: "Vol. 2 · Healthcare — Patient Registration", src: "/artwork/healthcare/patient-registration.jpg" },
-      { icon: Stethoscope, label: "Doctor", art: "Vol. 2 · Healthcare — Medical Records", src: "/artwork/healthcare/medical-records.jpg" },
-      { icon: Building2, label: "Hospital", art: "Vol. 2 · Healthcare — Surgery", src: "/artwork/healthcare/surgery.jpg" },
-      { icon: Microscope, label: "Laboratory", art: "Vol. 2 · Healthcare — Lab Results", src: "/artwork/healthcare/lab-results.jpg" },
-      { icon: ShieldCheck, label: "Insurer", art: "Vol. 2 · Healthcare — Insurance Claim", src: "/artwork/healthcare/insurance-claim.jpg" },
-      { icon: Pill, label: "Pharmacy", art: "Vol. 2 · Healthcare — Pharmacy", src: "/artwork/healthcare/pharmacy.jpg" },
+      { icon: Users, label: "Patient", art: "Vol. 2 · Healthcare — Patient Registration", src: "/artwork/healthcare/patient-registration.webp" },
+      { icon: Stethoscope, label: "Doctor", art: "Vol. 2 · Healthcare — Medical Records", src: "/artwork/healthcare/medical-records.webp" },
+      { icon: Building2, label: "Hospital", art: "Vol. 2 · Healthcare — Surgery", src: "/artwork/healthcare/surgery.webp" },
+      { icon: Microscope, label: "Laboratory", art: "Vol. 2 · Healthcare — Lab Results", src: "/artwork/healthcare/lab-results.webp" },
+      { icon: ShieldCheck, label: "Insurer", art: "Vol. 2 · Healthcare — Insurance Claim", src: "/artwork/healthcare/insurance-claim.webp" },
+      { icon: Pill, label: "Pharmacy", art: "Vol. 2 · Healthcare — Pharmacy", src: "/artwork/healthcare/pharmacy.webp" },
     ],
   },
 
@@ -33,7 +33,7 @@ export const healthcare: IndustryPageContent = {
         label: "Patient Registration",
         icon: "IdCard",
         art: "Vol. 2 · Healthcare — Patient Registration",
-        src: "/artwork/healthcare/patient-registration.jpg",
+        src: "/artwork/healthcare/patient-registration.webp",
         explanation: "Identity documents move from patients into every hospital record.",
         documents: [
           { name: "Registration Form", issuer: "Patient" },
@@ -56,7 +56,7 @@ export const healthcare: IndustryPageContent = {
         label: "Medical Records",
         icon: "FileCheck2",
         art: "Vol. 2 · Healthcare — Medical Records",
-        src: "/artwork/healthcare/medical-records.jpg",
+        src: "/artwork/healthcare/medical-records.webp",
         explanation: "Reports and summaries move from hospitals and doctors into every referral and claim.",
         documents: [
           { name: "Medical Report", issuer: "Hospital or Doctor" },
@@ -79,7 +79,7 @@ export const healthcare: IndustryPageContent = {
         label: "Lab Results",
         icon: "Microscope",
         art: "Vol. 2 · Healthcare — Lab Results",
-        src: "/artwork/healthcare/lab-results.jpg",
+        src: "/artwork/healthcare/lab-results.webp",
         explanation: "Diagnostic reports move from laboratories into every treatment decision.",
         documents: [
           { name: "Laboratory Report", issuer: "Laboratory" },
@@ -103,7 +103,7 @@ export const healthcare: IndustryPageContent = {
         label: "Prescription",
         icon: "Pill",
         art: "Vol. 2 · Healthcare — Prescription",
-        src: "/artwork/healthcare/prescription.jpg",
+        src: "/artwork/healthcare/prescription.webp",
         explanation: "Prescriptions move from doctors into every dispensing decision.",
         documents: [{ name: "Prescription", issuer: "Doctor" }],
         journey: {
@@ -123,7 +123,7 @@ export const healthcare: IndustryPageContent = {
         label: "Referral Letter",
         icon: "Mail",
         art: "Vol. 2 · Healthcare — Referral Letter",
-        src: "/artwork/healthcare/referral-letter.jpg",
+        src: "/artwork/healthcare/referral-letter.webp",
         explanation: "Referral letters move between clinics and specialists into every continuity-of-care decision.",
         documents: [{ name: "Referral Letter", issuer: "Doctor or Clinic" }],
         journey: {
@@ -143,7 +143,7 @@ export const healthcare: IndustryPageContent = {
         label: "Insurance Claim",
         icon: "ShieldCheck",
         art: "Vol. 2 · Healthcare — Insurance Claim",
-        src: "/artwork/healthcare/insurance-claim.jpg",
+        src: "/artwork/healthcare/insurance-claim.webp",
         explanation: "Claim and treatment documents move from hospitals into every insurer decision.",
         documents: [
           { name: "Insurance Claim Form", issuer: "Hospital or Patient" },
@@ -166,7 +166,7 @@ export const healthcare: IndustryPageContent = {
         label: "Radiology",
         icon: "Monitor",
         art: "Vol. 2 · Healthcare — Radiology",
-        src: "/artwork/healthcare/radiology.jpg",
+        src: "/artwork/healthcare/radiology.webp",
         explanation: "Imaging reports move from radiologists into every diagnosis.",
         documents: [{ name: "Radiology Report", issuer: "Radiologist" }],
         journey: {
@@ -187,7 +187,7 @@ export const healthcare: IndustryPageContent = {
         label: "Surgery",
         icon: "Syringe",
         art: "Vol. 2 · Healthcare — Surgery",
-        src: "/artwork/healthcare/surgery.jpg",
+        src: "/artwork/healthcare/surgery.webp",
         explanation: "Surgical records and consent forms move from hospitals into every procedure.",
         documents: [
           { name: "Surgical Report", issuer: "Hospital" },
@@ -211,7 +211,7 @@ export const healthcare: IndustryPageContent = {
         label: "Pharmacy",
         icon: "Building2",
         art: "Vol. 2 · Healthcare — Pharmacy",
-        src: "/artwork/healthcare/pharmacy.jpg",
+        src: "/artwork/healthcare/pharmacy.webp",
         explanation: "Dispensing records move from pharmacies into every prescription fulfilment.",
         documents: [{ name: "Dispensing Record", issuer: "Pharmacy" }],
         journey: {
@@ -231,7 +231,7 @@ export const healthcare: IndustryPageContent = {
         label: "Telemedicine",
         icon: "Stethoscope",
         art: "Vol. 2 · Healthcare — Telemedicine",
-        src: "/artwork/healthcare/telemedicine.jpg",
+        src: "/artwork/healthcare/telemedicine.webp",
         explanation: "Consultation records move from remote providers into every follow-up decision.",
         documents: [{ name: "Consultation Report", issuer: "Doctor" }],
         journey: {
