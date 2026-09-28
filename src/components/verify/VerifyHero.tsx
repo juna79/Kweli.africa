@@ -13,11 +13,12 @@ export function VerifyHero() {
             How verification works
           </p>
           <h1 className="mx-auto mt-4 text-[2.5rem] leading-[1.12] font-bold text-[var(--color-warm-paper)] sm:text-[3.5rem]">
-            See how a Kweli document is checked.
+            From registration to verification.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-[var(--color-warm-paper)]/80">
-            The QR opens the issuer&apos;s proof record. An exact-file check then
-            tells you whether your copy matches the final version the issuer registered.
+            Follow the document through the Kweli portal: the issuer registers it,
+            adds its QR and downloads the final version. The recipient then checks
+            the QR record and the exact file.
           </p>
         </HeroReveal>
       </div>

@@ -2,6 +2,7 @@
 
 import { Component, type ReactNode } from "react";
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 import { KWELI_BOT_ENABLED } from "@/lib/kweliBot/featureFlag";
 
 // Loaded only in the browser, and only when the flag is on. `ssr: false`
@@ -28,7 +29,8 @@ class BotBoundary extends Component<{ children: ReactNode }, { failed: boolean }
 }
 
 export function KweliBotMount() {
-  if (!KWELI_BOT_ENABLED) return null;
+  const pathname = usePathname();
+  if (!KWELI_BOT_ENABLED || pathname === "/verify") return null;
   return (
     <BotBoundary>
       <KweliBot />

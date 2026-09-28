@@ -7,17 +7,15 @@ import { verifyFaqs } from "@/lib/verifyFaqs";
 import { VerifyHero } from "@/components/verify/VerifyHero";
 import { QrJourney } from "@/components/verify/QrJourney";
 import { VerificationDemo } from "@/components/verify/VerificationDemo";
-import { VerifyProcessSteps } from "@/components/verify/VerifyProcessSteps";
 import { VerifyResultsExplainer } from "@/components/verify/VerifyResultsExplainer";
 import { VerifyDocumentTypes } from "@/components/verify/VerifyDocumentTypes";
-import { VerifyArchitecture } from "@/components/verify/VerifyArchitecture";
 import { VerifyPrivacy } from "@/components/verify/VerifyPrivacy";
 import { VerifyComparison } from "@/components/verify/VerifyComparison";
 import { VerifyFaq } from "@/components/verify/VerifyFaq";
 import { VerifyCta } from "@/components/verify/VerifyCta";
 
 const description =
-  "See how Kweli QR records and exact-file verification work, then try the sample fingerprint checker.";
+  "Follow Kweli from issuer registration and QR placement to downloading the final document and verifying its proof record and exact file.";
 
 export const metadata: Metadata = {
   title: "Verify a Document",
@@ -45,10 +43,8 @@ export default function VerifyPage() {
         <VerifyHero />
         <QrJourney />
         <VerificationDemo />
-        <VerifyProcessSteps />
         <VerifyResultsExplainer />
         <VerifyDocumentTypes />
-        <VerifyArchitecture />
         <VerifyPrivacy />
         <VerifyComparison />
         <VerifyFaq />
