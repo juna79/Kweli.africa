@@ -10,7 +10,7 @@ export const professionalServices: IndustryPageContent = {
     supportingCopy:
       "Audit reports, legal opinions, valuations and due-diligence materials move between firms, clients and regulators — and every one shapes a decision worth relying on.",
     art: "Vol. 2 · Hero Composite (Professional Services)",
-    src: "/artwork/professional-services/hero-professional-services.webp",
+    src: "/artwork/professional-services/hero-professional-services.webp?v=20260929",
   },
 
   ecosystem: {

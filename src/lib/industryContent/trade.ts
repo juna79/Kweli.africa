@@ -10,7 +10,7 @@ export const trade: IndustryPageContent = {
     supportingCopy:
       "A certificate of origin, inspection report or packing list can cross several organisations before a buyer relies on it. Each issuing party registers its own final document, so the next recipient can check the issuer's record and the exact file.",
     art: "Vol. 2 · Hero Composite (Trade and Supply Chain)",
-    src: "/artwork/trade/hero-trade.webp",
+    src: "/artwork/trade/hero-trade.webp?v=20260929",
   },
 
   ecosystem: {
@@ -33,7 +33,7 @@ export const trade: IndustryPageContent = {
         label: "Certificate of Origin",
         icon: "Award",
         art: "Vol. 2 · Trade — Certificate of Origin",
-        src: "/artwork/trade/certificate-of-origin.webp",
+        src: "/artwork/trade/certificate-of-origin.webp?v=20260929",
         explanation: "A certificate of origin should be registered by the organisation that actually issued it. The importer or buyer can then compare the QR record and final file before relying on the certificate.",
         documents: [{ name: "Certificate of Origin", issuer: "Issuing Chamber or Authority" }],
         journey: {

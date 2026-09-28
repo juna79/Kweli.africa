@@ -20,7 +20,7 @@ export const banking: IndustryPageContent = {
       { icon: Briefcase, label: "Employer", art: "Vol. 2 · Banking — Corporate Banking", src: "/artwork/banking/corporate-banking.webp" },
       { icon: Gavel, label: "Lawyer", art: "Vol. 2 · Banking — Loan Application", src: "/artwork/banking/lending.webp" },
       { icon: FileCheck2, label: "Auditor", art: "Vol. 2 · Banking — Credit Assessment", src: "/artwork/banking/credit-assessment-auditor.webp" },
-      { icon: Banknote, label: "Accountant", art: "Vol. 2 · Banking — Financial Statements", src: "/artwork/banking/financial-statements.webp" },
+      { icon: Banknote, label: "Accountant", art: "Vol. 2 · Banking — Financial Statements", src: "/artwork/banking/financial-statements.webp?v=20260929" },
       { icon: Landmark, label: "Valuer", art: "Vol. 2 · Banking — Valuation Report", src: "/artwork/banking/valuation.webp" },
     ],
   },
@@ -176,7 +176,7 @@ export const banking: IndustryPageContent = {
         label: "Financial Statements",
         icon: "FileCheck2",
         art: "Vol. 2 · Banking — Financial Statements",
-        src: "/artwork/banking/financial-statements.webp",
+        src: "/artwork/banking/financial-statements.webp?v=20260929",
         explanation: "Audited statements move from auditors and accountants into every credit and compliance decision.",
         documents: [
           { name: "Audited Financial Statements", issuer: "Auditor" },
