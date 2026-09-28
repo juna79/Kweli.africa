@@ -4,7 +4,7 @@ const stages = [
   {
     icon: FileUp,
     title: "Register the document",
-    body: "The approved issuer selects its source file and records the details a recipient should check.",
+    body: "The approved issuer selects its source file. Kweli records its fingerprint and the details a recipient should check.",
   },
   {
     icon: QrCode,
@@ -28,12 +28,17 @@ const stages = [
   },
 ] as const;
 
-export function VerificationJourney() {
+export function VerificationJourney({ example }: { example?: { name: string; issuer: string } }) {
   return (
     <>
       <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-[var(--color-slate)]">
         The issuer creates the QR-bearing file first. The recipient then checks the QR record and the file itself.
       </p>
+      {example && (
+        <p className="mx-auto mt-5 w-fit rounded-full border border-[var(--color-gold)]/25 bg-[var(--color-gold)]/[0.05] px-4 py-2 text-center text-sm text-[var(--color-warm-paper)]/80">
+          Example: {example.name} <span aria-hidden className="mx-1 text-[var(--color-gold-bright)]">·</span> Issuer: {example.issuer}
+        </p>
+      )}
       <ol className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {stages.map((stage, index) => {
           const Icon = stage.icon;

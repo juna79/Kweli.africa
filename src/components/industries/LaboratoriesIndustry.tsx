@@ -18,7 +18,7 @@ export function LaboratoriesIndustry() {
       <section className="border-y border-white/10 bg-white/[0.025] px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-bold text-[var(--color-warm-paper)]">From the lab report to the buyer&apos;s check.</h2>
-          <VerificationJourney />
+          <VerificationJourney example={{ name: "Laboratory Report", issuer: "Laboratory" }} />
         </div>
       </section>
       <section className="px-6 py-24 lg:px-8">

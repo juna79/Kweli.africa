@@ -28,6 +28,11 @@ export function IndustryWorkflowSection({
 }) {
   const [active, setActive] = useState(lines[0]?.key);
   const current = lines.find((l) => l.key === active) ?? lines[0];
+  // A submitted customer/patient document is not itself proof that its actual
+  // issuing organisation is onboarded. Only show issuer examples we can name.
+  const issuerExample = current?.documents.find(
+    (document) => !/\b(customer|patient|citizen|applicant|borrower|client)\b/i.test(document.issuer),
+  );
 
   if (!current) return null;
 
@@ -121,7 +126,7 @@ export function IndustryWorkflowSection({
           </div>
 
           <div key={`steps-${current.key}`} className="animate-fade-up" style={{ animationDuration: "450ms" }}>
-            <VerificationJourney />
+            <VerificationJourney example={issuerExample} />
           </div>
 
           {current.journey.footnote && (
