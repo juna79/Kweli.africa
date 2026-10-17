@@ -17,6 +17,7 @@ const csp = [
   "img-src 'self' data:",
   "font-src 'self'",
   "connect-src 'self'",
+  "frame-src https://www.youtube-nocookie.com",
   "form-action 'self'",
   "frame-ancestors 'self'",
   "object-src 'none'",

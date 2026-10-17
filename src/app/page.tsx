@@ -6,6 +6,8 @@ import { Hero } from "@/components/home/Hero";
 import { CinematicBand } from "@/components/ui/CinematicBand";
 import { VerificationTeaser } from "@/components/home/VerificationTeaser";
 import { WhyKweliTeaser } from "@/components/home/WhyKweliTeaser";
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { videos } from "@/lib/videos";
 
 // No explicit title here: the root layout's default title
 // ("Kweli — Trust Infrastructure for the World") already targets the
@@ -30,6 +32,11 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <VideoShowcase
+          eyebrow="60-second walkthrough"
+          heading="See Kweli in a minute"
+          videos={[videos.walkthrough]}
+        />
         <CinematicBand
           src="/artwork/home/home-global-trust.webp"
           alt="Africa traced with a fine gold trust-network, cinematic, global scale — Kweli Art Book"

@@ -4,6 +4,8 @@ import { IndustryWorkflowSection } from "@/components/industries/shared/Industry
 import { IndustryBusinessImpact } from "@/components/industries/shared/IndustryBusinessImpact";
 import { IndustryPilot } from "@/components/industries/shared/IndustryPilot";
 import { IndustryCta } from "@/components/industries/shared/IndustryCta";
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { industryVideos } from "@/lib/videos";
 import type { IndustryPageContent } from "@/lib/industryPageTypes";
 
 // The locked seven-section industry page template: Hero, Ecosystem,
@@ -21,6 +23,13 @@ export function IndustryPage({ content }: { content: IndustryPageContent }) {
         art={content.hero.art}
         src={content.hero.src}
       />
+      {industryVideos[content.slug] && (
+        <VideoShowcase
+          eyebrow={`${content.name} in action`}
+          heading="Watch how it works"
+          videos={industryVideos[content.slug]}
+        />
+      )}
       <IndustryEcosystem
         eyebrow={`The ${content.name} Ecosystem`}
         heading={content.ecosystem.heading}

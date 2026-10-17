@@ -6,6 +6,8 @@ import { IndustryWorkflowSection } from "@/components/industries/shared/Industry
 import { IndustryBusinessImpact } from "@/components/industries/shared/IndustryBusinessImpact";
 import { IndustryPilot } from "@/components/industries/shared/IndustryPilot";
 import { IndustryCta } from "@/components/industries/shared/IndustryCta";
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { industryVideos } from "@/lib/videos";
 import { insurance } from "@/lib/industryContent/insurance";
 
 const EYEBROW = "text-[length:var(--text-eyebrow)] font-medium uppercase tracking-[0.2em] text-[var(--color-gold-bright)]";
@@ -82,6 +84,11 @@ export function InsuranceIndustry() {
         supportingCopy={insurance.hero.supportingCopy}
         art={insurance.hero.art}
         src={insurance.hero.src}
+      />
+      <VideoShowcase
+        eyebrow={`${insurance.name} in action`}
+        heading="Watch how it works"
+        videos={industryVideos.insurance}
       />
       <IndustryEcosystem
         eyebrow={`The ${insurance.name} Ecosystem`}
