@@ -87,6 +87,24 @@ export const videos = {
     caption: "A PDF receipt arriving over WhatsApp, verified at source.",
     duration: "1:08",
   },
+  why: {
+    id: "46RrPOn_cyM",
+    title: "Why We Built Kweli",
+    caption: "Independent proof for digital documents: why a document cannot be its own proof.",
+    duration: "1:43",
+  },
+  ownProof: {
+    id: "KC8PB7vn3g4",
+    title: "A Document Cannot Be Its Own Proof",
+    caption: "Documents travel; the people who receive them decide whether to trust them.",
+    duration: "1:00",
+  },
+  integration: {
+    id: "fTml7kwmq4U",
+    title: "Document Verification in the Software You Already Use",
+    caption: "Connect Kweli to a lab or claims system through the API, with no change to how teams work.",
+    duration: "1:01",
+  },
 } satisfies Record<string, KweliVideo>;
 
 export const industryVideos: Record<string, KweliVideo[]> = {
@@ -98,3 +116,14 @@ export const industryVideos: Record<string, KweliVideo[]> = {
   trade: [videos.flowers, videos.assets],
   "professional-services": [videos.building, videos.receipt],
 };
+
+// One lead video per industry, for the Industries overview.
+export const industryOverviewVideos: KweliVideo[] = [
+  videos.motor,
+  videos.moneyMoves,
+  videos.lab,
+  videos.visa,
+  videos.certificate,
+  videos.flowers,
+  videos.building,
+];

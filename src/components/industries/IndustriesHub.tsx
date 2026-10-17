@@ -3,6 +3,8 @@ import { ArrowRight, FileCheck2 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { industries } from "@/lib/industries";
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { industryOverviewVideos } from "@/lib/videos";
 
 const MUTED = "text-[var(--color-slate)]";
 
@@ -250,6 +252,11 @@ export function IndustriesHub() {
       <Hero />
       <InsuranceFeature />
       <IndustryGrid />
+      <VideoShowcase
+        eyebrow="Watch by industry"
+        heading="See it in your industry"
+        videos={industryOverviewVideos}
+      />
       <ClosingCta />
     </>
   );

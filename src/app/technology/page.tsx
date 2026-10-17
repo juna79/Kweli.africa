@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { videos } from "@/lib/videos";
 import { Technology } from "@/components/technology/Technology";
 
 const description =
@@ -27,6 +29,11 @@ export default function TechnologyPage() {
       <Header />
       <main className="flex-1">
         <Technology />
+        <VideoShowcase
+          eyebrow="Watch"
+          heading="Verification inside the software you already use"
+          videos={[videos.integration]}
+        />
       </main>
       <Footer />
     </>

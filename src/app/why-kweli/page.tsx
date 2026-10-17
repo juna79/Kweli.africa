@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { videos } from "@/lib/videos";
 import { WhyKweli } from "@/components/home/WhyKweli";
 
 const description =
@@ -27,6 +29,11 @@ export default function WhyKweliPage() {
       <Header />
       <main className="flex-1">
         <WhyKweli />
+        <VideoShowcase
+          eyebrow="Watch"
+          heading="Why we built Kweli"
+          videos={[videos.why, videos.ownProof]}
+        />
       </main>
       <Footer />
     </>
