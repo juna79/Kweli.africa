@@ -1,3 +1,5 @@
+import { VideoShowcase } from "@/components/ui/VideoShowcase";
+import { industryVideos } from "@/lib/videos";
 import { Button } from "@/components/ui/Button";
 import { VerificationJourney } from "@/components/industries/shared/VerificationJourney";
 
@@ -15,6 +17,11 @@ export function LaboratoriesIndustry() {
           </div>
         </div>
       </section>
+      <VideoShowcase
+        eyebrow="Laboratories in action"
+        heading="Watch how it works"
+        videos={industryVideos.laboratories}
+      />
       <section className="border-y border-white/10 bg-white/[0.025] px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-bold text-[var(--color-warm-paper)]">From the lab report to the buyer&apos;s check.</h2>
