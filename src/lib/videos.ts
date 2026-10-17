@@ -109,6 +109,7 @@ export const videos = {
 
 export const industryVideos: Record<string, KweliVideo[]> = {
   insurance: [videos.motor, videos.hospitalInsurer, videos.beforeAi],
+  laboratories: [videos.lab],
   banking: [videos.moneyMoves, videos.hospitalBank],
   healthcare: [videos.lab, videos.hospitalInsurer],
   government: [videos.visa],
